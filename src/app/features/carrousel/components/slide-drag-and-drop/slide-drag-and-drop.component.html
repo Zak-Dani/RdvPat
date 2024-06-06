@@ -1,0 +1,26 @@
+<div cdkDropList class="col-md-12" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let slide of slides; index as i" cdkDrag>
+    <div class="drag-index">{{ i + 1 }}</div>
+    <div class="w-10 drag-icon cursor">
+      <i matTooltip="drag" class="material-icons" cdkDragHandle>reorder</i>
+    </div>
+    <div class="w-100 drag-content">
+      <p>{{ slide.title }}</p>
+    </div>
+    <div class="w-100 slide-on" *ngIf="slide.visible == true">
+      <mat-icon>visibility</mat-icon>visible to the internet user
+    </div>
+    <div class="w-100 slide-off" *ngIf="slide.visible == false">
+      <mat-icon>visibility_off</mat-icon>not visible to the Internet user
+    </div>
+    <div>
+      <img
+        class="img-responsive"
+        width="200"
+        height="100"
+        src="{{ slide.image }}"
+        alt="image slide"
+      />
+    </div>
+  </div>
+</div>

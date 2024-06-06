@@ -1,10 +1,9595 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendor"],{
 
+/***/ "./node_modules/@angular/animations/__ivy_ngcc__/fesm2015/animations.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@angular/animations/__ivy_ngcc__/fesm2015/animations.js ***!
+  \******************************************************************************/
+/*! exports provided: AUTO_STYLE, AnimationBuilder, AnimationFactory, NoopAnimationPlayer, animate, animateChild, animation, group, keyframes, query, sequence, stagger, state, style, transition, trigger, useAnimation, ɵAnimationGroupPlayer, ɵPRE_STYLE */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AUTO_STYLE", function() { return AUTO_STYLE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnimationBuilder", function() { return AnimationBuilder; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnimationFactory", function() { return AnimationFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoopAnimationPlayer", function() { return NoopAnimationPlayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "animate", function() { return animate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "animateChild", function() { return animateChild; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "animation", function() { return animation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "group", function() { return group; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "keyframes", function() { return keyframes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "query", function() { return query; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sequence", function() { return sequence; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stagger", function() { return stagger; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "state", function() { return state; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "style", function() { return style; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transition", function() { return transition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "trigger", function() { return trigger; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useAnimation", function() { return useAnimation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵAnimationGroupPlayer", function() { return AnimationGroupPlayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵPRE_STYLE", function() { return ɵPRE_STYLE; });
+/**
+ * @license Angular v9.0.7
+ * (c) 2010-2020 Google LLC. https://angular.io/
+ * License: MIT
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/src/animation_builder.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * An injectable service that produces an animation sequence programmatically within an
+ * Angular component or directive.
+ * Provided by the `BrowserAnimationsModule` or `NoopAnimationsModule`.
+ *
+ * \@usageNotes
+ *
+ * To use this service, add it to your component or directive as a dependency.
+ * The service is instantiated along with your component.
+ *
+ * Apps do not typically need to create their own animation players, but if you
+ * do need to, follow these steps:
+ *
+ * 1. Use the `build()` method to create a programmatic animation using the
+ * `animate()` function. The method returns an `AnimationFactory` instance.
+ *
+ * 2. Use the factory object to create an `AnimationPlayer` and attach it to a DOM element.
+ *
+ * 3. Use the player object to control the animation programmatically.
+ *
+ * For example:
+ *
+ * ```ts
+ * // import the service from BrowserAnimationsModule
+ * import {AnimationBuilder} from '\@angular/animations';
+ * // require the service as a dependency
+ * class MyCmp {
+ *   constructor(private _builder: AnimationBuilder) {}
+ *
+ *   makeAnimation(element: any) {
+ *     // first define a reusable animation
+ *     const myAnimation = this._builder.build([
+ *       style({ width: 0 }),
+ *       animate(1000, style({ width: '100px' }))
+ *     ]);
+ *
+ *     // use the returned factory object to create a player
+ *     const player = myAnimation.create(element);
+ *
+ *     player.play();
+ *   }
+ * }
+ * ```
+ *
+ * \@publicApi
+ * @abstract
+ */
+class AnimationBuilder {
+}
+if (false) {}
+/**
+ * A factory object returned from the `AnimationBuilder`.`build()` method.
+ *
+ * \@publicApi
+ * @abstract
+ */
+class AnimationFactory {
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/src/animation_metadata.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Represents a set of CSS styles for use in an animation style.
+ * @record
+ */
+function ɵStyleData() { }
+/** @enum {number} */
+const AnimationMetadataType = {
+    /**
+     * Associates a named animation state with a set of CSS styles.
+     * See `state()`
+     */
+    State: 0,
+    /**
+     * Data for a transition from one animation state to another.
+     * See `transition()`
+     */
+    Transition: 1,
+    /**
+     * Contains a set of animation steps.
+     * See `sequence()`
+     */
+    Sequence: 2,
+    /**
+     * Contains a set of animation steps.
+     * See `{@link animations/group group()}`
+     */
+    Group: 3,
+    /**
+     * Contains an animation step.
+     * See `animate()`
+     */
+    Animate: 4,
+    /**
+     * Contains a set of animation steps.
+     * See `keyframes()`
+     */
+    Keyframes: 5,
+    /**
+     * Contains a set of CSS property-value pairs into a named style.
+     * See `style()`
+     */
+    Style: 6,
+    /**
+     * Associates an animation with an entry trigger that can be attached to an element.
+     * See `trigger()`
+     */
+    Trigger: 7,
+    /**
+     * Contains a re-usable animation.
+     * See `animation()`
+     */
+    Reference: 8,
+    /**
+     * Contains data to use in executing child animations returned by a query.
+     * See `animateChild()`
+     */
+    AnimateChild: 9,
+    /**
+     * Contains animation parameters for a re-usable animation.
+     * See `useAnimation()`
+     */
+    AnimateRef: 10,
+    /**
+     * Contains child-animation query data.
+     * See `query()`
+     */
+    Query: 11,
+    /**
+     * Contains data for staggering an animation sequence.
+     * See `stagger()`
+     */
+    Stagger: 12,
+};
+/**
+ * Specifies automatic styling.
+ *
+ * \@publicApi
+ * @type {?}
+ */
+const AUTO_STYLE = '*';
+/**
+ * Base for animation data structures.
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationMetadata() { }
+if (false) {}
+/**
+ * Contains an animation trigger. Instantiated and returned by the
+ * `trigger()` function.
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationTriggerMetadata() { }
+if (false) {}
+/**
+ * Encapsulates an animation state by associating a state name with a set of CSS styles.
+ * Instantiated and returned by the `state()` function.
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationStateMetadata() { }
+if (false) {}
+/**
+ * Encapsulates an animation transition. Instantiated and returned by the
+ * `transition()` function.
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationTransitionMetadata() { }
+if (false) {}
+/**
+ * Encapsulates a reusable animation, which is a collection of individual animation steps.
+ * Instantiated and returned by the `animation()` function, and
+ * passed to the `useAnimation()` function.
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationReferenceMetadata() { }
+if (false) {}
+/**
+ * Encapsulates an animation query. Instantiated and returned by
+ * the `query()` function.
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationQueryMetadata() { }
+if (false) {}
+/**
+ * Encapsulates a keyframes sequence. Instantiated and returned by
+ * the `keyframes()` function.
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationKeyframesSequenceMetadata() { }
+if (false) {}
+/**
+ * Encapsulates an animation style. Instantiated and returned by
+ * the `style()` function.
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationStyleMetadata() { }
+if (false) {}
+/**
+ * Encapsulates an animation step. Instantiated and returned by
+ * the `animate()` function.
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationAnimateMetadata() { }
+if (false) {}
+/**
+ * Encapsulates a child animation, that can be run explicitly when the parent is run.
+ * Instantiated and returned by the `animateChild` function.
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationAnimateChildMetadata() { }
+if (false) {}
+/**
+ * Encapsulates a reusable animation.
+ * Instantiated and returned by the `useAnimation()` function.
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationAnimateRefMetadata() { }
+if (false) {}
+/**
+ * Encapsulates an animation sequence.
+ * Instantiated and returned by the `sequence()` function.
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationSequenceMetadata() { }
+if (false) {}
+/**
+ * Encapsulates an animation group.
+ * Instantiated and returned by the `{\@link animations/group group()}` function.
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationGroupMetadata() { }
+if (false) {}
+/**
+ * Encapsulates parameters for staggering the start times of a set of animation steps.
+ * Instantiated and returned by the `stagger()` function.
+ *
+ * \@publicApi
+ *
+ * @record
+ */
+function AnimationStaggerMetadata() { }
+if (false) {}
+/**
+ * Creates a named animation trigger, containing a  list of `state()`
+ * and `transition()` entries to be evaluated when the expression
+ * bound to the trigger changes.
+ *
+ * \@usageNotes
+ * Define an animation trigger in the `animations` section of `\@Component` metadata.
+ * In the template, reference the trigger by name and bind it to a trigger expression that
+ * evaluates to a defined animation state, using the following format:
+ *
+ * `[\@triggerName]="expression"`
+ *
+ * Animation trigger bindings convert all values to strings, and then match the
+ * previous and current values against any linked transitions.
+ * Booleans can be specified as `1` or `true` and `0` or `false`.
+ *
+ * ### Usage Example
+ *
+ * The following example creates an animation trigger reference based on the provided
+ * name value.
+ * The provided animation value is expected to be an array consisting of state and
+ * transition declarations.
+ *
+ * ```typescript
+ * \@Component({
+ *   selector: "my-component",
+ *   templateUrl: "my-component-tpl.html",
+ *   animations: [
+ *     trigger("myAnimationTrigger", [
+ *       state(...),
+ *       state(...),
+ *       transition(...),
+ *       transition(...)
+ *     ])
+ *   ]
+ * })
+ * class MyComponent {
+ *   myStatusExp = "something";
+ * }
+ * ```
+ *
+ * The template associated with this component makes use of the defined trigger
+ * by binding to an element within its template code.
+ *
+ * ```html
+ * <!-- somewhere inside of my-component-tpl.html -->
+ * <div [\@myAnimationTrigger]="myStatusExp">...</div>
+ * ```
+ *
+ * ### Using an inline function
+ * The `transition` animation method also supports reading an inline function which can decide
+ * if its associated animation should be run.
+ *
+ * ```typescript
+ * // this method is run each time the `myAnimationTrigger` trigger value changes.
+ * function myInlineMatcherFn(fromState: string, toState: string, element: any, params: {[key:
+ * string]: any}): boolean {
+ *   // notice that `element` and `params` are also available here
+ *   return toState == 'yes-please-animate';
+ * }
+ *  /
+ *   selector: 'my-component',
+ *   templateUrl: 'my-component-tpl.html',
+ *   animations: [
+ *     trigger('myAnimationTrigger', [
+ *       transition(myInlineMatcherFn, [
+ *         // the animation sequence code
+ *       ]),
+ *     ])
+ *   ]
+ * })
+ * class MyComponent {
+ *   myStatusExp = "yes-please-animate";
+ * }
+ * ```
+ *
+ * ### Disabling Animations
+ * When true, the special animation control binding `\@.disabled` binding prevents
+ * all animations from rendering.
+ * Place the  `\@.disabled` binding on an element to disable
+ * animations on the element itself, as well as any inner animation triggers
+ * within the element.
+ *
+ * The following example shows how to use this feature:
+ *
+ * ```typescript /
+ *   selector: 'my-component',
+ *   template: `
+ *     <div [\@.disabled]="isDisabled">
+ *       <div [\@childAnimation]="exp"></div>
+ *     </div>
+ *   `,
+ *   animations: [
+ *     trigger("childAnimation", [
+ *       // ...
+ *     ])
+ *   ]
+ * })
+ * class MyComponent {
+ *   isDisabled = true;
+ *   exp = '...';
+ * }
+ * ```
+ *
+ * When `\@.disabled` is true, it prevents the `\@childAnimation` trigger from animating,
+ * along with any inner animations.
+ *
+ * ### Disable animations application-wide
+ * When an area of the template is set to have animations disabled,
+ * **all** inner components have their animations disabled as well.
+ * This means that you can disable all animations for an app
+ * by placing a host binding set on `\@.disabled` on the topmost Angular component.
+ *
+ * ```typescript
+ * import {Component, HostBinding} from '\@angular/core';
+ *  /
+ *   selector: 'app-component',
+ *   templateUrl: 'app.component.html',
+ * })
+ * class AppComponent {
+ * \@HostBinding('@.disabled')
+ *   public animationsDisabled = true;
+ * }
+ * ```
+ *
+ * ### Overriding disablement of inner animations
+ * Despite inner animations being disabled, a parent animation can `query()`
+ * for inner elements located in disabled areas of the template and still animate
+ * them if needed. This is also the case for when a sub animation is
+ * queried by a parent and then later animated using `animateChild()`.
+ *
+ * ### Detecting when an animation is disabled
+ * If a region of the DOM (or the entire application) has its animations disabled, the animation
+ * trigger callbacks still fire, but for zero seconds. When the callback fires, it provides
+ * an instance of an `AnimationEvent`. If animations are disabled,
+ * the `.disabled` flag on the event is true.
+ *
+ * \@publicApi
+ * @param {?} name An identifying string.
+ * @param {?} definitions  An animation definition object, containing an array of `state()`
+ * and `transition()` declarations.
+ *
+ * @return {?} An object that encapsulates the trigger data.
+ *
+ */
+function trigger(name, definitions) {
+    return { type: 7 /* Trigger */, name, definitions, options: {} };
+}
+/**
+ * Defines an animation step that combines styling information with timing information.
+ *
+ * \@usageNotes
+ * Call within an animation `sequence()`, `{\@link animations/group group()}`, or
+ * `transition()` call to specify an animation step
+ * that applies given style data to the parent animation for a given amount of time.
+ *
+ * ### Syntax Examples
+ * **Timing examples**
+ *
+ * The following examples show various `timings` specifications.
+ * - `animate(500)` : Duration is 500 milliseconds.
+ * - `animate("1s")` : Duration is 1000 milliseconds.
+ * - `animate("100ms 0.5s")` : Duration is 100 milliseconds, delay is 500 milliseconds.
+ * - `animate("5s ease-in")` : Duration is 5000 milliseconds, easing in.
+ * - `animate("5s 10ms cubic-bezier(.17,.67,.88,.1)")` : Duration is 5000 milliseconds, delay is 10
+ * milliseconds, easing according to a bezier curve.
+ *
+ * **Style examples**
+ *
+ * The following example calls `style()` to set a single CSS style.
+ * ```typescript
+ * animate(500, style({ background: "red" }))
+ * ```
+ * The following example calls `keyframes()` to set a CSS style
+ * to different values for successive keyframes.
+ * ```typescript
+ * animate(500, keyframes(
+ *  [
+ *   style({ background: "blue" })),
+ *   style({ background: "red" }))
+ *  ])
+ * ```
+ *
+ * \@publicApi
+ * @param {?} timings Sets `AnimateTimings` for the parent animation.
+ * A string in the format "duration [delay] [easing]".
+ *  - Duration and delay are expressed as a number and optional time unit,
+ * such as "1s" or "10ms" for one second and 10 milliseconds, respectively.
+ * The default unit is milliseconds.
+ *  - The easing value controls how the animation accelerates and decelerates
+ * during its runtime. Value is one of  `ease`, `ease-in`, `ease-out`,
+ * `ease-in-out`, or a `cubic-bezier()` function call.
+ * If not supplied, no easing is applied.
+ *
+ * For example, the string "1s 100ms ease-out" specifies a duration of
+ * 1000 milliseconds, and delay of 100 ms, and the "ease-out" easing style,
+ * which decelerates near the end of the duration.
+ * @param {?=} styles Sets AnimationStyles for the parent animation.
+ * A function call to either `style()` or `keyframes()`
+ * that returns a collection of CSS style entries to be applied to the parent animation.
+ * When null, uses the styles from the destination state.
+ * This is useful when describing an animation step that will complete an animation;
+ * see "Animating to the final state" in `transitions()`.
+ * @return {?} An object that encapsulates the animation step.
+ *
+ */
+function animate(timings, styles = null) {
+    return { type: 4 /* Animate */, styles, timings };
+}
+/**
+ * \@description Defines a list of animation steps to be run in parallel.
+ *
+ * \@usageNotes
+ * Grouped animations are useful when a series of styles must be
+ * animated at different starting times and closed off at different ending times.
+ *
+ * When called within a `sequence()` or a
+ * `transition()` call, does not continue to the next
+ * instruction until all of the inner animation steps have completed.
+ *
+ * \@publicApi
+ * @param {?} steps An array of animation step objects.
+ * - When steps are defined by `style()` or `animate()`
+ * function calls, each call within the group is executed instantly.
+ * - To specify offset styles to be applied at a later time, define steps with
+ * `keyframes()`, or use `animate()` calls with a delay value.
+ * For example:
+ *
+ * ```typescript
+ * group([
+ *   animate("1s", style({ background: "black" })),
+ *   animate("2s", style({ color: "white" }))
+ * ])
+ * ```
+ *
+ * @param {?=} options An options object containing a delay and
+ * developer-defined parameters that provide styling defaults and
+ * can be overridden on invocation.
+ *
+ * @return {?} An object that encapsulates the group data.
+ *
+ */
+function group(steps, options = null) {
+    return { type: 3 /* Group */, steps, options };
+}
+/**
+ * Defines a list of animation steps to be run sequentially, one by one.
+ *
+ * \@usageNotes
+ * When you pass an array of steps to a
+ * `transition()` call, the steps run sequentially by default.
+ * Compare this to the `{\@link animations/group group()}` call, which runs animation steps in parallel.
+ *
+ * When a sequence is used within a `{\@link animations/group group()}` or a `transition()` call,
+ * execution continues to the next instruction only after each of the inner animation
+ * steps have completed.
+ *
+ * \@publicApi
+ *
+ * @param {?} steps An array of animation step objects.
+ * - Steps defined by `style()` calls apply the styling data immediately.
+ * - Steps defined by `animate()` calls apply the styling data over time
+ *   as specified by the timing data.
+ *
+ * ```typescript
+ * sequence([
+ *   style({ opacity: 0 }),
+ *   animate("1s", style({ opacity: 1 }))
+ * ])
+ * ```
+ *
+ * @param {?=} options An options object containing a delay and
+ * developer-defined parameters that provide styling defaults and
+ * can be overridden on invocation.
+ *
+ * @return {?} An object that encapsulates the sequence data.
+ *
+ */
+function sequence(steps, options = null) {
+    return { type: 2 /* Sequence */, steps, options };
+}
+/**
+ * Declares a key/value object containing CSS properties/styles that
+ * can then be used for an animation `state`, within an animation `sequence`,
+ * or as styling data for calls to `animate()` and `keyframes()`.
+ *
+ * \@usageNotes
+ * The following examples create animation styles that collect a set of
+ * CSS property values:
+ *
+ * ```typescript
+ * // string values for CSS properties
+ * style({ background: "red", color: "blue" })
+ *
+ * // numerical pixel values
+ * style({ width: 100, height: 0 })
+ * ```
+ *
+ * The following example uses auto-styling to allow a component to animate from
+ * a height of 0 up to the height of the parent element:
+ *
+ * ```
+ * style({ height: 0 }),
+ * animate("1s", style({ height: "*" }))
+ * ```
+ *
+ * \@publicApi
+ *
+ * @param {?} tokens A set of CSS styles or HTML styles associated with an animation state.
+ * The value can be any of the following:
+ * - A key-value style pair associating a CSS property with a value.
+ * - An array of key-value style pairs.
+ * - An asterisk (*), to use auto-styling, where styles are derived from the element
+ * being animated and applied to the animation when it starts.
+ *
+ * Auto-styling can be used to define a state that depends on layout or other
+ * environmental factors.
+ *
+ * @return {?} An object that encapsulates the style data.
+ *
+ */
+function style(tokens) {
+    return { type: 6 /* Style */, styles: tokens, offset: null };
+}
+/**
+ * Declares an animation state within a trigger attached to an element.
+ *
+ * \@usageNotes
+ * Use the `trigger()` function to register states to an animation trigger.
+ * Use the `transition()` function to animate between states.
+ * When a state is active within a component, its associated styles persist on the element,
+ * even when the animation ends.
+ *
+ * \@publicApi
+ *
+ * @param {?} name One or more names for the defined state in a comma-separated string.
+ * The following reserved state names can be supplied to define a style for specific use
+ * cases:
+ *
+ * - `void` You can associate styles with this name to be used when
+ * the element is detached from the application. For example, when an `ngIf` evaluates
+ * to false, the state of the associated element is void.
+ *  - `*` (asterisk) Indicates the default state. You can associate styles with this name
+ * to be used as the fallback when the state that is being animated is not declared
+ * within the trigger.
+ *
+ * @param {?} styles A set of CSS styles associated with this state, created using the
+ * `style()` function.
+ * This set of styles persists on the element once the state has been reached.
+ * @param {?=} options Parameters that can be passed to the state when it is invoked.
+ * 0 or more key-value pairs.
+ * @return {?} An object that encapsulates the new state data.
+ *
+ */
+function state(name, styles, options) {
+    return { type: 0 /* State */, name, styles, options };
+}
+/**
+ * Defines a set of animation styles, associating each style with an optional `offset` value.
+ *
+ * \@usageNotes
+ * Use with the `animate()` call. Instead of applying animations
+ * from the current state
+ * to the destination state, keyframes describe how each style entry is applied and at what point
+ * within the animation arc.
+ * Compare [CSS Keyframe Animations](https://www.w3schools.com/css/css3_animations.asp).
+ *
+ * ### Usage
+ *
+ * In the following example, the offset values describe
+ * when each `backgroundColor` value is applied. The color is red at the start, and changes to
+ * blue when 20% of the total time has elapsed.
+ *
+ * ```typescript
+ * // the provided offset values
+ * animate("5s", keyframes([
+ *   style({ backgroundColor: "red", offset: 0 }),
+ *   style({ backgroundColor: "blue", offset: 0.2 }),
+ *   style({ backgroundColor: "orange", offset: 0.3 }),
+ *   style({ backgroundColor: "black", offset: 1 })
+ * ]))
+ * ```
+ *
+ * If there are no `offset` values specified in the style entries, the offsets
+ * are calculated automatically.
+ *
+ * ```typescript
+ * animate("5s", keyframes([
+ *   style({ backgroundColor: "red" }) // offset = 0
+ *   style({ backgroundColor: "blue" }) // offset = 0.33
+ *   style({ backgroundColor: "orange" }) // offset = 0.66
+ *   style({ backgroundColor: "black" }) // offset = 1
+ * ]))
+ * ```
+ * \@publicApi
+ * @param {?} steps A set of animation styles with optional offset data.
+ * The optional `offset` value for a style specifies a percentage of the total animation
+ * time at which that style is applied.
+ * @return {?} An object that encapsulates the keyframes data.
+ *
+ */
+function keyframes(steps) {
+    return { type: 5 /* Keyframes */, steps };
+}
+/**
+ * Declares an animation transition as a sequence of animation steps to run when a given
+ * condition is satisfied. The condition is a Boolean expression or function that compares
+ * the previous and current animation states, and returns true if this transition should occur.
+ * When the state criteria of a defined transition are met, the associated animation is
+ * triggered.
+ *
+ * \@usageNotes
+ * The template associated with a component binds an animation trigger to an element.
+ *
+ * ```HTML
+ * <!-- somewhere inside of my-component-tpl.html -->
+ * <div [\@myAnimationTrigger]="myStatusExp">...</div>
+ * ```
+ *
+ * All transitions are defined within an animation trigger,
+ * along with named states that the transitions change to and from.
+ *
+ * ```typescript
+ * trigger("myAnimationTrigger", [
+ *  // define states
+ *  state("on", style({ background: "green" })),
+ *  state("off", style({ background: "grey" })),
+ *  ...]
+ * ```
+ *
+ * Note that when you call the `sequence()` function within a `{\@link animations/group group()}`
+ * or a `transition()` call, execution does not continue to the next instruction
+ * until each of the inner animation steps have completed.
+ *
+ * ### Syntax examples
+ *
+ * The following examples define transitions between the two defined states (and default states),
+ * using various options:
+ *
+ * ```typescript
+ * // Transition occurs when the state value
+ * // bound to "myAnimationTrigger" changes from "on" to "off"
+ * transition("on => off", animate(500))
+ * // Run the same animation for both directions
+ * transition("on <=> off", animate(500))
+ * // Define multiple state-change pairs separated by commas
+ * transition("on => off, off => void", animate(500))
+ * ```
+ *
+ * ### Special values for state-change expressions
+ *
+ * - Catch-all state change for when an element is inserted into the page and the
+ * destination state is unknown:
+ *
+ * ```typescript
+ * transition("void => *", [
+ *  style({ opacity: 0 }),
+ *  animate(500)
+ *  ])
+ * ```
+ *
+ * - Capture a state change between any states:
+ *
+ *  `transition("* => *", animate("1s 0s"))`
+ *
+ * - Entry and exit transitions:
+ *
+ * ```typescript
+ * transition(":enter", [
+ *   style({ opacity: 0 }),
+ *   animate(500, style({ opacity: 1 }))
+ *   ]),
+ * transition(":leave", [
+ *   animate(500, style({ opacity: 0 }))
+ *   ])
+ * ```
+ *
+ * - Use `:increment` and `:decrement` to initiate transitions:
+ *
+ * ```typescript
+ * transition(":increment", group([
+ *  query(':enter', [
+ *     style({ left: '100%' }),
+ *     animate('0.5s ease-out', style('*'))
+ *   ]),
+ *  query(':leave', [
+ *     animate('0.5s ease-out', style({ left: '-100%' }))
+ *  ])
+ * ]))
+ *
+ * transition(":decrement", group([
+ *  query(':enter', [
+ *     style({ left: '100%' }),
+ *     animate('0.5s ease-out', style('*'))
+ *   ]),
+ *  query(':leave', [
+ *     animate('0.5s ease-out', style({ left: '-100%' }))
+ *  ])
+ * ]))
+ * ```
+ *
+ * ### State-change functions
+ *
+ * Here is an example of a `fromState` specified as a state-change function that invokes an
+ * animation when true:
+ *
+ * ```typescript
+ * transition((fromState, toState) =>
+ *  {
+ *   return fromState == "off" && toState == "on";
+ *  },
+ *  animate("1s 0s"))
+ * ```
+ *
+ * ### Animating to the final state
+ *
+ * If the final step in a transition is a call to `animate()` that uses a timing value
+ * with no style data, that step is automatically considered the final animation arc,
+ * for the element to reach the final state. Angular automatically adds or removes
+ * CSS styles to ensure that the element is in the correct final state.
+ *
+ * The following example defines a transition that starts by hiding the element,
+ * then makes sure that it animates properly to whatever state is currently active for trigger:
+ *
+ * ```typescript
+ * transition("void => *", [
+ *   style({ opacity: 0 }),
+ *   animate(500)
+ *  ])
+ * ```
+ * ### Boolean value matching
+ * If a trigger binding value is a Boolean, it can be matched using a transition expression
+ * that compares true and false or 1 and 0. For example:
+ *
+ * ```
+ * // in the template
+ * <div [\@openClose]="open ? true : false">...</div>
+ * // in the component metadata
+ * trigger('openClose', [
+ *   state('true', style({ height: '*' })),
+ *   state('false', style({ height: '0px' })),
+ *   transition('false <=> true', animate(500))
+ * ])
+ * ```
+ *
+ * \@publicApi
+ *
+ * @param {?} stateChangeExpr A Boolean expression or function that compares the previous and current
+ * animation states, and returns true if this transition should occur. Note that  "true" and "false"
+ * match 1 and 0, respectively. An expression is evaluated each time a state change occurs in the
+ * animation trigger element.
+ * The animation steps run when the expression evaluates to true.
+ *
+ * - A state-change string takes the form "state1 => state2", where each side is a defined animation
+ * state, or an asterix (*) to refer to a dynamic start or end state.
+ *   - The expression string can contain multiple comma-separated statements;
+ * for example "state1 => state2, state3 => state4".
+ *   - Special values `:enter` and `:leave` initiate a transition on the entry and exit states,
+ * equivalent to  "void => *"  and "* => void".
+ *   - Special values `:increment` and `:decrement` initiate a transition when a numeric value has
+ * increased or decreased in value.
+ * - A function is executed each time a state change occurs in the animation trigger element.
+ * The animation steps run when the function returns true.
+ *
+ * @param {?} steps One or more animation objects, as returned by the `animate()` or
+ * `sequence()` function, that form a transformation from one state to another.
+ * A sequence is used by default when you pass an array.
+ * @param {?=} options An options object that can contain a delay value for the start of the animation,
+ * and additional developer-defined parameters. Provided values for additional parameters are used
+ * as defaults, and override values can be passed to the caller on invocation.
+ * @return {?} An object that encapsulates the transition data.
+ *
+ */
+function transition(stateChangeExpr, steps, options = null) {
+    return { type: 1 /* Transition */, expr: stateChangeExpr, animation: steps, options };
+}
+/**
+ * Produces a reusable animation that can be invoked in another animation or sequence,
+ * by calling the `useAnimation()` function.
+ *
+ * \@usageNotes
+ * The following example defines a reusable animation, providing some default parameter
+ * values.
+ *
+ * ```typescript
+ * var fadeAnimation = animation([
+ *   style({ opacity: '{{ start }}' }),
+ *   animate('{{ time }}',
+ *   style({ opacity: '{{ end }}'}))
+ *   ],
+ *   { params: { time: '1000ms', start: 0, end: 1 }});
+ * ```
+ *
+ * The following invokes the defined animation with a call to `useAnimation()`,
+ * passing in override parameter values.
+ *
+ * ```js
+ * useAnimation(fadeAnimation, {
+ *   params: {
+ *     time: '2s',
+ *     start: 1,
+ *     end: 0
+ *   }
+ * })
+ * ```
+ *
+ * If any of the passed-in parameter values are missing from this call,
+ * the default values are used. If one or more parameter values are missing before a step is
+ * animated, `useAnimation()` throws an error.
+ *
+ * \@publicApi
+ * @param {?} steps One or more animation objects, as returned by the `animate()`
+ * or `sequence()` function, that form a transformation from one state to another.
+ * A sequence is used by default when you pass an array.
+ * @param {?=} options An options object that can contain a delay value for the start of the
+ * animation, and additional developer-defined parameters.
+ * Provided values for additional parameters are used as defaults,
+ * and override values can be passed to the caller on invocation.
+ * @return {?} An object that encapsulates the animation data.
+ *
+ */
+function animation(steps, options = null) {
+    return { type: 8 /* Reference */, animation: steps, options };
+}
+/**
+ * Executes a queried inner animation element within an animation sequence.
+ *
+ * \@usageNotes
+ * Each time an animation is triggered in Angular, the parent animation
+ * has priority and any child animations are blocked. In order
+ * for a child animation to run, the parent animation must query each of the elements
+ * containing child animations, and run them using this function.
+ *
+ * Note that this feature is designed to be used with `query()` and it will only work
+ * with animations that are assigned using the Angular animation library. CSS keyframes
+ * and transitions are not handled by this API.
+ *
+ * \@publicApi
+ * @param {?=} options An options object that can contain a delay value for the start of the
+ * animation, and additional override values for developer-defined parameters.
+ * @return {?} An object that encapsulates the child animation data.
+ *
+ */
+function animateChild(options = null) {
+    return { type: 9 /* AnimateChild */, options };
+}
+/**
+ * Starts a reusable animation that is created using the `animation()` function.
+ *
+ * \@publicApi
+ * @param {?} animation The reusable animation to start.
+ * @param {?=} options An options object that can contain a delay value for the start of
+ * the animation, and additional override values for developer-defined parameters.
+ * @return {?} An object that contains the animation parameters.
+ *
+ */
+function useAnimation(animation, options = null) {
+    return { type: 10 /* AnimateRef */, animation, options };
+}
+/**
+ * Finds one or more inner elements within the current element that is
+ * being animated within a sequence. Use with `animate()`.
+ *
+ * \@usageNotes
+ * Tokens can be merged into a combined query selector string. For example:
+ *
+ * ```typescript
+ *  query(':self, .record:enter, .record:leave, \@subTrigger', [...])
+ * ```
+ *
+ * The `query()` function collects multiple elements and works internally by using
+ * `element.querySelectorAll`. Use the `limit` field of an options object to limit
+ * the total number of items to be collected. For example:
+ *
+ * ```js
+ * query('div', [
+ *   animate(...),
+ *   animate(...)
+ * ], { limit: 1 })
+ * ```
+ *
+ * By default, throws an error when zero items are found. Set the
+ * `optional` flag to ignore this error. For example:
+ *
+ * ```js
+ * query('.some-element-that-may-not-be-there', [
+ *   animate(...),
+ *   animate(...)
+ * ], { optional: true })
+ * ```
+ *
+ * ### Usage Example
+ *
+ * The following example queries for inner elements and animates them
+ * individually using `animate()`.
+ *
+ * ```typescript
+ * \@Component({
+ *   selector: 'inner',
+ *   template: `
+ *     <div [\@queryAnimation]="exp">
+ *       <h1>Title</h1>
+ *       <div class="content">
+ *         Blah blah blah
+ *       </div>
+ *     </div>
+ *   `,
+ *   animations: [
+ *    trigger('queryAnimation', [
+ *      transition('* => goAnimate', [
+ *        // hide the inner elements
+ *        query('h1', style({ opacity: 0 })),
+ *        query('.content', style({ opacity: 0 })),
+ *
+ *        // animate the inner elements in, one by one
+ *        query('h1', animate(1000, style({ opacity: 1 }))),
+ *        query('.content', animate(1000, style({ opacity: 1 }))),
+ *      ])
+ *    ])
+ *  ]
+ * })
+ * class Cmp {
+ *   exp = '';
+ *
+ *   goAnimate() {
+ *     this.exp = 'goAnimate';
+ *   }
+ * }
+ * ```
+ *
+ * \@publicApi
+ * @param {?} selector The element to query, or a set of elements that contain Angular-specific
+ * characteristics, specified with one or more of the following tokens.
+ *  - `query(":enter")` or `query(":leave")` : Query for newly inserted/removed elements.
+ *  - `query(":animating")` : Query all currently animating elements.
+ *  - `query("\@triggerName")` : Query elements that contain an animation trigger.
+ *  - `query("\@*")` : Query all elements that contain an animation triggers.
+ *  - `query(":self")` : Include the current element into the animation sequence.
+ *
+ * @param {?} animation One or more animation steps to apply to the queried element or elements.
+ * An array is treated as an animation sequence.
+ * @param {?=} options An options object. Use the 'limit' field to limit the total number of
+ * items to collect.
+ * @return {?} An object that encapsulates the query data.
+ *
+ */
+function query(selector, animation, options = null) {
+    return { type: 11 /* Query */, selector, animation, options };
+}
+/**
+ * Use within an animation `query()` call to issue a timing gap after
+ * each queried item is animated.
+ *
+ * \@usageNotes
+ * In the following example, a container element wraps a list of items stamped out
+ * by an `ngFor`. The container element contains an animation trigger that will later be set
+ * to query for each of the inner items.
+ *
+ * Each time items are added, the opacity fade-in animation runs,
+ * and each removed item is faded out.
+ * When either of these animations occur, the stagger effect is
+ * applied after each item's animation is started.
+ *
+ * ```html
+ * <!-- list.component.html -->
+ * <button (click)="toggle()">Show / Hide Items</button>
+ * <hr />
+ * <div [\@listAnimation]="items.length">
+ *   <div *ngFor="let item of items">
+ *     {{ item }}
+ *   </div>
+ * </div>
+ * ```
+ *
+ * Here is the component code:
+ *
+ * ```typescript
+ * import {trigger, transition, style, animate, query, stagger} from '\@angular/animations';
+ * \@Component({
+ *   templateUrl: 'list.component.html',
+ *   animations: [
+ *     trigger('listAnimation', [
+ *     ...
+ *     ])
+ *   ]
+ * })
+ * class ListComponent {
+ *   items = [];
+ *
+ *   showItems() {
+ *     this.items = [0,1,2,3,4];
+ *   }
+ *
+ *   hideItems() {
+ *     this.items = [];
+ *   }
+ *
+ *   toggle() {
+ *     this.items.length ? this.hideItems() : this.showItems();
+ *    }
+ *  }
+ * ```
+ *
+ * Here is the animation trigger code:
+ *
+ * ```typescript
+ * trigger('listAnimation', [
+ *   transition('* => *', [ // each time the binding value changes
+ *     query(':leave', [
+ *       stagger(100, [
+ *         animate('0.5s', style({ opacity: 0 }))
+ *       ])
+ *     ]),
+ *     query(':enter', [
+ *       style({ opacity: 0 }),
+ *       stagger(100, [
+ *         animate('0.5s', style({ opacity: 1 }))
+ *       ])
+ *     ])
+ *   ])
+ * ])
+ * ```
+ *
+ * \@publicApi
+ * @param {?} timings A delay value.
+ * @param {?} animation One ore more animation steps.
+ * @return {?} An object that encapsulates the stagger data.
+ *
+ */
+function stagger(timings, animation) {
+    return { type: 12 /* Stagger */, timings, animation };
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/src/util.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ * @param {?} cb
+ * @return {?}
+ */
+function scheduleMicroTask(cb) {
+    Promise.resolve(null).then(cb);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/src/players/animation_player.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Provides programmatic control of a reusable animation sequence,
+ * built using the `build()` method of `AnimationBuilder`. The `build()` method
+ * returns a factory, whose `create()` method instantiates and initializes this interface.
+ *
+ * @see `AnimationBuilder`
+ * @see `AnimationFactory`
+ * @see `animate()`
+ *
+ * \@publicApi
+ * @record
+ */
+function AnimationPlayer() { }
+if (false) {}
+/**
+ * An empty programmatic controller for reusable animations.
+ * Used internally when animations are disabled, to avoid
+ * checking for the null case when an animation player is expected.
+ *
+ * @see `animate()`
+ * @see `AnimationPlayer`
+ * @see `GroupPlayer`
+ *
+ * \@publicApi
+ */
+class NoopAnimationPlayer {
+    /**
+     * @param {?=} duration
+     * @param {?=} delay
+     */
+    constructor(duration = 0, delay = 0) {
+        this._onDoneFns = [];
+        this._onStartFns = [];
+        this._onDestroyFns = [];
+        this._started = false;
+        this._destroyed = false;
+        this._finished = false;
+        this.parentPlayer = null;
+        this.totalTime = duration + delay;
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _onFinish() {
+        if (!this._finished) {
+            this._finished = true;
+            this._onDoneFns.forEach((/**
+             * @param {?} fn
+             * @return {?}
+             */
+            fn => fn()));
+            this._onDoneFns = [];
+        }
+    }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onStart(fn) { this._onStartFns.push(fn); }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onDone(fn) { this._onDoneFns.push(fn); }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onDestroy(fn) { this._onDestroyFns.push(fn); }
+    /**
+     * @return {?}
+     */
+    hasStarted() { return this._started; }
+    /**
+     * @return {?}
+     */
+    init() { }
+    /**
+     * @return {?}
+     */
+    play() {
+        if (!this.hasStarted()) {
+            this._onStart();
+            this.triggerMicrotask();
+        }
+        this._started = true;
+    }
+    /**
+     * \@internal
+     * @return {?}
+     */
+    triggerMicrotask() { scheduleMicroTask((/**
+     * @return {?}
+     */
+    () => this._onFinish())); }
+    /**
+     * @private
+     * @return {?}
+     */
+    _onStart() {
+        this._onStartFns.forEach((/**
+         * @param {?} fn
+         * @return {?}
+         */
+        fn => fn()));
+        this._onStartFns = [];
+    }
+    /**
+     * @return {?}
+     */
+    pause() { }
+    /**
+     * @return {?}
+     */
+    restart() { }
+    /**
+     * @return {?}
+     */
+    finish() { this._onFinish(); }
+    /**
+     * @return {?}
+     */
+    destroy() {
+        if (!this._destroyed) {
+            this._destroyed = true;
+            if (!this.hasStarted()) {
+                this._onStart();
+            }
+            this.finish();
+            this._onDestroyFns.forEach((/**
+             * @param {?} fn
+             * @return {?}
+             */
+            fn => fn()));
+            this._onDestroyFns = [];
+        }
+    }
+    /**
+     * @return {?}
+     */
+    reset() { }
+    /**
+     * @param {?} position
+     * @return {?}
+     */
+    setPosition(position) { }
+    /**
+     * @return {?}
+     */
+    getPosition() { return 0; }
+    /**
+     * \@internal
+     * @param {?} phaseName
+     * @return {?}
+     */
+    triggerCallback(phaseName) {
+        /** @type {?} */
+        const methods = phaseName == 'start' ? this._onStartFns : this._onDoneFns;
+        methods.forEach((/**
+         * @param {?} fn
+         * @return {?}
+         */
+        fn => fn()));
+        methods.length = 0;
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/src/players/animation_group_player.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * A programmatic controller for a group of reusable animations.
+ * Used internally to control animations.
+ *
+ * @see `AnimationPlayer`
+ * @see `{\@link animations/group group()}`
+ *
+ */
+class AnimationGroupPlayer {
+    /**
+     * @param {?} _players
+     */
+    constructor(_players) {
+        this._onDoneFns = [];
+        this._onStartFns = [];
+        this._finished = false;
+        this._started = false;
+        this._destroyed = false;
+        this._onDestroyFns = [];
+        this.parentPlayer = null;
+        this.totalTime = 0;
+        this.players = _players;
+        /** @type {?} */
+        let doneCount = 0;
+        /** @type {?} */
+        let destroyCount = 0;
+        /** @type {?} */
+        let startCount = 0;
+        /** @type {?} */
+        const total = this.players.length;
+        if (total == 0) {
+            scheduleMicroTask((/**
+             * @return {?}
+             */
+            () => this._onFinish()));
+        }
+        else {
+            this.players.forEach((/**
+             * @param {?} player
+             * @return {?}
+             */
+            player => {
+                player.onDone((/**
+                 * @return {?}
+                 */
+                () => {
+                    if (++doneCount == total) {
+                        this._onFinish();
+                    }
+                }));
+                player.onDestroy((/**
+                 * @return {?}
+                 */
+                () => {
+                    if (++destroyCount == total) {
+                        this._onDestroy();
+                    }
+                }));
+                player.onStart((/**
+                 * @return {?}
+                 */
+                () => {
+                    if (++startCount == total) {
+                        this._onStart();
+                    }
+                }));
+            }));
+        }
+        this.totalTime = this.players.reduce((/**
+         * @param {?} time
+         * @param {?} player
+         * @return {?}
+         */
+        (time, player) => Math.max(time, player.totalTime)), 0);
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _onFinish() {
+        if (!this._finished) {
+            this._finished = true;
+            this._onDoneFns.forEach((/**
+             * @param {?} fn
+             * @return {?}
+             */
+            fn => fn()));
+            this._onDoneFns = [];
+        }
+    }
+    /**
+     * @return {?}
+     */
+    init() { this.players.forEach((/**
+     * @param {?} player
+     * @return {?}
+     */
+    player => player.init())); }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onStart(fn) { this._onStartFns.push(fn); }
+    /**
+     * @private
+     * @return {?}
+     */
+    _onStart() {
+        if (!this.hasStarted()) {
+            this._started = true;
+            this._onStartFns.forEach((/**
+             * @param {?} fn
+             * @return {?}
+             */
+            fn => fn()));
+            this._onStartFns = [];
+        }
+    }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onDone(fn) { this._onDoneFns.push(fn); }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onDestroy(fn) { this._onDestroyFns.push(fn); }
+    /**
+     * @return {?}
+     */
+    hasStarted() { return this._started; }
+    /**
+     * @return {?}
+     */
+    play() {
+        if (!this.parentPlayer) {
+            this.init();
+        }
+        this._onStart();
+        this.players.forEach((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => player.play()));
+    }
+    /**
+     * @return {?}
+     */
+    pause() { this.players.forEach((/**
+     * @param {?} player
+     * @return {?}
+     */
+    player => player.pause())); }
+    /**
+     * @return {?}
+     */
+    restart() { this.players.forEach((/**
+     * @param {?} player
+     * @return {?}
+     */
+    player => player.restart())); }
+    /**
+     * @return {?}
+     */
+    finish() {
+        this._onFinish();
+        this.players.forEach((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => player.finish()));
+    }
+    /**
+     * @return {?}
+     */
+    destroy() { this._onDestroy(); }
+    /**
+     * @private
+     * @return {?}
+     */
+    _onDestroy() {
+        if (!this._destroyed) {
+            this._destroyed = true;
+            this._onFinish();
+            this.players.forEach((/**
+             * @param {?} player
+             * @return {?}
+             */
+            player => player.destroy()));
+            this._onDestroyFns.forEach((/**
+             * @param {?} fn
+             * @return {?}
+             */
+            fn => fn()));
+            this._onDestroyFns = [];
+        }
+    }
+    /**
+     * @return {?}
+     */
+    reset() {
+        this.players.forEach((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => player.reset()));
+        this._destroyed = false;
+        this._finished = false;
+        this._started = false;
+    }
+    /**
+     * @param {?} p
+     * @return {?}
+     */
+    setPosition(p) {
+        /** @type {?} */
+        const timeAtPosition = p * this.totalTime;
+        this.players.forEach((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => {
+            /** @type {?} */
+            const position = player.totalTime ? Math.min(1, timeAtPosition / player.totalTime) : 1;
+            player.setPosition(position);
+        }));
+    }
+    /**
+     * @return {?}
+     */
+    getPosition() {
+        /** @type {?} */
+        let min = 0;
+        this.players.forEach((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => {
+            /** @type {?} */
+            const p = player.getPosition();
+            min = Math.min(p, min);
+        }));
+        return min;
+    }
+    /**
+     * @return {?}
+     */
+    beforeDestroy() {
+        this.players.forEach((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => {
+            if (player.beforeDestroy) {
+                player.beforeDestroy();
+            }
+        }));
+    }
+    /**
+     * \@internal
+     * @param {?} phaseName
+     * @return {?}
+     */
+    triggerCallback(phaseName) {
+        /** @type {?} */
+        const methods = phaseName == 'start' ? this._onStartFns : this._onDoneFns;
+        methods.forEach((/**
+         * @param {?} fn
+         * @return {?}
+         */
+        fn => fn()));
+        methods.length = 0;
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/src/private_export.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const ɵPRE_STYLE = '!';
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/src/animations.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/public_api.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/index.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+
+//# sourceMappingURL=animations.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@angular/animations/__ivy_ngcc__/fesm2015/browser.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@angular/animations/__ivy_ngcc__/fesm2015/browser.js ***!
+  \***************************************************************************/
+/*! exports provided: AnimationDriver, ɵAnimation, ɵAnimationEngine, ɵAnimationStyleNormalizer, ɵCssKeyframesDriver, ɵCssKeyframesPlayer, ɵNoopAnimationDriver, ɵNoopAnimationStyleNormalizer, ɵWebAnimationsDriver, ɵWebAnimationsPlayer, ɵWebAnimationsStyleNormalizer, ɵallowPreviousPlayerStylesMerge, ɵangular_packages_animations_browser_browser_a, ɵcontainsElement, ɵinvokeQuery, ɵmatchesElement, ɵsupportsWebAnimations, ɵvalidateStyleProperty */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnimationDriver", function() { return AnimationDriver; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵAnimation", function() { return Animation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵAnimationEngine", function() { return AnimationEngine; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵAnimationStyleNormalizer", function() { return AnimationStyleNormalizer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵCssKeyframesDriver", function() { return CssKeyframesDriver; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵCssKeyframesPlayer", function() { return CssKeyframesPlayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵNoopAnimationDriver", function() { return NoopAnimationDriver; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵNoopAnimationStyleNormalizer", function() { return NoopAnimationStyleNormalizer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵWebAnimationsDriver", function() { return WebAnimationsDriver; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵWebAnimationsPlayer", function() { return WebAnimationsPlayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵWebAnimationsStyleNormalizer", function() { return WebAnimationsStyleNormalizer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵallowPreviousPlayerStylesMerge", function() { return allowPreviousPlayerStylesMerge; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_animations_browser_browser_a", function() { return SpecialCasedStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcontainsElement", function() { return containsElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵinvokeQuery", function() { return invokeQuery; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵmatchesElement", function() { return matchesElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵsupportsWebAnimations", function() { return supportsWebAnimations; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵvalidateStyleProperty", function() { return validateStyleProperty; });
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/__ivy_ngcc__/fesm2015/animations.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/**
+ * @license Angular v9.0.7
+ * (c) 2010-2020 Google LLC. https://angular.io/
+ * License: MIT
+ */
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/render/shared.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @return {?}
+ */
+
+function isBrowser() {
+    return (typeof window !== 'undefined' && typeof window.document !== 'undefined');
+}
+/**
+ * @return {?}
+ */
+function isNode() {
+    // Checking only for `process` isn't enough to identify whether or not we're in a Node
+    // environment, because Webpack by default will polyfill the `process`. While we can discern
+    // that Webpack polyfilled it by looking at `process.browser`, it's very Webpack-specific and
+    // might not be future-proof. Instead we look at the stringified version of `process` which
+    // is `[object process]` in Node and `[object Object]` when polyfilled.
+    return typeof process !== 'undefined' && {}.toString.call(process) === '[object process]';
+}
+/**
+ * @param {?} players
+ * @return {?}
+ */
+function optimizeGroupPlayer(players) {
+    switch (players.length) {
+        case 0:
+            return new _angular_animations__WEBPACK_IMPORTED_MODULE_0__["NoopAnimationPlayer"]();
+        case 1:
+            return players[0];
+        default:
+            return new _angular_animations__WEBPACK_IMPORTED_MODULE_0__["ɵAnimationGroupPlayer"](players);
+    }
+}
+/**
+ * @param {?} driver
+ * @param {?} normalizer
+ * @param {?} element
+ * @param {?} keyframes
+ * @param {?=} preStyles
+ * @param {?=} postStyles
+ * @return {?}
+ */
+function normalizeKeyframes(driver, normalizer, element, keyframes, preStyles = {}, postStyles = {}) {
+    /** @type {?} */
+    const errors = [];
+    /** @type {?} */
+    const normalizedKeyframes = [];
+    /** @type {?} */
+    let previousOffset = -1;
+    /** @type {?} */
+    let previousKeyframe = null;
+    keyframes.forEach((/**
+     * @param {?} kf
+     * @return {?}
+     */
+    kf => {
+        /** @type {?} */
+        const offset = (/** @type {?} */ (kf['offset']));
+        /** @type {?} */
+        const isSameOffset = offset == previousOffset;
+        /** @type {?} */
+        const normalizedKeyframe = (isSameOffset && previousKeyframe) || {};
+        Object.keys(kf).forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => {
+            /** @type {?} */
+            let normalizedProp = prop;
+            /** @type {?} */
+            let normalizedValue = kf[prop];
+            if (prop !== 'offset') {
+                normalizedProp = normalizer.normalizePropertyName(normalizedProp, errors);
+                switch (normalizedValue) {
+                    case _angular_animations__WEBPACK_IMPORTED_MODULE_0__["ɵPRE_STYLE"]:
+                        normalizedValue = preStyles[prop];
+                        break;
+                    case _angular_animations__WEBPACK_IMPORTED_MODULE_0__["AUTO_STYLE"]:
+                        normalizedValue = postStyles[prop];
+                        break;
+                    default:
+                        normalizedValue =
+                            normalizer.normalizeStyleValue(prop, normalizedProp, normalizedValue, errors);
+                        break;
+                }
+            }
+            normalizedKeyframe[normalizedProp] = normalizedValue;
+        }));
+        if (!isSameOffset) {
+            normalizedKeyframes.push(normalizedKeyframe);
+        }
+        previousKeyframe = normalizedKeyframe;
+        previousOffset = offset;
+    }));
+    if (errors.length) {
+        /** @type {?} */
+        const LINE_START = '\n - ';
+        throw new Error(`Unable to animate due to the following errors:${LINE_START}${errors.join(LINE_START)}`);
+    }
+    return normalizedKeyframes;
+}
+/**
+ * @param {?} player
+ * @param {?} eventName
+ * @param {?} event
+ * @param {?} callback
+ * @return {?}
+ */
+function listenOnPlayer(player, eventName, event, callback) {
+    switch (eventName) {
+        case 'start':
+            player.onStart((/**
+             * @return {?}
+             */
+            () => callback(event && copyAnimationEvent(event, 'start', player))));
+            break;
+        case 'done':
+            player.onDone((/**
+             * @return {?}
+             */
+            () => callback(event && copyAnimationEvent(event, 'done', player))));
+            break;
+        case 'destroy':
+            player.onDestroy((/**
+             * @return {?}
+             */
+            () => callback(event && copyAnimationEvent(event, 'destroy', player))));
+            break;
+    }
+}
+/**
+ * @param {?} e
+ * @param {?} phaseName
+ * @param {?} player
+ * @return {?}
+ */
+function copyAnimationEvent(e, phaseName, player) {
+    /** @type {?} */
+    const totalTime = player.totalTime;
+    /** @type {?} */
+    const disabled = ((/** @type {?} */ (player))).disabled ? true : false;
+    /** @type {?} */
+    const event = makeAnimationEvent(e.element, e.triggerName, e.fromState, e.toState, phaseName || e.phaseName, totalTime == undefined ? e.totalTime : totalTime, disabled);
+    /** @type {?} */
+    const data = ((/** @type {?} */ (e)))['_data'];
+    if (data != null) {
+        ((/** @type {?} */ (event)))['_data'] = data;
+    }
+    return event;
+}
+/**
+ * @param {?} element
+ * @param {?} triggerName
+ * @param {?} fromState
+ * @param {?} toState
+ * @param {?=} phaseName
+ * @param {?=} totalTime
+ * @param {?=} disabled
+ * @return {?}
+ */
+function makeAnimationEvent(element, triggerName, fromState, toState, phaseName = '', totalTime = 0, disabled) {
+    return { element, triggerName, fromState, toState, phaseName, totalTime, disabled: !!disabled };
+}
+/**
+ * @param {?} map
+ * @param {?} key
+ * @param {?} defaultValue
+ * @return {?}
+ */
+function getOrSetAsInMap(map, key, defaultValue) {
+    /** @type {?} */
+    let value;
+    if (map instanceof Map) {
+        value = map.get(key);
+        if (!value) {
+            map.set(key, value = defaultValue);
+        }
+    }
+    else {
+        value = map[key];
+        if (!value) {
+            value = map[key] = defaultValue;
+        }
+    }
+    return value;
+}
+/**
+ * @param {?} command
+ * @return {?}
+ */
+function parseTimelineCommand(command) {
+    /** @type {?} */
+    const separatorPos = command.indexOf(':');
+    /** @type {?} */
+    const id = command.substring(1, separatorPos);
+    /** @type {?} */
+    const action = command.substr(separatorPos + 1);
+    return [id, action];
+}
+/** @type {?} */
+let _contains = (/**
+ * @param {?} elm1
+ * @param {?} elm2
+ * @return {?}
+ */
+(elm1, elm2) => false);
+const ɵ0 = _contains;
+/** @type {?} */
+let _matches = (/**
+ * @param {?} element
+ * @param {?} selector
+ * @return {?}
+ */
+(element, selector) => false);
+const ɵ1 = _matches;
+/** @type {?} */
+let _query = (/**
+ * @param {?} element
+ * @param {?} selector
+ * @param {?} multi
+ * @return {?}
+ */
+(element, selector, multi) => {
+    return [];
+});
+const ɵ2 = _query;
+// Define utility methods for browsers and platform-server(domino) where Element
+// and utility methods exist.
+/** @type {?} */
+const _isNode = isNode();
+if (_isNode || typeof Element !== 'undefined') {
+    // this is well supported in all browsers
+    _contains = (/**
+     * @param {?} elm1
+     * @param {?} elm2
+     * @return {?}
+     */
+    (elm1, elm2) => { return (/** @type {?} */ (elm1.contains(elm2))); });
+    _matches = ((/**
+     * @return {?}
+     */
+    () => {
+        if (_isNode || Element.prototype.matches) {
+            return (/**
+             * @param {?} element
+             * @param {?} selector
+             * @return {?}
+             */
+            (element, selector) => element.matches(selector));
+        }
+        else {
+            /** @type {?} */
+            const proto = (/** @type {?} */ (Element.prototype));
+            /** @type {?} */
+            const fn = proto.matchesSelector || proto.mozMatchesSelector || proto.msMatchesSelector ||
+                proto.oMatchesSelector || proto.webkitMatchesSelector;
+            if (fn) {
+                return (/**
+                 * @param {?} element
+                 * @param {?} selector
+                 * @return {?}
+                 */
+                (element, selector) => fn.apply(element, [selector]));
+            }
+            else {
+                return _matches;
+            }
+        }
+    }))();
+    _query = (/**
+     * @param {?} element
+     * @param {?} selector
+     * @param {?} multi
+     * @return {?}
+     */
+    (element, selector, multi) => {
+        /** @type {?} */
+        let results = [];
+        if (multi) {
+            results.push(...element.querySelectorAll(selector));
+        }
+        else {
+            /** @type {?} */
+            const elm = element.querySelector(selector);
+            if (elm) {
+                results.push(elm);
+            }
+        }
+        return results;
+    });
+}
+/**
+ * @param {?} prop
+ * @return {?}
+ */
+function containsVendorPrefix(prop) {
+    // Webkit is the only real popular vendor prefix nowadays
+    // cc: http://shouldiprefix.com/
+    return prop.substring(1, 6) == 'ebkit'; // webkit or Webkit
+}
+/** @type {?} */
+let _CACHED_BODY = null;
+/** @type {?} */
+let _IS_WEBKIT = false;
+/**
+ * @param {?} prop
+ * @return {?}
+ */
+function validateStyleProperty(prop) {
+    if (!_CACHED_BODY) {
+        _CACHED_BODY = getBodyNode() || {};
+        _IS_WEBKIT = (/** @type {?} */ (_CACHED_BODY)).style ? ('WebkitAppearance' in (/** @type {?} */ (_CACHED_BODY)).style) : false;
+    }
+    /** @type {?} */
+    let result = true;
+    if ((/** @type {?} */ (_CACHED_BODY)).style && !containsVendorPrefix(prop)) {
+        result = prop in (/** @type {?} */ (_CACHED_BODY)).style;
+        if (!result && _IS_WEBKIT) {
+            /** @type {?} */
+            const camelProp = 'Webkit' + prop.charAt(0).toUpperCase() + prop.substr(1);
+            result = camelProp in (/** @type {?} */ (_CACHED_BODY)).style;
+        }
+    }
+    return result;
+}
+/**
+ * @return {?}
+ */
+function getBodyNode() {
+    if (typeof document != 'undefined') {
+        return document.body;
+    }
+    return null;
+}
+/** @type {?} */
+const matchesElement = _matches;
+/** @type {?} */
+const containsElement = _contains;
+/** @type {?} */
+const invokeQuery = _query;
+/**
+ * @param {?} object
+ * @return {?}
+ */
+function hypenatePropsObject(object) {
+    /** @type {?} */
+    const newObj = {};
+    Object.keys(object).forEach((/**
+     * @param {?} prop
+     * @return {?}
+     */
+    prop => {
+        /** @type {?} */
+        const newProp = prop.replace(/([a-z])([A-Z])/g, '$1-$2');
+        newObj[newProp] = object[prop];
+    }));
+    return newObj;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/render/animation_driver.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * \@publicApi
+ */
+class NoopAnimationDriver {
+    /**
+     * @param {?} prop
+     * @return {?}
+     */
+    validateStyleProperty(prop) { return validateStyleProperty(prop); }
+    /**
+     * @param {?} element
+     * @param {?} selector
+     * @return {?}
+     */
+    matchesElement(element, selector) {
+        return matchesElement(element, selector);
+    }
+    /**
+     * @param {?} elm1
+     * @param {?} elm2
+     * @return {?}
+     */
+    containsElement(elm1, elm2) { return containsElement(elm1, elm2); }
+    /**
+     * @param {?} element
+     * @param {?} selector
+     * @param {?} multi
+     * @return {?}
+     */
+    query(element, selector, multi) {
+        return invokeQuery(element, selector, multi);
+    }
+    /**
+     * @param {?} element
+     * @param {?} prop
+     * @param {?=} defaultValue
+     * @return {?}
+     */
+    computeStyle(element, prop, defaultValue) {
+        return defaultValue || '';
+    }
+    /**
+     * @param {?} element
+     * @param {?} keyframes
+     * @param {?} duration
+     * @param {?} delay
+     * @param {?} easing
+     * @param {?=} previousPlayers
+     * @param {?=} scrubberAccessRequested
+     * @return {?}
+     */
+    animate(element, keyframes, duration, delay, easing, previousPlayers = [], scrubberAccessRequested) {
+        return new _angular_animations__WEBPACK_IMPORTED_MODULE_0__["NoopAnimationPlayer"](duration, delay);
+    }
+}
+NoopAnimationDriver.ɵfac = function NoopAnimationDriver_Factory(t) { return new (t || NoopAnimationDriver)(); };
+NoopAnimationDriver.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: NoopAnimationDriver, factory: NoopAnimationDriver.ɵfac });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](NoopAnimationDriver, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"]
+    }], null, null); })();
+/**
+ * \@publicApi
+ * @abstract
+ */
+class AnimationDriver {
+}
+AnimationDriver.NOOP = new NoopAnimationDriver();
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/util.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const ONE_SECOND = 1000;
+/** @type {?} */
+const SUBSTITUTION_EXPR_START = '{{';
+/** @type {?} */
+const SUBSTITUTION_EXPR_END = '}}';
+/** @type {?} */
+const ENTER_CLASSNAME = 'ng-enter';
+/** @type {?} */
+const LEAVE_CLASSNAME = 'ng-leave';
+/** @type {?} */
+const ENTER_SELECTOR = '.ng-enter';
+/** @type {?} */
+const LEAVE_SELECTOR = '.ng-leave';
+/** @type {?} */
+const NG_TRIGGER_CLASSNAME = 'ng-trigger';
+/** @type {?} */
+const NG_TRIGGER_SELECTOR = '.ng-trigger';
+/** @type {?} */
+const NG_ANIMATING_CLASSNAME = 'ng-animating';
+/** @type {?} */
+const NG_ANIMATING_SELECTOR = '.ng-animating';
+/**
+ * @param {?} value
+ * @return {?}
+ */
+function resolveTimingValue(value) {
+    if (typeof value == 'number')
+        return value;
+    /** @type {?} */
+    const matches = value.match(/^(-?[\.\d]+)(m?s)/);
+    if (!matches || matches.length < 2)
+        return 0;
+    return _convertTimeValueToMS(parseFloat(matches[1]), matches[2]);
+}
+/**
+ * @param {?} value
+ * @param {?} unit
+ * @return {?}
+ */
+function _convertTimeValueToMS(value, unit) {
+    switch (unit) {
+        case 's':
+            return value * ONE_SECOND;
+        default: // ms or something else
+            return value;
+    }
+}
+/**
+ * @param {?} timings
+ * @param {?} errors
+ * @param {?=} allowNegativeValues
+ * @return {?}
+ */
+function resolveTiming(timings, errors, allowNegativeValues) {
+    return timings.hasOwnProperty('duration') ?
+        (/** @type {?} */ (timings)) :
+        parseTimeExpression((/** @type {?} */ (timings)), errors, allowNegativeValues);
+}
+/**
+ * @param {?} exp
+ * @param {?} errors
+ * @param {?=} allowNegativeValues
+ * @return {?}
+ */
+function parseTimeExpression(exp, errors, allowNegativeValues) {
+    /** @type {?} */
+    const regex = /^(-?[\.\d]+)(m?s)(?:\s+(-?[\.\d]+)(m?s))?(?:\s+([-a-z]+(?:\(.+?\))?))?$/i;
+    /** @type {?} */
+    let duration;
+    /** @type {?} */
+    let delay = 0;
+    /** @type {?} */
+    let easing = '';
+    if (typeof exp === 'string') {
+        /** @type {?} */
+        const matches = exp.match(regex);
+        if (matches === null) {
+            errors.push(`The provided timing value "${exp}" is invalid.`);
+            return { duration: 0, delay: 0, easing: '' };
+        }
+        duration = _convertTimeValueToMS(parseFloat(matches[1]), matches[2]);
+        /** @type {?} */
+        const delayMatch = matches[3];
+        if (delayMatch != null) {
+            delay = _convertTimeValueToMS(parseFloat(delayMatch), matches[4]);
+        }
+        /** @type {?} */
+        const easingVal = matches[5];
+        if (easingVal) {
+            easing = easingVal;
+        }
+    }
+    else {
+        duration = exp;
+    }
+    if (!allowNegativeValues) {
+        /** @type {?} */
+        let containsErrors = false;
+        /** @type {?} */
+        let startIndex = errors.length;
+        if (duration < 0) {
+            errors.push(`Duration values below 0 are not allowed for this animation step.`);
+            containsErrors = true;
+        }
+        if (delay < 0) {
+            errors.push(`Delay values below 0 are not allowed for this animation step.`);
+            containsErrors = true;
+        }
+        if (containsErrors) {
+            errors.splice(startIndex, 0, `The provided timing value "${exp}" is invalid.`);
+        }
+    }
+    return { duration, delay, easing };
+}
+/**
+ * @param {?} obj
+ * @param {?=} destination
+ * @return {?}
+ */
+function copyObj(obj, destination = {}) {
+    Object.keys(obj).forEach((/**
+     * @param {?} prop
+     * @return {?}
+     */
+    prop => { destination[prop] = obj[prop]; }));
+    return destination;
+}
+/**
+ * @param {?} styles
+ * @return {?}
+ */
+function normalizeStyles(styles) {
+    /** @type {?} */
+    const normalizedStyles = {};
+    if (Array.isArray(styles)) {
+        styles.forEach((/**
+         * @param {?} data
+         * @return {?}
+         */
+        data => copyStyles(data, false, normalizedStyles)));
+    }
+    else {
+        copyStyles(styles, false, normalizedStyles);
+    }
+    return normalizedStyles;
+}
+/**
+ * @param {?} styles
+ * @param {?} readPrototype
+ * @param {?=} destination
+ * @return {?}
+ */
+function copyStyles(styles, readPrototype, destination = {}) {
+    if (readPrototype) {
+        // we make use of a for-in loop so that the
+        // prototypically inherited properties are
+        // revealed from the backFill map
+        for (let prop in styles) {
+            destination[prop] = styles[prop];
+        }
+    }
+    else {
+        copyObj(styles, destination);
+    }
+    return destination;
+}
+/**
+ * @param {?} element
+ * @param {?} key
+ * @param {?} value
+ * @return {?}
+ */
+function getStyleAttributeString(element, key, value) {
+    // Return the key-value pair string to be added to the style attribute for the
+    // given CSS style key.
+    if (value) {
+        return key + ':' + value + ';';
+    }
+    else {
+        return '';
+    }
+}
+/**
+ * @param {?} element
+ * @return {?}
+ */
+function writeStyleAttribute(element) {
+    // Read the style property of the element and manually reflect it to the
+    // style attribute. This is needed because Domino on platform-server doesn't
+    // understand the full set of allowed CSS properties and doesn't reflect some
+    // of them automatically.
+    /** @type {?} */
+    let styleAttrValue = '';
+    for (let i = 0; i < element.style.length; i++) {
+        /** @type {?} */
+        const key = element.style.item(i);
+        styleAttrValue += getStyleAttributeString(element, key, element.style.getPropertyValue(key));
+    }
+    for (const key in element.style) {
+        // Skip internal Domino properties that don't need to be reflected.
+        if (!element.style.hasOwnProperty(key) || key.startsWith('_')) {
+            continue;
+        }
+        /** @type {?} */
+        const dashKey = camelCaseToDashCase(key);
+        styleAttrValue += getStyleAttributeString(element, dashKey, element.style[key]);
+    }
+    element.setAttribute('style', styleAttrValue);
+}
+/**
+ * @param {?} element
+ * @param {?} styles
+ * @param {?=} formerStyles
+ * @return {?}
+ */
+function setStyles(element, styles, formerStyles) {
+    if (element['style']) {
+        Object.keys(styles).forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => {
+            /** @type {?} */
+            const camelProp = dashCaseToCamelCase(prop);
+            if (formerStyles && !formerStyles.hasOwnProperty(prop)) {
+                formerStyles[prop] = element.style[camelProp];
+            }
+            element.style[camelProp] = styles[prop];
+        }));
+        // On the server set the 'style' attribute since it's not automatically reflected.
+        if (isNode()) {
+            writeStyleAttribute(element);
+        }
+    }
+}
+/**
+ * @param {?} element
+ * @param {?} styles
+ * @return {?}
+ */
+function eraseStyles(element, styles) {
+    if (element['style']) {
+        Object.keys(styles).forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => {
+            /** @type {?} */
+            const camelProp = dashCaseToCamelCase(prop);
+            element.style[camelProp] = '';
+        }));
+        // On the server set the 'style' attribute since it's not automatically reflected.
+        if (isNode()) {
+            writeStyleAttribute(element);
+        }
+    }
+}
+/**
+ * @param {?} steps
+ * @return {?}
+ */
+function normalizeAnimationEntry(steps) {
+    if (Array.isArray(steps)) {
+        if (steps.length == 1)
+            return steps[0];
+        return Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["sequence"])(steps);
+    }
+    return (/** @type {?} */ (steps));
+}
+/**
+ * @param {?} value
+ * @param {?} options
+ * @param {?} errors
+ * @return {?}
+ */
+function validateStyleParams(value, options, errors) {
+    /** @type {?} */
+    const params = options.params || {};
+    /** @type {?} */
+    const matches = extractStyleParams(value);
+    if (matches.length) {
+        matches.forEach((/**
+         * @param {?} varName
+         * @return {?}
+         */
+        varName => {
+            if (!params.hasOwnProperty(varName)) {
+                errors.push(`Unable to resolve the local animation param ${varName} in the given list of values`);
+            }
+        }));
+    }
+}
+/** @type {?} */
+const PARAM_REGEX = new RegExp(`${SUBSTITUTION_EXPR_START}\\s*(.+?)\\s*${SUBSTITUTION_EXPR_END}`, 'g');
+/**
+ * @param {?} value
+ * @return {?}
+ */
+function extractStyleParams(value) {
+    /** @type {?} */
+    let params = [];
+    if (typeof value === 'string') {
+        /** @type {?} */
+        let match;
+        while (match = PARAM_REGEX.exec(value)) {
+            params.push((/** @type {?} */ (match[1])));
+        }
+        PARAM_REGEX.lastIndex = 0;
+    }
+    return params;
+}
+/**
+ * @param {?} value
+ * @param {?} params
+ * @param {?} errors
+ * @return {?}
+ */
+function interpolateParams(value, params, errors) {
+    /** @type {?} */
+    const original = value.toString();
+    /** @type {?} */
+    const str = original.replace(PARAM_REGEX, (/**
+     * @param {?} _
+     * @param {?} varName
+     * @return {?}
+     */
+    (_, varName) => {
+        /** @type {?} */
+        let localVal = params[varName];
+        // this means that the value was never overridden by the data passed in by the user
+        if (!params.hasOwnProperty(varName)) {
+            errors.push(`Please provide a value for the animation param ${varName}`);
+            localVal = '';
+        }
+        return localVal.toString();
+    }));
+    // we do this to assert that numeric values stay as they are
+    return str == original ? value : str;
+}
+/**
+ * @param {?} iterator
+ * @return {?}
+ */
+function iteratorToArray(iterator) {
+    /** @type {?} */
+    const arr = [];
+    /** @type {?} */
+    let item = iterator.next();
+    while (!item.done) {
+        arr.push(item.value);
+        item = iterator.next();
+    }
+    return arr;
+}
+/**
+ * @param {?} source
+ * @param {?} destination
+ * @return {?}
+ */
+function mergeAnimationOptions(source, destination) {
+    if (source.params) {
+        /** @type {?} */
+        const p0 = source.params;
+        if (!destination.params) {
+            destination.params = {};
+        }
+        /** @type {?} */
+        const p1 = destination.params;
+        Object.keys(p0).forEach((/**
+         * @param {?} param
+         * @return {?}
+         */
+        param => {
+            if (!p1.hasOwnProperty(param)) {
+                p1[param] = p0[param];
+            }
+        }));
+    }
+    return destination;
+}
+/** @type {?} */
+const DASH_CASE_REGEXP = /-+([a-z0-9])/g;
+/**
+ * @param {?} input
+ * @return {?}
+ */
+function dashCaseToCamelCase(input) {
+    return input.replace(DASH_CASE_REGEXP, (/**
+     * @param {...?} m
+     * @return {?}
+     */
+    (...m) => m[1].toUpperCase()));
+}
+/**
+ * @param {?} input
+ * @return {?}
+ */
+function camelCaseToDashCase(input) {
+    return input.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+}
+/**
+ * @param {?} duration
+ * @param {?} delay
+ * @return {?}
+ */
+function allowPreviousPlayerStylesMerge(duration, delay) {
+    return duration === 0 || delay === 0;
+}
+/**
+ * @param {?} element
+ * @param {?} keyframes
+ * @param {?} previousStyles
+ * @return {?}
+ */
+function balancePreviousStylesIntoKeyframes(element, keyframes, previousStyles) {
+    /** @type {?} */
+    const previousStyleProps = Object.keys(previousStyles);
+    if (previousStyleProps.length && keyframes.length) {
+        /** @type {?} */
+        let startingKeyframe = keyframes[0];
+        /** @type {?} */
+        let missingStyleProps = [];
+        previousStyleProps.forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => {
+            if (!startingKeyframe.hasOwnProperty(prop)) {
+                missingStyleProps.push(prop);
+            }
+            startingKeyframe[prop] = previousStyles[prop];
+        }));
+        if (missingStyleProps.length) {
+            // tslint:disable-next-line
+            for (var i = 1; i < keyframes.length; i++) {
+                /** @type {?} */
+                let kf = keyframes[i];
+                missingStyleProps.forEach((/**
+                 * @param {?} prop
+                 * @return {?}
+                 */
+                function (prop) { kf[prop] = computeStyle(element, prop); }));
+            }
+        }
+    }
+    return keyframes;
+}
+/**
+ * @param {?} visitor
+ * @param {?} node
+ * @param {?} context
+ * @return {?}
+ */
+function visitDslNode(visitor, node, context) {
+    switch (node.type) {
+        case 7 /* Trigger */:
+            return visitor.visitTrigger(node, context);
+        case 0 /* State */:
+            return visitor.visitState(node, context);
+        case 1 /* Transition */:
+            return visitor.visitTransition(node, context);
+        case 2 /* Sequence */:
+            return visitor.visitSequence(node, context);
+        case 3 /* Group */:
+            return visitor.visitGroup(node, context);
+        case 4 /* Animate */:
+            return visitor.visitAnimate(node, context);
+        case 5 /* Keyframes */:
+            return visitor.visitKeyframes(node, context);
+        case 6 /* Style */:
+            return visitor.visitStyle(node, context);
+        case 8 /* Reference */:
+            return visitor.visitReference(node, context);
+        case 9 /* AnimateChild */:
+            return visitor.visitAnimateChild(node, context);
+        case 10 /* AnimateRef */:
+            return visitor.visitAnimateRef(node, context);
+        case 11 /* Query */:
+            return visitor.visitQuery(node, context);
+        case 12 /* Stagger */:
+            return visitor.visitStagger(node, context);
+        default:
+            throw new Error(`Unable to resolve animation metadata node #${node.type}`);
+    }
+}
+/**
+ * @param {?} element
+ * @param {?} prop
+ * @return {?}
+ */
+function computeStyle(element, prop) {
+    return ((/** @type {?} */ (window.getComputedStyle(element))))[prop];
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/dsl/animation_transition_expr.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ * @type {?}
+ */
+const ANY_STATE = '*';
+/**
+ * @param {?} transitionValue
+ * @param {?} errors
+ * @return {?}
+ */
+function parseTransitionExpr(transitionValue, errors) {
+    /** @type {?} */
+    const expressions = [];
+    if (typeof transitionValue == 'string') {
+        transitionValue.split(/\s*,\s*/).forEach((/**
+         * @param {?} str
+         * @return {?}
+         */
+        str => parseInnerTransitionStr(str, expressions, errors)));
+    }
+    else {
+        expressions.push((/** @type {?} */ (transitionValue)));
+    }
+    return expressions;
+}
+/**
+ * @param {?} eventStr
+ * @param {?} expressions
+ * @param {?} errors
+ * @return {?}
+ */
+function parseInnerTransitionStr(eventStr, expressions, errors) {
+    if (eventStr[0] == ':') {
+        /** @type {?} */
+        const result = parseAnimationAlias(eventStr, errors);
+        if (typeof result == 'function') {
+            expressions.push(result);
+            return;
+        }
+        eventStr = result;
+    }
+    /** @type {?} */
+    const match = eventStr.match(/^(\*|[-\w]+)\s*(<?[=-]>)\s*(\*|[-\w]+)$/);
+    if (match == null || match.length < 4) {
+        errors.push(`The provided transition expression "${eventStr}" is not supported`);
+        return expressions;
+    }
+    /** @type {?} */
+    const fromState = match[1];
+    /** @type {?} */
+    const separator = match[2];
+    /** @type {?} */
+    const toState = match[3];
+    expressions.push(makeLambdaFromStates(fromState, toState));
+    /** @type {?} */
+    const isFullAnyStateExpr = fromState == ANY_STATE && toState == ANY_STATE;
+    if (separator[0] == '<' && !isFullAnyStateExpr) {
+        expressions.push(makeLambdaFromStates(toState, fromState));
+    }
+}
+/**
+ * @param {?} alias
+ * @param {?} errors
+ * @return {?}
+ */
+function parseAnimationAlias(alias, errors) {
+    switch (alias) {
+        case ':enter':
+            return 'void => *';
+        case ':leave':
+            return '* => void';
+        case ':increment':
+            return (/**
+             * @param {?} fromState
+             * @param {?} toState
+             * @return {?}
+             */
+            (fromState, toState) => parseFloat(toState) > parseFloat(fromState));
+        case ':decrement':
+            return (/**
+             * @param {?} fromState
+             * @param {?} toState
+             * @return {?}
+             */
+            (fromState, toState) => parseFloat(toState) < parseFloat(fromState));
+        default:
+            errors.push(`The transition alias value "${alias}" is not supported`);
+            return '* => *';
+    }
+}
+// DO NOT REFACTOR ... keep the follow set instantiations
+// with the values intact (closure compiler for some reason
+// removes follow-up lines that add the values outside of
+// the constructor...
+/** @type {?} */
+const TRUE_BOOLEAN_VALUES = new Set(['true', '1']);
+/** @type {?} */
+const FALSE_BOOLEAN_VALUES = new Set(['false', '0']);
+/**
+ * @param {?} lhs
+ * @param {?} rhs
+ * @return {?}
+ */
+function makeLambdaFromStates(lhs, rhs) {
+    /** @type {?} */
+    const LHS_MATCH_BOOLEAN = TRUE_BOOLEAN_VALUES.has(lhs) || FALSE_BOOLEAN_VALUES.has(lhs);
+    /** @type {?} */
+    const RHS_MATCH_BOOLEAN = TRUE_BOOLEAN_VALUES.has(rhs) || FALSE_BOOLEAN_VALUES.has(rhs);
+    return (/**
+     * @param {?} fromState
+     * @param {?} toState
+     * @return {?}
+     */
+    (fromState, toState) => {
+        /** @type {?} */
+        let lhsMatch = lhs == ANY_STATE || lhs == fromState;
+        /** @type {?} */
+        let rhsMatch = rhs == ANY_STATE || rhs == toState;
+        if (!lhsMatch && LHS_MATCH_BOOLEAN && typeof fromState === 'boolean') {
+            lhsMatch = fromState ? TRUE_BOOLEAN_VALUES.has(lhs) : FALSE_BOOLEAN_VALUES.has(lhs);
+        }
+        if (!rhsMatch && RHS_MATCH_BOOLEAN && typeof toState === 'boolean') {
+            rhsMatch = toState ? TRUE_BOOLEAN_VALUES.has(rhs) : FALSE_BOOLEAN_VALUES.has(rhs);
+        }
+        return lhsMatch && rhsMatch;
+    });
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/dsl/animation_ast_builder.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const SELF_TOKEN = ':self';
+/** @type {?} */
+const SELF_TOKEN_REGEX = new RegExp(`\s*${SELF_TOKEN}\s*,?`, 'g');
+/*
+ * [Validation]
+ * The visitor code below will traverse the animation AST generated by the animation verb functions
+ * (the output is a tree of objects) and attempt to perform a series of validations on the data. The
+ * following corner-cases will be validated:
+ *
+ * 1. Overlap of animations
+ * Given that a CSS property cannot be animated in more than one place at the same time, it's
+ * important that this behavior is detected and validated. The way in which this occurs is that
+ * each time a style property is examined, a string-map containing the property will be updated with
+ * the start and end times for when the property is used within an animation step.
+ *
+ * If there are two or more parallel animations that are currently running (these are invoked by the
+ * group()) on the same element then the validator will throw an error. Since the start/end timing
+ * values are collected for each property then if the current animation step is animating the same
+ * property and its timing values fall anywhere into the window of time that the property is
+ * currently being animated within then this is what causes an error.
+ *
+ * 2. Timing values
+ * The validator will validate to see if a timing value of `duration delay easing` or
+ * `durationNumber` is valid or not.
+ *
+ * (note that upon validation the code below will replace the timing data with an object containing
+ * {duration,delay,easing}.
+ *
+ * 3. Offset Validation
+ * Each of the style() calls are allowed to have an offset value when placed inside of keyframes().
+ * Offsets within keyframes() are considered valid when:
+ *
+ *   - No offsets are used at all
+ *   - Each style() entry contains an offset value
+ *   - Each offset is between 0 and 1
+ *   - Each offset is greater to or equal than the previous one
+ *
+ * Otherwise an error will be thrown.
+ */
+/**
+ * @param {?} driver
+ * @param {?} metadata
+ * @param {?} errors
+ * @return {?}
+ */
+function buildAnimationAst(driver, metadata, errors) {
+    return new AnimationAstBuilderVisitor(driver).build(metadata, errors);
+}
+/** @type {?} */
+const ROOT_SELECTOR = '';
+class AnimationAstBuilderVisitor {
+    /**
+     * @param {?} _driver
+     */
+    constructor(_driver) {
+        this._driver = _driver;
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} errors
+     * @return {?}
+     */
+    build(metadata, errors) {
+        /** @type {?} */
+        const context = new AnimationAstBuilderContext(errors);
+        this._resetContextStyleTimingState(context);
+        return (/** @type {?} */ (visitDslNode(this, normalizeAnimationEntry(metadata), context)));
+    }
+    /**
+     * @private
+     * @param {?} context
+     * @return {?}
+     */
+    _resetContextStyleTimingState(context) {
+        context.currentQuerySelector = ROOT_SELECTOR;
+        context.collectedStyles = {};
+        context.collectedStyles[ROOT_SELECTOR] = {};
+        context.currentTime = 0;
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    visitTrigger(metadata, context) {
+        /** @type {?} */
+        let queryCount = context.queryCount = 0;
+        /** @type {?} */
+        let depCount = context.depCount = 0;
+        /** @type {?} */
+        const states = [];
+        /** @type {?} */
+        const transitions = [];
+        if (metadata.name.charAt(0) == '@') {
+            context.errors.push('animation triggers cannot be prefixed with an `@` sign (e.g. trigger(\'@foo\', [...]))');
+        }
+        metadata.definitions.forEach((/**
+         * @param {?} def
+         * @return {?}
+         */
+        def => {
+            this._resetContextStyleTimingState(context);
+            if (def.type == 0 /* State */) {
+                /** @type {?} */
+                const stateDef = (/** @type {?} */ (def));
+                /** @type {?} */
+                const name = stateDef.name;
+                name.toString().split(/\s*,\s*/).forEach((/**
+                 * @param {?} n
+                 * @return {?}
+                 */
+                n => {
+                    stateDef.name = n;
+                    states.push(this.visitState(stateDef, context));
+                }));
+                stateDef.name = name;
+            }
+            else if (def.type == 1 /* Transition */) {
+                /** @type {?} */
+                const transition = this.visitTransition((/** @type {?} */ (def)), context);
+                queryCount += transition.queryCount;
+                depCount += transition.depCount;
+                transitions.push(transition);
+            }
+            else {
+                context.errors.push('only state() and transition() definitions can sit inside of a trigger()');
+            }
+        }));
+        return {
+            type: 7 /* Trigger */,
+            name: metadata.name, states, transitions, queryCount, depCount,
+            options: null
+        };
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    visitState(metadata, context) {
+        /** @type {?} */
+        const styleAst = this.visitStyle(metadata.styles, context);
+        /** @type {?} */
+        const astParams = (metadata.options && metadata.options.params) || null;
+        if (styleAst.containsDynamicStyles) {
+            /** @type {?} */
+            const missingSubs = new Set();
+            /** @type {?} */
+            const params = astParams || {};
+            styleAst.styles.forEach((/**
+             * @param {?} value
+             * @return {?}
+             */
+            value => {
+                if (isObject(value)) {
+                    /** @type {?} */
+                    const stylesObj = (/** @type {?} */ (value));
+                    Object.keys(stylesObj).forEach((/**
+                     * @param {?} prop
+                     * @return {?}
+                     */
+                    prop => {
+                        extractStyleParams(stylesObj[prop]).forEach((/**
+                         * @param {?} sub
+                         * @return {?}
+                         */
+                        sub => {
+                            if (!params.hasOwnProperty(sub)) {
+                                missingSubs.add(sub);
+                            }
+                        }));
+                    }));
+                }
+            }));
+            if (missingSubs.size) {
+                /** @type {?} */
+                const missingSubsArr = iteratorToArray(missingSubs.values());
+                context.errors.push(`state("${metadata.name}", ...) must define default values for all the following style substitutions: ${missingSubsArr.join(', ')}`);
+            }
+        }
+        return {
+            type: 0 /* State */,
+            name: metadata.name,
+            style: styleAst,
+            options: astParams ? { params: astParams } : null
+        };
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    visitTransition(metadata, context) {
+        context.queryCount = 0;
+        context.depCount = 0;
+        /** @type {?} */
+        const animation = visitDslNode(this, normalizeAnimationEntry(metadata.animation), context);
+        /** @type {?} */
+        const matchers = parseTransitionExpr(metadata.expr, context.errors);
+        return {
+            type: 1 /* Transition */,
+            matchers,
+            animation,
+            queryCount: context.queryCount,
+            depCount: context.depCount,
+            options: normalizeAnimationOptions(metadata.options)
+        };
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    visitSequence(metadata, context) {
+        return {
+            type: 2 /* Sequence */,
+            steps: metadata.steps.map((/**
+             * @param {?} s
+             * @return {?}
+             */
+            s => visitDslNode(this, s, context))),
+            options: normalizeAnimationOptions(metadata.options)
+        };
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    visitGroup(metadata, context) {
+        /** @type {?} */
+        const currentTime = context.currentTime;
+        /** @type {?} */
+        let furthestTime = 0;
+        /** @type {?} */
+        const steps = metadata.steps.map((/**
+         * @param {?} step
+         * @return {?}
+         */
+        step => {
+            context.currentTime = currentTime;
+            /** @type {?} */
+            const innerAst = visitDslNode(this, step, context);
+            furthestTime = Math.max(furthestTime, context.currentTime);
+            return innerAst;
+        }));
+        context.currentTime = furthestTime;
+        return {
+            type: 3 /* Group */,
+            steps,
+            options: normalizeAnimationOptions(metadata.options)
+        };
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    visitAnimate(metadata, context) {
+        /** @type {?} */
+        const timingAst = constructTimingAst(metadata.timings, context.errors);
+        context.currentAnimateTimings = timingAst;
+        /** @type {?} */
+        let styleAst;
+        /** @type {?} */
+        let styleMetadata = metadata.styles ? metadata.styles : Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])({});
+        if (styleMetadata.type == 5 /* Keyframes */) {
+            styleAst = this.visitKeyframes((/** @type {?} */ (styleMetadata)), context);
+        }
+        else {
+            /** @type {?} */
+            let styleMetadata = (/** @type {?} */ (metadata.styles));
+            /** @type {?} */
+            let isEmpty = false;
+            if (!styleMetadata) {
+                isEmpty = true;
+                /** @type {?} */
+                const newStyleData = {};
+                if (timingAst.easing) {
+                    newStyleData['easing'] = timingAst.easing;
+                }
+                styleMetadata = Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])(newStyleData);
+            }
+            context.currentTime += timingAst.duration + timingAst.delay;
+            /** @type {?} */
+            const _styleAst = this.visitStyle(styleMetadata, context);
+            _styleAst.isEmptyStep = isEmpty;
+            styleAst = _styleAst;
+        }
+        context.currentAnimateTimings = null;
+        return {
+            type: 4 /* Animate */,
+            timings: timingAst,
+            style: styleAst,
+            options: null
+        };
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    visitStyle(metadata, context) {
+        /** @type {?} */
+        const ast = this._makeStyleAst(metadata, context);
+        this._validateStyleAst(ast, context);
+        return ast;
+    }
+    /**
+     * @private
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    _makeStyleAst(metadata, context) {
+        /** @type {?} */
+        const styles = [];
+        if (Array.isArray(metadata.styles)) {
+            ((/** @type {?} */ (metadata.styles))).forEach((/**
+             * @param {?} styleTuple
+             * @return {?}
+             */
+            styleTuple => {
+                if (typeof styleTuple == 'string') {
+                    if (styleTuple == _angular_animations__WEBPACK_IMPORTED_MODULE_0__["AUTO_STYLE"]) {
+                        styles.push(styleTuple);
+                    }
+                    else {
+                        context.errors.push(`The provided style string value ${styleTuple} is not allowed.`);
+                    }
+                }
+                else {
+                    styles.push(styleTuple);
+                }
+            }));
+        }
+        else {
+            styles.push(metadata.styles);
+        }
+        /** @type {?} */
+        let containsDynamicStyles = false;
+        /** @type {?} */
+        let collectedEasing = null;
+        styles.forEach((/**
+         * @param {?} styleData
+         * @return {?}
+         */
+        styleData => {
+            if (isObject(styleData)) {
+                /** @type {?} */
+                const styleMap = (/** @type {?} */ (styleData));
+                /** @type {?} */
+                const easing = styleMap['easing'];
+                if (easing) {
+                    collectedEasing = (/** @type {?} */ (easing));
+                    delete styleMap['easing'];
+                }
+                if (!containsDynamicStyles) {
+                    for (let prop in styleMap) {
+                        /** @type {?} */
+                        const value = styleMap[prop];
+                        if (value.toString().indexOf(SUBSTITUTION_EXPR_START) >= 0) {
+                            containsDynamicStyles = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }));
+        return {
+            type: 6 /* Style */,
+            styles,
+            easing: collectedEasing,
+            offset: metadata.offset, containsDynamicStyles,
+            options: null
+        };
+    }
+    /**
+     * @private
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    _validateStyleAst(ast, context) {
+        /** @type {?} */
+        const timings = context.currentAnimateTimings;
+        /** @type {?} */
+        let endTime = context.currentTime;
+        /** @type {?} */
+        let startTime = context.currentTime;
+        if (timings && startTime > 0) {
+            startTime -= timings.duration + timings.delay;
+        }
+        ast.styles.forEach((/**
+         * @param {?} tuple
+         * @return {?}
+         */
+        tuple => {
+            if (typeof tuple == 'string')
+                return;
+            Object.keys(tuple).forEach((/**
+             * @param {?} prop
+             * @return {?}
+             */
+            prop => {
+                if (!this._driver.validateStyleProperty(prop)) {
+                    context.errors.push(`The provided animation property "${prop}" is not a supported CSS property for animations`);
+                    return;
+                }
+                /** @type {?} */
+                const collectedStyles = context.collectedStyles[(/** @type {?} */ (context.currentQuerySelector))];
+                /** @type {?} */
+                const collectedEntry = collectedStyles[prop];
+                /** @type {?} */
+                let updateCollectedStyle = true;
+                if (collectedEntry) {
+                    if (startTime != endTime && startTime >= collectedEntry.startTime &&
+                        endTime <= collectedEntry.endTime) {
+                        context.errors.push(`The CSS property "${prop}" that exists between the times of "${collectedEntry.startTime}ms" and "${collectedEntry.endTime}ms" is also being animated in a parallel animation between the times of "${startTime}ms" and "${endTime}ms"`);
+                        updateCollectedStyle = false;
+                    }
+                    // we always choose the smaller start time value since we
+                    // want to have a record of the entire animation window where
+                    // the style property is being animated in between
+                    startTime = collectedEntry.startTime;
+                }
+                if (updateCollectedStyle) {
+                    collectedStyles[prop] = { startTime, endTime };
+                }
+                if (context.options) {
+                    validateStyleParams(tuple[prop], context.options, context.errors);
+                }
+            }));
+        }));
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    visitKeyframes(metadata, context) {
+        /** @type {?} */
+        const ast = { type: 5 /* Keyframes */, styles: [], options: null };
+        if (!context.currentAnimateTimings) {
+            context.errors.push(`keyframes() must be placed inside of a call to animate()`);
+            return ast;
+        }
+        /** @type {?} */
+        const MAX_KEYFRAME_OFFSET = 1;
+        /** @type {?} */
+        let totalKeyframesWithOffsets = 0;
+        /** @type {?} */
+        const offsets = [];
+        /** @type {?} */
+        let offsetsOutOfOrder = false;
+        /** @type {?} */
+        let keyframesOutOfRange = false;
+        /** @type {?} */
+        let previousOffset = 0;
+        /** @type {?} */
+        const keyframes = metadata.steps.map((/**
+         * @param {?} styles
+         * @return {?}
+         */
+        styles => {
+            /** @type {?} */
+            const style = this._makeStyleAst(styles, context);
+            /** @type {?} */
+            let offsetVal = style.offset != null ? style.offset : consumeOffset(style.styles);
+            /** @type {?} */
+            let offset = 0;
+            if (offsetVal != null) {
+                totalKeyframesWithOffsets++;
+                offset = style.offset = offsetVal;
+            }
+            keyframesOutOfRange = keyframesOutOfRange || offset < 0 || offset > 1;
+            offsetsOutOfOrder = offsetsOutOfOrder || offset < previousOffset;
+            previousOffset = offset;
+            offsets.push(offset);
+            return style;
+        }));
+        if (keyframesOutOfRange) {
+            context.errors.push(`Please ensure that all keyframe offsets are between 0 and 1`);
+        }
+        if (offsetsOutOfOrder) {
+            context.errors.push(`Please ensure that all keyframe offsets are in order`);
+        }
+        /** @type {?} */
+        const length = metadata.steps.length;
+        /** @type {?} */
+        let generatedOffset = 0;
+        if (totalKeyframesWithOffsets > 0 && totalKeyframesWithOffsets < length) {
+            context.errors.push(`Not all style() steps within the declared keyframes() contain offsets`);
+        }
+        else if (totalKeyframesWithOffsets == 0) {
+            generatedOffset = MAX_KEYFRAME_OFFSET / (length - 1);
+        }
+        /** @type {?} */
+        const limit = length - 1;
+        /** @type {?} */
+        const currentTime = context.currentTime;
+        /** @type {?} */
+        const currentAnimateTimings = (/** @type {?} */ (context.currentAnimateTimings));
+        /** @type {?} */
+        const animateDuration = currentAnimateTimings.duration;
+        keyframes.forEach((/**
+         * @param {?} kf
+         * @param {?} i
+         * @return {?}
+         */
+        (kf, i) => {
+            /** @type {?} */
+            const offset = generatedOffset > 0 ? (i == limit ? 1 : (generatedOffset * i)) : offsets[i];
+            /** @type {?} */
+            const durationUpToThisFrame = offset * animateDuration;
+            context.currentTime = currentTime + currentAnimateTimings.delay + durationUpToThisFrame;
+            currentAnimateTimings.duration = durationUpToThisFrame;
+            this._validateStyleAst(kf, context);
+            kf.offset = offset;
+            ast.styles.push(kf);
+        }));
+        return ast;
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    visitReference(metadata, context) {
+        return {
+            type: 8 /* Reference */,
+            animation: visitDslNode(this, normalizeAnimationEntry(metadata.animation), context),
+            options: normalizeAnimationOptions(metadata.options)
+        };
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    visitAnimateChild(metadata, context) {
+        context.depCount++;
+        return {
+            type: 9 /* AnimateChild */,
+            options: normalizeAnimationOptions(metadata.options)
+        };
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    visitAnimateRef(metadata, context) {
+        return {
+            type: 10 /* AnimateRef */,
+            animation: this.visitReference(metadata.animation, context),
+            options: normalizeAnimationOptions(metadata.options)
+        };
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    visitQuery(metadata, context) {
+        /** @type {?} */
+        const parentSelector = (/** @type {?} */ (context.currentQuerySelector));
+        /** @type {?} */
+        const options = (/** @type {?} */ ((metadata.options || {})));
+        context.queryCount++;
+        context.currentQuery = metadata;
+        const [selector, includeSelf] = normalizeSelector(metadata.selector);
+        context.currentQuerySelector =
+            parentSelector.length ? (parentSelector + ' ' + selector) : selector;
+        getOrSetAsInMap(context.collectedStyles, context.currentQuerySelector, {});
+        /** @type {?} */
+        const animation = visitDslNode(this, normalizeAnimationEntry(metadata.animation), context);
+        context.currentQuery = null;
+        context.currentQuerySelector = parentSelector;
+        return {
+            type: 11 /* Query */,
+            selector,
+            limit: options.limit || 0,
+            optional: !!options.optional, includeSelf, animation,
+            originalSelector: metadata.selector,
+            options: normalizeAnimationOptions(metadata.options)
+        };
+    }
+    /**
+     * @param {?} metadata
+     * @param {?} context
+     * @return {?}
+     */
+    visitStagger(metadata, context) {
+        if (!context.currentQuery) {
+            context.errors.push(`stagger() can only be used inside of query()`);
+        }
+        /** @type {?} */
+        const timings = metadata.timings === 'full' ?
+            { duration: 0, delay: 0, easing: 'full' } :
+            resolveTiming(metadata.timings, context.errors, true);
+        return {
+            type: 12 /* Stagger */,
+            animation: visitDslNode(this, normalizeAnimationEntry(metadata.animation), context), timings,
+            options: null
+        };
+    }
+}
+if (false) {}
+/**
+ * @param {?} selector
+ * @return {?}
+ */
+function normalizeSelector(selector) {
+    /** @type {?} */
+    const hasAmpersand = selector.split(/\s*,\s*/).find((/**
+     * @param {?} token
+     * @return {?}
+     */
+    token => token == SELF_TOKEN)) ? true : false;
+    if (hasAmpersand) {
+        selector = selector.replace(SELF_TOKEN_REGEX, '');
+    }
+    // the :enter and :leave selectors are filled in at runtime during timeline building
+    selector = selector.replace(/@\*/g, NG_TRIGGER_SELECTOR)
+        .replace(/@\w+/g, (/**
+     * @param {?} match
+     * @return {?}
+     */
+    match => NG_TRIGGER_SELECTOR + '-' + match.substr(1)))
+        .replace(/:animating/g, NG_ANIMATING_SELECTOR);
+    return [selector, hasAmpersand];
+}
+/**
+ * @param {?} obj
+ * @return {?}
+ */
+function normalizeParams(obj) {
+    return obj ? copyObj(obj) : null;
+}
+class AnimationAstBuilderContext {
+    /**
+     * @param {?} errors
+     */
+    constructor(errors) {
+        this.errors = errors;
+        this.queryCount = 0;
+        this.depCount = 0;
+        this.currentTransition = null;
+        this.currentQuery = null;
+        this.currentQuerySelector = null;
+        this.currentAnimateTimings = null;
+        this.currentTime = 0;
+        this.collectedStyles = {};
+        this.options = null;
+    }
+}
+if (false) {}
+/**
+ * @param {?} styles
+ * @return {?}
+ */
+function consumeOffset(styles) {
+    if (typeof styles == 'string')
+        return null;
+    /** @type {?} */
+    let offset = null;
+    if (Array.isArray(styles)) {
+        styles.forEach((/**
+         * @param {?} styleTuple
+         * @return {?}
+         */
+        styleTuple => {
+            if (isObject(styleTuple) && styleTuple.hasOwnProperty('offset')) {
+                /** @type {?} */
+                const obj = (/** @type {?} */ (styleTuple));
+                offset = parseFloat((/** @type {?} */ (obj['offset'])));
+                delete obj['offset'];
+            }
+        }));
+    }
+    else if (isObject(styles) && styles.hasOwnProperty('offset')) {
+        /** @type {?} */
+        const obj = styles;
+        offset = parseFloat((/** @type {?} */ (obj['offset'])));
+        delete obj['offset'];
+    }
+    return offset;
+}
+/**
+ * @param {?} value
+ * @return {?}
+ */
+function isObject(value) {
+    return !Array.isArray(value) && typeof value == 'object';
+}
+/**
+ * @param {?} value
+ * @param {?} errors
+ * @return {?}
+ */
+function constructTimingAst(value, errors) {
+    /** @type {?} */
+    let timings = null;
+    if (value.hasOwnProperty('duration')) {
+        timings = (/** @type {?} */ (value));
+    }
+    else if (typeof value == 'number') {
+        /** @type {?} */
+        const duration = resolveTiming(value, errors).duration;
+        return makeTimingAst(duration, 0, '');
+    }
+    /** @type {?} */
+    const strValue = (/** @type {?} */ (value));
+    /** @type {?} */
+    const isDynamic = strValue.split(/\s+/).some((/**
+     * @param {?} v
+     * @return {?}
+     */
+    v => v.charAt(0) == '{' && v.charAt(1) == '{'));
+    if (isDynamic) {
+        /** @type {?} */
+        const ast = (/** @type {?} */ (makeTimingAst(0, 0, '')));
+        ast.dynamic = true;
+        ast.strValue = strValue;
+        return (/** @type {?} */ (ast));
+    }
+    timings = timings || resolveTiming(strValue, errors);
+    return makeTimingAst(timings.duration, timings.delay, timings.easing);
+}
+/**
+ * @param {?} options
+ * @return {?}
+ */
+function normalizeAnimationOptions(options) {
+    if (options) {
+        options = copyObj(options);
+        if (options['params']) {
+            options['params'] = (/** @type {?} */ (normalizeParams(options['params'])));
+        }
+    }
+    else {
+        options = {};
+    }
+    return options;
+}
+/**
+ * @param {?} duration
+ * @param {?} delay
+ * @param {?} easing
+ * @return {?}
+ */
+function makeTimingAst(duration, delay, easing) {
+    return { duration, delay, easing };
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/dsl/animation_timeline_instruction.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+function AnimationTimelineInstruction() { }
+if (false) {}
+/**
+ * @param {?} element
+ * @param {?} keyframes
+ * @param {?} preStyleProps
+ * @param {?} postStyleProps
+ * @param {?} duration
+ * @param {?} delay
+ * @param {?=} easing
+ * @param {?=} subTimeline
+ * @return {?}
+ */
+function createTimelineInstruction(element, keyframes, preStyleProps, postStyleProps, duration, delay, easing = null, subTimeline = false) {
+    return {
+        type: 1 /* TimelineAnimation */,
+        element,
+        keyframes,
+        preStyleProps,
+        postStyleProps,
+        duration,
+        delay,
+        totalTime: duration + delay, easing, subTimeline
+    };
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/dsl/element_instruction_map.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class ElementInstructionMap {
+    constructor() {
+        this._map = new Map();
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    consume(element) {
+        /** @type {?} */
+        let instructions = this._map.get(element);
+        if (instructions) {
+            this._map.delete(element);
+        }
+        else {
+            instructions = [];
+        }
+        return instructions;
+    }
+    /**
+     * @param {?} element
+     * @param {?} instructions
+     * @return {?}
+     */
+    append(element, instructions) {
+        /** @type {?} */
+        let existingInstructions = this._map.get(element);
+        if (!existingInstructions) {
+            this._map.set(element, existingInstructions = []);
+        }
+        existingInstructions.push(...instructions);
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    has(element) { return this._map.has(element); }
+    /**
+     * @return {?}
+     */
+    clear() { this._map.clear(); }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/dsl/animation_timeline_builder.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const ONE_FRAME_IN_MILLISECONDS = 1;
+/** @type {?} */
+const ENTER_TOKEN = ':enter';
+/** @type {?} */
+const ENTER_TOKEN_REGEX = new RegExp(ENTER_TOKEN, 'g');
+/** @type {?} */
+const LEAVE_TOKEN = ':leave';
+/** @type {?} */
+const LEAVE_TOKEN_REGEX = new RegExp(LEAVE_TOKEN, 'g');
+/*
+ * The code within this file aims to generate web-animations-compatible keyframes from Angular's
+ * animation DSL code.
+ *
+ * The code below will be converted from:
+ *
+ * ```
+ * sequence([
+ *   style({ opacity: 0 }),
+ *   animate(1000, style({ opacity: 0 }))
+ * ])
+ * ```
+ *
+ * To:
+ * ```
+ * keyframes = [{ opacity: 0, offset: 0 }, { opacity: 1, offset: 1 }]
+ * duration = 1000
+ * delay = 0
+ * easing = ''
+ * ```
+ *
+ * For this operation to cover the combination of animation verbs (style, animate, group, etc...) a
+ * combination of prototypical inheritance, AST traversal and merge-sort-like algorithms are used.
+ *
+ * [AST Traversal]
+ * Each of the animation verbs, when executed, will return an string-map object representing what
+ * type of action it is (style, animate, group, etc...) and the data associated with it. This means
+ * that when functional composition mix of these functions is evaluated (like in the example above)
+ * then it will end up producing a tree of objects representing the animation itself.
+ *
+ * When this animation object tree is processed by the visitor code below it will visit each of the
+ * verb statements within the visitor. And during each visit it will build the context of the
+ * animation keyframes by interacting with the `TimelineBuilder`.
+ *
+ * [TimelineBuilder]
+ * This class is responsible for tracking the styles and building a series of keyframe objects for a
+ * timeline between a start and end time. The builder starts off with an initial timeline and each
+ * time the AST comes across a `group()`, `keyframes()` or a combination of the two wihtin a
+ * `sequence()` then it will generate a sub timeline for each step as well as a new one after
+ * they are complete.
+ *
+ * As the AST is traversed, the timing state on each of the timelines will be incremented. If a sub
+ * timeline was created (based on one of the cases above) then the parent timeline will attempt to
+ * merge the styles used within the sub timelines into itself (only with group() this will happen).
+ * This happens with a merge operation (much like how the merge works in mergesort) and it will only
+ * copy the most recently used styles from the sub timelines into the parent timeline. This ensures
+ * that if the styles are used later on in another phase of the animation then they will be the most
+ * up-to-date values.
+ *
+ * [How Missing Styles Are Updated]
+ * Each timeline has a `backFill` property which is responsible for filling in new styles into
+ * already processed keyframes if a new style shows up later within the animation sequence.
+ *
+ * ```
+ * sequence([
+ *   style({ width: 0 }),
+ *   animate(1000, style({ width: 100 })),
+ *   animate(1000, style({ width: 200 })),
+ *   animate(1000, style({ width: 300 }))
+ *   animate(1000, style({ width: 400, height: 400 })) // notice how `height` doesn't exist anywhere
+ * else
+ * ])
+ * ```
+ *
+ * What is happening here is that the `height` value is added later in the sequence, but is missing
+ * from all previous animation steps. Therefore when a keyframe is created it would also be missing
+ * from all previous keyframes up until where it is first used. For the timeline keyframe generation
+ * to properly fill in the style it will place the previous value (the value from the parent
+ * timeline) or a default value of `*` into the backFill object. Given that each of the keyframe
+ * styles are objects that prototypically inhert from the backFill object, this means that if a
+ * value is added into the backFill then it will automatically propagate any missing values to all
+ * keyframes. Therefore the missing `height` value will be properly filled into the already
+ * processed keyframes.
+ *
+ * When a sub-timeline is created it will have its own backFill property. This is done so that
+ * styles present within the sub-timeline do not accidentally seep into the previous/future timeline
+ * keyframes
+ *
+ * (For prototypically-inherited contents to be detected a `for(i in obj)` loop must be used.)
+ *
+ * [Validation]
+ * The code in this file is not responsible for validation. That functionality happens with within
+ * the `AnimationValidatorVisitor` code.
+ */
+/**
+ * @param {?} driver
+ * @param {?} rootElement
+ * @param {?} ast
+ * @param {?} enterClassName
+ * @param {?} leaveClassName
+ * @param {?=} startingStyles
+ * @param {?=} finalStyles
+ * @param {?=} options
+ * @param {?=} subInstructions
+ * @param {?=} errors
+ * @return {?}
+ */
+function buildAnimationTimelines(driver, rootElement, ast, enterClassName, leaveClassName, startingStyles = {}, finalStyles = {}, options, subInstructions, errors = []) {
+    return new AnimationTimelineBuilderVisitor().buildKeyframes(driver, rootElement, ast, enterClassName, leaveClassName, startingStyles, finalStyles, options, subInstructions, errors);
+}
+class AnimationTimelineBuilderVisitor {
+    /**
+     * @param {?} driver
+     * @param {?} rootElement
+     * @param {?} ast
+     * @param {?} enterClassName
+     * @param {?} leaveClassName
+     * @param {?} startingStyles
+     * @param {?} finalStyles
+     * @param {?} options
+     * @param {?=} subInstructions
+     * @param {?=} errors
+     * @return {?}
+     */
+    buildKeyframes(driver, rootElement, ast, enterClassName, leaveClassName, startingStyles, finalStyles, options, subInstructions, errors = []) {
+        subInstructions = subInstructions || new ElementInstructionMap();
+        /** @type {?} */
+        const context = new AnimationTimelineContext(driver, rootElement, subInstructions, enterClassName, leaveClassName, errors, []);
+        context.options = options;
+        context.currentTimeline.setStyles([startingStyles], null, context.errors, options);
+        visitDslNode(this, ast, context);
+        // this checks to see if an actual animation happened
+        /** @type {?} */
+        const timelines = context.timelines.filter((/**
+         * @param {?} timeline
+         * @return {?}
+         */
+        timeline => timeline.containsAnimation()));
+        if (timelines.length && Object.keys(finalStyles).length) {
+            /** @type {?} */
+            const tl = timelines[timelines.length - 1];
+            if (!tl.allowOnlyTimelineStyles()) {
+                tl.setStyles([finalStyles], null, context.errors, options);
+            }
+        }
+        return timelines.length ? timelines.map((/**
+         * @param {?} timeline
+         * @return {?}
+         */
+        timeline => timeline.buildKeyframes())) :
+            [createTimelineInstruction(rootElement, [], [], [], 0, 0, '', false)];
+    }
+    /**
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    visitTrigger(ast, context) {
+        // these values are not visited in this AST
+    }
+    /**
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    visitState(ast, context) {
+        // these values are not visited in this AST
+    }
+    /**
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    visitTransition(ast, context) {
+        // these values are not visited in this AST
+    }
+    /**
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    visitAnimateChild(ast, context) {
+        /** @type {?} */
+        const elementInstructions = context.subInstructions.consume(context.element);
+        if (elementInstructions) {
+            /** @type {?} */
+            const innerContext = context.createSubContext(ast.options);
+            /** @type {?} */
+            const startTime = context.currentTimeline.currentTime;
+            /** @type {?} */
+            const endTime = this._visitSubInstructions(elementInstructions, innerContext, (/** @type {?} */ (innerContext.options)));
+            if (startTime != endTime) {
+                // we do this on the upper context because we created a sub context for
+                // the sub child animations
+                context.transformIntoNewTimeline(endTime);
+            }
+        }
+        context.previousNode = ast;
+    }
+    /**
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    visitAnimateRef(ast, context) {
+        /** @type {?} */
+        const innerContext = context.createSubContext(ast.options);
+        innerContext.transformIntoNewTimeline();
+        this.visitReference(ast.animation, innerContext);
+        context.transformIntoNewTimeline(innerContext.currentTimeline.currentTime);
+        context.previousNode = ast;
+    }
+    /**
+     * @private
+     * @param {?} instructions
+     * @param {?} context
+     * @param {?} options
+     * @return {?}
+     */
+    _visitSubInstructions(instructions, context, options) {
+        /** @type {?} */
+        const startTime = context.currentTimeline.currentTime;
+        /** @type {?} */
+        let furthestTime = startTime;
+        // this is a special-case for when a user wants to skip a sub
+        // animation from being fired entirely.
+        /** @type {?} */
+        const duration = options.duration != null ? resolveTimingValue(options.duration) : null;
+        /** @type {?} */
+        const delay = options.delay != null ? resolveTimingValue(options.delay) : null;
+        if (duration !== 0) {
+            instructions.forEach((/**
+             * @param {?} instruction
+             * @return {?}
+             */
+            instruction => {
+                /** @type {?} */
+                const instructionTimings = context.appendInstructionToTimeline(instruction, duration, delay);
+                furthestTime =
+                    Math.max(furthestTime, instructionTimings.duration + instructionTimings.delay);
+            }));
+        }
+        return furthestTime;
+    }
+    /**
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    visitReference(ast, context) {
+        context.updateOptions(ast.options, true);
+        visitDslNode(this, ast.animation, context);
+        context.previousNode = ast;
+    }
+    /**
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    visitSequence(ast, context) {
+        /** @type {?} */
+        const subContextCount = context.subContextCount;
+        /** @type {?} */
+        let ctx = context;
+        /** @type {?} */
+        const options = ast.options;
+        if (options && (options.params || options.delay)) {
+            ctx = context.createSubContext(options);
+            ctx.transformIntoNewTimeline();
+            if (options.delay != null) {
+                if (ctx.previousNode.type == 6 /* Style */) {
+                    ctx.currentTimeline.snapshotCurrentStyles();
+                    ctx.previousNode = DEFAULT_NOOP_PREVIOUS_NODE;
+                }
+                /** @type {?} */
+                const delay = resolveTimingValue(options.delay);
+                ctx.delayNextStep(delay);
+            }
+        }
+        if (ast.steps.length) {
+            ast.steps.forEach((/**
+             * @param {?} s
+             * @return {?}
+             */
+            s => visitDslNode(this, s, ctx)));
+            // this is here just incase the inner steps only contain or end with a style() call
+            ctx.currentTimeline.applyStylesToKeyframe();
+            // this means that some animation function within the sequence
+            // ended up creating a sub timeline (which means the current
+            // timeline cannot overlap with the contents of the sequence)
+            if (ctx.subContextCount > subContextCount) {
+                ctx.transformIntoNewTimeline();
+            }
+        }
+        context.previousNode = ast;
+    }
+    /**
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    visitGroup(ast, context) {
+        /** @type {?} */
+        const innerTimelines = [];
+        /** @type {?} */
+        let furthestTime = context.currentTimeline.currentTime;
+        /** @type {?} */
+        const delay = ast.options && ast.options.delay ? resolveTimingValue(ast.options.delay) : 0;
+        ast.steps.forEach((/**
+         * @param {?} s
+         * @return {?}
+         */
+        s => {
+            /** @type {?} */
+            const innerContext = context.createSubContext(ast.options);
+            if (delay) {
+                innerContext.delayNextStep(delay);
+            }
+            visitDslNode(this, s, innerContext);
+            furthestTime = Math.max(furthestTime, innerContext.currentTimeline.currentTime);
+            innerTimelines.push(innerContext.currentTimeline);
+        }));
+        // this operation is run after the AST loop because otherwise
+        // if the parent timeline's collected styles were updated then
+        // it would pass in invalid data into the new-to-be forked items
+        innerTimelines.forEach((/**
+         * @param {?} timeline
+         * @return {?}
+         */
+        timeline => context.currentTimeline.mergeTimelineCollectedStyles(timeline)));
+        context.transformIntoNewTimeline(furthestTime);
+        context.previousNode = ast;
+    }
+    /**
+     * @private
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    _visitTiming(ast, context) {
+        if (((/** @type {?} */ (ast))).dynamic) {
+            /** @type {?} */
+            const strValue = ((/** @type {?} */ (ast))).strValue;
+            /** @type {?} */
+            const timingValue = context.params ? interpolateParams(strValue, context.params, context.errors) : strValue;
+            return resolveTiming(timingValue, context.errors);
+        }
+        else {
+            return { duration: ast.duration, delay: ast.delay, easing: ast.easing };
+        }
+    }
+    /**
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    visitAnimate(ast, context) {
+        /** @type {?} */
+        const timings = context.currentAnimateTimings = this._visitTiming(ast.timings, context);
+        /** @type {?} */
+        const timeline = context.currentTimeline;
+        if (timings.delay) {
+            context.incrementTime(timings.delay);
+            timeline.snapshotCurrentStyles();
+        }
+        /** @type {?} */
+        const style = ast.style;
+        if (style.type == 5 /* Keyframes */) {
+            this.visitKeyframes(style, context);
+        }
+        else {
+            context.incrementTime(timings.duration);
+            this.visitStyle((/** @type {?} */ (style)), context);
+            timeline.applyStylesToKeyframe();
+        }
+        context.currentAnimateTimings = null;
+        context.previousNode = ast;
+    }
+    /**
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    visitStyle(ast, context) {
+        /** @type {?} */
+        const timeline = context.currentTimeline;
+        /** @type {?} */
+        const timings = (/** @type {?} */ (context.currentAnimateTimings));
+        // this is a special case for when a style() call
+        // directly follows  an animate() call (but not inside of an animate() call)
+        if (!timings && timeline.getCurrentStyleProperties().length) {
+            timeline.forwardFrame();
+        }
+        /** @type {?} */
+        const easing = (timings && timings.easing) || ast.easing;
+        if (ast.isEmptyStep) {
+            timeline.applyEmptyStep(easing);
+        }
+        else {
+            timeline.setStyles(ast.styles, easing, context.errors, context.options);
+        }
+        context.previousNode = ast;
+    }
+    /**
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    visitKeyframes(ast, context) {
+        /** @type {?} */
+        const currentAnimateTimings = (/** @type {?} */ (context.currentAnimateTimings));
+        /** @type {?} */
+        const startTime = ((/** @type {?} */ (context.currentTimeline))).duration;
+        /** @type {?} */
+        const duration = currentAnimateTimings.duration;
+        /** @type {?} */
+        const innerContext = context.createSubContext();
+        /** @type {?} */
+        const innerTimeline = innerContext.currentTimeline;
+        innerTimeline.easing = currentAnimateTimings.easing;
+        ast.styles.forEach((/**
+         * @param {?} step
+         * @return {?}
+         */
+        step => {
+            /** @type {?} */
+            const offset = step.offset || 0;
+            innerTimeline.forwardTime(offset * duration);
+            innerTimeline.setStyles(step.styles, step.easing, context.errors, context.options);
+            innerTimeline.applyStylesToKeyframe();
+        }));
+        // this will ensure that the parent timeline gets all the styles from
+        // the child even if the new timeline below is not used
+        context.currentTimeline.mergeTimelineCollectedStyles(innerTimeline);
+        // we do this because the window between this timeline and the sub timeline
+        // should ensure that the styles within are exactly the same as they were before
+        context.transformIntoNewTimeline(startTime + duration);
+        context.previousNode = ast;
+    }
+    /**
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    visitQuery(ast, context) {
+        // in the event that the first step before this is a style step we need
+        // to ensure the styles are applied before the children are animated
+        /** @type {?} */
+        const startTime = context.currentTimeline.currentTime;
+        /** @type {?} */
+        const options = (/** @type {?} */ ((ast.options || {})));
+        /** @type {?} */
+        const delay = options.delay ? resolveTimingValue(options.delay) : 0;
+        if (delay && (context.previousNode.type === 6 /* Style */ ||
+            (startTime == 0 && context.currentTimeline.getCurrentStyleProperties().length))) {
+            context.currentTimeline.snapshotCurrentStyles();
+            context.previousNode = DEFAULT_NOOP_PREVIOUS_NODE;
+        }
+        /** @type {?} */
+        let furthestTime = startTime;
+        /** @type {?} */
+        const elms = context.invokeQuery(ast.selector, ast.originalSelector, ast.limit, ast.includeSelf, options.optional ? true : false, context.errors);
+        context.currentQueryTotal = elms.length;
+        /** @type {?} */
+        let sameElementTimeline = null;
+        elms.forEach((/**
+         * @param {?} element
+         * @param {?} i
+         * @return {?}
+         */
+        (element, i) => {
+            context.currentQueryIndex = i;
+            /** @type {?} */
+            const innerContext = context.createSubContext(ast.options, element);
+            if (delay) {
+                innerContext.delayNextStep(delay);
+            }
+            if (element === context.element) {
+                sameElementTimeline = innerContext.currentTimeline;
+            }
+            visitDslNode(this, ast.animation, innerContext);
+            // this is here just incase the inner steps only contain or end
+            // with a style() call (which is here to signal that this is a preparatory
+            // call to style an element before it is animated again)
+            innerContext.currentTimeline.applyStylesToKeyframe();
+            /** @type {?} */
+            const endTime = innerContext.currentTimeline.currentTime;
+            furthestTime = Math.max(furthestTime, endTime);
+        }));
+        context.currentQueryIndex = 0;
+        context.currentQueryTotal = 0;
+        context.transformIntoNewTimeline(furthestTime);
+        if (sameElementTimeline) {
+            context.currentTimeline.mergeTimelineCollectedStyles(sameElementTimeline);
+            context.currentTimeline.snapshotCurrentStyles();
+        }
+        context.previousNode = ast;
+    }
+    /**
+     * @param {?} ast
+     * @param {?} context
+     * @return {?}
+     */
+    visitStagger(ast, context) {
+        /** @type {?} */
+        const parentContext = (/** @type {?} */ (context.parentContext));
+        /** @type {?} */
+        const tl = context.currentTimeline;
+        /** @type {?} */
+        const timings = ast.timings;
+        /** @type {?} */
+        const duration = Math.abs(timings.duration);
+        /** @type {?} */
+        const maxTime = duration * (context.currentQueryTotal - 1);
+        /** @type {?} */
+        let delay = duration * context.currentQueryIndex;
+        /** @type {?} */
+        let staggerTransformer = timings.duration < 0 ? 'reverse' : timings.easing;
+        switch (staggerTransformer) {
+            case 'reverse':
+                delay = maxTime - delay;
+                break;
+            case 'full':
+                delay = parentContext.currentStaggerTime;
+                break;
+        }
+        /** @type {?} */
+        const timeline = context.currentTimeline;
+        if (delay) {
+            timeline.delayNextStep(delay);
+        }
+        /** @type {?} */
+        const startingTime = timeline.currentTime;
+        visitDslNode(this, ast.animation, context);
+        context.previousNode = ast;
+        // time = duration + delay
+        // the reason why this computation is so complex is because
+        // the inner timeline may either have a delay value or a stretched
+        // keyframe depending on if a subtimeline is not used or is used.
+        parentContext.currentStaggerTime =
+            (tl.currentTime - startingTime) + (tl.startTime - parentContext.currentTimeline.startTime);
+    }
+}
+/** @type {?} */
+const DEFAULT_NOOP_PREVIOUS_NODE = (/** @type {?} */ ({}));
+class AnimationTimelineContext {
+    /**
+     * @param {?} _driver
+     * @param {?} element
+     * @param {?} subInstructions
+     * @param {?} _enterClassName
+     * @param {?} _leaveClassName
+     * @param {?} errors
+     * @param {?} timelines
+     * @param {?=} initialTimeline
+     */
+    constructor(_driver, element, subInstructions, _enterClassName, _leaveClassName, errors, timelines, initialTimeline) {
+        this._driver = _driver;
+        this.element = element;
+        this.subInstructions = subInstructions;
+        this._enterClassName = _enterClassName;
+        this._leaveClassName = _leaveClassName;
+        this.errors = errors;
+        this.timelines = timelines;
+        this.parentContext = null;
+        this.currentAnimateTimings = null;
+        this.previousNode = DEFAULT_NOOP_PREVIOUS_NODE;
+        this.subContextCount = 0;
+        this.options = {};
+        this.currentQueryIndex = 0;
+        this.currentQueryTotal = 0;
+        this.currentStaggerTime = 0;
+        this.currentTimeline = initialTimeline || new TimelineBuilder(this._driver, element, 0);
+        timelines.push(this.currentTimeline);
+    }
+    /**
+     * @return {?}
+     */
+    get params() { return this.options.params; }
+    /**
+     * @param {?} options
+     * @param {?=} skipIfExists
+     * @return {?}
+     */
+    updateOptions(options, skipIfExists) {
+        if (!options)
+            return;
+        /** @type {?} */
+        const newOptions = (/** @type {?} */ (options));
+        /** @type {?} */
+        let optionsToUpdate = this.options;
+        // NOTE: this will get patched up when other animation methods support duration overrides
+        if (newOptions.duration != null) {
+            ((/** @type {?} */ (optionsToUpdate))).duration = resolveTimingValue(newOptions.duration);
+        }
+        if (newOptions.delay != null) {
+            optionsToUpdate.delay = resolveTimingValue(newOptions.delay);
+        }
+        /** @type {?} */
+        const newParams = newOptions.params;
+        if (newParams) {
+            /** @type {?} */
+            let paramsToUpdate = (/** @type {?} */ (optionsToUpdate.params));
+            if (!paramsToUpdate) {
+                paramsToUpdate = this.options.params = {};
+            }
+            Object.keys(newParams).forEach((/**
+             * @param {?} name
+             * @return {?}
+             */
+            name => {
+                if (!skipIfExists || !paramsToUpdate.hasOwnProperty(name)) {
+                    paramsToUpdate[name] = interpolateParams(newParams[name], paramsToUpdate, this.errors);
+                }
+            }));
+        }
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _copyOptions() {
+        /** @type {?} */
+        const options = {};
+        if (this.options) {
+            /** @type {?} */
+            const oldParams = this.options.params;
+            if (oldParams) {
+                /** @type {?} */
+                const params = options['params'] = {};
+                Object.keys(oldParams).forEach((/**
+                 * @param {?} name
+                 * @return {?}
+                 */
+                name => { params[name] = oldParams[name]; }));
+            }
+        }
+        return options;
+    }
+    /**
+     * @param {?=} options
+     * @param {?=} element
+     * @param {?=} newTime
+     * @return {?}
+     */
+    createSubContext(options = null, element, newTime) {
+        /** @type {?} */
+        const target = element || this.element;
+        /** @type {?} */
+        const context = new AnimationTimelineContext(this._driver, target, this.subInstructions, this._enterClassName, this._leaveClassName, this.errors, this.timelines, this.currentTimeline.fork(target, newTime || 0));
+        context.previousNode = this.previousNode;
+        context.currentAnimateTimings = this.currentAnimateTimings;
+        context.options = this._copyOptions();
+        context.updateOptions(options);
+        context.currentQueryIndex = this.currentQueryIndex;
+        context.currentQueryTotal = this.currentQueryTotal;
+        context.parentContext = this;
+        this.subContextCount++;
+        return context;
+    }
+    /**
+     * @param {?=} newTime
+     * @return {?}
+     */
+    transformIntoNewTimeline(newTime) {
+        this.previousNode = DEFAULT_NOOP_PREVIOUS_NODE;
+        this.currentTimeline = this.currentTimeline.fork(this.element, newTime);
+        this.timelines.push(this.currentTimeline);
+        return this.currentTimeline;
+    }
+    /**
+     * @param {?} instruction
+     * @param {?} duration
+     * @param {?} delay
+     * @return {?}
+     */
+    appendInstructionToTimeline(instruction, duration, delay) {
+        /** @type {?} */
+        const updatedTimings = {
+            duration: duration != null ? duration : instruction.duration,
+            delay: this.currentTimeline.currentTime + (delay != null ? delay : 0) + instruction.delay,
+            easing: ''
+        };
+        /** @type {?} */
+        const builder = new SubTimelineBuilder(this._driver, instruction.element, instruction.keyframes, instruction.preStyleProps, instruction.postStyleProps, updatedTimings, instruction.stretchStartingKeyframe);
+        this.timelines.push(builder);
+        return updatedTimings;
+    }
+    /**
+     * @param {?} time
+     * @return {?}
+     */
+    incrementTime(time) {
+        this.currentTimeline.forwardTime(this.currentTimeline.duration + time);
+    }
+    /**
+     * @param {?} delay
+     * @return {?}
+     */
+    delayNextStep(delay) {
+        // negative delays are not yet supported
+        if (delay > 0) {
+            this.currentTimeline.delayNextStep(delay);
+        }
+    }
+    /**
+     * @param {?} selector
+     * @param {?} originalSelector
+     * @param {?} limit
+     * @param {?} includeSelf
+     * @param {?} optional
+     * @param {?} errors
+     * @return {?}
+     */
+    invokeQuery(selector, originalSelector, limit, includeSelf, optional, errors) {
+        /** @type {?} */
+        let results = [];
+        if (includeSelf) {
+            results.push(this.element);
+        }
+        if (selector.length > 0) { // if :self is only used then the selector is empty
+            selector = selector.replace(ENTER_TOKEN_REGEX, '.' + this._enterClassName);
+            selector = selector.replace(LEAVE_TOKEN_REGEX, '.' + this._leaveClassName);
+            /** @type {?} */
+            const multi = limit != 1;
+            /** @type {?} */
+            let elements = this._driver.query(this.element, selector, multi);
+            if (limit !== 0) {
+                elements = limit < 0 ? elements.slice(elements.length + limit, elements.length) :
+                    elements.slice(0, limit);
+            }
+            results.push(...elements);
+        }
+        if (!optional && results.length == 0) {
+            errors.push(`\`query("${originalSelector}")\` returned zero elements. (Use \`query("${originalSelector}", { optional: true })\` if you wish to allow this.)`);
+        }
+        return results;
+    }
+}
+if (false) {}
+class TimelineBuilder {
+    /**
+     * @param {?} _driver
+     * @param {?} element
+     * @param {?} startTime
+     * @param {?=} _elementTimelineStylesLookup
+     */
+    constructor(_driver, element, startTime, _elementTimelineStylesLookup) {
+        this._driver = _driver;
+        this.element = element;
+        this.startTime = startTime;
+        this._elementTimelineStylesLookup = _elementTimelineStylesLookup;
+        this.duration = 0;
+        this._previousKeyframe = {};
+        this._currentKeyframe = {};
+        this._keyframes = new Map();
+        this._styleSummary = {};
+        this._pendingStyles = {};
+        this._backFill = {};
+        this._currentEmptyStepKeyframe = null;
+        if (!this._elementTimelineStylesLookup) {
+            this._elementTimelineStylesLookup = new Map();
+        }
+        this._localTimelineStyles = Object.create(this._backFill, {});
+        this._globalTimelineStyles = (/** @type {?} */ (this._elementTimelineStylesLookup.get(element)));
+        if (!this._globalTimelineStyles) {
+            this._globalTimelineStyles = this._localTimelineStyles;
+            this._elementTimelineStylesLookup.set(element, this._localTimelineStyles);
+        }
+        this._loadKeyframe();
+    }
+    /**
+     * @return {?}
+     */
+    containsAnimation() {
+        switch (this._keyframes.size) {
+            case 0:
+                return false;
+            case 1:
+                return this.getCurrentStyleProperties().length > 0;
+            default:
+                return true;
+        }
+    }
+    /**
+     * @return {?}
+     */
+    getCurrentStyleProperties() { return Object.keys(this._currentKeyframe); }
+    /**
+     * @return {?}
+     */
+    get currentTime() { return this.startTime + this.duration; }
+    /**
+     * @param {?} delay
+     * @return {?}
+     */
+    delayNextStep(delay) {
+        // in the event that a style() step is placed right before a stagger()
+        // and that style() step is the very first style() value in the animation
+        // then we need to make a copy of the keyframe [0, copy, 1] so that the delay
+        // properly applies the style() values to work with the stagger...
+        /** @type {?} */
+        const hasPreStyleStep = this._keyframes.size == 1 && Object.keys(this._pendingStyles).length;
+        if (this.duration || hasPreStyleStep) {
+            this.forwardTime(this.currentTime + delay);
+            if (hasPreStyleStep) {
+                this.snapshotCurrentStyles();
+            }
+        }
+        else {
+            this.startTime += delay;
+        }
+    }
+    /**
+     * @param {?} element
+     * @param {?=} currentTime
+     * @return {?}
+     */
+    fork(element, currentTime) {
+        this.applyStylesToKeyframe();
+        return new TimelineBuilder(this._driver, element, currentTime || this.currentTime, this._elementTimelineStylesLookup);
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _loadKeyframe() {
+        if (this._currentKeyframe) {
+            this._previousKeyframe = this._currentKeyframe;
+        }
+        this._currentKeyframe = (/** @type {?} */ (this._keyframes.get(this.duration)));
+        if (!this._currentKeyframe) {
+            this._currentKeyframe = Object.create(this._backFill, {});
+            this._keyframes.set(this.duration, this._currentKeyframe);
+        }
+    }
+    /**
+     * @return {?}
+     */
+    forwardFrame() {
+        this.duration += ONE_FRAME_IN_MILLISECONDS;
+        this._loadKeyframe();
+    }
+    /**
+     * @param {?} time
+     * @return {?}
+     */
+    forwardTime(time) {
+        this.applyStylesToKeyframe();
+        this.duration = time;
+        this._loadKeyframe();
+    }
+    /**
+     * @private
+     * @param {?} prop
+     * @param {?} value
+     * @return {?}
+     */
+    _updateStyle(prop, value) {
+        this._localTimelineStyles[prop] = value;
+        this._globalTimelineStyles[prop] = value;
+        this._styleSummary[prop] = { time: this.currentTime, value };
+    }
+    /**
+     * @return {?}
+     */
+    allowOnlyTimelineStyles() { return this._currentEmptyStepKeyframe !== this._currentKeyframe; }
+    /**
+     * @param {?} easing
+     * @return {?}
+     */
+    applyEmptyStep(easing) {
+        if (easing) {
+            this._previousKeyframe['easing'] = easing;
+        }
+        // special case for animate(duration):
+        // all missing styles are filled with a `*` value then
+        // if any destination styles are filled in later on the same
+        // keyframe then they will override the overridden styles
+        // We use `_globalTimelineStyles` here because there may be
+        // styles in previous keyframes that are not present in this timeline
+        Object.keys(this._globalTimelineStyles).forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => {
+            this._backFill[prop] = this._globalTimelineStyles[prop] || _angular_animations__WEBPACK_IMPORTED_MODULE_0__["AUTO_STYLE"];
+            this._currentKeyframe[prop] = _angular_animations__WEBPACK_IMPORTED_MODULE_0__["AUTO_STYLE"];
+        }));
+        this._currentEmptyStepKeyframe = this._currentKeyframe;
+    }
+    /**
+     * @param {?} input
+     * @param {?} easing
+     * @param {?} errors
+     * @param {?=} options
+     * @return {?}
+     */
+    setStyles(input, easing, errors, options) {
+        if (easing) {
+            this._previousKeyframe['easing'] = easing;
+        }
+        /** @type {?} */
+        const params = (options && options.params) || {};
+        /** @type {?} */
+        const styles = flattenStyles(input, this._globalTimelineStyles);
+        Object.keys(styles).forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => {
+            /** @type {?} */
+            const val = interpolateParams(styles[prop], params, errors);
+            this._pendingStyles[prop] = val;
+            if (!this._localTimelineStyles.hasOwnProperty(prop)) {
+                this._backFill[prop] = this._globalTimelineStyles.hasOwnProperty(prop) ?
+                    this._globalTimelineStyles[prop] :
+                    _angular_animations__WEBPACK_IMPORTED_MODULE_0__["AUTO_STYLE"];
+            }
+            this._updateStyle(prop, val);
+        }));
+    }
+    /**
+     * @return {?}
+     */
+    applyStylesToKeyframe() {
+        /** @type {?} */
+        const styles = this._pendingStyles;
+        /** @type {?} */
+        const props = Object.keys(styles);
+        if (props.length == 0)
+            return;
+        this._pendingStyles = {};
+        props.forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => {
+            /** @type {?} */
+            const val = styles[prop];
+            this._currentKeyframe[prop] = val;
+        }));
+        Object.keys(this._localTimelineStyles).forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => {
+            if (!this._currentKeyframe.hasOwnProperty(prop)) {
+                this._currentKeyframe[prop] = this._localTimelineStyles[prop];
+            }
+        }));
+    }
+    /**
+     * @return {?}
+     */
+    snapshotCurrentStyles() {
+        Object.keys(this._localTimelineStyles).forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => {
+            /** @type {?} */
+            const val = this._localTimelineStyles[prop];
+            this._pendingStyles[prop] = val;
+            this._updateStyle(prop, val);
+        }));
+    }
+    /**
+     * @return {?}
+     */
+    getFinalKeyframe() { return this._keyframes.get(this.duration); }
+    /**
+     * @return {?}
+     */
+    get properties() {
+        /** @type {?} */
+        const properties = [];
+        for (let prop in this._currentKeyframe) {
+            properties.push(prop);
+        }
+        return properties;
+    }
+    /**
+     * @param {?} timeline
+     * @return {?}
+     */
+    mergeTimelineCollectedStyles(timeline) {
+        Object.keys(timeline._styleSummary).forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => {
+            /** @type {?} */
+            const details0 = this._styleSummary[prop];
+            /** @type {?} */
+            const details1 = timeline._styleSummary[prop];
+            if (!details0 || details1.time > details0.time) {
+                this._updateStyle(prop, details1.value);
+            }
+        }));
+    }
+    /**
+     * @return {?}
+     */
+    buildKeyframes() {
+        this.applyStylesToKeyframe();
+        /** @type {?} */
+        const preStyleProps = new Set();
+        /** @type {?} */
+        const postStyleProps = new Set();
+        /** @type {?} */
+        const isEmpty = this._keyframes.size === 1 && this.duration === 0;
+        /** @type {?} */
+        let finalKeyframes = [];
+        this._keyframes.forEach((/**
+         * @param {?} keyframe
+         * @param {?} time
+         * @return {?}
+         */
+        (keyframe, time) => {
+            /** @type {?} */
+            const finalKeyframe = copyStyles(keyframe, true);
+            Object.keys(finalKeyframe).forEach((/**
+             * @param {?} prop
+             * @return {?}
+             */
+            prop => {
+                /** @type {?} */
+                const value = finalKeyframe[prop];
+                if (value == _angular_animations__WEBPACK_IMPORTED_MODULE_0__["ɵPRE_STYLE"]) {
+                    preStyleProps.add(prop);
+                }
+                else if (value == _angular_animations__WEBPACK_IMPORTED_MODULE_0__["AUTO_STYLE"]) {
+                    postStyleProps.add(prop);
+                }
+            }));
+            if (!isEmpty) {
+                finalKeyframe['offset'] = time / this.duration;
+            }
+            finalKeyframes.push(finalKeyframe);
+        }));
+        /** @type {?} */
+        const preProps = preStyleProps.size ? iteratorToArray(preStyleProps.values()) : [];
+        /** @type {?} */
+        const postProps = postStyleProps.size ? iteratorToArray(postStyleProps.values()) : [];
+        // special case for a 0-second animation (which is designed just to place styles onscreen)
+        if (isEmpty) {
+            /** @type {?} */
+            const kf0 = finalKeyframes[0];
+            /** @type {?} */
+            const kf1 = copyObj(kf0);
+            kf0['offset'] = 0;
+            kf1['offset'] = 1;
+            finalKeyframes = [kf0, kf1];
+        }
+        return createTimelineInstruction(this.element, finalKeyframes, preProps, postProps, this.duration, this.startTime, this.easing, false);
+    }
+}
+if (false) {}
+class SubTimelineBuilder extends TimelineBuilder {
+    /**
+     * @param {?} driver
+     * @param {?} element
+     * @param {?} keyframes
+     * @param {?} preStyleProps
+     * @param {?} postStyleProps
+     * @param {?} timings
+     * @param {?=} _stretchStartingKeyframe
+     */
+    constructor(driver, element, keyframes, preStyleProps, postStyleProps, timings, _stretchStartingKeyframe = false) {
+        super(driver, element, timings.delay);
+        this.element = element;
+        this.keyframes = keyframes;
+        this.preStyleProps = preStyleProps;
+        this.postStyleProps = postStyleProps;
+        this._stretchStartingKeyframe = _stretchStartingKeyframe;
+        this.timings = { duration: timings.duration, delay: timings.delay, easing: timings.easing };
+    }
+    /**
+     * @return {?}
+     */
+    containsAnimation() { return this.keyframes.length > 1; }
+    /**
+     * @return {?}
+     */
+    buildKeyframes() {
+        /** @type {?} */
+        let keyframes = this.keyframes;
+        let { delay, duration, easing } = this.timings;
+        if (this._stretchStartingKeyframe && delay) {
+            /** @type {?} */
+            const newKeyframes = [];
+            /** @type {?} */
+            const totalTime = duration + delay;
+            /** @type {?} */
+            const startingGap = delay / totalTime;
+            // the original starting keyframe now starts once the delay is done
+            /** @type {?} */
+            const newFirstKeyframe = copyStyles(keyframes[0], false);
+            newFirstKeyframe['offset'] = 0;
+            newKeyframes.push(newFirstKeyframe);
+            /** @type {?} */
+            const oldFirstKeyframe = copyStyles(keyframes[0], false);
+            oldFirstKeyframe['offset'] = roundOffset(startingGap);
+            newKeyframes.push(oldFirstKeyframe);
+            /*
+                    When the keyframe is stretched then it means that the delay before the animation
+                    starts is gone. Instead the first keyframe is placed at the start of the animation
+                    and it is then copied to where it starts when the original delay is over. This basically
+                    means nothing animates during that delay, but the styles are still renderered. For this
+                    to work the original offset values that exist in the original keyframes must be "warped"
+                    so that they can take the new keyframe + delay into account.
+            
+                    delay=1000, duration=1000, keyframes = 0 .5 1
+            
+                    turns into
+            
+                    delay=0, duration=2000, keyframes = 0 .33 .66 1
+                   */
+            // offsets between 1 ... n -1 are all warped by the keyframe stretch
+            /** @type {?} */
+            const limit = keyframes.length - 1;
+            for (let i = 1; i <= limit; i++) {
+                /** @type {?} */
+                let kf = copyStyles(keyframes[i], false);
+                /** @type {?} */
+                const oldOffset = (/** @type {?} */ (kf['offset']));
+                /** @type {?} */
+                const timeAtKeyframe = delay + oldOffset * duration;
+                kf['offset'] = roundOffset(timeAtKeyframe / totalTime);
+                newKeyframes.push(kf);
+            }
+            // the new starting keyframe should be added at the start
+            duration = totalTime;
+            delay = 0;
+            easing = '';
+            keyframes = newKeyframes;
+        }
+        return createTimelineInstruction(this.element, keyframes, this.preStyleProps, this.postStyleProps, duration, delay, easing, true);
+    }
+}
+if (false) {}
+/**
+ * @param {?} offset
+ * @param {?=} decimalPoints
+ * @return {?}
+ */
+function roundOffset(offset, decimalPoints = 3) {
+    /** @type {?} */
+    const mult = Math.pow(10, decimalPoints - 1);
+    return Math.round(offset * mult) / mult;
+}
+/**
+ * @param {?} input
+ * @param {?} allStyles
+ * @return {?}
+ */
+function flattenStyles(input, allStyles) {
+    /** @type {?} */
+    const styles = {};
+    /** @type {?} */
+    let allProperties;
+    input.forEach((/**
+     * @param {?} token
+     * @return {?}
+     */
+    token => {
+        if (token === '*') {
+            allProperties = allProperties || Object.keys(allStyles);
+            allProperties.forEach((/**
+             * @param {?} prop
+             * @return {?}
+             */
+            prop => { styles[prop] = _angular_animations__WEBPACK_IMPORTED_MODULE_0__["AUTO_STYLE"]; }));
+        }
+        else {
+            copyStyles((/** @type {?} */ (token)), false, styles);
+        }
+    }));
+    return styles;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/dsl/animation.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class Animation {
+    /**
+     * @param {?} _driver
+     * @param {?} input
+     */
+    constructor(_driver, input) {
+        this._driver = _driver;
+        /** @type {?} */
+        const errors = [];
+        /** @type {?} */
+        const ast = buildAnimationAst(_driver, input, errors);
+        if (errors.length) {
+            /** @type {?} */
+            const errorMessage = `animation validation failed:\n${errors.join("\n")}`;
+            throw new Error(errorMessage);
+        }
+        this._animationAst = ast;
+    }
+    /**
+     * @param {?} element
+     * @param {?} startingStyles
+     * @param {?} destinationStyles
+     * @param {?} options
+     * @param {?=} subInstructions
+     * @return {?}
+     */
+    buildTimelines(element, startingStyles, destinationStyles, options, subInstructions) {
+        /** @type {?} */
+        const start = Array.isArray(startingStyles) ? normalizeStyles(startingStyles) :
+            (/** @type {?} */ (startingStyles));
+        /** @type {?} */
+        const dest = Array.isArray(destinationStyles) ? normalizeStyles(destinationStyles) :
+            (/** @type {?} */ (destinationStyles));
+        /** @type {?} */
+        const errors = [];
+        subInstructions = subInstructions || new ElementInstructionMap();
+        /** @type {?} */
+        const result = buildAnimationTimelines(this._driver, element, this._animationAst, ENTER_CLASSNAME, LEAVE_CLASSNAME, start, dest, options, subInstructions, errors);
+        if (errors.length) {
+            /** @type {?} */
+            const errorMessage = `animation building failed:\n${errors.join("\n")}`;
+            throw new Error(errorMessage);
+        }
+        return result;
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/dsl/style_normalization/animation_style_normalizer.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * \@publicApi
+ * @abstract
+ */
+class AnimationStyleNormalizer {
+}
+if (false) {}
+/**
+ * \@publicApi
+ */
+class NoopAnimationStyleNormalizer {
+    /**
+     * @param {?} propertyName
+     * @param {?} errors
+     * @return {?}
+     */
+    normalizePropertyName(propertyName, errors) { return propertyName; }
+    /**
+     * @param {?} userProvidedProperty
+     * @param {?} normalizedProperty
+     * @param {?} value
+     * @param {?} errors
+     * @return {?}
+     */
+    normalizeStyleValue(userProvidedProperty, normalizedProperty, value, errors) {
+        return (/** @type {?} */ (value));
+    }
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/dsl/style_normalization/web_animations_style_normalizer.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class WebAnimationsStyleNormalizer extends AnimationStyleNormalizer {
+    /**
+     * @param {?} propertyName
+     * @param {?} errors
+     * @return {?}
+     */
+    normalizePropertyName(propertyName, errors) {
+        return dashCaseToCamelCase(propertyName);
+    }
+    /**
+     * @param {?} userProvidedProperty
+     * @param {?} normalizedProperty
+     * @param {?} value
+     * @param {?} errors
+     * @return {?}
+     */
+    normalizeStyleValue(userProvidedProperty, normalizedProperty, value, errors) {
+        /** @type {?} */
+        let unit = '';
+        /** @type {?} */
+        const strVal = value.toString().trim();
+        if (DIMENSIONAL_PROP_MAP[normalizedProperty] && value !== 0 && value !== '0') {
+            if (typeof value === 'number') {
+                unit = 'px';
+            }
+            else {
+                /** @type {?} */
+                const valAndSuffixMatch = value.match(/^[+-]?[\d\.]+([a-z]*)$/);
+                if (valAndSuffixMatch && valAndSuffixMatch[1].length == 0) {
+                    errors.push(`Please provide a CSS unit value for ${userProvidedProperty}:${value}`);
+                }
+            }
+        }
+        return strVal + unit;
+    }
+}
+const ɵ0$1 = /**
+ * @return {?}
+ */
+() => makeBooleanMap('width,height,minWidth,minHeight,maxWidth,maxHeight,left,top,bottom,right,fontSize,outlineWidth,outlineOffset,paddingTop,paddingLeft,paddingBottom,paddingRight,marginTop,marginLeft,marginBottom,marginRight,borderRadius,borderWidth,borderTopWidth,borderLeftWidth,borderRightWidth,borderBottomWidth,textIndent,perspective'
+    .split(','));
+/** @type {?} */
+const DIMENSIONAL_PROP_MAP = ((ɵ0$1))();
+/**
+ * @param {?} keys
+ * @return {?}
+ */
+function makeBooleanMap(keys) {
+    /** @type {?} */
+    const map = {};
+    keys.forEach((/**
+     * @param {?} key
+     * @return {?}
+     */
+    key => map[key] = true));
+    return map;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/dsl/animation_transition_instruction.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+function AnimationTransitionInstruction() { }
+if (false) {}
+/**
+ * @param {?} element
+ * @param {?} triggerName
+ * @param {?} fromState
+ * @param {?} toState
+ * @param {?} isRemovalTransition
+ * @param {?} fromStyles
+ * @param {?} toStyles
+ * @param {?} timelines
+ * @param {?} queriedElements
+ * @param {?} preStyleProps
+ * @param {?} postStyleProps
+ * @param {?} totalTime
+ * @param {?=} errors
+ * @return {?}
+ */
+function createTransitionInstruction(element, triggerName, fromState, toState, isRemovalTransition, fromStyles, toStyles, timelines, queriedElements, preStyleProps, postStyleProps, totalTime, errors) {
+    return {
+        type: 0 /* TransitionAnimation */,
+        element,
+        triggerName,
+        isRemovalTransition,
+        fromState,
+        fromStyles,
+        toState,
+        toStyles,
+        timelines,
+        queriedElements,
+        preStyleProps,
+        postStyleProps,
+        totalTime,
+        errors
+    };
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/dsl/animation_transition_factory.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const EMPTY_OBJECT = {};
+class AnimationTransitionFactory {
+    /**
+     * @param {?} _triggerName
+     * @param {?} ast
+     * @param {?} _stateStyles
+     */
+    constructor(_triggerName, ast, _stateStyles) {
+        this._triggerName = _triggerName;
+        this.ast = ast;
+        this._stateStyles = _stateStyles;
+    }
+    /**
+     * @param {?} currentState
+     * @param {?} nextState
+     * @param {?} element
+     * @param {?} params
+     * @return {?}
+     */
+    match(currentState, nextState, element, params) {
+        return oneOrMoreTransitionsMatch(this.ast.matchers, currentState, nextState, element, params);
+    }
+    /**
+     * @param {?} stateName
+     * @param {?} params
+     * @param {?} errors
+     * @return {?}
+     */
+    buildStyles(stateName, params, errors) {
+        /** @type {?} */
+        const backupStateStyler = this._stateStyles['*'];
+        /** @type {?} */
+        const stateStyler = this._stateStyles[stateName];
+        /** @type {?} */
+        const backupStyles = backupStateStyler ? backupStateStyler.buildStyles(params, errors) : {};
+        return stateStyler ? stateStyler.buildStyles(params, errors) : backupStyles;
+    }
+    /**
+     * @param {?} driver
+     * @param {?} element
+     * @param {?} currentState
+     * @param {?} nextState
+     * @param {?} enterClassName
+     * @param {?} leaveClassName
+     * @param {?=} currentOptions
+     * @param {?=} nextOptions
+     * @param {?=} subInstructions
+     * @param {?=} skipAstBuild
+     * @return {?}
+     */
+    build(driver, element, currentState, nextState, enterClassName, leaveClassName, currentOptions, nextOptions, subInstructions, skipAstBuild) {
+        /** @type {?} */
+        const errors = [];
+        /** @type {?} */
+        const transitionAnimationParams = this.ast.options && this.ast.options.params || EMPTY_OBJECT;
+        /** @type {?} */
+        const currentAnimationParams = currentOptions && currentOptions.params || EMPTY_OBJECT;
+        /** @type {?} */
+        const currentStateStyles = this.buildStyles(currentState, currentAnimationParams, errors);
+        /** @type {?} */
+        const nextAnimationParams = nextOptions && nextOptions.params || EMPTY_OBJECT;
+        /** @type {?} */
+        const nextStateStyles = this.buildStyles(nextState, nextAnimationParams, errors);
+        /** @type {?} */
+        const queriedElements = new Set();
+        /** @type {?} */
+        const preStyleMap = new Map();
+        /** @type {?} */
+        const postStyleMap = new Map();
+        /** @type {?} */
+        const isRemoval = nextState === 'void';
+        /** @type {?} */
+        const animationOptions = { params: Object.assign(Object.assign({}, transitionAnimationParams), nextAnimationParams) };
+        /** @type {?} */
+        const timelines = skipAstBuild ? [] : buildAnimationTimelines(driver, element, this.ast.animation, enterClassName, leaveClassName, currentStateStyles, nextStateStyles, animationOptions, subInstructions, errors);
+        /** @type {?} */
+        let totalTime = 0;
+        timelines.forEach((/**
+         * @param {?} tl
+         * @return {?}
+         */
+        tl => { totalTime = Math.max(tl.duration + tl.delay, totalTime); }));
+        if (errors.length) {
+            return createTransitionInstruction(element, this._triggerName, currentState, nextState, isRemoval, currentStateStyles, nextStateStyles, [], [], preStyleMap, postStyleMap, totalTime, errors);
+        }
+        timelines.forEach((/**
+         * @param {?} tl
+         * @return {?}
+         */
+        tl => {
+            /** @type {?} */
+            const elm = tl.element;
+            /** @type {?} */
+            const preProps = getOrSetAsInMap(preStyleMap, elm, {});
+            tl.preStyleProps.forEach((/**
+             * @param {?} prop
+             * @return {?}
+             */
+            prop => preProps[prop] = true));
+            /** @type {?} */
+            const postProps = getOrSetAsInMap(postStyleMap, elm, {});
+            tl.postStyleProps.forEach((/**
+             * @param {?} prop
+             * @return {?}
+             */
+            prop => postProps[prop] = true));
+            if (elm !== element) {
+                queriedElements.add(elm);
+            }
+        }));
+        /** @type {?} */
+        const queriedElementsList = iteratorToArray(queriedElements.values());
+        return createTransitionInstruction(element, this._triggerName, currentState, nextState, isRemoval, currentStateStyles, nextStateStyles, timelines, queriedElementsList, preStyleMap, postStyleMap, totalTime);
+    }
+}
+if (false) {}
+/**
+ * @param {?} matchFns
+ * @param {?} currentState
+ * @param {?} nextState
+ * @param {?} element
+ * @param {?} params
+ * @return {?}
+ */
+function oneOrMoreTransitionsMatch(matchFns, currentState, nextState, element, params) {
+    return matchFns.some((/**
+     * @param {?} fn
+     * @return {?}
+     */
+    fn => fn(currentState, nextState, element, params)));
+}
+class AnimationStateStyles {
+    /**
+     * @param {?} styles
+     * @param {?} defaultParams
+     */
+    constructor(styles, defaultParams) {
+        this.styles = styles;
+        this.defaultParams = defaultParams;
+    }
+    /**
+     * @param {?} params
+     * @param {?} errors
+     * @return {?}
+     */
+    buildStyles(params, errors) {
+        /** @type {?} */
+        const finalStyles = {};
+        /** @type {?} */
+        const combinedParams = copyObj(this.defaultParams);
+        Object.keys(params).forEach((/**
+         * @param {?} key
+         * @return {?}
+         */
+        key => {
+            /** @type {?} */
+            const value = params[key];
+            if (value != null) {
+                combinedParams[key] = value;
+            }
+        }));
+        this.styles.styles.forEach((/**
+         * @param {?} value
+         * @return {?}
+         */
+        value => {
+            if (typeof value !== 'string') {
+                /** @type {?} */
+                const styleObj = (/** @type {?} */ (value));
+                Object.keys(styleObj).forEach((/**
+                 * @param {?} prop
+                 * @return {?}
+                 */
+                prop => {
+                    /** @type {?} */
+                    let val = styleObj[prop];
+                    if (val.length > 1) {
+                        val = interpolateParams(val, combinedParams, errors);
+                    }
+                    finalStyles[prop] = val;
+                }));
+            }
+        }));
+        return finalStyles;
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/dsl/animation_trigger.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * \@publicApi
+ * @param {?} name
+ * @param {?} ast
+ * @return {?}
+ */
+function buildTrigger(name, ast) {
+    return new AnimationTrigger(name, ast);
+}
+/**
+ * \@publicApi
+ */
+class AnimationTrigger {
+    /**
+     * @param {?} name
+     * @param {?} ast
+     */
+    constructor(name, ast) {
+        this.name = name;
+        this.ast = ast;
+        this.transitionFactories = [];
+        this.states = {};
+        ast.states.forEach((/**
+         * @param {?} ast
+         * @return {?}
+         */
+        ast => {
+            /** @type {?} */
+            const defaultParams = (ast.options && ast.options.params) || {};
+            this.states[ast.name] = new AnimationStateStyles(ast.style, defaultParams);
+        }));
+        balanceProperties(this.states, 'true', '1');
+        balanceProperties(this.states, 'false', '0');
+        ast.transitions.forEach((/**
+         * @param {?} ast
+         * @return {?}
+         */
+        ast => {
+            this.transitionFactories.push(new AnimationTransitionFactory(name, ast, this.states));
+        }));
+        this.fallbackTransition = createFallbackTransition(name, this.states);
+    }
+    /**
+     * @return {?}
+     */
+    get containsQueries() { return this.ast.queryCount > 0; }
+    /**
+     * @param {?} currentState
+     * @param {?} nextState
+     * @param {?} element
+     * @param {?} params
+     * @return {?}
+     */
+    matchTransition(currentState, nextState, element, params) {
+        /** @type {?} */
+        const entry = this.transitionFactories.find((/**
+         * @param {?} f
+         * @return {?}
+         */
+        f => f.match(currentState, nextState, element, params)));
+        return entry || null;
+    }
+    /**
+     * @param {?} currentState
+     * @param {?} params
+     * @param {?} errors
+     * @return {?}
+     */
+    matchStyles(currentState, params, errors) {
+        return this.fallbackTransition.buildStyles(currentState, params, errors);
+    }
+}
+if (false) {}
+/**
+ * @param {?} triggerName
+ * @param {?} states
+ * @return {?}
+ */
+function createFallbackTransition(triggerName, states) {
+    /** @type {?} */
+    const matchers = [(/**
+         * @param {?} fromState
+         * @param {?} toState
+         * @return {?}
+         */
+        (fromState, toState) => true)];
+    /** @type {?} */
+    const animation = { type: 2 /* Sequence */, steps: [], options: null };
+    /** @type {?} */
+    const transition = {
+        type: 1 /* Transition */,
+        animation,
+        matchers,
+        options: null,
+        queryCount: 0,
+        depCount: 0
+    };
+    return new AnimationTransitionFactory(triggerName, transition, states);
+}
+/**
+ * @param {?} obj
+ * @param {?} key1
+ * @param {?} key2
+ * @return {?}
+ */
+function balanceProperties(obj, key1, key2) {
+    if (obj.hasOwnProperty(key1)) {
+        if (!obj.hasOwnProperty(key2)) {
+            obj[key2] = obj[key1];
+        }
+    }
+    else if (obj.hasOwnProperty(key2)) {
+        obj[key1] = obj[key2];
+    }
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/render/timeline_animation_engine.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const EMPTY_INSTRUCTION_MAP = new ElementInstructionMap();
+class TimelineAnimationEngine {
+    /**
+     * @param {?} bodyNode
+     * @param {?} _driver
+     * @param {?} _normalizer
+     */
+    constructor(bodyNode, _driver, _normalizer) {
+        this.bodyNode = bodyNode;
+        this._driver = _driver;
+        this._normalizer = _normalizer;
+        this._animations = {};
+        this._playersById = {};
+        this.players = [];
+    }
+    /**
+     * @param {?} id
+     * @param {?} metadata
+     * @return {?}
+     */
+    register(id, metadata) {
+        /** @type {?} */
+        const errors = [];
+        /** @type {?} */
+        const ast = buildAnimationAst(this._driver, metadata, errors);
+        if (errors.length) {
+            throw new Error(`Unable to build the animation due to the following errors: ${errors.join("\n")}`);
+        }
+        else {
+            this._animations[id] = ast;
+        }
+    }
+    /**
+     * @private
+     * @param {?} i
+     * @param {?} preStyles
+     * @param {?=} postStyles
+     * @return {?}
+     */
+    _buildPlayer(i, preStyles, postStyles) {
+        /** @type {?} */
+        const element = i.element;
+        /** @type {?} */
+        const keyframes = normalizeKeyframes(this._driver, this._normalizer, element, i.keyframes, preStyles, postStyles);
+        return this._driver.animate(element, keyframes, i.duration, i.delay, i.easing, [], true);
+    }
+    /**
+     * @param {?} id
+     * @param {?} element
+     * @param {?=} options
+     * @return {?}
+     */
+    create(id, element, options = {}) {
+        /** @type {?} */
+        const errors = [];
+        /** @type {?} */
+        const ast = this._animations[id];
+        /** @type {?} */
+        let instructions;
+        /** @type {?} */
+        const autoStylesMap = new Map();
+        if (ast) {
+            instructions = buildAnimationTimelines(this._driver, element, ast, ENTER_CLASSNAME, LEAVE_CLASSNAME, {}, {}, options, EMPTY_INSTRUCTION_MAP, errors);
+            instructions.forEach((/**
+             * @param {?} inst
+             * @return {?}
+             */
+            inst => {
+                /** @type {?} */
+                const styles = getOrSetAsInMap(autoStylesMap, inst.element, {});
+                inst.postStyleProps.forEach((/**
+                 * @param {?} prop
+                 * @return {?}
+                 */
+                prop => styles[prop] = null));
+            }));
+        }
+        else {
+            errors.push('The requested animation doesn\'t exist or has already been destroyed');
+            instructions = [];
+        }
+        if (errors.length) {
+            throw new Error(`Unable to create the animation due to the following errors: ${errors.join("\n")}`);
+        }
+        autoStylesMap.forEach((/**
+         * @param {?} styles
+         * @param {?} element
+         * @return {?}
+         */
+        (styles, element) => {
+            Object.keys(styles).forEach((/**
+             * @param {?} prop
+             * @return {?}
+             */
+            prop => { styles[prop] = this._driver.computeStyle(element, prop, _angular_animations__WEBPACK_IMPORTED_MODULE_0__["AUTO_STYLE"]); }));
+        }));
+        /** @type {?} */
+        const players = instructions.map((/**
+         * @param {?} i
+         * @return {?}
+         */
+        i => {
+            /** @type {?} */
+            const styles = autoStylesMap.get(i.element);
+            return this._buildPlayer(i, {}, styles);
+        }));
+        /** @type {?} */
+        const player = optimizeGroupPlayer(players);
+        this._playersById[id] = player;
+        player.onDestroy((/**
+         * @return {?}
+         */
+        () => this.destroy(id)));
+        this.players.push(player);
+        return player;
+    }
+    /**
+     * @param {?} id
+     * @return {?}
+     */
+    destroy(id) {
+        /** @type {?} */
+        const player = this._getPlayer(id);
+        player.destroy();
+        delete this._playersById[id];
+        /** @type {?} */
+        const index = this.players.indexOf(player);
+        if (index >= 0) {
+            this.players.splice(index, 1);
+        }
+    }
+    /**
+     * @private
+     * @param {?} id
+     * @return {?}
+     */
+    _getPlayer(id) {
+        /** @type {?} */
+        const player = this._playersById[id];
+        if (!player) {
+            throw new Error(`Unable to find the timeline player referenced by ${id}`);
+        }
+        return player;
+    }
+    /**
+     * @param {?} id
+     * @param {?} element
+     * @param {?} eventName
+     * @param {?} callback
+     * @return {?}
+     */
+    listen(id, element, eventName, callback) {
+        // triggerName, fromState, toState are all ignored for timeline animations
+        /** @type {?} */
+        const baseEvent = makeAnimationEvent(element, '', '', '');
+        listenOnPlayer(this._getPlayer(id), eventName, baseEvent, callback);
+        return (/**
+         * @return {?}
+         */
+        () => { });
+    }
+    /**
+     * @param {?} id
+     * @param {?} element
+     * @param {?} command
+     * @param {?} args
+     * @return {?}
+     */
+    command(id, element, command, args) {
+        if (command == 'register') {
+            this.register(id, (/** @type {?} */ (args[0])));
+            return;
+        }
+        if (command == 'create') {
+            /** @type {?} */
+            const options = (/** @type {?} */ ((args[0] || {})));
+            this.create(id, element, options);
+            return;
+        }
+        /** @type {?} */
+        const player = this._getPlayer(id);
+        switch (command) {
+            case 'play':
+                player.play();
+                break;
+            case 'pause':
+                player.pause();
+                break;
+            case 'reset':
+                player.reset();
+                break;
+            case 'restart':
+                player.restart();
+                break;
+            case 'finish':
+                player.finish();
+                break;
+            case 'init':
+                player.init();
+                break;
+            case 'setPosition':
+                player.setPosition(parseFloat((/** @type {?} */ (args[0]))));
+                break;
+            case 'destroy':
+                this.destroy(id);
+                break;
+        }
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/render/transition_animation_engine.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const QUEUED_CLASSNAME = 'ng-animate-queued';
+/** @type {?} */
+const QUEUED_SELECTOR = '.ng-animate-queued';
+/** @type {?} */
+const DISABLED_CLASSNAME = 'ng-animate-disabled';
+/** @type {?} */
+const DISABLED_SELECTOR = '.ng-animate-disabled';
+/** @type {?} */
+const STAR_CLASSNAME = 'ng-star-inserted';
+/** @type {?} */
+const STAR_SELECTOR = '.ng-star-inserted';
+/** @type {?} */
+const EMPTY_PLAYER_ARRAY = [];
+/** @type {?} */
+const NULL_REMOVAL_STATE = {
+    namespaceId: '',
+    setForRemoval: false,
+    setForMove: false,
+    hasAnimation: false,
+    removedBeforeQueried: false
+};
+/** @type {?} */
+const NULL_REMOVED_QUERIED_STATE = {
+    namespaceId: '',
+    setForMove: false,
+    setForRemoval: false,
+    hasAnimation: false,
+    removedBeforeQueried: true
+};
+/**
+ * @record
+ */
+function TriggerListener() { }
+if (false) {}
+/**
+ * @record
+ */
+function QueueInstruction() { }
+if (false) {}
+/** @type {?} */
+const REMOVAL_FLAG = '__ng_removed';
+/**
+ * @record
+ */
+function ElementAnimationState() { }
+if (false) {}
+class StateValue {
+    /**
+     * @param {?} input
+     * @param {?=} namespaceId
+     */
+    constructor(input, namespaceId = '') {
+        this.namespaceId = namespaceId;
+        /** @type {?} */
+        const isObj = input && input.hasOwnProperty('value');
+        /** @type {?} */
+        const value = isObj ? input['value'] : input;
+        this.value = normalizeTriggerValue(value);
+        if (isObj) {
+            /** @type {?} */
+            const options = copyObj((/** @type {?} */ (input)));
+            delete options['value'];
+            this.options = (/** @type {?} */ (options));
+        }
+        else {
+            this.options = {};
+        }
+        if (!this.options.params) {
+            this.options.params = {};
+        }
+    }
+    /**
+     * @return {?}
+     */
+    get params() { return (/** @type {?} */ (this.options.params)); }
+    /**
+     * @param {?} options
+     * @return {?}
+     */
+    absorbOptions(options) {
+        /** @type {?} */
+        const newParams = options.params;
+        if (newParams) {
+            /** @type {?} */
+            const oldParams = (/** @type {?} */ (this.options.params));
+            Object.keys(newParams).forEach((/**
+             * @param {?} prop
+             * @return {?}
+             */
+            prop => {
+                if (oldParams[prop] == null) {
+                    oldParams[prop] = newParams[prop];
+                }
+            }));
+        }
+    }
+}
+if (false) {}
+/** @type {?} */
+const VOID_VALUE = 'void';
+/** @type {?} */
+const DEFAULT_STATE_VALUE = new StateValue(VOID_VALUE);
+class AnimationTransitionNamespace {
+    /**
+     * @param {?} id
+     * @param {?} hostElement
+     * @param {?} _engine
+     */
+    constructor(id, hostElement, _engine) {
+        this.id = id;
+        this.hostElement = hostElement;
+        this._engine = _engine;
+        this.players = [];
+        this._triggers = {};
+        this._queue = [];
+        this._elementListeners = new Map();
+        this._hostClassName = 'ng-tns-' + id;
+        addClass(hostElement, this._hostClassName);
+    }
+    /**
+     * @param {?} element
+     * @param {?} name
+     * @param {?} phase
+     * @param {?} callback
+     * @return {?}
+     */
+    listen(element, name, phase, callback) {
+        if (!this._triggers.hasOwnProperty(name)) {
+            throw new Error(`Unable to listen on the animation trigger event "${phase}" because the animation trigger "${name}" doesn\'t exist!`);
+        }
+        if (phase == null || phase.length == 0) {
+            throw new Error(`Unable to listen on the animation trigger "${name}" because the provided event is undefined!`);
+        }
+        if (!isTriggerEventValid(phase)) {
+            throw new Error(`The provided animation trigger event "${phase}" for the animation trigger "${name}" is not supported!`);
+        }
+        /** @type {?} */
+        const listeners = getOrSetAsInMap(this._elementListeners, element, []);
+        /** @type {?} */
+        const data = { name, phase, callback };
+        listeners.push(data);
+        /** @type {?} */
+        const triggersWithStates = getOrSetAsInMap(this._engine.statesByElement, element, {});
+        if (!triggersWithStates.hasOwnProperty(name)) {
+            addClass(element, NG_TRIGGER_CLASSNAME);
+            addClass(element, NG_TRIGGER_CLASSNAME + '-' + name);
+            triggersWithStates[name] = DEFAULT_STATE_VALUE;
+        }
+        return (/**
+         * @return {?}
+         */
+        () => {
+            // the event listener is removed AFTER the flush has occurred such
+            // that leave animations callbacks can fire (otherwise if the node
+            // is removed in between then the listeners would be deregistered)
+            this._engine.afterFlush((/**
+             * @return {?}
+             */
+            () => {
+                /** @type {?} */
+                const index = listeners.indexOf(data);
+                if (index >= 0) {
+                    listeners.splice(index, 1);
+                }
+                if (!this._triggers[name]) {
+                    delete triggersWithStates[name];
+                }
+            }));
+        });
+    }
+    /**
+     * @param {?} name
+     * @param {?} ast
+     * @return {?}
+     */
+    register(name, ast) {
+        if (this._triggers[name]) {
+            // throw
+            return false;
+        }
+        else {
+            this._triggers[name] = ast;
+            return true;
+        }
+    }
+    /**
+     * @private
+     * @param {?} name
+     * @return {?}
+     */
+    _getTrigger(name) {
+        /** @type {?} */
+        const trigger = this._triggers[name];
+        if (!trigger) {
+            throw new Error(`The provided animation trigger "${name}" has not been registered!`);
+        }
+        return trigger;
+    }
+    /**
+     * @param {?} element
+     * @param {?} triggerName
+     * @param {?} value
+     * @param {?=} defaultToFallback
+     * @return {?}
+     */
+    trigger(element, triggerName, value, defaultToFallback = true) {
+        /** @type {?} */
+        const trigger = this._getTrigger(triggerName);
+        /** @type {?} */
+        const player = new TransitionAnimationPlayer(this.id, triggerName, element);
+        /** @type {?} */
+        let triggersWithStates = this._engine.statesByElement.get(element);
+        if (!triggersWithStates) {
+            addClass(element, NG_TRIGGER_CLASSNAME);
+            addClass(element, NG_TRIGGER_CLASSNAME + '-' + triggerName);
+            this._engine.statesByElement.set(element, triggersWithStates = {});
+        }
+        /** @type {?} */
+        let fromState = triggersWithStates[triggerName];
+        /** @type {?} */
+        const toState = new StateValue(value, this.id);
+        /** @type {?} */
+        const isObj = value && value.hasOwnProperty('value');
+        if (!isObj && fromState) {
+            toState.absorbOptions(fromState.options);
+        }
+        triggersWithStates[triggerName] = toState;
+        if (!fromState) {
+            fromState = DEFAULT_STATE_VALUE;
+        }
+        /** @type {?} */
+        const isRemoval = toState.value === VOID_VALUE;
+        // normally this isn't reached by here, however, if an object expression
+        // is passed in then it may be a new object each time. Comparing the value
+        // is important since that will stay the same despite there being a new object.
+        // The removal arc here is special cased because the same element is triggered
+        // twice in the event that it contains animations on the outer/inner portions
+        // of the host container
+        if (!isRemoval && fromState.value === toState.value) {
+            // this means that despite the value not changing, some inner params
+            // have changed which means that the animation final styles need to be applied
+            if (!objEquals(fromState.params, toState.params)) {
+                /** @type {?} */
+                const errors = [];
+                /** @type {?} */
+                const fromStyles = trigger.matchStyles(fromState.value, fromState.params, errors);
+                /** @type {?} */
+                const toStyles = trigger.matchStyles(toState.value, toState.params, errors);
+                if (errors.length) {
+                    this._engine.reportError(errors);
+                }
+                else {
+                    this._engine.afterFlush((/**
+                     * @return {?}
+                     */
+                    () => {
+                        eraseStyles(element, fromStyles);
+                        setStyles(element, toStyles);
+                    }));
+                }
+            }
+            return;
+        }
+        /** @type {?} */
+        const playersOnElement = getOrSetAsInMap(this._engine.playersByElement, element, []);
+        playersOnElement.forEach((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => {
+            // only remove the player if it is queued on the EXACT same trigger/namespace
+            // we only also deal with queued players here because if the animation has
+            // started then we want to keep the player alive until the flush happens
+            // (which is where the previousPlayers are passed into the new palyer)
+            if (player.namespaceId == this.id && player.triggerName == triggerName && player.queued) {
+                player.destroy();
+            }
+        }));
+        /** @type {?} */
+        let transition = trigger.matchTransition(fromState.value, toState.value, element, toState.params);
+        /** @type {?} */
+        let isFallbackTransition = false;
+        if (!transition) {
+            if (!defaultToFallback)
+                return;
+            transition = trigger.fallbackTransition;
+            isFallbackTransition = true;
+        }
+        this._engine.totalQueuedPlayers++;
+        this._queue.push({ element, triggerName, transition, fromState, toState, player, isFallbackTransition });
+        if (!isFallbackTransition) {
+            addClass(element, QUEUED_CLASSNAME);
+            player.onStart((/**
+             * @return {?}
+             */
+            () => { removeClass(element, QUEUED_CLASSNAME); }));
+        }
+        player.onDone((/**
+         * @return {?}
+         */
+        () => {
+            /** @type {?} */
+            let index = this.players.indexOf(player);
+            if (index >= 0) {
+                this.players.splice(index, 1);
+            }
+            /** @type {?} */
+            const players = this._engine.playersByElement.get(element);
+            if (players) {
+                /** @type {?} */
+                let index = players.indexOf(player);
+                if (index >= 0) {
+                    players.splice(index, 1);
+                }
+            }
+        }));
+        this.players.push(player);
+        playersOnElement.push(player);
+        return player;
+    }
+    /**
+     * @param {?} name
+     * @return {?}
+     */
+    deregister(name) {
+        delete this._triggers[name];
+        this._engine.statesByElement.forEach((/**
+         * @param {?} stateMap
+         * @param {?} element
+         * @return {?}
+         */
+        (stateMap, element) => { delete stateMap[name]; }));
+        this._elementListeners.forEach((/**
+         * @param {?} listeners
+         * @param {?} element
+         * @return {?}
+         */
+        (listeners, element) => {
+            this._elementListeners.set(element, listeners.filter((/**
+             * @param {?} entry
+             * @return {?}
+             */
+            entry => { return entry.name != name; })));
+        }));
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    clearElementCache(element) {
+        this._engine.statesByElement.delete(element);
+        this._elementListeners.delete(element);
+        /** @type {?} */
+        const elementPlayers = this._engine.playersByElement.get(element);
+        if (elementPlayers) {
+            elementPlayers.forEach((/**
+             * @param {?} player
+             * @return {?}
+             */
+            player => player.destroy()));
+            this._engine.playersByElement.delete(element);
+        }
+    }
+    /**
+     * @private
+     * @param {?} rootElement
+     * @param {?} context
+     * @return {?}
+     */
+    _signalRemovalForInnerTriggers(rootElement, context) {
+        /** @type {?} */
+        const elements = this._engine.driver.query(rootElement, NG_TRIGGER_SELECTOR, true);
+        // emulate a leave animation for all inner nodes within this node.
+        // If there are no animations found for any of the nodes then clear the cache
+        // for the element.
+        elements.forEach((/**
+         * @param {?} elm
+         * @return {?}
+         */
+        elm => {
+            // this means that an inner remove() operation has already kicked off
+            // the animation on this element...
+            if (elm[REMOVAL_FLAG])
+                return;
+            /** @type {?} */
+            const namespaces = this._engine.fetchNamespacesByElement(elm);
+            if (namespaces.size) {
+                namespaces.forEach((/**
+                 * @param {?} ns
+                 * @return {?}
+                 */
+                ns => ns.triggerLeaveAnimation(elm, context, false, true)));
+            }
+            else {
+                this.clearElementCache(elm);
+            }
+        }));
+        // If the child elements were removed along with the parent, their animations might not
+        // have completed. Clear all the elements from the cache so we don't end up with a memory leak.
+        this._engine.afterFlushAnimationsDone((/**
+         * @return {?}
+         */
+        () => elements.forEach((/**
+         * @param {?} elm
+         * @return {?}
+         */
+        elm => this.clearElementCache(elm)))));
+    }
+    /**
+     * @param {?} element
+     * @param {?} context
+     * @param {?=} destroyAfterComplete
+     * @param {?=} defaultToFallback
+     * @return {?}
+     */
+    triggerLeaveAnimation(element, context, destroyAfterComplete, defaultToFallback) {
+        /** @type {?} */
+        const triggerStates = this._engine.statesByElement.get(element);
+        if (triggerStates) {
+            /** @type {?} */
+            const players = [];
+            Object.keys(triggerStates).forEach((/**
+             * @param {?} triggerName
+             * @return {?}
+             */
+            triggerName => {
+                // this check is here in the event that an element is removed
+                // twice (both on the host level and the component level)
+                if (this._triggers[triggerName]) {
+                    /** @type {?} */
+                    const player = this.trigger(element, triggerName, VOID_VALUE, defaultToFallback);
+                    if (player) {
+                        players.push(player);
+                    }
+                }
+            }));
+            if (players.length) {
+                this._engine.markElementAsRemoved(this.id, element, true, context);
+                if (destroyAfterComplete) {
+                    optimizeGroupPlayer(players).onDone((/**
+                     * @return {?}
+                     */
+                    () => this._engine.processLeaveNode(element)));
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    prepareLeaveAnimationListeners(element) {
+        /** @type {?} */
+        const listeners = this._elementListeners.get(element);
+        if (listeners) {
+            /** @type {?} */
+            const visitedTriggers = new Set();
+            listeners.forEach((/**
+             * @param {?} listener
+             * @return {?}
+             */
+            listener => {
+                /** @type {?} */
+                const triggerName = listener.name;
+                if (visitedTriggers.has(triggerName))
+                    return;
+                visitedTriggers.add(triggerName);
+                /** @type {?} */
+                const trigger = this._triggers[triggerName];
+                /** @type {?} */
+                const transition = trigger.fallbackTransition;
+                /** @type {?} */
+                const elementStates = (/** @type {?} */ (this._engine.statesByElement.get(element)));
+                /** @type {?} */
+                const fromState = elementStates[triggerName] || DEFAULT_STATE_VALUE;
+                /** @type {?} */
+                const toState = new StateValue(VOID_VALUE);
+                /** @type {?} */
+                const player = new TransitionAnimationPlayer(this.id, triggerName, element);
+                this._engine.totalQueuedPlayers++;
+                this._queue.push({
+                    element,
+                    triggerName,
+                    transition,
+                    fromState,
+                    toState,
+                    player,
+                    isFallbackTransition: true
+                });
+            }));
+        }
+    }
+    /**
+     * @param {?} element
+     * @param {?} context
+     * @return {?}
+     */
+    removeNode(element, context) {
+        /** @type {?} */
+        const engine = this._engine;
+        if (element.childElementCount) {
+            this._signalRemovalForInnerTriggers(element, context);
+        }
+        // this means that a * => VOID animation was detected and kicked off
+        if (this.triggerLeaveAnimation(element, context, true))
+            return;
+        // find the player that is animating and make sure that the
+        // removal is delayed until that player has completed
+        /** @type {?} */
+        let containsPotentialParentTransition = false;
+        if (engine.totalAnimations) {
+            /** @type {?} */
+            const currentPlayers = engine.players.length ? engine.playersByQueriedElement.get(element) : [];
+            // when this `if statement` does not continue forward it means that
+            // a previous animation query has selected the current element and
+            // is animating it. In this situation want to continue forwards and
+            // allow the element to be queued up for animation later.
+            if (currentPlayers && currentPlayers.length) {
+                containsPotentialParentTransition = true;
+            }
+            else {
+                /** @type {?} */
+                let parent = element;
+                while (parent = parent.parentNode) {
+                    /** @type {?} */
+                    const triggers = engine.statesByElement.get(parent);
+                    if (triggers) {
+                        containsPotentialParentTransition = true;
+                        break;
+                    }
+                }
+            }
+        }
+        // at this stage we know that the element will either get removed
+        // during flush or will be picked up by a parent query. Either way
+        // we need to fire the listeners for this element when it DOES get
+        // removed (once the query parent animation is done or after flush)
+        this.prepareLeaveAnimationListeners(element);
+        // whether or not a parent has an animation we need to delay the deferral of the leave
+        // operation until we have more information (which we do after flush() has been called)
+        if (containsPotentialParentTransition) {
+            engine.markElementAsRemoved(this.id, element, false, context);
+        }
+        else {
+            /** @type {?} */
+            const removalFlag = element[REMOVAL_FLAG];
+            if (!removalFlag || removalFlag === NULL_REMOVAL_STATE) {
+                // we do this after the flush has occurred such
+                // that the callbacks can be fired
+                engine.afterFlush((/**
+                 * @return {?}
+                 */
+                () => this.clearElementCache(element)));
+                engine.destroyInnerAnimations(element);
+                engine._onRemovalComplete(element, context);
+            }
+        }
+    }
+    /**
+     * @param {?} element
+     * @param {?} parent
+     * @return {?}
+     */
+    insertNode(element, parent) { addClass(element, this._hostClassName); }
+    /**
+     * @param {?} microtaskId
+     * @return {?}
+     */
+    drainQueuedTransitions(microtaskId) {
+        /** @type {?} */
+        const instructions = [];
+        this._queue.forEach((/**
+         * @param {?} entry
+         * @return {?}
+         */
+        entry => {
+            /** @type {?} */
+            const player = entry.player;
+            if (player.destroyed)
+                return;
+            /** @type {?} */
+            const element = entry.element;
+            /** @type {?} */
+            const listeners = this._elementListeners.get(element);
+            if (listeners) {
+                listeners.forEach((/**
+                 * @param {?} listener
+                 * @return {?}
+                 */
+                (listener) => {
+                    if (listener.name == entry.triggerName) {
+                        /** @type {?} */
+                        const baseEvent = makeAnimationEvent(element, entry.triggerName, entry.fromState.value, entry.toState.value);
+                        ((/** @type {?} */ (baseEvent)))['_data'] = microtaskId;
+                        listenOnPlayer(entry.player, listener.phase, baseEvent, listener.callback);
+                    }
+                }));
+            }
+            if (player.markedForDestroy) {
+                this._engine.afterFlush((/**
+                 * @return {?}
+                 */
+                () => {
+                    // now we can destroy the element properly since the event listeners have
+                    // been bound to the player
+                    player.destroy();
+                }));
+            }
+            else {
+                instructions.push(entry);
+            }
+        }));
+        this._queue = [];
+        return instructions.sort((/**
+         * @param {?} a
+         * @param {?} b
+         * @return {?}
+         */
+        (a, b) => {
+            // if depCount == 0 them move to front
+            // otherwise if a contains b then move back
+            /** @type {?} */
+            const d0 = a.transition.ast.depCount;
+            /** @type {?} */
+            const d1 = b.transition.ast.depCount;
+            if (d0 == 0 || d1 == 0) {
+                return d0 - d1;
+            }
+            return this._engine.driver.containsElement(a.element, b.element) ? 1 : -1;
+        }));
+    }
+    /**
+     * @param {?} context
+     * @return {?}
+     */
+    destroy(context) {
+        this.players.forEach((/**
+         * @param {?} p
+         * @return {?}
+         */
+        p => p.destroy()));
+        this._signalRemovalForInnerTriggers(this.hostElement, context);
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    elementContainsData(element) {
+        /** @type {?} */
+        let containsData = false;
+        if (this._elementListeners.has(element))
+            containsData = true;
+        containsData =
+            (this._queue.find((/**
+             * @param {?} entry
+             * @return {?}
+             */
+            entry => entry.element === element)) ? true : false) || containsData;
+        return containsData;
+    }
+}
+if (false) {}
+/**
+ * @record
+ */
+function QueuedTransition() { }
+if (false) {}
+class TransitionAnimationEngine {
+    /**
+     * @param {?} bodyNode
+     * @param {?} driver
+     * @param {?} _normalizer
+     */
+    constructor(bodyNode, driver, _normalizer) {
+        this.bodyNode = bodyNode;
+        this.driver = driver;
+        this._normalizer = _normalizer;
+        this.players = [];
+        this.newHostElements = new Map();
+        this.playersByElement = new Map();
+        this.playersByQueriedElement = new Map();
+        this.statesByElement = new Map();
+        this.disabledNodes = new Set();
+        this.totalAnimations = 0;
+        this.totalQueuedPlayers = 0;
+        this._namespaceLookup = {};
+        this._namespaceList = [];
+        this._flushFns = [];
+        this._whenQuietFns = [];
+        this.namespacesByHostElement = new Map();
+        this.collectedEnterElements = [];
+        this.collectedLeaveElements = [];
+        // this method is designed to be overridden by the code that uses this engine
+        this.onRemovalComplete = (/**
+         * @param {?} element
+         * @param {?} context
+         * @return {?}
+         */
+        (element, context) => { });
+    }
+    /**
+     * \@internal
+     * @param {?} element
+     * @param {?} context
+     * @return {?}
+     */
+    _onRemovalComplete(element, context) { this.onRemovalComplete(element, context); }
+    /**
+     * @return {?}
+     */
+    get queuedPlayers() {
+        /** @type {?} */
+        const players = [];
+        this._namespaceList.forEach((/**
+         * @param {?} ns
+         * @return {?}
+         */
+        ns => {
+            ns.players.forEach((/**
+             * @param {?} player
+             * @return {?}
+             */
+            player => {
+                if (player.queued) {
+                    players.push(player);
+                }
+            }));
+        }));
+        return players;
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} hostElement
+     * @return {?}
+     */
+    createNamespace(namespaceId, hostElement) {
+        /** @type {?} */
+        const ns = new AnimationTransitionNamespace(namespaceId, hostElement, this);
+        if (hostElement.parentNode) {
+            this._balanceNamespaceList(ns, hostElement);
+        }
+        else {
+            // defer this later until flush during when the host element has
+            // been inserted so that we know exactly where to place it in
+            // the namespace list
+            this.newHostElements.set(hostElement, ns);
+            // given that this host element is apart of the animation code, it
+            // may or may not be inserted by a parent node that is an of an
+            // animation renderer type. If this happens then we can still have
+            // access to this item when we query for :enter nodes. If the parent
+            // is a renderer then the set data-structure will normalize the entry
+            this.collectEnterElement(hostElement);
+        }
+        return this._namespaceLookup[namespaceId] = ns;
+    }
+    /**
+     * @private
+     * @param {?} ns
+     * @param {?} hostElement
+     * @return {?}
+     */
+    _balanceNamespaceList(ns, hostElement) {
+        /** @type {?} */
+        const limit = this._namespaceList.length - 1;
+        if (limit >= 0) {
+            /** @type {?} */
+            let found = false;
+            for (let i = limit; i >= 0; i--) {
+                /** @type {?} */
+                const nextNamespace = this._namespaceList[i];
+                if (this.driver.containsElement(nextNamespace.hostElement, hostElement)) {
+                    this._namespaceList.splice(i + 1, 0, ns);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                this._namespaceList.splice(0, 0, ns);
+            }
+        }
+        else {
+            this._namespaceList.push(ns);
+        }
+        this.namespacesByHostElement.set(hostElement, ns);
+        return ns;
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} hostElement
+     * @return {?}
+     */
+    register(namespaceId, hostElement) {
+        /** @type {?} */
+        let ns = this._namespaceLookup[namespaceId];
+        if (!ns) {
+            ns = this.createNamespace(namespaceId, hostElement);
+        }
+        return ns;
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} name
+     * @param {?} trigger
+     * @return {?}
+     */
+    registerTrigger(namespaceId, name, trigger) {
+        /** @type {?} */
+        let ns = this._namespaceLookup[namespaceId];
+        if (ns && ns.register(name, trigger)) {
+            this.totalAnimations++;
+        }
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} context
+     * @return {?}
+     */
+    destroy(namespaceId, context) {
+        if (!namespaceId)
+            return;
+        /** @type {?} */
+        const ns = this._fetchNamespace(namespaceId);
+        this.afterFlush((/**
+         * @return {?}
+         */
+        () => {
+            this.namespacesByHostElement.delete(ns.hostElement);
+            delete this._namespaceLookup[namespaceId];
+            /** @type {?} */
+            const index = this._namespaceList.indexOf(ns);
+            if (index >= 0) {
+                this._namespaceList.splice(index, 1);
+            }
+        }));
+        this.afterFlushAnimationsDone((/**
+         * @return {?}
+         */
+        () => ns.destroy(context)));
+    }
+    /**
+     * @private
+     * @param {?} id
+     * @return {?}
+     */
+    _fetchNamespace(id) { return this._namespaceLookup[id]; }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    fetchNamespacesByElement(element) {
+        // normally there should only be one namespace per element, however
+        // if @triggers are placed on both the component element and then
+        // its host element (within the component code) then there will be
+        // two namespaces returned. We use a set here to simply the dedupe
+        // of namespaces incase there are multiple triggers both the elm and host
+        /** @type {?} */
+        const namespaces = new Set();
+        /** @type {?} */
+        const elementStates = this.statesByElement.get(element);
+        if (elementStates) {
+            /** @type {?} */
+            const keys = Object.keys(elementStates);
+            for (let i = 0; i < keys.length; i++) {
+                /** @type {?} */
+                const nsId = elementStates[keys[i]].namespaceId;
+                if (nsId) {
+                    /** @type {?} */
+                    const ns = this._fetchNamespace(nsId);
+                    if (ns) {
+                        namespaces.add(ns);
+                    }
+                }
+            }
+        }
+        return namespaces;
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} element
+     * @param {?} name
+     * @param {?} value
+     * @return {?}
+     */
+    trigger(namespaceId, element, name, value) {
+        if (isElementNode(element)) {
+            /** @type {?} */
+            const ns = this._fetchNamespace(namespaceId);
+            if (ns) {
+                ns.trigger(element, name, value);
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} element
+     * @param {?} parent
+     * @param {?} insertBefore
+     * @return {?}
+     */
+    insertNode(namespaceId, element, parent, insertBefore) {
+        if (!isElementNode(element))
+            return;
+        // special case for when an element is removed and reinserted (move operation)
+        // when this occurs we do not want to use the element for deletion later
+        /** @type {?} */
+        const details = (/** @type {?} */ (element[REMOVAL_FLAG]));
+        if (details && details.setForRemoval) {
+            details.setForRemoval = false;
+            details.setForMove = true;
+            /** @type {?} */
+            const index = this.collectedLeaveElements.indexOf(element);
+            if (index >= 0) {
+                this.collectedLeaveElements.splice(index, 1);
+            }
+        }
+        // in the event that the namespaceId is blank then the caller
+        // code does not contain any animation code in it, but it is
+        // just being called so that the node is marked as being inserted
+        if (namespaceId) {
+            /** @type {?} */
+            const ns = this._fetchNamespace(namespaceId);
+            // This if-statement is a workaround for router issue #21947.
+            // The router sometimes hits a race condition where while a route
+            // is being instantiated a new navigation arrives, triggering leave
+            // animation of DOM that has not been fully initialized, until this
+            // is resolved, we need to handle the scenario when DOM is not in a
+            // consistent state during the animation.
+            if (ns) {
+                ns.insertNode(element, parent);
+            }
+        }
+        // only *directives and host elements are inserted before
+        if (insertBefore) {
+            this.collectEnterElement(element);
+        }
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    collectEnterElement(element) { this.collectedEnterElements.push(element); }
+    /**
+     * @param {?} element
+     * @param {?} value
+     * @return {?}
+     */
+    markElementAsDisabled(element, value) {
+        if (value) {
+            if (!this.disabledNodes.has(element)) {
+                this.disabledNodes.add(element);
+                addClass(element, DISABLED_CLASSNAME);
+            }
+        }
+        else if (this.disabledNodes.has(element)) {
+            this.disabledNodes.delete(element);
+            removeClass(element, DISABLED_CLASSNAME);
+        }
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} element
+     * @param {?} isHostElement
+     * @param {?} context
+     * @return {?}
+     */
+    removeNode(namespaceId, element, isHostElement, context) {
+        if (isElementNode(element)) {
+            /** @type {?} */
+            const ns = namespaceId ? this._fetchNamespace(namespaceId) : null;
+            if (ns) {
+                ns.removeNode(element, context);
+            }
+            else {
+                this.markElementAsRemoved(namespaceId, element, false, context);
+            }
+            if (isHostElement) {
+                /** @type {?} */
+                const hostNS = this.namespacesByHostElement.get(element);
+                if (hostNS && hostNS.id !== namespaceId) {
+                    hostNS.removeNode(element, context);
+                }
+            }
+        }
+        else {
+            this._onRemovalComplete(element, context);
+        }
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} element
+     * @param {?=} hasAnimation
+     * @param {?=} context
+     * @return {?}
+     */
+    markElementAsRemoved(namespaceId, element, hasAnimation, context) {
+        this.collectedLeaveElements.push(element);
+        element[REMOVAL_FLAG] = {
+            namespaceId,
+            setForRemoval: context, hasAnimation,
+            removedBeforeQueried: false
+        };
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} element
+     * @param {?} name
+     * @param {?} phase
+     * @param {?} callback
+     * @return {?}
+     */
+    listen(namespaceId, element, name, phase, callback) {
+        if (isElementNode(element)) {
+            return this._fetchNamespace(namespaceId).listen(element, name, phase, callback);
+        }
+        return (/**
+         * @return {?}
+         */
+        () => { });
+    }
+    /**
+     * @private
+     * @param {?} entry
+     * @param {?} subTimelines
+     * @param {?} enterClassName
+     * @param {?} leaveClassName
+     * @param {?=} skipBuildAst
+     * @return {?}
+     */
+    _buildInstruction(entry, subTimelines, enterClassName, leaveClassName, skipBuildAst) {
+        return entry.transition.build(this.driver, entry.element, entry.fromState.value, entry.toState.value, enterClassName, leaveClassName, entry.fromState.options, entry.toState.options, subTimelines, skipBuildAst);
+    }
+    /**
+     * @param {?} containerElement
+     * @return {?}
+     */
+    destroyInnerAnimations(containerElement) {
+        /** @type {?} */
+        let elements = this.driver.query(containerElement, NG_TRIGGER_SELECTOR, true);
+        elements.forEach((/**
+         * @param {?} element
+         * @return {?}
+         */
+        element => this.destroyActiveAnimationsForElement(element)));
+        if (this.playersByQueriedElement.size == 0)
+            return;
+        elements = this.driver.query(containerElement, NG_ANIMATING_SELECTOR, true);
+        elements.forEach((/**
+         * @param {?} element
+         * @return {?}
+         */
+        element => this.finishActiveQueriedAnimationOnElement(element)));
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    destroyActiveAnimationsForElement(element) {
+        /** @type {?} */
+        const players = this.playersByElement.get(element);
+        if (players) {
+            players.forEach((/**
+             * @param {?} player
+             * @return {?}
+             */
+            player => {
+                // special case for when an element is set for destruction, but hasn't started.
+                // in this situation we want to delay the destruction until the flush occurs
+                // so that any event listeners attached to the player are triggered.
+                if (player.queued) {
+                    player.markedForDestroy = true;
+                }
+                else {
+                    player.destroy();
+                }
+            }));
+        }
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    finishActiveQueriedAnimationOnElement(element) {
+        /** @type {?} */
+        const players = this.playersByQueriedElement.get(element);
+        if (players) {
+            players.forEach((/**
+             * @param {?} player
+             * @return {?}
+             */
+            player => player.finish()));
+        }
+    }
+    /**
+     * @return {?}
+     */
+    whenRenderingDone() {
+        return new Promise((/**
+         * @param {?} resolve
+         * @return {?}
+         */
+        resolve => {
+            if (this.players.length) {
+                return optimizeGroupPlayer(this.players).onDone((/**
+                 * @return {?}
+                 */
+                () => resolve()));
+            }
+            else {
+                resolve();
+            }
+        }));
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    processLeaveNode(element) {
+        /** @type {?} */
+        const details = (/** @type {?} */ (element[REMOVAL_FLAG]));
+        if (details && details.setForRemoval) {
+            // this will prevent it from removing it twice
+            element[REMOVAL_FLAG] = NULL_REMOVAL_STATE;
+            if (details.namespaceId) {
+                this.destroyInnerAnimations(element);
+                /** @type {?} */
+                const ns = this._fetchNamespace(details.namespaceId);
+                if (ns) {
+                    ns.clearElementCache(element);
+                }
+            }
+            this._onRemovalComplete(element, details.setForRemoval);
+        }
+        if (this.driver.matchesElement(element, DISABLED_SELECTOR)) {
+            this.markElementAsDisabled(element, false);
+        }
+        this.driver.query(element, DISABLED_SELECTOR, true).forEach((/**
+         * @param {?} node
+         * @return {?}
+         */
+        node => {
+            this.markElementAsDisabled(node, false);
+        }));
+    }
+    /**
+     * @param {?=} microtaskId
+     * @return {?}
+     */
+    flush(microtaskId = -1) {
+        /** @type {?} */
+        let players = [];
+        if (this.newHostElements.size) {
+            this.newHostElements.forEach((/**
+             * @param {?} ns
+             * @param {?} element
+             * @return {?}
+             */
+            (ns, element) => this._balanceNamespaceList(ns, element)));
+            this.newHostElements.clear();
+        }
+        if (this.totalAnimations && this.collectedEnterElements.length) {
+            for (let i = 0; i < this.collectedEnterElements.length; i++) {
+                /** @type {?} */
+                const elm = this.collectedEnterElements[i];
+                addClass(elm, STAR_CLASSNAME);
+            }
+        }
+        if (this._namespaceList.length &&
+            (this.totalQueuedPlayers || this.collectedLeaveElements.length)) {
+            /** @type {?} */
+            const cleanupFns = [];
+            try {
+                players = this._flushAnimations(cleanupFns, microtaskId);
+            }
+            finally {
+                for (let i = 0; i < cleanupFns.length; i++) {
+                    cleanupFns[i]();
+                }
+            }
+        }
+        else {
+            for (let i = 0; i < this.collectedLeaveElements.length; i++) {
+                /** @type {?} */
+                const element = this.collectedLeaveElements[i];
+                this.processLeaveNode(element);
+            }
+        }
+        this.totalQueuedPlayers = 0;
+        this.collectedEnterElements.length = 0;
+        this.collectedLeaveElements.length = 0;
+        this._flushFns.forEach((/**
+         * @param {?} fn
+         * @return {?}
+         */
+        fn => fn()));
+        this._flushFns = [];
+        if (this._whenQuietFns.length) {
+            // we move these over to a variable so that
+            // if any new callbacks are registered in another
+            // flush they do not populate the existing set
+            /** @type {?} */
+            const quietFns = this._whenQuietFns;
+            this._whenQuietFns = [];
+            if (players.length) {
+                optimizeGroupPlayer(players).onDone((/**
+                 * @return {?}
+                 */
+                () => { quietFns.forEach((/**
+                 * @param {?} fn
+                 * @return {?}
+                 */
+                fn => fn())); }));
+            }
+            else {
+                quietFns.forEach((/**
+                 * @param {?} fn
+                 * @return {?}
+                 */
+                fn => fn()));
+            }
+        }
+    }
+    /**
+     * @param {?} errors
+     * @return {?}
+     */
+    reportError(errors) {
+        throw new Error(`Unable to process animations due to the following failed trigger transitions\n ${errors.join('\n')}`);
+    }
+    /**
+     * @private
+     * @param {?} cleanupFns
+     * @param {?} microtaskId
+     * @return {?}
+     */
+    _flushAnimations(cleanupFns, microtaskId) {
+        /** @type {?} */
+        const subTimelines = new ElementInstructionMap();
+        /** @type {?} */
+        const skippedPlayers = [];
+        /** @type {?} */
+        const skippedPlayersMap = new Map();
+        /** @type {?} */
+        const queuedInstructions = [];
+        /** @type {?} */
+        const queriedElements = new Map();
+        /** @type {?} */
+        const allPreStyleElements = new Map();
+        /** @type {?} */
+        const allPostStyleElements = new Map();
+        /** @type {?} */
+        const disabledElementsSet = new Set();
+        this.disabledNodes.forEach((/**
+         * @param {?} node
+         * @return {?}
+         */
+        node => {
+            disabledElementsSet.add(node);
+            /** @type {?} */
+            const nodesThatAreDisabled = this.driver.query(node, QUEUED_SELECTOR, true);
+            for (let i = 0; i < nodesThatAreDisabled.length; i++) {
+                disabledElementsSet.add(nodesThatAreDisabled[i]);
+            }
+        }));
+        /** @type {?} */
+        const bodyNode = this.bodyNode;
+        /** @type {?} */
+        const allTriggerElements = Array.from(this.statesByElement.keys());
+        /** @type {?} */
+        const enterNodeMap = buildRootMap(allTriggerElements, this.collectedEnterElements);
+        // this must occur before the instructions are built below such that
+        // the :enter queries match the elements (since the timeline queries
+        // are fired during instruction building).
+        /** @type {?} */
+        const enterNodeMapIds = new Map();
+        /** @type {?} */
+        let i = 0;
+        enterNodeMap.forEach((/**
+         * @param {?} nodes
+         * @param {?} root
+         * @return {?}
+         */
+        (nodes, root) => {
+            /** @type {?} */
+            const className = ENTER_CLASSNAME + i++;
+            enterNodeMapIds.set(root, className);
+            nodes.forEach((/**
+             * @param {?} node
+             * @return {?}
+             */
+            node => addClass(node, className)));
+        }));
+        /** @type {?} */
+        const allLeaveNodes = [];
+        /** @type {?} */
+        const mergedLeaveNodes = new Set();
+        /** @type {?} */
+        const leaveNodesWithoutAnimations = new Set();
+        for (let i = 0; i < this.collectedLeaveElements.length; i++) {
+            /** @type {?} */
+            const element = this.collectedLeaveElements[i];
+            /** @type {?} */
+            const details = (/** @type {?} */ (element[REMOVAL_FLAG]));
+            if (details && details.setForRemoval) {
+                allLeaveNodes.push(element);
+                mergedLeaveNodes.add(element);
+                if (details.hasAnimation) {
+                    this.driver.query(element, STAR_SELECTOR, true).forEach((/**
+                     * @param {?} elm
+                     * @return {?}
+                     */
+                    elm => mergedLeaveNodes.add(elm)));
+                }
+                else {
+                    leaveNodesWithoutAnimations.add(element);
+                }
+            }
+        }
+        /** @type {?} */
+        const leaveNodeMapIds = new Map();
+        /** @type {?} */
+        const leaveNodeMap = buildRootMap(allTriggerElements, Array.from(mergedLeaveNodes));
+        leaveNodeMap.forEach((/**
+         * @param {?} nodes
+         * @param {?} root
+         * @return {?}
+         */
+        (nodes, root) => {
+            /** @type {?} */
+            const className = LEAVE_CLASSNAME + i++;
+            leaveNodeMapIds.set(root, className);
+            nodes.forEach((/**
+             * @param {?} node
+             * @return {?}
+             */
+            node => addClass(node, className)));
+        }));
+        cleanupFns.push((/**
+         * @return {?}
+         */
+        () => {
+            enterNodeMap.forEach((/**
+             * @param {?} nodes
+             * @param {?} root
+             * @return {?}
+             */
+            (nodes, root) => {
+                /** @type {?} */
+                const className = (/** @type {?} */ (enterNodeMapIds.get(root)));
+                nodes.forEach((/**
+                 * @param {?} node
+                 * @return {?}
+                 */
+                node => removeClass(node, className)));
+            }));
+            leaveNodeMap.forEach((/**
+             * @param {?} nodes
+             * @param {?} root
+             * @return {?}
+             */
+            (nodes, root) => {
+                /** @type {?} */
+                const className = (/** @type {?} */ (leaveNodeMapIds.get(root)));
+                nodes.forEach((/**
+                 * @param {?} node
+                 * @return {?}
+                 */
+                node => removeClass(node, className)));
+            }));
+            allLeaveNodes.forEach((/**
+             * @param {?} element
+             * @return {?}
+             */
+            element => { this.processLeaveNode(element); }));
+        }));
+        /** @type {?} */
+        const allPlayers = [];
+        /** @type {?} */
+        const erroneousTransitions = [];
+        for (let i = this._namespaceList.length - 1; i >= 0; i--) {
+            /** @type {?} */
+            const ns = this._namespaceList[i];
+            ns.drainQueuedTransitions(microtaskId).forEach((/**
+             * @param {?} entry
+             * @return {?}
+             */
+            entry => {
+                /** @type {?} */
+                const player = entry.player;
+                /** @type {?} */
+                const element = entry.element;
+                allPlayers.push(player);
+                if (this.collectedEnterElements.length) {
+                    /** @type {?} */
+                    const details = (/** @type {?} */ (element[REMOVAL_FLAG]));
+                    // move animations are currently not supported...
+                    if (details && details.setForMove) {
+                        player.destroy();
+                        return;
+                    }
+                }
+                /** @type {?} */
+                const nodeIsOrphaned = !bodyNode || !this.driver.containsElement(bodyNode, element);
+                /** @type {?} */
+                const leaveClassName = (/** @type {?} */ (leaveNodeMapIds.get(element)));
+                /** @type {?} */
+                const enterClassName = (/** @type {?} */ (enterNodeMapIds.get(element)));
+                /** @type {?} */
+                const instruction = (/** @type {?} */ (this._buildInstruction(entry, subTimelines, enterClassName, leaveClassName, nodeIsOrphaned)));
+                if (instruction.errors && instruction.errors.length) {
+                    erroneousTransitions.push(instruction);
+                    return;
+                }
+                // even though the element may not be apart of the DOM, it may
+                // still be added at a later point (due to the mechanics of content
+                // projection and/or dynamic component insertion) therefore it's
+                // important we still style the element.
+                if (nodeIsOrphaned) {
+                    player.onStart((/**
+                     * @return {?}
+                     */
+                    () => eraseStyles(element, instruction.fromStyles)));
+                    player.onDestroy((/**
+                     * @return {?}
+                     */
+                    () => setStyles(element, instruction.toStyles)));
+                    skippedPlayers.push(player);
+                    return;
+                }
+                // if a unmatched transition is queued to go then it SHOULD NOT render
+                // an animation and cancel the previously running animations.
+                if (entry.isFallbackTransition) {
+                    player.onStart((/**
+                     * @return {?}
+                     */
+                    () => eraseStyles(element, instruction.fromStyles)));
+                    player.onDestroy((/**
+                     * @return {?}
+                     */
+                    () => setStyles(element, instruction.toStyles)));
+                    skippedPlayers.push(player);
+                    return;
+                }
+                // this means that if a parent animation uses this animation as a sub trigger
+                // then it will instruct the timeline builder to not add a player delay, but
+                // instead stretch the first keyframe gap up until the animation starts. The
+                // reason this is important is to prevent extra initialization styles from being
+                // required by the user in the animation.
+                instruction.timelines.forEach((/**
+                 * @param {?} tl
+                 * @return {?}
+                 */
+                tl => tl.stretchStartingKeyframe = true));
+                subTimelines.append(element, instruction.timelines);
+                /** @type {?} */
+                const tuple = { instruction, player, element };
+                queuedInstructions.push(tuple);
+                instruction.queriedElements.forEach((/**
+                 * @param {?} element
+                 * @return {?}
+                 */
+                element => getOrSetAsInMap(queriedElements, element, []).push(player)));
+                instruction.preStyleProps.forEach((/**
+                 * @param {?} stringMap
+                 * @param {?} element
+                 * @return {?}
+                 */
+                (stringMap, element) => {
+                    /** @type {?} */
+                    const props = Object.keys(stringMap);
+                    if (props.length) {
+                        /** @type {?} */
+                        let setVal = (/** @type {?} */ (allPreStyleElements.get(element)));
+                        if (!setVal) {
+                            allPreStyleElements.set(element, setVal = new Set());
+                        }
+                        props.forEach((/**
+                         * @param {?} prop
+                         * @return {?}
+                         */
+                        prop => setVal.add(prop)));
+                    }
+                }));
+                instruction.postStyleProps.forEach((/**
+                 * @param {?} stringMap
+                 * @param {?} element
+                 * @return {?}
+                 */
+                (stringMap, element) => {
+                    /** @type {?} */
+                    const props = Object.keys(stringMap);
+                    /** @type {?} */
+                    let setVal = (/** @type {?} */ (allPostStyleElements.get(element)));
+                    if (!setVal) {
+                        allPostStyleElements.set(element, setVal = new Set());
+                    }
+                    props.forEach((/**
+                     * @param {?} prop
+                     * @return {?}
+                     */
+                    prop => setVal.add(prop)));
+                }));
+            }));
+        }
+        if (erroneousTransitions.length) {
+            /** @type {?} */
+            const errors = [];
+            erroneousTransitions.forEach((/**
+             * @param {?} instruction
+             * @return {?}
+             */
+            instruction => {
+                errors.push(`@${instruction.triggerName} has failed due to:\n`);
+                (/** @type {?} */ (instruction.errors)).forEach((/**
+                 * @param {?} error
+                 * @return {?}
+                 */
+                error => errors.push(`- ${error}\n`)));
+            }));
+            allPlayers.forEach((/**
+             * @param {?} player
+             * @return {?}
+             */
+            player => player.destroy()));
+            this.reportError(errors);
+        }
+        /** @type {?} */
+        const allPreviousPlayersMap = new Map();
+        // this map works to tell which element in the DOM tree is contained by
+        // which animation. Further down below this map will get populated once
+        // the players are built and in doing so it can efficiently figure out
+        // if a sub player is skipped due to a parent player having priority.
+        /** @type {?} */
+        const animationElementMap = new Map();
+        queuedInstructions.forEach((/**
+         * @param {?} entry
+         * @return {?}
+         */
+        entry => {
+            /** @type {?} */
+            const element = entry.element;
+            if (subTimelines.has(element)) {
+                animationElementMap.set(element, element);
+                this._beforeAnimationBuild(entry.player.namespaceId, entry.instruction, allPreviousPlayersMap);
+            }
+        }));
+        skippedPlayers.forEach((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => {
+            /** @type {?} */
+            const element = player.element;
+            /** @type {?} */
+            const previousPlayers = this._getPreviousPlayers(element, false, player.namespaceId, player.triggerName, null);
+            previousPlayers.forEach((/**
+             * @param {?} prevPlayer
+             * @return {?}
+             */
+            prevPlayer => {
+                getOrSetAsInMap(allPreviousPlayersMap, element, []).push(prevPlayer);
+                prevPlayer.destroy();
+            }));
+        }));
+        // this is a special case for nodes that will be removed (either by)
+        // having their own leave animations or by being queried in a container
+        // that will be removed once a parent animation is complete. The idea
+        // here is that * styles must be identical to ! styles because of
+        // backwards compatibility (* is also filled in by default in many places).
+        // Otherwise * styles will return an empty value or auto since the element
+        // that is being getComputedStyle'd will not be visible (since * = destination)
+        /** @type {?} */
+        const replaceNodes = allLeaveNodes.filter((/**
+         * @param {?} node
+         * @return {?}
+         */
+        node => {
+            return replacePostStylesAsPre(node, allPreStyleElements, allPostStyleElements);
+        }));
+        // POST STAGE: fill the * styles
+        /** @type {?} */
+        const postStylesMap = new Map();
+        /** @type {?} */
+        const allLeaveQueriedNodes = cloakAndComputeStyles(postStylesMap, this.driver, leaveNodesWithoutAnimations, allPostStyleElements, _angular_animations__WEBPACK_IMPORTED_MODULE_0__["AUTO_STYLE"]);
+        allLeaveQueriedNodes.forEach((/**
+         * @param {?} node
+         * @return {?}
+         */
+        node => {
+            if (replacePostStylesAsPre(node, allPreStyleElements, allPostStyleElements)) {
+                replaceNodes.push(node);
+            }
+        }));
+        // PRE STAGE: fill the ! styles
+        /** @type {?} */
+        const preStylesMap = new Map();
+        enterNodeMap.forEach((/**
+         * @param {?} nodes
+         * @param {?} root
+         * @return {?}
+         */
+        (nodes, root) => {
+            cloakAndComputeStyles(preStylesMap, this.driver, new Set(nodes), allPreStyleElements, _angular_animations__WEBPACK_IMPORTED_MODULE_0__["ɵPRE_STYLE"]);
+        }));
+        replaceNodes.forEach((/**
+         * @param {?} node
+         * @return {?}
+         */
+        node => {
+            /** @type {?} */
+            const post = postStylesMap.get(node);
+            /** @type {?} */
+            const pre = preStylesMap.get(node);
+            postStylesMap.set(node, (/** @type {?} */ (Object.assign(Object.assign({}, post), pre))));
+        }));
+        /** @type {?} */
+        const rootPlayers = [];
+        /** @type {?} */
+        const subPlayers = [];
+        /** @type {?} */
+        const NO_PARENT_ANIMATION_ELEMENT_DETECTED = {};
+        queuedInstructions.forEach((/**
+         * @param {?} entry
+         * @return {?}
+         */
+        entry => {
+            const { element, player, instruction } = entry;
+            // this means that it was never consumed by a parent animation which
+            // means that it is independent and therefore should be set for animation
+            if (subTimelines.has(element)) {
+                if (disabledElementsSet.has(element)) {
+                    player.onDestroy((/**
+                     * @return {?}
+                     */
+                    () => setStyles(element, instruction.toStyles)));
+                    player.disabled = true;
+                    player.overrideTotalTime(instruction.totalTime);
+                    skippedPlayers.push(player);
+                    return;
+                }
+                // this will flow up the DOM and query the map to figure out
+                // if a parent animation has priority over it. In the situation
+                // that a parent is detected then it will cancel the loop. If
+                // nothing is detected, or it takes a few hops to find a parent,
+                // then it will fill in the missing nodes and signal them as having
+                // a detected parent (or a NO_PARENT value via a special constant).
+                /** @type {?} */
+                let parentWithAnimation = NO_PARENT_ANIMATION_ELEMENT_DETECTED;
+                if (animationElementMap.size > 1) {
+                    /** @type {?} */
+                    let elm = element;
+                    /** @type {?} */
+                    const parentsToAdd = [];
+                    while (elm = elm.parentNode) {
+                        /** @type {?} */
+                        const detectedParent = animationElementMap.get(elm);
+                        if (detectedParent) {
+                            parentWithAnimation = detectedParent;
+                            break;
+                        }
+                        parentsToAdd.push(elm);
+                    }
+                    parentsToAdd.forEach((/**
+                     * @param {?} parent
+                     * @return {?}
+                     */
+                    parent => animationElementMap.set(parent, parentWithAnimation)));
+                }
+                /** @type {?} */
+                const innerPlayer = this._buildAnimation(player.namespaceId, instruction, allPreviousPlayersMap, skippedPlayersMap, preStylesMap, postStylesMap);
+                player.setRealPlayer(innerPlayer);
+                if (parentWithAnimation === NO_PARENT_ANIMATION_ELEMENT_DETECTED) {
+                    rootPlayers.push(player);
+                }
+                else {
+                    /** @type {?} */
+                    const parentPlayers = this.playersByElement.get(parentWithAnimation);
+                    if (parentPlayers && parentPlayers.length) {
+                        player.parentPlayer = optimizeGroupPlayer(parentPlayers);
+                    }
+                    skippedPlayers.push(player);
+                }
+            }
+            else {
+                eraseStyles(element, instruction.fromStyles);
+                player.onDestroy((/**
+                 * @return {?}
+                 */
+                () => setStyles(element, instruction.toStyles)));
+                // there still might be a ancestor player animating this
+                // element therefore we will still add it as a sub player
+                // even if its animation may be disabled
+                subPlayers.push(player);
+                if (disabledElementsSet.has(element)) {
+                    skippedPlayers.push(player);
+                }
+            }
+        }));
+        // find all of the sub players' corresponding inner animation player
+        subPlayers.forEach((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => {
+            // even if any players are not found for a sub animation then it
+            // will still complete itself after the next tick since it's Noop
+            /** @type {?} */
+            const playersForElement = skippedPlayersMap.get(player.element);
+            if (playersForElement && playersForElement.length) {
+                /** @type {?} */
+                const innerPlayer = optimizeGroupPlayer(playersForElement);
+                player.setRealPlayer(innerPlayer);
+            }
+        }));
+        // the reason why we don't actually play the animation is
+        // because all that a skipped player is designed to do is to
+        // fire the start/done transition callback events
+        skippedPlayers.forEach((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => {
+            if (player.parentPlayer) {
+                player.syncPlayerEvents(player.parentPlayer);
+            }
+            else {
+                player.destroy();
+            }
+        }));
+        // run through all of the queued removals and see if they
+        // were picked up by a query. If not then perform the removal
+        // operation right away unless a parent animation is ongoing.
+        for (let i = 0; i < allLeaveNodes.length; i++) {
+            /** @type {?} */
+            const element = allLeaveNodes[i];
+            /** @type {?} */
+            const details = (/** @type {?} */ (element[REMOVAL_FLAG]));
+            removeClass(element, LEAVE_CLASSNAME);
+            // this means the element has a removal animation that is being
+            // taken care of and therefore the inner elements will hang around
+            // until that animation is over (or the parent queried animation)
+            if (details && details.hasAnimation)
+                continue;
+            /** @type {?} */
+            let players = [];
+            // if this element is queried or if it contains queried children
+            // then we want for the element not to be removed from the page
+            // until the queried animations have finished
+            if (queriedElements.size) {
+                /** @type {?} */
+                let queriedPlayerResults = queriedElements.get(element);
+                if (queriedPlayerResults && queriedPlayerResults.length) {
+                    players.push(...queriedPlayerResults);
+                }
+                /** @type {?} */
+                let queriedInnerElements = this.driver.query(element, NG_ANIMATING_SELECTOR, true);
+                for (let j = 0; j < queriedInnerElements.length; j++) {
+                    /** @type {?} */
+                    let queriedPlayers = queriedElements.get(queriedInnerElements[j]);
+                    if (queriedPlayers && queriedPlayers.length) {
+                        players.push(...queriedPlayers);
+                    }
+                }
+            }
+            /** @type {?} */
+            const activePlayers = players.filter((/**
+             * @param {?} p
+             * @return {?}
+             */
+            p => !p.destroyed));
+            if (activePlayers.length) {
+                removeNodesAfterAnimationDone(this, element, activePlayers);
+            }
+            else {
+                this.processLeaveNode(element);
+            }
+        }
+        // this is required so the cleanup method doesn't remove them
+        allLeaveNodes.length = 0;
+        rootPlayers.forEach((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => {
+            this.players.push(player);
+            player.onDone((/**
+             * @return {?}
+             */
+            () => {
+                player.destroy();
+                /** @type {?} */
+                const index = this.players.indexOf(player);
+                this.players.splice(index, 1);
+            }));
+            player.play();
+        }));
+        return rootPlayers;
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} element
+     * @return {?}
+     */
+    elementContainsData(namespaceId, element) {
+        /** @type {?} */
+        let containsData = false;
+        /** @type {?} */
+        const details = (/** @type {?} */ (element[REMOVAL_FLAG]));
+        if (details && details.setForRemoval)
+            containsData = true;
+        if (this.playersByElement.has(element))
+            containsData = true;
+        if (this.playersByQueriedElement.has(element))
+            containsData = true;
+        if (this.statesByElement.has(element))
+            containsData = true;
+        return this._fetchNamespace(namespaceId).elementContainsData(element) || containsData;
+    }
+    /**
+     * @param {?} callback
+     * @return {?}
+     */
+    afterFlush(callback) { this._flushFns.push(callback); }
+    /**
+     * @param {?} callback
+     * @return {?}
+     */
+    afterFlushAnimationsDone(callback) { this._whenQuietFns.push(callback); }
+    /**
+     * @private
+     * @param {?} element
+     * @param {?} isQueriedElement
+     * @param {?=} namespaceId
+     * @param {?=} triggerName
+     * @param {?=} toStateValue
+     * @return {?}
+     */
+    _getPreviousPlayers(element, isQueriedElement, namespaceId, triggerName, toStateValue) {
+        /** @type {?} */
+        let players = [];
+        if (isQueriedElement) {
+            /** @type {?} */
+            const queriedElementPlayers = this.playersByQueriedElement.get(element);
+            if (queriedElementPlayers) {
+                players = queriedElementPlayers;
+            }
+        }
+        else {
+            /** @type {?} */
+            const elementPlayers = this.playersByElement.get(element);
+            if (elementPlayers) {
+                /** @type {?} */
+                const isRemovalAnimation = !toStateValue || toStateValue == VOID_VALUE;
+                elementPlayers.forEach((/**
+                 * @param {?} player
+                 * @return {?}
+                 */
+                player => {
+                    if (player.queued)
+                        return;
+                    if (!isRemovalAnimation && player.triggerName != triggerName)
+                        return;
+                    players.push(player);
+                }));
+            }
+        }
+        if (namespaceId || triggerName) {
+            players = players.filter((/**
+             * @param {?} player
+             * @return {?}
+             */
+            player => {
+                if (namespaceId && namespaceId != player.namespaceId)
+                    return false;
+                if (triggerName && triggerName != player.triggerName)
+                    return false;
+                return true;
+            }));
+        }
+        return players;
+    }
+    /**
+     * @private
+     * @param {?} namespaceId
+     * @param {?} instruction
+     * @param {?} allPreviousPlayersMap
+     * @return {?}
+     */
+    _beforeAnimationBuild(namespaceId, instruction, allPreviousPlayersMap) {
+        /** @type {?} */
+        const triggerName = instruction.triggerName;
+        /** @type {?} */
+        const rootElement = instruction.element;
+        // when a removal animation occurs, ALL previous players are collected
+        // and destroyed (even if they are outside of the current namespace)
+        /** @type {?} */
+        const targetNameSpaceId = instruction.isRemovalTransition ? undefined : namespaceId;
+        /** @type {?} */
+        const targetTriggerName = instruction.isRemovalTransition ? undefined : triggerName;
+        for (const timelineInstruction of instruction.timelines) {
+            /** @type {?} */
+            const element = timelineInstruction.element;
+            /** @type {?} */
+            const isQueriedElement = element !== rootElement;
+            /** @type {?} */
+            const players = getOrSetAsInMap(allPreviousPlayersMap, element, []);
+            /** @type {?} */
+            const previousPlayers = this._getPreviousPlayers(element, isQueriedElement, targetNameSpaceId, targetTriggerName, instruction.toState);
+            previousPlayers.forEach((/**
+             * @param {?} player
+             * @return {?}
+             */
+            player => {
+                /** @type {?} */
+                const realPlayer = (/** @type {?} */ (((/** @type {?} */ (player))).getRealPlayer()));
+                if (realPlayer.beforeDestroy) {
+                    realPlayer.beforeDestroy();
+                }
+                player.destroy();
+                players.push(player);
+            }));
+        }
+        // this needs to be done so that the PRE/POST styles can be
+        // computed properly without interfering with the previous animation
+        eraseStyles(rootElement, instruction.fromStyles);
+    }
+    /**
+     * @private
+     * @param {?} namespaceId
+     * @param {?} instruction
+     * @param {?} allPreviousPlayersMap
+     * @param {?} skippedPlayersMap
+     * @param {?} preStylesMap
+     * @param {?} postStylesMap
+     * @return {?}
+     */
+    _buildAnimation(namespaceId, instruction, allPreviousPlayersMap, skippedPlayersMap, preStylesMap, postStylesMap) {
+        /** @type {?} */
+        const triggerName = instruction.triggerName;
+        /** @type {?} */
+        const rootElement = instruction.element;
+        // we first run this so that the previous animation player
+        // data can be passed into the successive animation players
+        /** @type {?} */
+        const allQueriedPlayers = [];
+        /** @type {?} */
+        const allConsumedElements = new Set();
+        /** @type {?} */
+        const allSubElements = new Set();
+        /** @type {?} */
+        const allNewPlayers = instruction.timelines.map((/**
+         * @param {?} timelineInstruction
+         * @return {?}
+         */
+        timelineInstruction => {
+            /** @type {?} */
+            const element = timelineInstruction.element;
+            allConsumedElements.add(element);
+            // FIXME (matsko): make sure to-be-removed animations are removed properly
+            /** @type {?} */
+            const details = element[REMOVAL_FLAG];
+            if (details && details.removedBeforeQueried)
+                return new _angular_animations__WEBPACK_IMPORTED_MODULE_0__["NoopAnimationPlayer"](timelineInstruction.duration, timelineInstruction.delay);
+            /** @type {?} */
+            const isQueriedElement = element !== rootElement;
+            /** @type {?} */
+            const previousPlayers = flattenGroupPlayers((allPreviousPlayersMap.get(element) || EMPTY_PLAYER_ARRAY)
+                .map((/**
+             * @param {?} p
+             * @return {?}
+             */
+            p => p.getRealPlayer())))
+                .filter((/**
+             * @param {?} p
+             * @return {?}
+             */
+            p => {
+                // the `element` is not apart of the AnimationPlayer definition, but
+                // Mock/WebAnimations
+                // use the element within their implementation. This will be added in Angular5 to
+                // AnimationPlayer
+                /** @type {?} */
+                const pp = (/** @type {?} */ (p));
+                return pp.element ? pp.element === element : false;
+            }));
+            /** @type {?} */
+            const preStyles = preStylesMap.get(element);
+            /** @type {?} */
+            const postStyles = postStylesMap.get(element);
+            /** @type {?} */
+            const keyframes = normalizeKeyframes(this.driver, this._normalizer, element, timelineInstruction.keyframes, preStyles, postStyles);
+            /** @type {?} */
+            const player = this._buildPlayer(timelineInstruction, keyframes, previousPlayers);
+            // this means that this particular player belongs to a sub trigger. It is
+            // important that we match this player up with the corresponding (@trigger.listener)
+            if (timelineInstruction.subTimeline && skippedPlayersMap) {
+                allSubElements.add(element);
+            }
+            if (isQueriedElement) {
+                /** @type {?} */
+                const wrappedPlayer = new TransitionAnimationPlayer(namespaceId, triggerName, element);
+                wrappedPlayer.setRealPlayer(player);
+                allQueriedPlayers.push(wrappedPlayer);
+            }
+            return player;
+        }));
+        allQueriedPlayers.forEach((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => {
+            getOrSetAsInMap(this.playersByQueriedElement, player.element, []).push(player);
+            player.onDone((/**
+             * @return {?}
+             */
+            () => deleteOrUnsetInMap(this.playersByQueriedElement, player.element, player)));
+        }));
+        allConsumedElements.forEach((/**
+         * @param {?} element
+         * @return {?}
+         */
+        element => addClass(element, NG_ANIMATING_CLASSNAME)));
+        /** @type {?} */
+        const player = optimizeGroupPlayer(allNewPlayers);
+        player.onDestroy((/**
+         * @return {?}
+         */
+        () => {
+            allConsumedElements.forEach((/**
+             * @param {?} element
+             * @return {?}
+             */
+            element => removeClass(element, NG_ANIMATING_CLASSNAME)));
+            setStyles(rootElement, instruction.toStyles);
+        }));
+        // this basically makes all of the callbacks for sub element animations
+        // be dependent on the upper players for when they finish
+        allSubElements.forEach((/**
+         * @param {?} element
+         * @return {?}
+         */
+        element => { getOrSetAsInMap(skippedPlayersMap, element, []).push(player); }));
+        return player;
+    }
+    /**
+     * @private
+     * @param {?} instruction
+     * @param {?} keyframes
+     * @param {?} previousPlayers
+     * @return {?}
+     */
+    _buildPlayer(instruction, keyframes, previousPlayers) {
+        if (keyframes.length > 0) {
+            return this.driver.animate(instruction.element, keyframes, instruction.duration, instruction.delay, instruction.easing, previousPlayers);
+        }
+        // special case for when an empty transition|definition is provided
+        // ... there is no point in rendering an empty animation
+        return new _angular_animations__WEBPACK_IMPORTED_MODULE_0__["NoopAnimationPlayer"](instruction.duration, instruction.delay);
+    }
+}
+if (false) {}
+class TransitionAnimationPlayer {
+    /**
+     * @param {?} namespaceId
+     * @param {?} triggerName
+     * @param {?} element
+     */
+    constructor(namespaceId, triggerName, element) {
+        this.namespaceId = namespaceId;
+        this.triggerName = triggerName;
+        this.element = element;
+        this._player = new _angular_animations__WEBPACK_IMPORTED_MODULE_0__["NoopAnimationPlayer"]();
+        this._containsRealPlayer = false;
+        this._queuedCallbacks = {};
+        this.destroyed = false;
+        this.markedForDestroy = false;
+        this.disabled = false;
+        this.queued = true;
+        this.totalTime = 0;
+    }
+    /**
+     * @param {?} player
+     * @return {?}
+     */
+    setRealPlayer(player) {
+        if (this._containsRealPlayer)
+            return;
+        this._player = player;
+        Object.keys(this._queuedCallbacks).forEach((/**
+         * @param {?} phase
+         * @return {?}
+         */
+        phase => {
+            this._queuedCallbacks[phase].forEach((/**
+             * @param {?} callback
+             * @return {?}
+             */
+            callback => listenOnPlayer(player, phase, undefined, callback)));
+        }));
+        this._queuedCallbacks = {};
+        this._containsRealPlayer = true;
+        this.overrideTotalTime(player.totalTime);
+        ((/** @type {?} */ (this))).queued = false;
+    }
+    /**
+     * @return {?}
+     */
+    getRealPlayer() { return this._player; }
+    /**
+     * @param {?} totalTime
+     * @return {?}
+     */
+    overrideTotalTime(totalTime) { ((/** @type {?} */ (this))).totalTime = totalTime; }
+    /**
+     * @param {?} player
+     * @return {?}
+     */
+    syncPlayerEvents(player) {
+        /** @type {?} */
+        const p = (/** @type {?} */ (this._player));
+        if (p.triggerCallback) {
+            player.onStart((/**
+             * @return {?}
+             */
+            () => (/** @type {?} */ (p.triggerCallback))('start')));
+        }
+        player.onDone((/**
+         * @return {?}
+         */
+        () => this.finish()));
+        player.onDestroy((/**
+         * @return {?}
+         */
+        () => this.destroy()));
+    }
+    /**
+     * @private
+     * @param {?} name
+     * @param {?} callback
+     * @return {?}
+     */
+    _queueEvent(name, callback) {
+        getOrSetAsInMap(this._queuedCallbacks, name, []).push(callback);
+    }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onDone(fn) {
+        if (this.queued) {
+            this._queueEvent('done', fn);
+        }
+        this._player.onDone(fn);
+    }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onStart(fn) {
+        if (this.queued) {
+            this._queueEvent('start', fn);
+        }
+        this._player.onStart(fn);
+    }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onDestroy(fn) {
+        if (this.queued) {
+            this._queueEvent('destroy', fn);
+        }
+        this._player.onDestroy(fn);
+    }
+    /**
+     * @return {?}
+     */
+    init() { this._player.init(); }
+    /**
+     * @return {?}
+     */
+    hasStarted() { return this.queued ? false : this._player.hasStarted(); }
+    /**
+     * @return {?}
+     */
+    play() { !this.queued && this._player.play(); }
+    /**
+     * @return {?}
+     */
+    pause() { !this.queued && this._player.pause(); }
+    /**
+     * @return {?}
+     */
+    restart() { !this.queued && this._player.restart(); }
+    /**
+     * @return {?}
+     */
+    finish() { this._player.finish(); }
+    /**
+     * @return {?}
+     */
+    destroy() {
+        ((/** @type {?} */ (this))).destroyed = true;
+        this._player.destroy();
+    }
+    /**
+     * @return {?}
+     */
+    reset() { !this.queued && this._player.reset(); }
+    /**
+     * @param {?} p
+     * @return {?}
+     */
+    setPosition(p) {
+        if (!this.queued) {
+            this._player.setPosition(p);
+        }
+    }
+    /**
+     * @return {?}
+     */
+    getPosition() { return this.queued ? 0 : this._player.getPosition(); }
+    /**
+     * \@internal
+     * @param {?} phaseName
+     * @return {?}
+     */
+    triggerCallback(phaseName) {
+        /** @type {?} */
+        const p = (/** @type {?} */ (this._player));
+        if (p.triggerCallback) {
+            p.triggerCallback(phaseName);
+        }
+    }
+}
+if (false) {}
+/**
+ * @param {?} map
+ * @param {?} key
+ * @param {?} value
+ * @return {?}
+ */
+function deleteOrUnsetInMap(map, key, value) {
+    /** @type {?} */
+    let currentValues;
+    if (map instanceof Map) {
+        currentValues = map.get(key);
+        if (currentValues) {
+            if (currentValues.length) {
+                /** @type {?} */
+                const index = currentValues.indexOf(value);
+                currentValues.splice(index, 1);
+            }
+            if (currentValues.length == 0) {
+                map.delete(key);
+            }
+        }
+    }
+    else {
+        currentValues = map[key];
+        if (currentValues) {
+            if (currentValues.length) {
+                /** @type {?} */
+                const index = currentValues.indexOf(value);
+                currentValues.splice(index, 1);
+            }
+            if (currentValues.length == 0) {
+                delete map[key];
+            }
+        }
+    }
+    return currentValues;
+}
+/**
+ * @param {?} value
+ * @return {?}
+ */
+function normalizeTriggerValue(value) {
+    // we use `!= null` here because it's the most simple
+    // way to test against a "falsy" value without mixing
+    // in empty strings or a zero value. DO NOT OPTIMIZE.
+    return value != null ? value : null;
+}
+/**
+ * @param {?} node
+ * @return {?}
+ */
+function isElementNode(node) {
+    return node && node['nodeType'] === 1;
+}
+/**
+ * @param {?} eventName
+ * @return {?}
+ */
+function isTriggerEventValid(eventName) {
+    return eventName == 'start' || eventName == 'done';
+}
+/**
+ * @param {?} element
+ * @param {?=} value
+ * @return {?}
+ */
+function cloakElement(element, value) {
+    /** @type {?} */
+    const oldValue = element.style.display;
+    element.style.display = value != null ? value : 'none';
+    return oldValue;
+}
+/**
+ * @param {?} valuesMap
+ * @param {?} driver
+ * @param {?} elements
+ * @param {?} elementPropsMap
+ * @param {?} defaultStyle
+ * @return {?}
+ */
+function cloakAndComputeStyles(valuesMap, driver, elements, elementPropsMap, defaultStyle) {
+    /** @type {?} */
+    const cloakVals = [];
+    elements.forEach((/**
+     * @param {?} element
+     * @return {?}
+     */
+    element => cloakVals.push(cloakElement(element))));
+    /** @type {?} */
+    const failedElements = [];
+    elementPropsMap.forEach((/**
+     * @param {?} props
+     * @param {?} element
+     * @return {?}
+     */
+    (props, element) => {
+        /** @type {?} */
+        const styles = {};
+        props.forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => {
+            /** @type {?} */
+            const value = styles[prop] = driver.computeStyle(element, prop, defaultStyle);
+            // there is no easy way to detect this because a sub element could be removed
+            // by a parent animation element being detached.
+            if (!value || value.length == 0) {
+                element[REMOVAL_FLAG] = NULL_REMOVED_QUERIED_STATE;
+                failedElements.push(element);
+            }
+        }));
+        valuesMap.set(element, styles);
+    }));
+    // we use a index variable here since Set.forEach(a, i) does not return
+    // an index value for the closure (but instead just the value)
+    /** @type {?} */
+    let i = 0;
+    elements.forEach((/**
+     * @param {?} element
+     * @return {?}
+     */
+    element => cloakElement(element, cloakVals[i++])));
+    return failedElements;
+}
+/*
+Since the Angular renderer code will return a collection of inserted
+nodes in all areas of a DOM tree, it's up to this algorithm to figure
+out which nodes are roots for each animation @trigger.
+
+By placing each inserted node into a Set and traversing upwards, it
+is possible to find the @trigger elements and well any direct *star
+insertion nodes, if a @trigger root is found then the enter element
+is placed into the Map[@trigger] spot.
+ */
+/**
+ * @param {?} roots
+ * @param {?} nodes
+ * @return {?}
+ */
+function buildRootMap(roots, nodes) {
+    /** @type {?} */
+    const rootMap = new Map();
+    roots.forEach((/**
+     * @param {?} root
+     * @return {?}
+     */
+    root => rootMap.set(root, [])));
+    if (nodes.length == 0)
+        return rootMap;
+    /** @type {?} */
+    const NULL_NODE = 1;
+    /** @type {?} */
+    const nodeSet = new Set(nodes);
+    /** @type {?} */
+    const localRootMap = new Map();
+    /**
+     * @param {?} node
+     * @return {?}
+     */
+    function getRoot(node) {
+        if (!node)
+            return NULL_NODE;
+        /** @type {?} */
+        let root = localRootMap.get(node);
+        if (root)
+            return root;
+        /** @type {?} */
+        const parent = node.parentNode;
+        if (rootMap.has(parent)) { // ngIf inside @trigger
+            root = parent;
+        }
+        else if (nodeSet.has(parent)) { // ngIf inside ngIf
+            root = NULL_NODE;
+        }
+        else { // recurse upwards
+            root = getRoot(parent);
+        }
+        localRootMap.set(node, root);
+        return root;
+    }
+    nodes.forEach((/**
+     * @param {?} node
+     * @return {?}
+     */
+    node => {
+        /** @type {?} */
+        const root = getRoot(node);
+        if (root !== NULL_NODE) {
+            (/** @type {?} */ (rootMap.get(root))).push(node);
+        }
+    }));
+    return rootMap;
+}
+/** @type {?} */
+const CLASSES_CACHE_KEY = '$$classes';
+/**
+ * @param {?} element
+ * @param {?} className
+ * @return {?}
+ */
+function containsClass(element, className) {
+    if (element.classList) {
+        return element.classList.contains(className);
+    }
+    else {
+        /** @type {?} */
+        const classes = element[CLASSES_CACHE_KEY];
+        return classes && classes[className];
+    }
+}
+/**
+ * @param {?} element
+ * @param {?} className
+ * @return {?}
+ */
+function addClass(element, className) {
+    if (element.classList) {
+        element.classList.add(className);
+    }
+    else {
+        /** @type {?} */
+        let classes = element[CLASSES_CACHE_KEY];
+        if (!classes) {
+            classes = element[CLASSES_CACHE_KEY] = {};
+        }
+        classes[className] = true;
+    }
+}
+/**
+ * @param {?} element
+ * @param {?} className
+ * @return {?}
+ */
+function removeClass(element, className) {
+    if (element.classList) {
+        element.classList.remove(className);
+    }
+    else {
+        /** @type {?} */
+        let classes = element[CLASSES_CACHE_KEY];
+        if (classes) {
+            delete classes[className];
+        }
+    }
+}
+/**
+ * @param {?} engine
+ * @param {?} element
+ * @param {?} players
+ * @return {?}
+ */
+function removeNodesAfterAnimationDone(engine, element, players) {
+    optimizeGroupPlayer(players).onDone((/**
+     * @return {?}
+     */
+    () => engine.processLeaveNode(element)));
+}
+/**
+ * @param {?} players
+ * @return {?}
+ */
+function flattenGroupPlayers(players) {
+    /** @type {?} */
+    const finalPlayers = [];
+    _flattenGroupPlayersRecur(players, finalPlayers);
+    return finalPlayers;
+}
+/**
+ * @param {?} players
+ * @param {?} finalPlayers
+ * @return {?}
+ */
+function _flattenGroupPlayersRecur(players, finalPlayers) {
+    for (let i = 0; i < players.length; i++) {
+        /** @type {?} */
+        const player = players[i];
+        if (player instanceof _angular_animations__WEBPACK_IMPORTED_MODULE_0__["ɵAnimationGroupPlayer"]) {
+            _flattenGroupPlayersRecur(player.players, finalPlayers);
+        }
+        else {
+            finalPlayers.push(player);
+        }
+    }
+}
+/**
+ * @param {?} a
+ * @param {?} b
+ * @return {?}
+ */
+function objEquals(a, b) {
+    /** @type {?} */
+    const k1 = Object.keys(a);
+    /** @type {?} */
+    const k2 = Object.keys(b);
+    if (k1.length != k2.length)
+        return false;
+    for (let i = 0; i < k1.length; i++) {
+        /** @type {?} */
+        const prop = k1[i];
+        if (!b.hasOwnProperty(prop) || a[prop] !== b[prop])
+            return false;
+    }
+    return true;
+}
+/**
+ * @param {?} element
+ * @param {?} allPreStyleElements
+ * @param {?} allPostStyleElements
+ * @return {?}
+ */
+function replacePostStylesAsPre(element, allPreStyleElements, allPostStyleElements) {
+    /** @type {?} */
+    const postEntry = allPostStyleElements.get(element);
+    if (!postEntry)
+        return false;
+    /** @type {?} */
+    let preEntry = allPreStyleElements.get(element);
+    if (preEntry) {
+        postEntry.forEach((/**
+         * @param {?} data
+         * @return {?}
+         */
+        data => (/** @type {?} */ (preEntry)).add(data)));
+    }
+    else {
+        allPreStyleElements.set(element, postEntry);
+    }
+    allPostStyleElements.delete(element);
+    return true;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/render/animation_engine_next.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class AnimationEngine {
+    /**
+     * @param {?} bodyNode
+     * @param {?} _driver
+     * @param {?} normalizer
+     */
+    constructor(bodyNode, _driver, normalizer) {
+        this.bodyNode = bodyNode;
+        this._driver = _driver;
+        this._triggerCache = {};
+        // this method is designed to be overridden by the code that uses this engine
+        this.onRemovalComplete = (/**
+         * @param {?} element
+         * @param {?} context
+         * @return {?}
+         */
+        (element, context) => { });
+        this._transitionEngine = new TransitionAnimationEngine(bodyNode, _driver, normalizer);
+        this._timelineEngine = new TimelineAnimationEngine(bodyNode, _driver, normalizer);
+        this._transitionEngine.onRemovalComplete = (/**
+         * @param {?} element
+         * @param {?} context
+         * @return {?}
+         */
+        (element, context) => this.onRemovalComplete(element, context));
+    }
+    /**
+     * @param {?} componentId
+     * @param {?} namespaceId
+     * @param {?} hostElement
+     * @param {?} name
+     * @param {?} metadata
+     * @return {?}
+     */
+    registerTrigger(componentId, namespaceId, hostElement, name, metadata) {
+        /** @type {?} */
+        const cacheKey = componentId + '-' + name;
+        /** @type {?} */
+        let trigger = this._triggerCache[cacheKey];
+        if (!trigger) {
+            /** @type {?} */
+            const errors = [];
+            /** @type {?} */
+            const ast = (/** @type {?} */ (buildAnimationAst(this._driver, (/** @type {?} */ (metadata)), errors)));
+            if (errors.length) {
+                throw new Error(`The animation trigger "${name}" has failed to build due to the following errors:\n - ${errors.join("\n - ")}`);
+            }
+            trigger = buildTrigger(name, ast);
+            this._triggerCache[cacheKey] = trigger;
+        }
+        this._transitionEngine.registerTrigger(namespaceId, name, trigger);
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} hostElement
+     * @return {?}
+     */
+    register(namespaceId, hostElement) {
+        this._transitionEngine.register(namespaceId, hostElement);
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} context
+     * @return {?}
+     */
+    destroy(namespaceId, context) {
+        this._transitionEngine.destroy(namespaceId, context);
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} element
+     * @param {?} parent
+     * @param {?} insertBefore
+     * @return {?}
+     */
+    onInsert(namespaceId, element, parent, insertBefore) {
+        this._transitionEngine.insertNode(namespaceId, element, parent, insertBefore);
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} element
+     * @param {?} context
+     * @param {?=} isHostElement
+     * @return {?}
+     */
+    onRemove(namespaceId, element, context, isHostElement) {
+        this._transitionEngine.removeNode(namespaceId, element, isHostElement || false, context);
+    }
+    /**
+     * @param {?} element
+     * @param {?} disable
+     * @return {?}
+     */
+    disableAnimations(element, disable) {
+        this._transitionEngine.markElementAsDisabled(element, disable);
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} element
+     * @param {?} property
+     * @param {?} value
+     * @return {?}
+     */
+    process(namespaceId, element, property, value) {
+        if (property.charAt(0) == '@') {
+            const [id, action] = parseTimelineCommand(property);
+            /** @type {?} */
+            const args = (/** @type {?} */ (value));
+            this._timelineEngine.command(id, element, action, args);
+        }
+        else {
+            this._transitionEngine.trigger(namespaceId, element, property, value);
+        }
+    }
+    /**
+     * @param {?} namespaceId
+     * @param {?} element
+     * @param {?} eventName
+     * @param {?} eventPhase
+     * @param {?} callback
+     * @return {?}
+     */
+    listen(namespaceId, element, eventName, eventPhase, callback) {
+        // @@listen
+        if (eventName.charAt(0) == '@') {
+            const [id, action] = parseTimelineCommand(eventName);
+            return this._timelineEngine.listen(id, element, action, callback);
+        }
+        return this._transitionEngine.listen(namespaceId, element, eventName, eventPhase, callback);
+    }
+    /**
+     * @param {?=} microtaskId
+     * @return {?}
+     */
+    flush(microtaskId = -1) { this._transitionEngine.flush(microtaskId); }
+    /**
+     * @return {?}
+     */
+    get players() {
+        return ((/** @type {?} */ (this._transitionEngine.players)))
+            .concat((/** @type {?} */ (this._timelineEngine.players)));
+    }
+    /**
+     * @return {?}
+     */
+    whenRenderingDone() { return this._transitionEngine.whenRenderingDone(); }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/render/special_cased_styles.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Returns an instance of `SpecialCasedStyles` if and when any special (non animateable) styles are
+ * detected.
+ *
+ * In CSS there exist properties that cannot be animated within a keyframe animation
+ * (whether it be via CSS keyframes or web-animations) and the animation implementation
+ * will ignore them. This function is designed to detect those special cased styles and
+ * return a container that will be executed at the start and end of the animation.
+ *
+ * @param {?} element
+ * @param {?} styles
+ * @return {?} an instance of `SpecialCasedStyles` if any special styles are detected otherwise `null`
+ */
+function packageNonAnimatableStyles(element, styles) {
+    /** @type {?} */
+    let startStyles = null;
+    /** @type {?} */
+    let endStyles = null;
+    if (Array.isArray(styles) && styles.length) {
+        startStyles = filterNonAnimatableStyles(styles[0]);
+        if (styles.length > 1) {
+            endStyles = filterNonAnimatableStyles(styles[styles.length - 1]);
+        }
+    }
+    else if (styles) {
+        startStyles = filterNonAnimatableStyles(styles);
+    }
+    return (startStyles || endStyles) ? new SpecialCasedStyles(element, startStyles, endStyles) :
+        null;
+}
+/**
+ * Designed to be executed during a keyframe-based animation to apply any special-cased styles.
+ *
+ * When started (when the `start()` method is run) then the provided `startStyles`
+ * will be applied. When finished (when the `finish()` method is called) the
+ * `endStyles` will be applied as well any any starting styles. Finally when
+ * `destroy()` is called then all styles will be removed.
+ */
+class SpecialCasedStyles {
+    /**
+     * @param {?} _element
+     * @param {?} _startStyles
+     * @param {?} _endStyles
+     */
+    constructor(_element, _startStyles, _endStyles) {
+        this._element = _element;
+        this._startStyles = _startStyles;
+        this._endStyles = _endStyles;
+        this._state = 0 /* Pending */;
+        /** @type {?} */
+        let initialStyles = SpecialCasedStyles.initialStylesByElement.get(_element);
+        if (!initialStyles) {
+            SpecialCasedStyles.initialStylesByElement.set(_element, initialStyles = {});
+        }
+        this._initialStyles = initialStyles;
+    }
+    /**
+     * @return {?}
+     */
+    start() {
+        if (this._state < 1 /* Started */) {
+            if (this._startStyles) {
+                setStyles(this._element, this._startStyles, this._initialStyles);
+            }
+            this._state = 1 /* Started */;
+        }
+    }
+    /**
+     * @return {?}
+     */
+    finish() {
+        this.start();
+        if (this._state < 2 /* Finished */) {
+            setStyles(this._element, this._initialStyles);
+            if (this._endStyles) {
+                setStyles(this._element, this._endStyles);
+                this._endStyles = null;
+            }
+            this._state = 1 /* Started */;
+        }
+    }
+    /**
+     * @return {?}
+     */
+    destroy() {
+        this.finish();
+        if (this._state < 3 /* Destroyed */) {
+            SpecialCasedStyles.initialStylesByElement.delete(this._element);
+            if (this._startStyles) {
+                eraseStyles(this._element, this._startStyles);
+                this._endStyles = null;
+            }
+            if (this._endStyles) {
+                eraseStyles(this._element, this._endStyles);
+                this._endStyles = null;
+            }
+            setStyles(this._element, this._initialStyles);
+            this._state = 3 /* Destroyed */;
+        }
+    }
+}
+SpecialCasedStyles.initialStylesByElement = new WeakMap();
+if (false) {}
+/** @enum {number} */
+const SpecialCasedStylesState = {
+    Pending: 0,
+    Started: 1,
+    Finished: 2,
+    Destroyed: 3,
+};
+/**
+ * @param {?} styles
+ * @return {?}
+ */
+function filterNonAnimatableStyles(styles) {
+    /** @type {?} */
+    let result = null;
+    /** @type {?} */
+    const props = Object.keys(styles);
+    for (let i = 0; i < props.length; i++) {
+        /** @type {?} */
+        const prop = props[i];
+        if (isNonAnimatableStyle(prop)) {
+            result = result || {};
+            result[prop] = styles[prop];
+        }
+    }
+    return result;
+}
+/**
+ * @param {?} prop
+ * @return {?}
+ */
+function isNonAnimatableStyle(prop) {
+    return prop === 'display' || prop === 'position';
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/render/css_keyframes/element_animation_style_handler.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ * @type {?}
+ */
+const ELAPSED_TIME_MAX_DECIMAL_PLACES = 3;
+/** @type {?} */
+const ANIMATION_PROP = 'animation';
+/** @type {?} */
+const ANIMATIONEND_EVENT = 'animationend';
+/** @type {?} */
+const ONE_SECOND$1 = 1000;
+class ElementAnimationStyleHandler {
+    /**
+     * @param {?} _element
+     * @param {?} _name
+     * @param {?} _duration
+     * @param {?} _delay
+     * @param {?} _easing
+     * @param {?} _fillMode
+     * @param {?} _onDoneFn
+     */
+    constructor(_element, _name, _duration, _delay, _easing, _fillMode, _onDoneFn) {
+        this._element = _element;
+        this._name = _name;
+        this._duration = _duration;
+        this._delay = _delay;
+        this._easing = _easing;
+        this._fillMode = _fillMode;
+        this._onDoneFn = _onDoneFn;
+        this._finished = false;
+        this._destroyed = false;
+        this._startTime = 0;
+        this._position = 0;
+        this._eventFn = (/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => this._handleCallback(e));
+    }
+    /**
+     * @return {?}
+     */
+    apply() {
+        applyKeyframeAnimation(this._element, `${this._duration}ms ${this._easing} ${this._delay}ms 1 normal ${this._fillMode} ${this._name}`);
+        addRemoveAnimationEvent(this._element, this._eventFn, false);
+        this._startTime = Date.now();
+    }
+    /**
+     * @return {?}
+     */
+    pause() { playPauseAnimation(this._element, this._name, 'paused'); }
+    /**
+     * @return {?}
+     */
+    resume() { playPauseAnimation(this._element, this._name, 'running'); }
+    /**
+     * @param {?} position
+     * @return {?}
+     */
+    setPosition(position) {
+        /** @type {?} */
+        const index = findIndexForAnimation(this._element, this._name);
+        this._position = position * this._duration;
+        setAnimationStyle(this._element, 'Delay', `-${this._position}ms`, index);
+    }
+    /**
+     * @return {?}
+     */
+    getPosition() { return this._position; }
+    /**
+     * @private
+     * @param {?} event
+     * @return {?}
+     */
+    _handleCallback(event) {
+        /** @type {?} */
+        const timestamp = event._ngTestManualTimestamp || Date.now();
+        /** @type {?} */
+        const elapsedTime = parseFloat(event.elapsedTime.toFixed(ELAPSED_TIME_MAX_DECIMAL_PLACES)) * ONE_SECOND$1;
+        if (event.animationName == this._name &&
+            Math.max(timestamp - this._startTime, 0) >= this._delay && elapsedTime >= this._duration) {
+            this.finish();
+        }
+    }
+    /**
+     * @return {?}
+     */
+    finish() {
+        if (this._finished)
+            return;
+        this._finished = true;
+        this._onDoneFn();
+        addRemoveAnimationEvent(this._element, this._eventFn, true);
+    }
+    /**
+     * @return {?}
+     */
+    destroy() {
+        if (this._destroyed)
+            return;
+        this._destroyed = true;
+        this.finish();
+        removeKeyframeAnimation(this._element, this._name);
+    }
+}
+if (false) {}
+/**
+ * @param {?} element
+ * @param {?} name
+ * @param {?} status
+ * @return {?}
+ */
+function playPauseAnimation(element, name, status) {
+    /** @type {?} */
+    const index = findIndexForAnimation(element, name);
+    setAnimationStyle(element, 'PlayState', status, index);
+}
+/**
+ * @param {?} element
+ * @param {?} value
+ * @return {?}
+ */
+function applyKeyframeAnimation(element, value) {
+    /** @type {?} */
+    const anim = getAnimationStyle(element, '').trim();
+    /** @type {?} */
+    let index = 0;
+    if (anim.length) {
+        index = countChars(anim, ',') + 1;
+        value = `${anim}, ${value}`;
+    }
+    setAnimationStyle(element, '', value);
+    return index;
+}
+/**
+ * @param {?} element
+ * @param {?} name
+ * @return {?}
+ */
+function removeKeyframeAnimation(element, name) {
+    /** @type {?} */
+    const anim = getAnimationStyle(element, '');
+    /** @type {?} */
+    const tokens = anim.split(',');
+    /** @type {?} */
+    const index = findMatchingTokenIndex(tokens, name);
+    if (index >= 0) {
+        tokens.splice(index, 1);
+        /** @type {?} */
+        const newValue = tokens.join(',');
+        setAnimationStyle(element, '', newValue);
+    }
+}
+/**
+ * @param {?} element
+ * @param {?} value
+ * @return {?}
+ */
+function findIndexForAnimation(element, value) {
+    /** @type {?} */
+    const anim = getAnimationStyle(element, '');
+    if (anim.indexOf(',') > 0) {
+        /** @type {?} */
+        const tokens = anim.split(',');
+        return findMatchingTokenIndex(tokens, value);
+    }
+    return findMatchingTokenIndex([anim], value);
+}
+/**
+ * @param {?} tokens
+ * @param {?} searchToken
+ * @return {?}
+ */
+function findMatchingTokenIndex(tokens, searchToken) {
+    for (let i = 0; i < tokens.length; i++) {
+        if (tokens[i].indexOf(searchToken) >= 0) {
+            return i;
+        }
+    }
+    return -1;
+}
+/**
+ * @param {?} element
+ * @param {?} fn
+ * @param {?} doRemove
+ * @return {?}
+ */
+function addRemoveAnimationEvent(element, fn, doRemove) {
+    doRemove ? element.removeEventListener(ANIMATIONEND_EVENT, fn) :
+        element.addEventListener(ANIMATIONEND_EVENT, fn);
+}
+/**
+ * @param {?} element
+ * @param {?} name
+ * @param {?} value
+ * @param {?=} index
+ * @return {?}
+ */
+function setAnimationStyle(element, name, value, index) {
+    /** @type {?} */
+    const prop = ANIMATION_PROP + name;
+    if (index != null) {
+        /** @type {?} */
+        const oldValue = element.style[prop];
+        if (oldValue.length) {
+            /** @type {?} */
+            const tokens = oldValue.split(',');
+            tokens[index] = value;
+            value = tokens.join(',');
+        }
+    }
+    element.style[prop] = value;
+}
+/**
+ * @param {?} element
+ * @param {?} name
+ * @return {?}
+ */
+function getAnimationStyle(element, name) {
+    return element.style[ANIMATION_PROP + name];
+}
+/**
+ * @param {?} value
+ * @param {?} char
+ * @return {?}
+ */
+function countChars(value, char) {
+    /** @type {?} */
+    let count = 0;
+    for (let i = 0; i < value.length; i++) {
+        /** @type {?} */
+        const c = value.charAt(i);
+        if (c === char)
+            count++;
+    }
+    return count;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/render/css_keyframes/css_keyframes_player.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const DEFAULT_FILL_MODE = 'forwards';
+/** @type {?} */
+const DEFAULT_EASING = 'linear';
+/** @enum {number} */
+const AnimatorControlState = {
+    INITIALIZED: 1, STARTED: 2, FINISHED: 3, DESTROYED: 4,
+};
+class CssKeyframesPlayer {
+    /**
+     * @param {?} element
+     * @param {?} keyframes
+     * @param {?} animationName
+     * @param {?} _duration
+     * @param {?} _delay
+     * @param {?} easing
+     * @param {?} _finalStyles
+     * @param {?=} _specialStyles
+     */
+    constructor(element, keyframes, animationName, _duration, _delay, easing, _finalStyles, _specialStyles) {
+        this.element = element;
+        this.keyframes = keyframes;
+        this.animationName = animationName;
+        this._duration = _duration;
+        this._delay = _delay;
+        this._finalStyles = _finalStyles;
+        this._specialStyles = _specialStyles;
+        this._onDoneFns = [];
+        this._onStartFns = [];
+        this._onDestroyFns = [];
+        this._started = false;
+        this.currentSnapshot = {};
+        this._state = 0;
+        this.easing = easing || DEFAULT_EASING;
+        this.totalTime = _duration + _delay;
+        this._buildStyler();
+    }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onStart(fn) { this._onStartFns.push(fn); }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onDone(fn) { this._onDoneFns.push(fn); }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onDestroy(fn) { this._onDestroyFns.push(fn); }
+    /**
+     * @return {?}
+     */
+    destroy() {
+        this.init();
+        if (this._state >= 4 /* DESTROYED */)
+            return;
+        this._state = 4 /* DESTROYED */;
+        this._styler.destroy();
+        this._flushStartFns();
+        this._flushDoneFns();
+        if (this._specialStyles) {
+            this._specialStyles.destroy();
+        }
+        this._onDestroyFns.forEach((/**
+         * @param {?} fn
+         * @return {?}
+         */
+        fn => fn()));
+        this._onDestroyFns = [];
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _flushDoneFns() {
+        this._onDoneFns.forEach((/**
+         * @param {?} fn
+         * @return {?}
+         */
+        fn => fn()));
+        this._onDoneFns = [];
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _flushStartFns() {
+        this._onStartFns.forEach((/**
+         * @param {?} fn
+         * @return {?}
+         */
+        fn => fn()));
+        this._onStartFns = [];
+    }
+    /**
+     * @return {?}
+     */
+    finish() {
+        this.init();
+        if (this._state >= 3 /* FINISHED */)
+            return;
+        this._state = 3 /* FINISHED */;
+        this._styler.finish();
+        this._flushStartFns();
+        if (this._specialStyles) {
+            this._specialStyles.finish();
+        }
+        this._flushDoneFns();
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    setPosition(value) { this._styler.setPosition(value); }
+    /**
+     * @return {?}
+     */
+    getPosition() { return this._styler.getPosition(); }
+    /**
+     * @return {?}
+     */
+    hasStarted() { return this._state >= 2 /* STARTED */; }
+    /**
+     * @return {?}
+     */
+    init() {
+        if (this._state >= 1 /* INITIALIZED */)
+            return;
+        this._state = 1 /* INITIALIZED */;
+        /** @type {?} */
+        const elm = this.element;
+        this._styler.apply();
+        if (this._delay) {
+            this._styler.pause();
+        }
+    }
+    /**
+     * @return {?}
+     */
+    play() {
+        this.init();
+        if (!this.hasStarted()) {
+            this._flushStartFns();
+            this._state = 2 /* STARTED */;
+            if (this._specialStyles) {
+                this._specialStyles.start();
+            }
+        }
+        this._styler.resume();
+    }
+    /**
+     * @return {?}
+     */
+    pause() {
+        this.init();
+        this._styler.pause();
+    }
+    /**
+     * @return {?}
+     */
+    restart() {
+        this.reset();
+        this.play();
+    }
+    /**
+     * @return {?}
+     */
+    reset() {
+        this._styler.destroy();
+        this._buildStyler();
+        this._styler.apply();
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _buildStyler() {
+        this._styler = new ElementAnimationStyleHandler(this.element, this.animationName, this._duration, this._delay, this.easing, DEFAULT_FILL_MODE, (/**
+         * @return {?}
+         */
+        () => this.finish()));
+    }
+    /**
+     * \@internal
+     * @param {?} phaseName
+     * @return {?}
+     */
+    triggerCallback(phaseName) {
+        /** @type {?} */
+        const methods = phaseName == 'start' ? this._onStartFns : this._onDoneFns;
+        methods.forEach((/**
+         * @param {?} fn
+         * @return {?}
+         */
+        fn => fn()));
+        methods.length = 0;
+    }
+    /**
+     * @return {?}
+     */
+    beforeDestroy() {
+        this.init();
+        /** @type {?} */
+        const styles = {};
+        if (this.hasStarted()) {
+            /** @type {?} */
+            const finished = this._state >= 3 /* FINISHED */;
+            Object.keys(this._finalStyles).forEach((/**
+             * @param {?} prop
+             * @return {?}
+             */
+            prop => {
+                if (prop != 'offset') {
+                    styles[prop] = finished ? this._finalStyles[prop] : computeStyle(this.element, prop);
+                }
+            }));
+        }
+        this.currentSnapshot = styles;
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/render/css_keyframes/direct_style_player.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class DirectStylePlayer extends _angular_animations__WEBPACK_IMPORTED_MODULE_0__["NoopAnimationPlayer"] {
+    /**
+     * @param {?} element
+     * @param {?} styles
+     */
+    constructor(element, styles) {
+        super();
+        this.element = element;
+        this._startingStyles = {};
+        this.__initialized = false;
+        this._styles = hypenatePropsObject(styles);
+    }
+    /**
+     * @return {?}
+     */
+    init() {
+        if (this.__initialized || !this._startingStyles)
+            return;
+        this.__initialized = true;
+        Object.keys(this._styles).forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => {
+            (/** @type {?} */ (this._startingStyles))[prop] = this.element.style[prop];
+        }));
+        super.init();
+    }
+    /**
+     * @return {?}
+     */
+    play() {
+        if (!this._startingStyles)
+            return;
+        this.init();
+        Object.keys(this._styles)
+            .forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => this.element.style.setProperty(prop, this._styles[prop])));
+        super.play();
+    }
+    /**
+     * @return {?}
+     */
+    destroy() {
+        if (!this._startingStyles)
+            return;
+        Object.keys(this._startingStyles).forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        prop => {
+            /** @type {?} */
+            const value = (/** @type {?} */ (this._startingStyles))[prop];
+            if (value) {
+                this.element.style.setProperty(prop, value);
+            }
+            else {
+                this.element.style.removeProperty(prop);
+            }
+        }));
+        this._startingStyles = null;
+        super.destroy();
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/render/css_keyframes/css_keyframes_driver.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const KEYFRAMES_NAME_PREFIX = 'gen_css_kf_';
+/** @type {?} */
+const TAB_SPACE = ' ';
+class CssKeyframesDriver {
+    constructor() {
+        this._count = 0;
+        this._head = document.querySelector('head');
+        this._warningIssued = false;
+    }
+    /**
+     * @param {?} prop
+     * @return {?}
+     */
+    validateStyleProperty(prop) { return validateStyleProperty(prop); }
+    /**
+     * @param {?} element
+     * @param {?} selector
+     * @return {?}
+     */
+    matchesElement(element, selector) {
+        return matchesElement(element, selector);
+    }
+    /**
+     * @param {?} elm1
+     * @param {?} elm2
+     * @return {?}
+     */
+    containsElement(elm1, elm2) { return containsElement(elm1, elm2); }
+    /**
+     * @param {?} element
+     * @param {?} selector
+     * @param {?} multi
+     * @return {?}
+     */
+    query(element, selector, multi) {
+        return invokeQuery(element, selector, multi);
+    }
+    /**
+     * @param {?} element
+     * @param {?} prop
+     * @param {?=} defaultValue
+     * @return {?}
+     */
+    computeStyle(element, prop, defaultValue) {
+        return (/** @type {?} */ (((/** @type {?} */ (window.getComputedStyle(element))))[prop]));
+    }
+    /**
+     * @param {?} element
+     * @param {?} name
+     * @param {?} keyframes
+     * @return {?}
+     */
+    buildKeyframeElement(element, name, keyframes) {
+        keyframes = keyframes.map((/**
+         * @param {?} kf
+         * @return {?}
+         */
+        kf => hypenatePropsObject(kf)));
+        /** @type {?} */
+        let keyframeStr = `@keyframes ${name} {\n`;
+        /** @type {?} */
+        let tab = '';
+        keyframes.forEach((/**
+         * @param {?} kf
+         * @return {?}
+         */
+        kf => {
+            tab = TAB_SPACE;
+            /** @type {?} */
+            const offset = parseFloat(kf['offset']);
+            keyframeStr += `${tab}${offset * 100}% {\n`;
+            tab += TAB_SPACE;
+            Object.keys(kf).forEach((/**
+             * @param {?} prop
+             * @return {?}
+             */
+            prop => {
+                /** @type {?} */
+                const value = kf[prop];
+                switch (prop) {
+                    case 'offset':
+                        return;
+                    case 'easing':
+                        if (value) {
+                            keyframeStr += `${tab}animation-timing-function: ${value};\n`;
+                        }
+                        return;
+                    default:
+                        keyframeStr += `${tab}${prop}: ${value};\n`;
+                        return;
+                }
+            }));
+            keyframeStr += `${tab}}\n`;
+        }));
+        keyframeStr += `}\n`;
+        /** @type {?} */
+        const kfElm = document.createElement('style');
+        kfElm.innerHTML = keyframeStr;
+        return kfElm;
+    }
+    /**
+     * @param {?} element
+     * @param {?} keyframes
+     * @param {?} duration
+     * @param {?} delay
+     * @param {?} easing
+     * @param {?=} previousPlayers
+     * @param {?=} scrubberAccessRequested
+     * @return {?}
+     */
+    animate(element, keyframes, duration, delay, easing, previousPlayers = [], scrubberAccessRequested) {
+        if (scrubberAccessRequested) {
+            this._notifyFaultyScrubber();
+        }
+        /** @type {?} */
+        const previousCssKeyframePlayers = (/** @type {?} */ (previousPlayers.filter((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => player instanceof CssKeyframesPlayer))));
+        /** @type {?} */
+        const previousStyles = {};
+        if (allowPreviousPlayerStylesMerge(duration, delay)) {
+            previousCssKeyframePlayers.forEach((/**
+             * @param {?} player
+             * @return {?}
+             */
+            player => {
+                /** @type {?} */
+                let styles = player.currentSnapshot;
+                Object.keys(styles).forEach((/**
+                 * @param {?} prop
+                 * @return {?}
+                 */
+                prop => previousStyles[prop] = styles[prop]));
+            }));
+        }
+        keyframes = balancePreviousStylesIntoKeyframes(element, keyframes, previousStyles);
+        /** @type {?} */
+        const finalStyles = flattenKeyframesIntoStyles(keyframes);
+        // if there is no animation then there is no point in applying
+        // styles and waiting for an event to get fired. This causes lag.
+        // It's better to just directly apply the styles to the element
+        // via the direct styling animation player.
+        if (duration == 0) {
+            return new DirectStylePlayer(element, finalStyles);
+        }
+        /** @type {?} */
+        const animationName = `${KEYFRAMES_NAME_PREFIX}${this._count++}`;
+        /** @type {?} */
+        const kfElm = this.buildKeyframeElement(element, animationName, keyframes);
+        (/** @type {?} */ (document.querySelector('head'))).appendChild(kfElm);
+        /** @type {?} */
+        const specialStyles = packageNonAnimatableStyles(element, keyframes);
+        /** @type {?} */
+        const player = new CssKeyframesPlayer(element, keyframes, animationName, duration, delay, easing, finalStyles, specialStyles);
+        player.onDestroy((/**
+         * @return {?}
+         */
+        () => removeElement(kfElm)));
+        return player;
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _notifyFaultyScrubber() {
+        if (!this._warningIssued) {
+            console.warn('@angular/animations: please load the web-animations.js polyfill to allow programmatic access...\n', '  visit http://bit.ly/IWukam to learn more about using the web-animation-js polyfill.');
+            this._warningIssued = true;
+        }
+    }
+}
+if (false) {}
+/**
+ * @param {?} keyframes
+ * @return {?}
+ */
+function flattenKeyframesIntoStyles(keyframes) {
+    /** @type {?} */
+    let flatKeyframes = {};
+    if (keyframes) {
+        /** @type {?} */
+        const kfs = Array.isArray(keyframes) ? keyframes : [keyframes];
+        kfs.forEach((/**
+         * @param {?} kf
+         * @return {?}
+         */
+        kf => {
+            Object.keys(kf).forEach((/**
+             * @param {?} prop
+             * @return {?}
+             */
+            prop => {
+                if (prop == 'offset' || prop == 'easing')
+                    return;
+                flatKeyframes[prop] = kf[prop];
+            }));
+        }));
+    }
+    return flatKeyframes;
+}
+/**
+ * @param {?} node
+ * @return {?}
+ */
+function removeElement(node) {
+    node.parentNode.removeChild(node);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/render/web_animations/web_animations_player.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class WebAnimationsPlayer {
+    /**
+     * @param {?} element
+     * @param {?} keyframes
+     * @param {?} options
+     * @param {?=} _specialStyles
+     */
+    constructor(element, keyframes, options, _specialStyles) {
+        this.element = element;
+        this.keyframes = keyframes;
+        this.options = options;
+        this._specialStyles = _specialStyles;
+        this._onDoneFns = [];
+        this._onStartFns = [];
+        this._onDestroyFns = [];
+        this._initialized = false;
+        this._finished = false;
+        this._started = false;
+        this._destroyed = false;
+        this.time = 0;
+        this.parentPlayer = null;
+        this.currentSnapshot = {};
+        this._duration = (/** @type {?} */ (options['duration']));
+        this._delay = (/** @type {?} */ (options['delay'])) || 0;
+        this.time = this._duration + this._delay;
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _onFinish() {
+        if (!this._finished) {
+            this._finished = true;
+            this._onDoneFns.forEach((/**
+             * @param {?} fn
+             * @return {?}
+             */
+            fn => fn()));
+            this._onDoneFns = [];
+        }
+    }
+    /**
+     * @return {?}
+     */
+    init() {
+        this._buildPlayer();
+        this._preparePlayerBeforeStart();
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _buildPlayer() {
+        if (this._initialized)
+            return;
+        this._initialized = true;
+        /** @type {?} */
+        const keyframes = this.keyframes;
+        ((/** @type {?} */ (this))).domPlayer =
+            this._triggerWebAnimation(this.element, keyframes, this.options);
+        this._finalKeyframe = keyframes.length ? keyframes[keyframes.length - 1] : {};
+        this.domPlayer.addEventListener('finish', (/**
+         * @return {?}
+         */
+        () => this._onFinish()));
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _preparePlayerBeforeStart() {
+        // this is required so that the player doesn't start to animate right away
+        if (this._delay) {
+            this._resetDomPlayerState();
+        }
+        else {
+            this.domPlayer.pause();
+        }
+    }
+    /**
+     * \@internal
+     * @param {?} element
+     * @param {?} keyframes
+     * @param {?} options
+     * @return {?}
+     */
+    _triggerWebAnimation(element, keyframes, options) {
+        // jscompiler doesn't seem to know animate is a native property because it's not fully
+        // supported yet across common browsers (we polyfill it for Edge/Safari) [CL #143630929]
+        return (/** @type {?} */ (element['animate'](keyframes, options)));
+    }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onStart(fn) { this._onStartFns.push(fn); }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onDone(fn) { this._onDoneFns.push(fn); }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onDestroy(fn) { this._onDestroyFns.push(fn); }
+    /**
+     * @return {?}
+     */
+    play() {
+        this._buildPlayer();
+        if (!this.hasStarted()) {
+            this._onStartFns.forEach((/**
+             * @param {?} fn
+             * @return {?}
+             */
+            fn => fn()));
+            this._onStartFns = [];
+            this._started = true;
+            if (this._specialStyles) {
+                this._specialStyles.start();
+            }
+        }
+        this.domPlayer.play();
+    }
+    /**
+     * @return {?}
+     */
+    pause() {
+        this.init();
+        this.domPlayer.pause();
+    }
+    /**
+     * @return {?}
+     */
+    finish() {
+        this.init();
+        if (this._specialStyles) {
+            this._specialStyles.finish();
+        }
+        this._onFinish();
+        this.domPlayer.finish();
+    }
+    /**
+     * @return {?}
+     */
+    reset() {
+        this._resetDomPlayerState();
+        this._destroyed = false;
+        this._finished = false;
+        this._started = false;
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _resetDomPlayerState() {
+        if (this.domPlayer) {
+            this.domPlayer.cancel();
+        }
+    }
+    /**
+     * @return {?}
+     */
+    restart() {
+        this.reset();
+        this.play();
+    }
+    /**
+     * @return {?}
+     */
+    hasStarted() { return this._started; }
+    /**
+     * @return {?}
+     */
+    destroy() {
+        if (!this._destroyed) {
+            this._destroyed = true;
+            this._resetDomPlayerState();
+            this._onFinish();
+            if (this._specialStyles) {
+                this._specialStyles.destroy();
+            }
+            this._onDestroyFns.forEach((/**
+             * @param {?} fn
+             * @return {?}
+             */
+            fn => fn()));
+            this._onDestroyFns = [];
+        }
+    }
+    /**
+     * @param {?} p
+     * @return {?}
+     */
+    setPosition(p) { this.domPlayer.currentTime = p * this.time; }
+    /**
+     * @return {?}
+     */
+    getPosition() { return this.domPlayer.currentTime / this.time; }
+    /**
+     * @return {?}
+     */
+    get totalTime() { return this._delay + this._duration; }
+    /**
+     * @return {?}
+     */
+    beforeDestroy() {
+        /** @type {?} */
+        const styles = {};
+        if (this.hasStarted()) {
+            Object.keys(this._finalKeyframe).forEach((/**
+             * @param {?} prop
+             * @return {?}
+             */
+            prop => {
+                if (prop != 'offset') {
+                    styles[prop] =
+                        this._finished ? this._finalKeyframe[prop] : computeStyle(this.element, prop);
+                }
+            }));
+        }
+        this.currentSnapshot = styles;
+    }
+    /**
+     * \@internal
+     * @param {?} phaseName
+     * @return {?}
+     */
+    triggerCallback(phaseName) {
+        /** @type {?} */
+        const methods = phaseName == 'start' ? this._onStartFns : this._onDoneFns;
+        methods.forEach((/**
+         * @param {?} fn
+         * @return {?}
+         */
+        fn => fn()));
+        methods.length = 0;
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/render/web_animations/web_animations_driver.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class WebAnimationsDriver {
+    constructor() {
+        this._isNativeImpl = /\{\s*\[native\s+code\]\s*\}/.test(getElementAnimateFn().toString());
+        this._cssKeyframesDriver = new CssKeyframesDriver();
+    }
+    /**
+     * @param {?} prop
+     * @return {?}
+     */
+    validateStyleProperty(prop) { return validateStyleProperty(prop); }
+    /**
+     * @param {?} element
+     * @param {?} selector
+     * @return {?}
+     */
+    matchesElement(element, selector) {
+        return matchesElement(element, selector);
+    }
+    /**
+     * @param {?} elm1
+     * @param {?} elm2
+     * @return {?}
+     */
+    containsElement(elm1, elm2) { return containsElement(elm1, elm2); }
+    /**
+     * @param {?} element
+     * @param {?} selector
+     * @param {?} multi
+     * @return {?}
+     */
+    query(element, selector, multi) {
+        return invokeQuery(element, selector, multi);
+    }
+    /**
+     * @param {?} element
+     * @param {?} prop
+     * @param {?=} defaultValue
+     * @return {?}
+     */
+    computeStyle(element, prop, defaultValue) {
+        return (/** @type {?} */ (((/** @type {?} */ (window.getComputedStyle(element))))[prop]));
+    }
+    /**
+     * @param {?} supported
+     * @return {?}
+     */
+    overrideWebAnimationsSupport(supported) { this._isNativeImpl = supported; }
+    /**
+     * @param {?} element
+     * @param {?} keyframes
+     * @param {?} duration
+     * @param {?} delay
+     * @param {?} easing
+     * @param {?=} previousPlayers
+     * @param {?=} scrubberAccessRequested
+     * @return {?}
+     */
+    animate(element, keyframes, duration, delay, easing, previousPlayers = [], scrubberAccessRequested) {
+        /** @type {?} */
+        const useKeyframes = !scrubberAccessRequested && !this._isNativeImpl;
+        if (useKeyframes) {
+            return this._cssKeyframesDriver.animate(element, keyframes, duration, delay, easing, previousPlayers);
+        }
+        /** @type {?} */
+        const fill = delay == 0 ? 'both' : 'forwards';
+        /** @type {?} */
+        const playerOptions = { duration, delay, fill };
+        // we check for this to avoid having a null|undefined value be present
+        // for the easing (which results in an error for certain browsers #9752)
+        if (easing) {
+            playerOptions['easing'] = easing;
+        }
+        /** @type {?} */
+        const previousStyles = {};
+        /** @type {?} */
+        const previousWebAnimationPlayers = (/** @type {?} */ (previousPlayers.filter((/**
+         * @param {?} player
+         * @return {?}
+         */
+        player => player instanceof WebAnimationsPlayer))));
+        if (allowPreviousPlayerStylesMerge(duration, delay)) {
+            previousWebAnimationPlayers.forEach((/**
+             * @param {?} player
+             * @return {?}
+             */
+            player => {
+                /** @type {?} */
+                let styles = player.currentSnapshot;
+                Object.keys(styles).forEach((/**
+                 * @param {?} prop
+                 * @return {?}
+                 */
+                prop => previousStyles[prop] = styles[prop]));
+            }));
+        }
+        keyframes = keyframes.map((/**
+         * @param {?} styles
+         * @return {?}
+         */
+        styles => copyStyles(styles, false)));
+        keyframes = balancePreviousStylesIntoKeyframes(element, keyframes, previousStyles);
+        /** @type {?} */
+        const specialStyles = packageNonAnimatableStyles(element, keyframes);
+        return new WebAnimationsPlayer(element, keyframes, playerOptions, specialStyles);
+    }
+}
+if (false) {}
+/**
+ * @return {?}
+ */
+function supportsWebAnimations() {
+    return typeof getElementAnimateFn() === 'function';
+}
+/**
+ * @return {?}
+ */
+function getElementAnimateFn() {
+    return (isBrowser() && ((/** @type {?} */ (Element))).prototype['animate']) || {};
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/private_export.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/src/browser.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/public_api.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/animations/browser/index.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+
+//# sourceMappingURL=browser.js.map
+
+/***/ }),
+
 /***/ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js ***!
   \**********************************************************************/
-/*! exports provided: APP_BASE_HREF, AsyncPipe, CommonModule, CurrencyPipe, DOCUMENT, DatePipe, DecimalPipe, FormStyle, FormatWidth, HashLocationStrategy, I18nPluralPipe, I18nSelectPipe, JsonPipe, KeyValuePipe, LOCATION_INITIALIZED, Location, LocationStrategy, LowerCasePipe, NgClass, NgComponentOutlet, NgForOf, NgForOfContext, NgIf, NgIfContext, NgLocaleLocalization, NgLocalization, NgPlural, NgPluralCase, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault, NgTemplateOutlet, NumberFormatStyle, NumberSymbol, PathLocationStrategy, PercentPipe, PlatformLocation, Plural, SlicePipe, TitleCasePipe, TranslationWidth, UpperCasePipe, VERSION, ViewportScroller, WeekDay, formatCurrency, formatDate, formatNumber, formatPercent, getCurrencySymbol, getLocaleCurrencyCode, getLocaleCurrencyName, getLocaleCurrencySymbol, getLocaleDateFormat, getLocaleDateTimeFormat, getLocaleDayNames, getLocaleDayPeriods, getLocaleDirection, getLocaleEraNames, getLocaleExtraDayPeriodRules, getLocaleExtraDayPeriods, getLocaleFirstDayOfWeek, getLocaleId, getLocaleMonthNames, getLocaleNumberFormat, getLocaleNumberSymbol, getLocalePluralCase, getLocaleTimeFormat, getLocaleWeekEndRange, getNumberOfCurrencyDigits, isPlatformBrowser, isPlatformServer, isPlatformWorkerApp, isPlatformWorkerUi, registerLocaleData, ɵBrowserPlatformLocation, ɵDomAdapter, ɵNullViewportScroller, ɵPLATFORM_BROWSER_ID, ɵPLATFORM_SERVER_ID, ɵPLATFORM_WORKER_APP_ID, ɵPLATFORM_WORKER_UI_ID, ɵangular_packages_common_common_a, ɵangular_packages_common_common_b, ɵangular_packages_common_common_c, ɵangular_packages_common_common_d, ɵangular_packages_common_common_e, ɵangular_packages_common_common_f, ɵgetDOM, ɵparseCookieValue, ɵsetRootDomAdapter */
+/*! exports provided: APP_BASE_HREF, AsyncPipe, CommonModule, CurrencyPipe, DOCUMENT, DatePipe, DecimalPipe, FormStyle, FormatWidth, HashLocationStrategy, I18nPluralPipe, I18nSelectPipe, JsonPipe, KeyValuePipe, LOCATION_INITIALIZED, Location, LocationStrategy, LowerCasePipe, NgClass, NgComponentOutlet, NgForOf, NgForOfContext, NgIf, NgIfContext, NgLocaleLocalization, NgLocalization, NgPlural, NgPluralCase, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault, NgTemplateOutlet, NumberFormatStyle, NumberSymbol, PathLocationStrategy, PercentPipe, PlatformLocation, Plural, SlicePipe, TitleCasePipe, TranslationWidth, UpperCasePipe, VERSION, ViewportScroller, WeekDay, formatCurrency, formatDate, formatNumber, formatPercent, getCurrencySymbol, getLocaleCurrencyCode, getLocaleCurrencyName, getLocaleCurrencySymbol, getLocaleDateFormat, getLocaleDateTimeFormat, getLocaleDayNames, getLocaleDayPeriods, getLocaleEraNames, getLocaleExtraDayPeriodRules, getLocaleExtraDayPeriods, getLocaleFirstDayOfWeek, getLocaleId, getLocaleMonthNames, getLocaleNumberFormat, getLocaleNumberSymbol, getLocalePluralCase, getLocaleTimeFormat, getLocaleWeekEndRange, getNumberOfCurrencyDigits, isPlatformBrowser, isPlatformServer, isPlatformWorkerApp, isPlatformWorkerUi, registerLocaleData, ɵBrowserPlatformLocation, ɵDomAdapter, ɵNullViewportScroller, ɵPLATFORM_BROWSER_ID, ɵPLATFORM_SERVER_ID, ɵPLATFORM_WORKER_APP_ID, ɵPLATFORM_WORKER_UI_ID, ɵangular_packages_common_common_a, ɵangular_packages_common_common_b, ɵangular_packages_common_common_c, ɵangular_packages_common_common_d, ɵangular_packages_common_common_e, ɵangular_packages_common_common_f, ɵgetDOM, ɵparseCookieValue, ɵsetRootDomAdapter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67,7 +9652,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLocaleDateTimeFormat", function() { return getLocaleDateTimeFormat; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLocaleDayNames", function() { return getLocaleDayNames; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLocaleDayPeriods", function() { return getLocaleDayPeriods; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLocaleDirection", function() { return getLocaleDirection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLocaleEraNames", function() { return getLocaleEraNames; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLocaleExtraDayPeriodRules", function() { return getLocaleExtraDayPeriodRules; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLocaleExtraDayPeriods", function() { return getLocaleExtraDayPeriods; });
@@ -103,7 +9687,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵsetRootDomAdapter", function() { return setRootDomAdapter; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /**
- * @license Angular v9.1.13
+ * @license Angular v9.0.7
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -184,21 +9768,21 @@ const DOCUMENT = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"
  * This class should not be used directly by an application developer. Instead, use
  * {\@link Location}.
  *
- * `PlatformLocation` encapsulates all calls to DOM APIs, which allows the Router to be
- * platform-agnostic.
+ * `PlatformLocation` encapsulates all calls to DOM apis, which allows the Router to be platform
+ * agnostic.
  * This means that we can have different implementation of `PlatformLocation` for the different
- * platforms that Angular supports. For example, `\@angular/platform-browser` provides an
- * implementation specific to the browser environment, while `\@angular/platform-server` provides
- * one suitable for use with server-side rendering.
+ * platforms that angular supports. For example, `\@angular/platform-browser` provides an
+ * implementation specific to the browser environment, while `\@angular/platform-webworker` provides
+ * one suitable for use with web workers.
  *
  * The `PlatformLocation` class is used directly by all implementations of {\@link LocationStrategy}
- * when they need to interact with the DOM APIs like pushState, popState, etc.
+ * when they need to interact with the DOM apis like pushState, popState, etc...
  *
  * {\@link LocationStrategy} in turn is used by the {\@link Location} service which is used directly
  * by the {\@link Router} in order to navigate between routes. Since all interactions between {\@link
  * Router} /
- * {\@link Location} / {\@link LocationStrategy} and DOM APIs flow through the `PlatformLocation`
- * class, they are all platform-agnostic.
+ * {\@link Location} / {\@link LocationStrategy} and DOM apis flow through the `PlatformLocation`
+ * class they are all platform independent.
  *
  * \@publicApi
  * @abstract
@@ -270,9 +9854,7 @@ class BrowserPlatformLocation extends PlatformLocation {
     /**
      * @return {?}
      */
-    getBaseHrefFromDOM() {
-        return (/** @type {?} */ (getDOM().getBaseHref(this._doc)));
-    }
+    getBaseHrefFromDOM() { return (/** @type {?} */ (getDOM().getBaseHref(this._doc))); }
     /**
      * @param {?} fn
      * @return {?}
@@ -290,52 +9872,36 @@ class BrowserPlatformLocation extends PlatformLocation {
     /**
      * @return {?}
      */
-    get href() {
-        return this.location.href;
-    }
+    get href() { return this.location.href; }
     /**
      * @return {?}
      */
-    get protocol() {
-        return this.location.protocol;
-    }
+    get protocol() { return this.location.protocol; }
     /**
      * @return {?}
      */
-    get hostname() {
-        return this.location.hostname;
-    }
+    get hostname() { return this.location.hostname; }
     /**
      * @return {?}
      */
-    get port() {
-        return this.location.port;
-    }
+    get port() { return this.location.port; }
     /**
      * @return {?}
      */
-    get pathname() {
-        return this.location.pathname;
-    }
+    get pathname() { return this.location.pathname; }
     /**
      * @return {?}
      */
-    get search() {
-        return this.location.search;
-    }
+    get search() { return this.location.search; }
     /**
      * @return {?}
      */
-    get hash() {
-        return this.location.hash;
-    }
+    get hash() { return this.location.hash; }
     /**
      * @param {?} newPath
      * @return {?}
      */
-    set pathname(newPath) {
-        this.location.pathname = newPath;
-    }
+    set pathname(newPath) { this.location.pathname = newPath; }
     /**
      * @param {?} state
      * @param {?} title
@@ -367,21 +9933,15 @@ class BrowserPlatformLocation extends PlatformLocation {
     /**
      * @return {?}
      */
-    forward() {
-        this._history.forward();
-    }
+    forward() { this._history.forward(); }
     /**
      * @return {?}
      */
-    back() {
-        this._history.back();
-    }
+    back() { this._history.back(); }
     /**
      * @return {?}
      */
-    getState() {
-        return this._history.state;
-    }
+    getState() { return this._history.state; }
 }
 BrowserPlatformLocation.ɵfac = function BrowserPlatformLocation_Factory(t) { return new (t || BrowserPlatformLocation)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](DOCUMENT)); };
 /** @nocollapse */
@@ -614,16 +10174,12 @@ class PathLocationStrategy extends LocationStrategy {
     /**
      * @return {?}
      */
-    getBaseHref() {
-        return this._baseHref;
-    }
+    getBaseHref() { return this._baseHref; }
     /**
      * @param {?} internal
      * @return {?}
      */
-    prepareExternalUrl(internal) {
-        return joinWithSlash(this._baseHref, internal);
-    }
+    prepareExternalUrl(internal) { return joinWithSlash(this._baseHref, internal); }
     /**
      * @param {?=} includeHash
      * @return {?}
@@ -662,15 +10218,11 @@ class PathLocationStrategy extends LocationStrategy {
     /**
      * @return {?}
      */
-    forward() {
-        this._platformLocation.forward();
-    }
+    forward() { this._platformLocation.forward(); }
     /**
      * @return {?}
      */
-    back() {
-        this._platformLocation.back();
-    }
+    back() { this._platformLocation.back(); }
 }
 PathLocationStrategy.ɵfac = function PathLocationStrategy_Factory(t) { return new (t || PathLocationStrategy)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](PlatformLocation), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](APP_BASE_HREF, 8)); };
 PathLocationStrategy.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: PathLocationStrategy, factory: PathLocationStrategy.ɵfac });
@@ -736,9 +10288,7 @@ class HashLocationStrategy extends LocationStrategy {
     /**
      * @return {?}
      */
-    getBaseHref() {
-        return this._baseHref;
-    }
+    getBaseHref() { return this._baseHref; }
     /**
      * @param {?=} includeHash
      * @return {?}
@@ -794,15 +10344,11 @@ class HashLocationStrategy extends LocationStrategy {
     /**
      * @return {?}
      */
-    forward() {
-        this._platformLocation.forward();
-    }
+    forward() { this._platformLocation.forward(); }
     /**
      * @return {?}
      */
-    back() {
-        this._platformLocation.back();
-    }
+    back() { this._platformLocation.back(); }
 }
 HashLocationStrategy.ɵfac = function HashLocationStrategy_Factory(t) { return new (t || HashLocationStrategy)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](PlatformLocation), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](APP_BASE_HREF, 8)); };
 HashLocationStrategy.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: HashLocationStrategy, factory: HashLocationStrategy.ɵfac });
@@ -908,9 +10454,7 @@ class Location {
      * Reports the current state of the location history.
      * @return {?} The current value of the `history.state` object.
      */
-    getState() {
-        return this._platformLocation.getState();
-    }
+    getState() { return this._platformLocation.getState(); }
     /**
      * Normalizes the given path and compares to the current normalized path.
      *
@@ -981,16 +10525,12 @@ class Location {
      * Navigates forward in the platform's history.
      * @return {?}
      */
-    forward() {
-        this._platformStrategy.forward();
-    }
+    forward() { this._platformStrategy.forward(); }
     /**
      * Navigates back in the platform's history.
      * @return {?}
      */
-    back() {
-        this._platformStrategy.back();
-    }
+    back() { this._platformStrategy.back(); }
     /**
      * Registers a URL change listener. Use to catch updates performed by the Angular
      * framework that are not detectible through "popstate" or "hashchange" events.
@@ -1004,9 +10544,7 @@ class Location {
          * @param {?} v
          * @return {?}
          */
-        v => {
-            this._notifyUrlChangeListeners(v.url, v.state);
-        }));
+        v => { this._notifyUrlChangeListeners(v.url, v.state); }));
     }
     /**
      * \@internal
@@ -1477,9 +11015,7 @@ function getLocaleDayPeriods(locale, formStyle, width) {
     /** @type {?} */
     const data = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵfindLocaleData"])(locale);
     /** @type {?} */
-    const amPmData = (/** @type {?} */ ([
-        data[_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵLocaleDataIndex"].DayPeriodsFormat], data[_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵLocaleDataIndex"].DayPeriodsStandalone]
-    ]));
+    const amPmData = (/** @type {?} */ ([data[_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵLocaleDataIndex"].DayPeriodsFormat], data[_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵLocaleDataIndex"].DayPeriodsStandalone]]));
     /** @type {?} */
     const amPm = getLastDefinedValue(amPmData, formStyle);
     return getLastDefinedValue(amPm, width);
@@ -1748,8 +11284,7 @@ const getLocalePluralCase = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵgetLoc
  */
 function checkFullData(data) {
     if (!data[_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵLocaleDataIndex"].ExtraData]) {
-        throw new Error(`Missing extra locale data for the locale "${data[_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵLocaleDataIndex"]
-            .LocaleId]}". Use "registerLocaleData" to load new data. See the "I18n guide" on angular.io to know more.`);
+        throw new Error(`Missing extra locale data for the locale "${data[_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵLocaleDataIndex"].LocaleId]}". Use "registerLocaleData" to load new data. See the "I18n guide" on angular.io to know more.`);
     }
 }
 /**
@@ -1818,18 +11353,6 @@ function getLocaleExtraDayPeriods(locale, formStyle, width) {
     /** @type {?} */
     const dayPeriods = getLastDefinedValue(dayPeriodsData, formStyle) || [];
     return getLastDefinedValue(dayPeriods, width) || [];
-}
-/**
- * Retrieves the writing direction of a specified locale
- * \@publicApi
- * @see [Internationalization (i18n) Guide](https://angular.io/guide/i18n)
- * @param {?} locale A locale code for the locale format rules to use.
- * @return {?} 'rtl' or 'ltr'
- */
-function getLocaleDirection(locale) {
-    /** @type {?} */
-    const data = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵfindLocaleData"])(locale);
-    return data[_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵLocaleDataIndex"].Directionality];
 }
 /**
  * Retrieves the first value that is defined in an array, going backwards from an index position.
@@ -3811,27 +13334,19 @@ class NgForOfContext {
     /**
      * @return {?}
      */
-    get first() {
-        return this.index === 0;
-    }
+    get first() { return this.index === 0; }
     /**
      * @return {?}
      */
-    get last() {
-        return this.index === this.count - 1;
-    }
+    get last() { return this.index === this.count - 1; }
     /**
      * @return {?}
      */
-    get even() {
-        return this.index % 2 === 0;
-    }
+    get even() { return this.index % 2 === 0; }
     /**
      * @return {?}
      */
-    get odd() {
-        return !this.even;
-    }
+    get odd() { return !this.even; }
 }
 if (false) {}
 /**
@@ -3896,7 +13411,6 @@ if (false) {}
  * more complex then a property access, for example when using the async pipe (`userStreams |
  * async`).
  * - `index: number`: The index of the current item in the iterable.
- * - `count: number`: The length of the iterable.
  * - `first: boolean`: True when the item is the first item in the iterable.
  * - `last: boolean`: True when the item is the last item in the iterable.
  * - `even: boolean`: True when the item has an even index in the iterable.
@@ -3989,9 +13503,7 @@ class NgForOf {
     /**
      * @return {?}
      */
-    get ngForTrackBy() {
-        return this._trackByFn;
-    }
+    get ngForTrackBy() { return this._trackByFn; }
     /**
      * A reference to the template that is stamped out for each item in the iterable.
      * @see [template reference variable](guide/template-syntax#template-reference-variables--var-)
@@ -4481,7 +13993,9 @@ if (false) {}
 /**
  * \@ngModule CommonModule
  *
- * \@description
+ * \@description A structural directive that adds or removes templates (displaying or hiding views)
+ * when the next match expression matches the switch expression.
+ *
  * The `[ngSwitch]` directive on a container specifies an expression to match against.
  * The expressions to match are provided by `ngSwitchCase` directives on views within the container.
  * - Every view that matches is rendered.
@@ -4565,9 +14079,7 @@ class NgSwitch {
      * \@internal
      * @return {?}
      */
-    _addCase() {
-        return this._caseCount++;
-    }
+    _addCase() { return this._caseCount++; }
     /**
      * \@internal
      * @param {?} view
@@ -4672,9 +14184,7 @@ class NgSwitchCase {
      * Performs case matching. For internal use only.
      * @return {?}
      */
-    ngDoCheck() {
-        this._view.enforceState(this.ngSwitch._matchCase(this.ngSwitchCase));
-    }
+    ngDoCheck() { this._view.enforceState(this.ngSwitch._matchCase(this.ngSwitchCase)); }
 }
 NgSwitchCase.ɵfac = function NgSwitchCase_Factory(t) { return new (t || NgSwitchCase)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](NgSwitch, 1)); };
 NgSwitchCase.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: NgSwitchCase, selectors: [["", "ngSwitchCase", ""]], inputs: { ngSwitchCase: "ngSwitchCase" } });
@@ -4792,9 +14302,7 @@ class NgPlural {
      * @param {?} switchView
      * @return {?}
      */
-    addCase(value, switchView) {
-        this._caseViews[value] = switchView;
-    }
+    addCase(value, switchView) { this._caseViews[value] = switchView; }
     /**
      * @private
      * @return {?}
@@ -5225,31 +14733,22 @@ class ObservableStrategy {
      * @return {?}
      */
     createSubscription(async, updateLatestValue) {
-        return async.subscribe({
-            next: updateLatestValue,
-            error: (/**
+        return async.subscribe({ next: updateLatestValue, error: (/**
              * @param {?} e
              * @return {?}
              */
-            (e) => {
-                throw e;
-            })
-        });
+            (e) => { throw e; }) });
     }
     /**
      * @param {?} subscription
      * @return {?}
      */
-    dispose(subscription) {
-        subscription.unsubscribe();
-    }
+    dispose(subscription) { subscription.unsubscribe(); }
     /**
      * @param {?} subscription
      * @return {?}
      */
-    onDestroy(subscription) {
-        subscription.unsubscribe();
-    }
+    onDestroy(subscription) { subscription.unsubscribe(); }
 }
 class PromiseStrategy {
     /**
@@ -5262,9 +14761,7 @@ class PromiseStrategy {
          * @param {?} e
          * @return {?}
          */
-        e => {
-            throw e;
-        }));
+        e => { throw e; }));
     }
     /**
      * @param {?} subscription
@@ -5466,7 +14963,7 @@ LowerCasePipe.ɵpipe = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefinePip
 const unicodeWordMatch = /(?:[A-Za-z\xAA\xB5\xBA\xC0-\xD6\xD8-\xF6\xF8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u048A-\u052F\u0531-\u0556\u0559\u0561-\u0587\u05D0-\u05EA\u05F0-\u05F2\u0620-\u064A\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE\u06EF\u06FA-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07CA-\u07EA\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u0860-\u086A\u08A0-\u08B4\u08B6-\u08BD\u0904-\u0939\u093D\u0950\u0958-\u0961\u0971-\u0980\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09F0\u09F1\u09FC\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A59-\u0A5C\u0A5E\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0AF9\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C\u0B5D\u0B5F-\u0B61\u0B71\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D\u0C58-\u0C5A\u0C60\u0C61\u0C80\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CF1\u0CF2\u0D05-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D\u0D4E\u0D54-\u0D56\u0D5F-\u0D61\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E81\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0EDC-\u0EDF\u0F00\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A\u103F\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081\u108E\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u16F1-\u16F8\u1700-\u170C\u170E-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7\u17DC\u1820-\u1877\u1880-\u1884\u1887-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191E\u1950-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u1A00-\u1A16\u1A20-\u1A54\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B83-\u1BA0\u1BAE\u1BAF\u1BBA-\u1BE5\u1C00-\u1C23\u1C4D-\u1C4F\u1C5A-\u1C7D\u1C80-\u1C88\u1CE9-\u1CEC\u1CEE-\u1CF1\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2071\u207F\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2183\u2184\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005\u3006\u3031-\u3035\u303B\u303C\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312E\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FEA\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA61F\uA62A\uA62B\uA640-\uA66E\uA67F-\uA69D\uA6A0-\uA6E5\uA717-\uA71F\uA722-\uA788\uA78B-\uA7AE\uA7B0-\uA7B7\uA7F7-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA822\uA840-\uA873\uA882-\uA8B3\uA8F2-\uA8F7\uA8FB\uA8FD\uA90A-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF\uA9E0-\uA9E4\uA9E6-\uA9EF\uA9FA-\uA9FE\uAA00-\uAA28\uAA40-\uAA42\uAA44-\uAA4B\uAA60-\uAA76\uAA7A\uAA7E-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB5A\uAB5C-\uAB65\uAB70-\uABE2\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]|\uD800[\uDC00-\uDC0B\uDC0D-\uDC26\uDC28-\uDC3A\uDC3C\uDC3D\uDC3F-\uDC4D\uDC50-\uDC5D\uDC80-\uDCFA\uDE80-\uDE9C\uDEA0-\uDED0\uDF00-\uDF1F\uDF2D-\uDF40\uDF42-\uDF49\uDF50-\uDF75\uDF80-\uDF9D\uDFA0-\uDFC3\uDFC8-\uDFCF]|\uD801[\uDC00-\uDC9D\uDCB0-\uDCD3\uDCD8-\uDCFB\uDD00-\uDD27\uDD30-\uDD63\uDE00-\uDF36\uDF40-\uDF55\uDF60-\uDF67]|\uD802[\uDC00-\uDC05\uDC08\uDC0A-\uDC35\uDC37\uDC38\uDC3C\uDC3F-\uDC55\uDC60-\uDC76\uDC80-\uDC9E\uDCE0-\uDCF2\uDCF4\uDCF5\uDD00-\uDD15\uDD20-\uDD39\uDD80-\uDDB7\uDDBE\uDDBF\uDE00\uDE10-\uDE13\uDE15-\uDE17\uDE19-\uDE33\uDE60-\uDE7C\uDE80-\uDE9C\uDEC0-\uDEC7\uDEC9-\uDEE4\uDF00-\uDF35\uDF40-\uDF55\uDF60-\uDF72\uDF80-\uDF91]|\uD803[\uDC00-\uDC48\uDC80-\uDCB2\uDCC0-\uDCF2]|\uD804[\uDC03-\uDC37\uDC83-\uDCAF\uDCD0-\uDCE8\uDD03-\uDD26\uDD50-\uDD72\uDD76\uDD83-\uDDB2\uDDC1-\uDDC4\uDDDA\uDDDC\uDE00-\uDE11\uDE13-\uDE2B\uDE80-\uDE86\uDE88\uDE8A-\uDE8D\uDE8F-\uDE9D\uDE9F-\uDEA8\uDEB0-\uDEDE\uDF05-\uDF0C\uDF0F\uDF10\uDF13-\uDF28\uDF2A-\uDF30\uDF32\uDF33\uDF35-\uDF39\uDF3D\uDF50\uDF5D-\uDF61]|\uD805[\uDC00-\uDC34\uDC47-\uDC4A\uDC80-\uDCAF\uDCC4\uDCC5\uDCC7\uDD80-\uDDAE\uDDD8-\uDDDB\uDE00-\uDE2F\uDE44\uDE80-\uDEAA\uDF00-\uDF19]|\uD806[\uDCA0-\uDCDF\uDCFF\uDE00\uDE0B-\uDE32\uDE3A\uDE50\uDE5C-\uDE83\uDE86-\uDE89\uDEC0-\uDEF8]|\uD807[\uDC00-\uDC08\uDC0A-\uDC2E\uDC40\uDC72-\uDC8F\uDD00-\uDD06\uDD08\uDD09\uDD0B-\uDD30\uDD46]|\uD808[\uDC00-\uDF99]|\uD809[\uDC80-\uDD43]|[\uD80C\uD81C-\uD820\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879][\uDC00-\uDFFF]|\uD80D[\uDC00-\uDC2E]|\uD811[\uDC00-\uDE46]|\uD81A[\uDC00-\uDE38\uDE40-\uDE5E\uDED0-\uDEED\uDF00-\uDF2F\uDF40-\uDF43\uDF63-\uDF77\uDF7D-\uDF8F]|\uD81B[\uDF00-\uDF44\uDF50\uDF93-\uDF9F\uDFE0\uDFE1]|\uD821[\uDC00-\uDFEC]|\uD822[\uDC00-\uDEF2]|\uD82C[\uDC00-\uDD1E\uDD70-\uDEFB]|\uD82F[\uDC00-\uDC6A\uDC70-\uDC7C\uDC80-\uDC88\uDC90-\uDC99]|\uD835[\uDC00-\uDC54\uDC56-\uDC9C\uDC9E\uDC9F\uDCA2\uDCA5\uDCA6\uDCA9-\uDCAC\uDCAE-\uDCB9\uDCBB\uDCBD-\uDCC3\uDCC5-\uDD05\uDD07-\uDD0A\uDD0D-\uDD14\uDD16-\uDD1C\uDD1E-\uDD39\uDD3B-\uDD3E\uDD40-\uDD44\uDD46\uDD4A-\uDD50\uDD52-\uDEA5\uDEA8-\uDEC0\uDEC2-\uDEDA\uDEDC-\uDEFA\uDEFC-\uDF14\uDF16-\uDF34\uDF36-\uDF4E\uDF50-\uDF6E\uDF70-\uDF88\uDF8A-\uDFA8\uDFAA-\uDFC2\uDFC4-\uDFCB]|\uD83A[\uDC00-\uDCC4\uDD00-\uDD43]|\uD83B[\uDE00-\uDE03\uDE05-\uDE1F\uDE21\uDE22\uDE24\uDE27\uDE29-\uDE32\uDE34-\uDE37\uDE39\uDE3B\uDE42\uDE47\uDE49\uDE4B\uDE4D-\uDE4F\uDE51\uDE52\uDE54\uDE57\uDE59\uDE5B\uDE5D\uDE5F\uDE61\uDE62\uDE64\uDE67-\uDE6A\uDE6C-\uDE72\uDE74-\uDE77\uDE79-\uDE7C\uDE7E\uDE80-\uDE89\uDE8B-\uDE9B\uDEA1-\uDEA3\uDEA5-\uDEA9\uDEAB-\uDEBB]|\uD869[\uDC00-\uDED6\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF34\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D])\S*/g;
 /**
  * Transforms text to title case.
- * Capitalizes the first letter of each word and transforms the
+ * Capitalizes the first letter of each word, and transforms the
  * rest of the word to lower case.
  * Words are delimited by any whitespace character, such as a space, tab, or line-feed character.
  *
@@ -5860,9 +15357,7 @@ class JsonPipe {
      * @param {?} value A value of any type to convert into a JSON-format string.
      * @return {?}
      */
-    transform(value) {
-        return JSON.stringify(value, null, 2);
-    }
+    transform(value) { return JSON.stringify(value, null, 2); }
 }
 JsonPipe.ɵfac = function JsonPipe_Factory(t) { return new (t || JsonPipe)(); };
 JsonPipe.ɵpipe = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefinePipe"]({ name: "json", type: JsonPipe, pure: false });
@@ -6382,9 +15877,7 @@ class SlicePipe {
      * @param {?} obj
      * @return {?}
      */
-    supports(obj) {
-        return typeof obj === 'string' || Array.isArray(obj);
-    }
+    supports(obj) { return typeof obj === 'string' || Array.isArray(obj); }
 }
 SlicePipe.ɵfac = function SlicePipe_Factory(t) { return new (t || SlicePipe)(); };
 SlicePipe.ɵpipe = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefinePipe"]({ name: "slice", type: SlicePipe, pure: false });
@@ -6568,7 +16061,7 @@ function isPlatformWorkerUi(platformId) {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('9.1.13');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('9.0.7');
 
 /**
  * @fileoverview added by tsickle
@@ -6586,11 +16079,11 @@ class ViewportScroller {
 // De-sugared tree-shakable injection
 // See #23917
 /** @nocollapse */
-ViewportScroller.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({
+/** @nocollapse */ ViewportScroller.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({
     token: ViewportScroller,
     providedIn: 'root',
     factory: (/**
-     * @return {?}
+     * @nocollapse @return {?}
      */
     () => new BrowserViewportScroller(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(DOCUMENT), window, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ErrorHandler"])))
 });
@@ -6752,9 +16245,7 @@ class NullViewportScroller {
      * Empty implementation
      * @return {?}
      */
-    getScrollPosition() {
-        return [0, 0];
-    }
+    getScrollPosition() { return [0, 0]; }
     /**
      * Empty implementation
      * @param {?} position
@@ -6807,7 +16298,7 @@ class NullViewportScroller {
 /*!******************************************************************!*\
   !*** ./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js ***!
   \******************************************************************/
-/*! exports provided: ANALYZE_FOR_ENTRY_COMPONENTS, APP_BOOTSTRAP_LISTENER, APP_ID, APP_INITIALIZER, ApplicationInitStatus, ApplicationModule, ApplicationRef, Attribute, COMPILER_OPTIONS, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Compiler, CompilerFactory, Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, ContentChild, ContentChildren, DEFAULT_CURRENCY_CODE, DebugElement, DebugEventListener, DebugNode, DefaultIterableDiffer, Directive, ElementRef, EmbeddedViewRef, ErrorHandler, EventEmitter, Host, HostBinding, HostListener, INJECTOR, Inject, InjectFlags, Injectable, InjectionToken, Injector, Input, IterableDiffers, KeyValueDiffers, LOCALE_ID, MissingTranslationStrategy, ModuleWithComponentFactories, NO_ERRORS_SCHEMA, NgModule, NgModuleFactory, NgModuleFactoryLoader, NgModuleRef, NgProbeToken, NgZone, Optional, Output, PACKAGE_ROOT_URL, PLATFORM_ID, PLATFORM_INITIALIZER, Pipe, PlatformRef, Query, QueryList, ReflectiveInjector, ReflectiveKey, Renderer2, RendererFactory2, RendererStyleFlags2, ResolvedReflectiveFactory, Sanitizer, SecurityContext, Self, SimpleChange, SkipSelf, SystemJsNgModuleLoader, SystemJsNgModuleLoaderConfig, TRANSLATIONS, TRANSLATIONS_FORMAT, TemplateRef, Testability, TestabilityRegistry, Type, VERSION, Version, ViewChild, ViewChildren, ViewContainerRef, ViewEncapsulation, ViewRef, WrappedValue, asNativeElements, assertPlatform, createPlatform, createPlatformFactory, defineInjectable, destroyPlatform, enableProdMode, forwardRef, getDebugNode, getModuleFactory, getPlatform, inject, isDevMode, platformCore, resolveForwardRef, setTestabilityGetter, ɵALLOW_MULTIPLE_PLATFORMS, ɵAPP_ID_RANDOM_PROVIDER, ɵChangeDetectorStatus, ɵCodegenComponentFactoryResolver, ɵCompiler_compileModuleAndAllComponentsAsync__POST_R3__, ɵCompiler_compileModuleAndAllComponentsSync__POST_R3__, ɵCompiler_compileModuleAsync__POST_R3__, ɵCompiler_compileModuleSync__POST_R3__, ɵComponentFactory, ɵConsole, ɵDEFAULT_LOCALE_ID, ɵEMPTY_ARRAY, ɵEMPTY_MAP, ɵINJECTOR_IMPL__POST_R3__, ɵINJECTOR_SCOPE, ɵLifecycleHooksFeature, ɵLocaleDataIndex, ɵNG_COMP_DEF, ɵNG_DIR_DEF, ɵNG_ELEMENT_ID, ɵNG_INJ_DEF, ɵNG_MOD_DEF, ɵNG_PIPE_DEF, ɵNG_PROV_DEF, ɵNOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR, ɵNO_CHANGE, ɵNgModuleFactory, ɵNoopNgZone, ɵReflectionCapabilities, ɵRender3ComponentFactory, ɵRender3ComponentRef, ɵRender3NgModuleRef, ɵSWITCH_CHANGE_DETECTOR_REF_FACTORY__POST_R3__, ɵSWITCH_COMPILE_COMPONENT__POST_R3__, ɵSWITCH_COMPILE_DIRECTIVE__POST_R3__, ɵSWITCH_COMPILE_INJECTABLE__POST_R3__, ɵSWITCH_COMPILE_NGMODULE__POST_R3__, ɵSWITCH_COMPILE_PIPE__POST_R3__, ɵSWITCH_ELEMENT_REF_FACTORY__POST_R3__, ɵSWITCH_IVY_ENABLED__POST_R3__, ɵSWITCH_RENDERER2_FACTORY__POST_R3__, ɵSWITCH_TEMPLATE_REF_FACTORY__POST_R3__, ɵSWITCH_VIEW_CONTAINER_REF_FACTORY__POST_R3__, ɵ_sanitizeHtml, ɵ_sanitizeStyle, ɵ_sanitizeUrl, ɵallowSanitizationBypassAndThrow, ɵand, ɵangular_packages_core_core_a, ɵangular_packages_core_core_b, ɵangular_packages_core_core_ba, ɵangular_packages_core_core_bb, ɵangular_packages_core_core_bc, ɵangular_packages_core_core_bd, ɵangular_packages_core_core_bf, ɵangular_packages_core_core_bg, ɵangular_packages_core_core_bh, ɵangular_packages_core_core_bi, ɵangular_packages_core_core_bj, ɵangular_packages_core_core_bk, ɵangular_packages_core_core_bl, ɵangular_packages_core_core_bm, ɵangular_packages_core_core_bn, ɵangular_packages_core_core_bp, ɵangular_packages_core_core_bq, ɵangular_packages_core_core_c, ɵangular_packages_core_core_d, ɵangular_packages_core_core_e, ɵangular_packages_core_core_f, ɵangular_packages_core_core_g, ɵangular_packages_core_core_h, ɵangular_packages_core_core_i, ɵangular_packages_core_core_j, ɵangular_packages_core_core_k, ɵangular_packages_core_core_l, ɵangular_packages_core_core_m, ɵangular_packages_core_core_n, ɵangular_packages_core_core_o, ɵangular_packages_core_core_p, ɵangular_packages_core_core_q, ɵangular_packages_core_core_r, ɵangular_packages_core_core_s, ɵangular_packages_core_core_t, ɵangular_packages_core_core_u, ɵangular_packages_core_core_v, ɵangular_packages_core_core_w, ɵangular_packages_core_core_x, ɵangular_packages_core_core_y, ɵangular_packages_core_core_z, ɵbypassSanitizationTrustHtml, ɵbypassSanitizationTrustResourceUrl, ɵbypassSanitizationTrustScript, ɵbypassSanitizationTrustStyle, ɵbypassSanitizationTrustUrl, ɵccf, ɵclearOverrides, ɵclearResolutionOfComponentResourcesQueue, ɵcmf, ɵcompileComponent, ɵcompileDirective, ɵcompileNgModule, ɵcompileNgModuleDefs, ɵcompileNgModuleFactory__POST_R3__, ɵcompilePipe, ɵcreateInjector, ɵcrt, ɵdefaultIterableDiffers, ɵdefaultKeyValueDiffers, ɵdetectChanges, ɵdevModeEqual, ɵdid, ɵeld, ɵfindLocaleData, ɵflushModuleScopingQueueAsMuchAsPossible, ɵgetComponentViewDefinitionFactory, ɵgetDebugNodeR2, ɵgetDebugNode__POST_R3__, ɵgetDirectives, ɵgetHostElement, ɵgetInjectableDef, ɵgetLContext, ɵgetLocaleCurrencyCode, ɵgetLocalePluralCase, ɵgetModuleFactory__POST_R3__, ɵgetSanitizationBypassType, ɵglobal, ɵinitServicesIfNeeded, ɵinlineInterpolate, ɵinterpolate, ɵisBoundToModule__POST_R3__, ɵisDefaultChangeDetectionStrategy, ɵisListLikeIterable, ɵisObservable, ɵisPromise, ɵivyEnabled, ɵlooseIdentical, ɵmakeDecorator, ɵmarkDirty, ɵmod, ɵmpd, ɵncd, ɵnov, ɵoverrideComponentView, ɵoverrideProvider, ɵpad, ɵpatchComponentDefWithScope, ɵpid, ɵpod, ɵppd, ɵprd, ɵpublishDefaultGlobalUtils, ɵpublishGlobalUtil, ɵqud, ɵregisterLocaleData, ɵregisterModuleFactory, ɵregisterNgModuleType, ɵrenderComponent, ɵresetCompiledComponents, ɵresetJitOptions, ɵresolveComponentResources, ɵsetClassMetadata, ɵsetCurrentInjector, ɵsetDocument, ɵsetLocaleId, ɵstore, ɵstringify, ɵted, ɵtransitiveScopesFor, ɵunregisterLocaleData, ɵunv, ɵunwrapSafeValue, ɵvid, ɵwhenRendered, ɵɵCopyDefinitionFeature, ɵɵInheritDefinitionFeature, ɵɵNgOnChangesFeature, ɵɵProvidersFeature, ɵɵadvance, ɵɵattribute, ɵɵattributeInterpolate1, ɵɵattributeInterpolate2, ɵɵattributeInterpolate3, ɵɵattributeInterpolate4, ɵɵattributeInterpolate5, ɵɵattributeInterpolate6, ɵɵattributeInterpolate7, ɵɵattributeInterpolate8, ɵɵattributeInterpolateV, ɵɵclassMap, ɵɵclassMapInterpolate1, ɵɵclassMapInterpolate2, ɵɵclassMapInterpolate3, ɵɵclassMapInterpolate4, ɵɵclassMapInterpolate5, ɵɵclassMapInterpolate6, ɵɵclassMapInterpolate7, ɵɵclassMapInterpolate8, ɵɵclassMapInterpolateV, ɵɵclassProp, ɵɵcomponentHostSyntheticListener, ɵɵcontentQuery, ɵɵdefaultStyleSanitizer, ɵɵdefineComponent, ɵɵdefineDirective, ɵɵdefineInjectable, ɵɵdefineInjector, ɵɵdefineNgModule, ɵɵdefinePipe, ɵɵdirectiveInject, ɵɵdisableBindings, ɵɵelement, ɵɵelementContainer, ɵɵelementContainerEnd, ɵɵelementContainerStart, ɵɵelementEnd, ɵɵelementStart, ɵɵenableBindings, ɵɵgetCurrentView, ɵɵgetFactoryOf, ɵɵgetInheritedFactory, ɵɵhostProperty, ɵɵi18n, ɵɵi18nApply, ɵɵi18nAttributes, ɵɵi18nEnd, ɵɵi18nExp, ɵɵi18nPostprocess, ɵɵi18nStart, ɵɵinject, ɵɵinjectAttribute, ɵɵinjectPipeChangeDetectorRef, ɵɵinvalidFactory, ɵɵinvalidFactoryDep, ɵɵlistener, ɵɵloadQuery, ɵɵnamespaceHTML, ɵɵnamespaceMathML, ɵɵnamespaceSVG, ɵɵnextContext, ɵɵpipe, ɵɵpipeBind1, ɵɵpipeBind2, ɵɵpipeBind3, ɵɵpipeBind4, ɵɵpipeBindV, ɵɵprojection, ɵɵprojectionDef, ɵɵproperty, ɵɵpropertyInterpolate, ɵɵpropertyInterpolate1, ɵɵpropertyInterpolate2, ɵɵpropertyInterpolate3, ɵɵpropertyInterpolate4, ɵɵpropertyInterpolate5, ɵɵpropertyInterpolate6, ɵɵpropertyInterpolate7, ɵɵpropertyInterpolate8, ɵɵpropertyInterpolateV, ɵɵpureFunction0, ɵɵpureFunction1, ɵɵpureFunction2, ɵɵpureFunction3, ɵɵpureFunction4, ɵɵpureFunction5, ɵɵpureFunction6, ɵɵpureFunction7, ɵɵpureFunction8, ɵɵpureFunctionV, ɵɵqueryRefresh, ɵɵreference, ɵɵresolveBody, ɵɵresolveDocument, ɵɵresolveWindow, ɵɵrestoreView, ɵɵsanitizeHtml, ɵɵsanitizeResourceUrl, ɵɵsanitizeScript, ɵɵsanitizeStyle, ɵɵsanitizeUrl, ɵɵsanitizeUrlOrResourceUrl, ɵɵselect, ɵɵsetComponentScope, ɵɵsetNgModuleScope, ɵɵstaticContentQuery, ɵɵstaticViewQuery, ɵɵstyleMap, ɵɵstyleMapInterpolate1, ɵɵstyleMapInterpolate2, ɵɵstyleMapInterpolate3, ɵɵstyleMapInterpolate4, ɵɵstyleMapInterpolate5, ɵɵstyleMapInterpolate6, ɵɵstyleMapInterpolate7, ɵɵstyleMapInterpolate8, ɵɵstyleMapInterpolateV, ɵɵstyleProp, ɵɵstylePropInterpolate1, ɵɵstylePropInterpolate2, ɵɵstylePropInterpolate3, ɵɵstylePropInterpolate4, ɵɵstylePropInterpolate5, ɵɵstylePropInterpolate6, ɵɵstylePropInterpolate7, ɵɵstylePropInterpolate8, ɵɵstylePropInterpolateV, ɵɵstyleSanitizer, ɵɵtemplate, ɵɵtemplateRefExtractor, ɵɵtext, ɵɵtextInterpolate, ɵɵtextInterpolate1, ɵɵtextInterpolate2, ɵɵtextInterpolate3, ɵɵtextInterpolate4, ɵɵtextInterpolate5, ɵɵtextInterpolate6, ɵɵtextInterpolate7, ɵɵtextInterpolate8, ɵɵtextInterpolateV, ɵɵupdateSyntheticHostBinding, ɵɵviewQuery */
+/*! exports provided: ANALYZE_FOR_ENTRY_COMPONENTS, APP_BOOTSTRAP_LISTENER, APP_ID, APP_INITIALIZER, ApplicationInitStatus, ApplicationModule, ApplicationRef, Attribute, COMPILER_OPTIONS, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Compiler, CompilerFactory, Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, ContentChild, ContentChildren, DEFAULT_CURRENCY_CODE, DebugElement, DebugEventListener, DebugNode, DefaultIterableDiffer, Directive, ElementRef, EmbeddedViewRef, ErrorHandler, EventEmitter, Host, HostBinding, HostListener, INJECTOR, Inject, InjectFlags, Injectable, InjectionToken, Injector, Input, IterableDiffers, KeyValueDiffers, LOCALE_ID, MissingTranslationStrategy, ModuleWithComponentFactories, NO_ERRORS_SCHEMA, NgModule, NgModuleFactory, NgModuleFactoryLoader, NgModuleRef, NgProbeToken, NgZone, Optional, Output, PACKAGE_ROOT_URL, PLATFORM_ID, PLATFORM_INITIALIZER, Pipe, PlatformRef, Query, QueryList, ReflectiveInjector, ReflectiveKey, Renderer2, RendererFactory2, RendererStyleFlags2, ResolvedReflectiveFactory, Sanitizer, SecurityContext, Self, SimpleChange, SkipSelf, SystemJsNgModuleLoader, SystemJsNgModuleLoaderConfig, TRANSLATIONS, TRANSLATIONS_FORMAT, TemplateRef, Testability, TestabilityRegistry, Type, VERSION, Version, ViewChild, ViewChildren, ViewContainerRef, ViewEncapsulation, ViewRef, WrappedValue, asNativeElements, assertPlatform, createPlatform, createPlatformFactory, defineInjectable, destroyPlatform, enableProdMode, forwardRef, getDebugNode, getModuleFactory, getPlatform, inject, isDevMode, platformCore, resolveForwardRef, setTestabilityGetter, ɵALLOW_MULTIPLE_PLATFORMS, ɵAPP_ID_RANDOM_PROVIDER, ɵChangeDetectorStatus, ɵCodegenComponentFactoryResolver, ɵCompiler_compileModuleAndAllComponentsAsync__POST_R3__, ɵCompiler_compileModuleAndAllComponentsSync__POST_R3__, ɵCompiler_compileModuleAsync__POST_R3__, ɵCompiler_compileModuleSync__POST_R3__, ɵComponentFactory, ɵConsole, ɵDEFAULT_LOCALE_ID, ɵEMPTY_ARRAY, ɵEMPTY_MAP, ɵINJECTOR_IMPL__POST_R3__, ɵINJECTOR_SCOPE, ɵLifecycleHooksFeature, ɵLocaleDataIndex, ɵNG_COMP_DEF, ɵNG_DIR_DEF, ɵNG_ELEMENT_ID, ɵNG_INJ_DEF, ɵNG_MOD_DEF, ɵNG_PIPE_DEF, ɵNG_PROV_DEF, ɵNOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR, ɵNO_CHANGE, ɵNgModuleFactory, ɵNoopNgZone, ɵReflectionCapabilities, ɵRender3ComponentFactory, ɵRender3ComponentRef, ɵRender3NgModuleRef, ɵSWITCH_CHANGE_DETECTOR_REF_FACTORY__POST_R3__, ɵSWITCH_COMPILE_COMPONENT__POST_R3__, ɵSWITCH_COMPILE_DIRECTIVE__POST_R3__, ɵSWITCH_COMPILE_INJECTABLE__POST_R3__, ɵSWITCH_COMPILE_NGMODULE__POST_R3__, ɵSWITCH_COMPILE_PIPE__POST_R3__, ɵSWITCH_ELEMENT_REF_FACTORY__POST_R3__, ɵSWITCH_IVY_ENABLED__POST_R3__, ɵSWITCH_RENDERER2_FACTORY__POST_R3__, ɵSWITCH_TEMPLATE_REF_FACTORY__POST_R3__, ɵSWITCH_VIEW_CONTAINER_REF_FACTORY__POST_R3__, ɵ_sanitizeHtml, ɵ_sanitizeStyle, ɵ_sanitizeUrl, ɵallowSanitizationBypassAndThrow, ɵand, ɵangular_packages_core_core_a, ɵangular_packages_core_core_b, ɵangular_packages_core_core_ba, ɵangular_packages_core_core_bb, ɵangular_packages_core_core_bc, ɵangular_packages_core_core_bd, ɵangular_packages_core_core_bf, ɵangular_packages_core_core_bg, ɵangular_packages_core_core_bh, ɵangular_packages_core_core_bi, ɵangular_packages_core_core_bj, ɵangular_packages_core_core_bk, ɵangular_packages_core_core_bl, ɵangular_packages_core_core_bm, ɵangular_packages_core_core_bn, ɵangular_packages_core_core_bo, ɵangular_packages_core_core_bq, ɵangular_packages_core_core_c, ɵangular_packages_core_core_d, ɵangular_packages_core_core_e, ɵangular_packages_core_core_f, ɵangular_packages_core_core_g, ɵangular_packages_core_core_h, ɵangular_packages_core_core_i, ɵangular_packages_core_core_j, ɵangular_packages_core_core_k, ɵangular_packages_core_core_l, ɵangular_packages_core_core_m, ɵangular_packages_core_core_n, ɵangular_packages_core_core_o, ɵangular_packages_core_core_p, ɵangular_packages_core_core_q, ɵangular_packages_core_core_r, ɵangular_packages_core_core_s, ɵangular_packages_core_core_t, ɵangular_packages_core_core_u, ɵangular_packages_core_core_v, ɵangular_packages_core_core_w, ɵangular_packages_core_core_x, ɵangular_packages_core_core_y, ɵangular_packages_core_core_z, ɵbypassSanitizationTrustHtml, ɵbypassSanitizationTrustResourceUrl, ɵbypassSanitizationTrustScript, ɵbypassSanitizationTrustStyle, ɵbypassSanitizationTrustUrl, ɵccf, ɵclearOverrides, ɵclearResolutionOfComponentResourcesQueue, ɵcmf, ɵcompileComponent, ɵcompileDirective, ɵcompileNgModule, ɵcompileNgModuleDefs, ɵcompileNgModuleFactory__POST_R3__, ɵcompilePipe, ɵcreateInjector, ɵcrt, ɵdefaultIterableDiffers, ɵdefaultKeyValueDiffers, ɵdetectChanges, ɵdevModeEqual, ɵdid, ɵeld, ɵfindLocaleData, ɵflushModuleScopingQueueAsMuchAsPossible, ɵgetComponentViewDefinitionFactory, ɵgetDebugNodeR2, ɵgetDebugNode__POST_R3__, ɵgetDirectives, ɵgetHostElement, ɵgetInjectableDef, ɵgetLContext, ɵgetLocaleCurrencyCode, ɵgetLocalePluralCase, ɵgetModuleFactory__POST_R3__, ɵgetSanitizationBypassType, ɵglobal, ɵinitServicesIfNeeded, ɵinlineInterpolate, ɵinterpolate, ɵisBoundToModule__POST_R3__, ɵisDefaultChangeDetectionStrategy, ɵisListLikeIterable, ɵisObservable, ɵisPromise, ɵivyEnabled, ɵlooseIdentical, ɵmakeDecorator, ɵmarkDirty, ɵmod, ɵmpd, ɵncd, ɵnov, ɵoverrideComponentView, ɵoverrideProvider, ɵpad, ɵpatchComponentDefWithScope, ɵpid, ɵpod, ɵppd, ɵprd, ɵpublishDefaultGlobalUtils, ɵpublishGlobalUtil, ɵqud, ɵregisterLocaleData, ɵregisterModuleFactory, ɵregisterNgModuleType, ɵrenderComponent, ɵresetCompiledComponents, ɵresolveComponentResources, ɵsetClassMetadata, ɵsetCurrentInjector, ɵsetDocument, ɵsetLocaleId, ɵstore, ɵstringify, ɵted, ɵtransitiveScopesFor, ɵunregisterLocaleData, ɵunv, ɵunwrapSafeValue, ɵvid, ɵwhenRendered, ɵɵCopyDefinitionFeature, ɵɵInheritDefinitionFeature, ɵɵNgOnChangesFeature, ɵɵProvidersFeature, ɵɵadvance, ɵɵattribute, ɵɵattributeInterpolate1, ɵɵattributeInterpolate2, ɵɵattributeInterpolate3, ɵɵattributeInterpolate4, ɵɵattributeInterpolate5, ɵɵattributeInterpolate6, ɵɵattributeInterpolate7, ɵɵattributeInterpolate8, ɵɵattributeInterpolateV, ɵɵclassMap, ɵɵclassMapInterpolate1, ɵɵclassMapInterpolate2, ɵɵclassMapInterpolate3, ɵɵclassMapInterpolate4, ɵɵclassMapInterpolate5, ɵɵclassMapInterpolate6, ɵɵclassMapInterpolate7, ɵɵclassMapInterpolate8, ɵɵclassMapInterpolateV, ɵɵclassProp, ɵɵcomponentHostSyntheticListener, ɵɵcontainer, ɵɵcontainerRefreshEnd, ɵɵcontainerRefreshStart, ɵɵcontentQuery, ɵɵdefaultStyleSanitizer, ɵɵdefineComponent, ɵɵdefineDirective, ɵɵdefineInjectable, ɵɵdefineInjector, ɵɵdefineNgModule, ɵɵdefinePipe, ɵɵdirectiveInject, ɵɵdisableBindings, ɵɵelement, ɵɵelementContainer, ɵɵelementContainerEnd, ɵɵelementContainerStart, ɵɵelementEnd, ɵɵelementStart, ɵɵembeddedViewEnd, ɵɵembeddedViewStart, ɵɵenableBindings, ɵɵgetCurrentView, ɵɵgetFactoryOf, ɵɵgetInheritedFactory, ɵɵhostProperty, ɵɵi18n, ɵɵi18nApply, ɵɵi18nAttributes, ɵɵi18nEnd, ɵɵi18nExp, ɵɵi18nPostprocess, ɵɵi18nStart, ɵɵinject, ɵɵinjectAttribute, ɵɵinjectPipeChangeDetectorRef, ɵɵinvalidFactory, ɵɵinvalidFactoryDep, ɵɵlistener, ɵɵloadQuery, ɵɵnamespaceHTML, ɵɵnamespaceMathML, ɵɵnamespaceSVG, ɵɵnextContext, ɵɵpipe, ɵɵpipeBind1, ɵɵpipeBind2, ɵɵpipeBind3, ɵɵpipeBind4, ɵɵpipeBindV, ɵɵprojection, ɵɵprojectionDef, ɵɵproperty, ɵɵpropertyInterpolate, ɵɵpropertyInterpolate1, ɵɵpropertyInterpolate2, ɵɵpropertyInterpolate3, ɵɵpropertyInterpolate4, ɵɵpropertyInterpolate5, ɵɵpropertyInterpolate6, ɵɵpropertyInterpolate7, ɵɵpropertyInterpolate8, ɵɵpropertyInterpolateV, ɵɵpureFunction0, ɵɵpureFunction1, ɵɵpureFunction2, ɵɵpureFunction3, ɵɵpureFunction4, ɵɵpureFunction5, ɵɵpureFunction6, ɵɵpureFunction7, ɵɵpureFunction8, ɵɵpureFunctionV, ɵɵqueryRefresh, ɵɵreference, ɵɵresolveBody, ɵɵresolveDocument, ɵɵresolveWindow, ɵɵrestoreView, ɵɵsanitizeHtml, ɵɵsanitizeResourceUrl, ɵɵsanitizeScript, ɵɵsanitizeStyle, ɵɵsanitizeUrl, ɵɵsanitizeUrlOrResourceUrl, ɵɵselect, ɵɵsetComponentScope, ɵɵsetNgModuleScope, ɵɵstaticContentQuery, ɵɵstaticViewQuery, ɵɵstyleMap, ɵɵstyleMapInterpolate1, ɵɵstyleMapInterpolate2, ɵɵstyleMapInterpolate3, ɵɵstyleMapInterpolate4, ɵɵstyleMapInterpolate5, ɵɵstyleMapInterpolate6, ɵɵstyleMapInterpolate7, ɵɵstyleMapInterpolate8, ɵɵstyleMapInterpolateV, ɵɵstyleProp, ɵɵstylePropInterpolate1, ɵɵstylePropInterpolate2, ɵɵstylePropInterpolate3, ɵɵstylePropInterpolate4, ɵɵstylePropInterpolate5, ɵɵstylePropInterpolate6, ɵɵstylePropInterpolate7, ɵɵstylePropInterpolate8, ɵɵstylePropInterpolateV, ɵɵstyleSanitizer, ɵɵtemplate, ɵɵtemplateRefExtractor, ɵɵtext, ɵɵtextInterpolate, ɵɵtextInterpolate1, ɵɵtextInterpolate2, ɵɵtextInterpolate3, ɵɵtextInterpolate4, ɵɵtextInterpolate5, ɵɵtextInterpolate6, ɵɵtextInterpolate7, ɵɵtextInterpolate8, ɵɵtextInterpolateV, ɵɵupdateSyntheticHostBinding, ɵɵviewQuery */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6979,7 +16470,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_core_core_bl", function() { return makeParamDecorator; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_core_core_bm", function() { return makePropDecorator; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_core_core_bn", function() { return getClosureSafeProperty; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_core_core_bp", function() { return noSideEffects; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_core_core_bo", function() { return noSideEffects; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_core_core_bq", function() { return getRootContext; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_core_core_c", function() { return NullInjector; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_core_core_d", function() { return ReflectiveInjector_; });
@@ -7074,7 +16565,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵregisterNgModuleType", function() { return registerNgModuleType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵrenderComponent", function() { return renderComponent$1; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵresetCompiledComponents", function() { return resetCompiledComponents; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵresetJitOptions", function() { return resetJitOptions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵresolveComponentResources", function() { return resolveComponentResources; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵsetClassMetadata", function() { return setClassMetadata; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵsetCurrentInjector", function() { return setCurrentInjector; });
@@ -7116,6 +16606,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵclassMapInterpolateV", function() { return ɵɵclassMapInterpolateV; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵclassProp", function() { return ɵɵclassProp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵcomponentHostSyntheticListener", function() { return ɵɵcomponentHostSyntheticListener; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵcontainer", function() { return ɵɵcontainer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵcontainerRefreshEnd", function() { return ɵɵcontainerRefreshEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵcontainerRefreshStart", function() { return ɵɵcontainerRefreshStart; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵcontentQuery", function() { return ɵɵcontentQuery; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵdefaultStyleSanitizer", function() { return ɵɵdefaultStyleSanitizer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵdefineComponent", function() { return ɵɵdefineComponent; });
@@ -7132,6 +16625,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵelementContainerStart", function() { return ɵɵelementContainerStart; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵelementEnd", function() { return ɵɵelementEnd; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵelementStart", function() { return ɵɵelementStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵembeddedViewEnd", function() { return ɵɵembeddedViewEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵembeddedViewStart", function() { return ɵɵembeddedViewStart; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵenableBindings", function() { return ɵɵenableBindings; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵgetCurrentView", function() { return ɵɵgetCurrentView; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵɵgetFactoryOf", function() { return ɵɵgetFactoryOf; });
@@ -7240,7 +16735,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /**
- * @license Angular v9.1.13
+ * @license Angular v9.0.7
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -7584,9 +17079,7 @@ function fillProperties(target, source) {
  */
 function ɵɵdefineInjectable(opts) {
     return {
-        token: opts.token,
-        providedIn: opts.providedIn || null,
-        factory: opts.factory,
+        token: opts.token, providedIn: opts.providedIn || null, factory: opts.factory,
         value: undefined,
     };
 }
@@ -7618,9 +17111,7 @@ const defineInjectable = ɵɵdefineInjectable;
  */
 function ɵɵdefineInjector(options) {
     return {
-        factory: options.factory,
-        providers: options.providers || [],
-        imports: options.imports || [],
+        factory: options.factory, providers: options.providers || [], imports: options.imports || [],
     };
 }
 /**
@@ -7657,9 +17148,8 @@ function getOwnDefinition(type, def) {
  */
 function getInheritedInjectableDef(type) {
     // See `jit/injectable.ts#compileInjectable` for context on NG_PROV_DEF_FALLBACK.
-    const def = type &&
-        (type[NG_PROV_DEF] || type[NG_INJECTABLE_DEF] ||
-            (type[NG_PROV_DEF_FALLBACK] && type[NG_PROV_DEF_FALLBACK]()));
+    const def = type && (type[NG_PROV_DEF] || type[NG_INJECTABLE_DEF] ||
+        (type[NG_PROV_DEF_FALLBACK] && type[NG_PROV_DEF_FALLBACK]()));
     if (def) {
         const typeName = getTypeName(type);
         // TODO(FW-1307): Re-add ngDevMode when closure can handle it
@@ -7790,9 +17280,7 @@ function forwardRef(forwardRefFn) {
     ((/** @type {?} */ (forwardRefFn))).toString = (/**
      * @return {?}
      */
-    function () {
-        return stringify(this());
-    });
+    function () { return stringify(this()); });
     return ((/** @type {?} */ ((/** @type {?} */ (forwardRefFn)))));
 }
 /**
@@ -8046,7 +17534,7 @@ class InjectionToken {
          * \@internal
          */
         this.ngMetadataName = 'InjectionToken';
-        this.ɵprov = undefined;
+        /** @nocollapse */ this.ɵprov = undefined;
         if (typeof options == 'number') {
             // This is a special hack to assign __NG_ELEMENT_ID__ to this instance.
             // __NG_ELEMENT_ID__ is Used by Ivy to determine bloom filter id.
@@ -8054,7 +17542,7 @@ class InjectionToken {
             ((/** @type {?} */ (this))).__NG_ELEMENT_ID__ = options;
         }
         else if (options !== undefined) {
-            this.ɵprov = ɵɵdefineInjectable({
+            /** @nocollapse */ this.ɵprov = ɵɵdefineInjectable({
                 token: this,
                 providedIn: options.providedIn || 'root',
                 factory: options.factory,
@@ -8064,9 +17552,7 @@ class InjectionToken {
     /**
      * @return {?}
      */
-    toString() {
-        return `InjectionToken ${this._desc}`;
-    }
+    toString() { return `InjectionToken ${this._desc}`; }
 }
 if (false) {}
 /**
@@ -8540,11 +18026,11 @@ function assertDataInRange(arr, index) {
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * Equivalent to ES6 spread, add each item to an array.
- *
- * @param items The items to add
- * @param arr The array to which you want to add the items
- */
+* Equivalent to ES6 spread, add each item to an array.
+*
+* @param items The items to add
+* @param arr The array to which you want to add the items
+*/
 function addAllToArray(items, arr) {
     for (let i = 0; i < items.length; i++) {
         arr.push(items[i]);
@@ -9178,9 +18664,7 @@ function ɵɵdefineNgModule(def) {
         noSideEffects((/**
          * @return {?}
          */
-        () => {
-            autoRegisterModuleById[(/** @type {?} */ (def.id))] = (/** @type {?} */ ((/** @type {?} */ (def.type))));
-        }));
+        () => { autoRegisterModuleById[(/** @type {?} */ (def.id))] = (/** @type {?} */ ((/** @type {?} */ (def.type)))); }));
     }
     return (/** @type {?} */ (res));
 }
@@ -9424,7 +18908,7 @@ const PARENT = 3;
 /** @type {?} */
 const NEXT = 4;
 /** @type {?} */
-const TRANSPLANTED_VIEWS_TO_REFRESH = 5;
+const QUERIES = 5;
 /** @type {?} */
 const T_HOST = 6;
 /** @type {?} */
@@ -9451,13 +18935,11 @@ const DECLARATION_COMPONENT_VIEW = 16;
 const DECLARATION_LCONTAINER = 17;
 /** @type {?} */
 const PREORDER_HOOK_FLAGS = 18;
-/** @type {?} */
-const QUERIES = 19;
 /**
  * Size of LView's header. Necessary to adjust for it when setting slots.
  * @type {?}
  */
-const HEADER_OFFSET = 20;
+const HEADER_OFFSET = 19;
 /**
  * @record
  */
@@ -9525,16 +19007,11 @@ const LViewFlags = {
     /** Whether or not this view is the root view */
     IsRoot: 512,
     /**
-     * Whether this moved LView was needs to be refreshed at the insertion location because the
-     * declaration was dirty.
+     * Index of the current init phase on last 22 bits
      */
-    RefreshTransplantedView: 1024,
-    /**
-     * Index of the current init phase on last 21 bits
-     */
-    IndexWithinInitPhaseIncrementer: 2048,
-    IndexWithinInitPhaseShift: 11,
-    IndexWithinInitPhaseReset: 2047,
+    IndexWithinInitPhaseIncrementer: 1024,
+    IndexWithinInitPhaseShift: 10,
+    IndexWithinInitPhaseReset: 1023,
 };
 /** @enum {number} */
 const InitPhaseState = {
@@ -9545,10 +19022,8 @@ const InitPhaseState = {
 };
 /** @enum {number} */
 const PreOrderHookFlags = {
-    /**
-       The index of the next pre-order hook to be called in the hooks array, on the first 16
-       bits
-     */
+    /** The index of the next pre-order hook to be called in the hooks array, on the first 16
+       bits */
     IndexOfTheNextPreOrderHookMaskMask: 65535,
     /**
      * The number of init hooks that have already been called, on the last 16 bits
@@ -9594,9 +19069,7 @@ function TView() { }
 if (false) {}
 /** @enum {number} */
 const RootContextFlags = {
-    Empty: 0,
-    DetectChanges: 1,
-    FlushPlayers: 2,
+    Empty: 0, DetectChanges: 1, FlushPlayers: 2,
 };
 /**
  * RootContext contains information which is shared for all components which
@@ -9623,25 +19096,22 @@ const unusedValueExportToPlacateAjd = 1;
  */
 const TYPE = 1;
 /**
- * Flag to signify that this `LContainer` may have transplanted views which need to be change
- * detected. (see: `LView[DECLARATION_COMPONENT_VIEW])`.
- *
- * This flag, once set, is never unset for the `LContainer`. This means that when unset we can skip
- * a lot of work in `refreshEmbeddedViews`. But when set we still need to verify
- * that the `MOVED_VIEWS` are transplanted and on-push.
+ * Below are constants for LContainer indices to help us look up LContainer members
+ * without having to remember the specific indices.
+ * Uglify will inline these when minifying so there shouldn't be a cost.
  * @type {?}
  */
-const HAS_TRANSPLANTED_VIEWS = 2;
-// PARENT, NEXT, TRANSPLANTED_VIEWS_TO_REFRESH are indices 3, 4, and 5
+const ACTIVE_INDEX = 2;
+// PARENT and NEXT are indices 3 and 4
 // As we already have these constants in LView, we don't need to re-create them.
+/** @type {?} */
+const MOVED_VIEWS = 5;
 // T_HOST is index 6
 // We already have this constants in LView, we don't need to re-create it.
 /** @type {?} */
 const NATIVE = 7;
 /** @type {?} */
 const VIEW_REFS = 8;
-/** @type {?} */
-const MOVED_VIEWS = 9;
 /**
  * Size of LContainer's header. Represents the index after which all views in the
  * container will be inserted. We need to keep a record of current views so we know
@@ -9649,7 +19119,32 @@ const MOVED_VIEWS = 9;
  * remove views from the DOM when they are no longer required.
  * @type {?}
  */
-const CONTAINER_HEADER_OFFSET = 10;
+const CONTAINER_HEADER_OFFSET = 9;
+/** @enum {number} */
+const ActiveIndexFlag = {
+    /**
+     * Flag which signifies that the `LContainer` does not have any inline embedded views.
+     */
+    DYNAMIC_EMBEDDED_VIEWS_ONLY: -1,
+    /**
+     * Flag to signify that this `LContainer` may have transplanted views which need to be change
+     * detected. (see: `LView[DECLARATION_COMPONENT_VIEW])`.
+     *
+     * This flag once set is never unset for the `LContainer`. This means that when unset we can skip
+     * a lot of work in `refreshDynamicEmbeddedViews`. But when set we still need to verify
+     * that the `MOVED_VIEWS` are transplanted and on-push.
+     */
+    HAS_TRANSPLANTED_VIEWS: 1,
+    /**
+     * Number of bits to shift inline embedded views counter to make space for other flags.
+     */
+    SHIFT: 1,
+    /**
+     * When incrementing the active index for inline embedded views, the amount to increment to leave
+     * space for other flags.
+     */
+    INCREMENT: 2,
+};
 /**
  * The state associated with a container.
  *
@@ -9737,8 +19232,7 @@ function isRootView(target) {
  * @return {?}
  */
 function assertTNodeForLView(tNode, lView) {
-    tNode.hasOwnProperty('tView_') &&
-        assertEqual(((/** @type {?} */ ((/** @type {?} */ (tNode))))).tView_, lView[TVIEW], 'This TNode does not belong to this LView.');
+    tNode.hasOwnProperty('tView_') && assertEqual(((/** @type {?} */ ((/** @type {?} */ (tNode))))).tView_, lView[TVIEW], 'This TNode does not belong to this LView.');
 }
 /**
  * @param {?} actual
@@ -9785,6 +19279,13 @@ function assertDataNext(lView, index, arr) {
     if (arr == null)
         arr = lView;
     assertEqual(arr.length, index, `index ${index} expected to be at the end of arr (length ${arr.length})`);
+}
+/**
+ * @param {?} value
+ * @return {?}
+ */
+function assertLContainerOrUndefined(value) {
+    value && assertEqual(isLContainer(value), true, 'Expecting LContainer or undefined or null');
 }
 /**
  * @param {?} value
@@ -10000,9 +19501,7 @@ const ɵ0$2 = /**
  * @param {?} rendererType
  * @return {?}
  */
-(hostElement, rendererType) => {
-    return getDocument();
-};
+(hostElement, rendererType) => { return getDocument(); };
 /** @type {?} */
 const domRendererFactory3 = {
     createRenderer: (ɵ0$2)
@@ -10258,28 +19757,19 @@ function resetPreOrderHookFlags(lView) {
     lView[PREORDER_HOOK_FLAGS] = 0;
 }
 /**
- * Updates the `TRANSPLANTED_VIEWS_TO_REFRESH` counter on the `LContainer` as well as the parents
- * whose
- *  1. counter goes from 0 to 1, indicating that there is a new child that has a view to refresh
- *  or
- *  2. counter goes from 1 to 0, indicating there are no more descendant views to refresh
  * @param {?} lContainer
- * @param {?} amount
  * @return {?}
  */
-function updateTransplantedViewCount(lContainer, amount) {
-    lContainer[TRANSPLANTED_VIEWS_TO_REFRESH] += amount;
-    /** @type {?} */
-    let viewOrContainer = lContainer;
-    /** @type {?} */
-    let parent = lContainer[PARENT];
-    while (parent !== null &&
-        ((amount === 1 && viewOrContainer[TRANSPLANTED_VIEWS_TO_REFRESH] === 1) ||
-            (amount === -1 && viewOrContainer[TRANSPLANTED_VIEWS_TO_REFRESH] === 0))) {
-        parent[TRANSPLANTED_VIEWS_TO_REFRESH] += amount;
-        viewOrContainer = parent;
-        parent = parent[PARENT];
-    }
+function getLContainerActiveIndex(lContainer) {
+    return lContainer[ACTIVE_INDEX] >> 1 /* SHIFT */;
+}
+/**
+ * @param {?} lContainer
+ * @param {?} index
+ * @return {?}
+ */
+function setLContainerActiveIndex(lContainer, index) {
+    lContainer[ACTIVE_INDEX] = index << 1 /* SHIFT */;
 }
 
 /**
@@ -10524,7 +20014,7 @@ function setBindingRootForHostBindings(bindingRootIndex, currentDirectiveIndex) 
     /** @type {?} */
     const lFrame = instructionState.lFrame;
     lFrame.bindingIndex = lFrame.bindingRootIndex = bindingRootIndex;
-    setCurrentDirectiveIndex(currentDirectiveIndex);
+    lFrame.currentDirectiveIndex = currentDirectiveIndex;
 }
 /**
  * When host binding is executing this points to the directive index.
@@ -10534,27 +20024,6 @@ function setBindingRootForHostBindings(bindingRootIndex, currentDirectiveIndex) 
  */
 function getCurrentDirectiveIndex() {
     return instructionState.lFrame.currentDirectiveIndex;
-}
-/**
- * Sets an index of a directive whose `hostBindings` are being processed.
- *
- * @param {?} currentDirectiveIndex `TData` index where current directive instance can be found.
- * @return {?}
- */
-function setCurrentDirectiveIndex(currentDirectiveIndex) {
-    instructionState.lFrame.currentDirectiveIndex = currentDirectiveIndex;
-}
-/**
- * Retrieve the current `DirectiveDef` which is active when `hostBindings` instruction is being
- * executed.
- *
- * @param {?} tData Current `TData` where the `DirectiveDef` will be looked up at.
- * @return {?}
- */
-function getCurrentDirectiveDef(tData) {
-    /** @type {?} */
-    const currentDirectiveIndex = instructionState.lFrame.currentDirectiveIndex;
-    return currentDirectiveIndex === -1 ? null : (/** @type {?} */ (tData[currentDirectiveIndex]));
 }
 /**
  * @return {?}
@@ -10741,8 +20210,7 @@ function nextContextImpl(level) {
  */
 function walkUpViews(nestingLevel, currentView) {
     while (nestingLevel > 0) {
-        ngDevMode &&
-            assertDefined(currentView[DECLARATION_VIEW], 'Declaration view should be defined if nesting level is greater than 0.');
+        ngDevMode && assertDefined(currentView[DECLARATION_VIEW], 'Declaration view should be defined if nesting level is greater than 0.');
         currentView = (/** @type {?} */ (currentView[DECLARATION_VIEW]));
         nestingLevel--;
     }
@@ -10912,8 +20380,7 @@ function registerPostOrderHooks(tView, tNode) {
         }
         if (directiveDef.afterContentChecked) {
             (tView.contentHooks || (tView.contentHooks = [])).push(i, directiveDef.afterContentChecked);
-            (tView.contentCheckHooks || (tView.contentCheckHooks = []))
-                .push(i, directiveDef.afterContentChecked);
+            (tView.contentCheckHooks || (tView.contentCheckHooks = [])).push(i, directiveDef.afterContentChecked);
         }
         if (directiveDef.afterViewInit) {
             (tView.viewHooks || (tView.viewHooks = [])).push(-i, directiveDef.afterViewInit);
@@ -10978,8 +20445,7 @@ function executeCheckHooks(lView, hooks, nodeIndex) {
  * @return {?}
  */
 function executeInitAndCheckHooks(lView, hooks, initPhase, nodeIndex) {
-    ngDevMode &&
-        assertNotEqual(initPhase, 3 /* InitPhaseCompleted */, 'Init pre-order hooks should not be called more than once');
+    ngDevMode && assertNotEqual(initPhase, 3 /* InitPhaseCompleted */, 'Init pre-order hooks should not be called more than once');
     if ((lView[FLAGS] & 3 /* InitPhaseStateMask */) === initPhase) {
         callHooks(lView, hooks, initPhase, nodeIndex);
     }
@@ -10995,7 +20461,7 @@ function incrementInitPhaseFlags(lView, initPhase) {
     /** @type {?} */
     let flags = lView[FLAGS];
     if ((flags & 3 /* InitPhaseStateMask */) === initPhase) {
-        flags &= 2047 /* IndexWithinInitPhaseReset */;
+        flags &= 1023 /* IndexWithinInitPhaseReset */;
         flags += 1 /* InitPhaseStateIncrementer */;
         lView[FLAGS] = flags;
     }
@@ -11016,8 +20482,7 @@ function incrementInitPhaseFlags(lView, initPhase) {
  * @return {?}
  */
 function callHooks(currentView, arr, initPhase, currentNodeIndex) {
-    ngDevMode &&
-        assertEqual(getCheckNoChangesMode(), false, 'Hooks should never be run in the check no changes mode.');
+    ngDevMode && assertEqual(getCheckNoChangesMode(), false, 'Hooks should never be run in the check no changes mode.');
     /** @type {?} */
     const startIndex = currentNodeIndex !== undefined ?
         (currentView[PREORDER_HOOK_FLAGS] & 65535 /* IndexOfTheNextPreOrderHookMaskMask */) :
@@ -11070,13 +20535,13 @@ function callHook(currentView, initPhase, arr, i) {
     const directive = currentView[directiveIndex];
     if (isInitHook) {
         /** @type {?} */
-        const indexWithintInitPhase = currentView[FLAGS] >> 11 /* IndexWithinInitPhaseShift */;
+        const indexWithintInitPhase = currentView[FLAGS] >> 10 /* IndexWithinInitPhaseShift */;
         // The init phase state must be always checked here as it may have been recursively
         // updated
         if (indexWithintInitPhase <
             (currentView[PREORDER_HOOK_FLAGS] >> 16 /* NumberOfInitHooksCalledShift */) &&
             (currentView[FLAGS] & 3 /* InitPhaseStateMask */) === initPhase) {
-            currentView[FLAGS] += 2048 /* IndexWithinInitPhaseIncrementer */;
+            currentView[FLAGS] += 1024 /* IndexWithinInitPhaseIncrementer */;
             hook.call(directive);
         }
     }
@@ -11618,11 +21083,9 @@ function stringifyForError(value) {
 const ɵ0$3 = /**
  * @return {?}
  */
-() => (typeof requestAnimationFrame !== 'undefined' &&
-    requestAnimationFrame || // browser only
+() => (typeof requestAnimationFrame !== 'undefined' && requestAnimationFrame || // browser only
     setTimeout // everything else
-)
-    .bind(_global);
+).bind(_global);
 /** @type {?} */
 const defaultScheduler = ((ɵ0$3))();
 /**
@@ -11942,8 +21405,7 @@ function diPublicInInjector(injectorIndex, tView, token) {
  * @return {?}
  */
 function injectAttributeImpl(tNode, attrNameToInject) {
-    ngDevMode &&
-        assertNodeOfPossibleTypes(tNode, 0 /* Container */, 3 /* Element */, 4 /* ElementContainer */);
+    ngDevMode && assertNodeOfPossibleTypes(tNode, 0 /* Container */, 3 /* Element */, 4 /* ElementContainer */);
     ngDevMode && assertDefined(tNode, 'expecting tNode');
     if (attrNameToInject === 'class') {
         return tNode.classes;
@@ -12401,36 +21863,23 @@ function ɵɵgetInheritedFactory(type) {
      */
     () => {
         /** @type {?} */
-        const ownConstructor = type.prototype.constructor;
+        const proto = (/** @type {?} */ (Object.getPrototypeOf(type.prototype).constructor));
         /** @type {?} */
-        const ownFactory = ownConstructor[NG_FACTORY_DEF] || ɵɵgetFactoryOf(ownConstructor);
-        /** @type {?} */
-        const objectPrototype = Object.prototype;
-        /** @type {?} */
-        let parent = Object.getPrototypeOf(type.prototype).constructor;
-        // Go up the prototype until we hit `Object`.
-        while (parent && parent !== objectPrototype) {
-            /** @type {?} */
-            const factory = parent[NG_FACTORY_DEF] || ɵɵgetFactoryOf(parent);
-            // If we hit something that has a factory and the factory isn't the same as the type,
-            // we've found the inherited factory. Note the check that the factory isn't the type's
-            // own factory is redundant in most cases, but if the user has custom decorators on the
-            // class, this lookup will start one level down in the prototype chain, causing us to
-            // find the own factory first and potentially triggering an infinite loop downstream.
-            if (factory && factory !== ownFactory) {
-                return factory;
-            }
-            parent = Object.getPrototypeOf(parent);
+        const factory = ((/** @type {?} */ (proto)))[NG_FACTORY_DEF] || ɵɵgetFactoryOf(proto);
+        if (factory !== null) {
+            return factory;
         }
-        // There is no factory defined. Either this was improper usage of inheritance
-        // (no Angular decorator on the superclass) or there is no constructor at all
-        // in the inheritance chain. Since the two cases cannot be distinguished, the
-        // latter has to be assumed.
-        return (/**
-         * @param {?} t
-         * @return {?}
-         */
-        t => new t());
+        else {
+            // There is no factory defined. Either this was improper usage of inheritance
+            // (no Angular decorator on the superclass) or there is no constructor at all
+            // in the inheritance chain. Since the two cases cannot be distinguished, the
+            // latter has to be assumed.
+            return (/**
+             * @param {?} t
+             * @return {?}
+             */
+            (t) => new t());
+        }
     }));
 }
 
@@ -12711,41 +22160,31 @@ class SafeHtmlImpl extends SafeValueImpl {
     /**
      * @return {?}
      */
-    getTypeName() {
-        return "HTML" /* Html */;
-    }
+    getTypeName() { return "HTML" /* Html */; }
 }
 class SafeStyleImpl extends SafeValueImpl {
     /**
      * @return {?}
      */
-    getTypeName() {
-        return "Style" /* Style */;
-    }
+    getTypeName() { return "Style" /* Style */; }
 }
 class SafeScriptImpl extends SafeValueImpl {
     /**
      * @return {?}
      */
-    getTypeName() {
-        return "Script" /* Script */;
-    }
+    getTypeName() { return "Script" /* Script */; }
 }
 class SafeUrlImpl extends SafeValueImpl {
     /**
      * @return {?}
      */
-    getTypeName() {
-        return "URL" /* Url */;
-    }
+    getTypeName() { return "URL" /* Url */; }
 }
 class SafeResourceUrlImpl extends SafeValueImpl {
     /**
      * @return {?}
      */
-    getTypeName() {
-        return "ResourceURL" /* ResourceUrl */;
-    }
+    getTypeName() { return "ResourceURL" /* ResourceUrl */; }
 }
 /**
  * @template T
@@ -12881,11 +22320,6 @@ function enableProdMode() {
     if (_runModeLocked) {
         throw new Error('Cannot enable prod mode after platform setup.');
     }
-    // The below check is there so when ngDevMode is set via terser
-    // `global['ngDevMode'] = false;` is also dropped.
-    if (typeof ngDevMode === undefined || !!ngDevMode) {
-        _global['ngDevMode'] = false;
-    }
     _devMode = false;
 }
 
@@ -12992,7 +22426,10 @@ class InertBodyHelper {
         html = '<body><remove></remove>' + html + '</body>';
         try {
             /** @type {?} */
-            const body = (/** @type {?} */ (new ((/** @type {?} */ (window))).DOMParser().parseFromString(html, 'text/html').body));
+            const body = (/** @type {?} */ (new ((/** @type {?} */ (window)))
+                .DOMParser()
+                .parseFromString(html, 'text/html')
+                .body));
             body.removeChild((/** @type {?} */ (body.firstChild)));
             return body;
         }
@@ -13362,9 +22799,7 @@ class SanitizingHtmlSerializer {
      * @param {?} chars
      * @return {?}
      */
-    chars(chars) {
-        this.buf.push(encodeEntities(chars));
-    }
+    chars(chars) { this.buf.push(encodeEntities(chars)); }
     /**
      * @param {?} node
      * @param {?} nextNode
@@ -13410,9 +22845,7 @@ function encodeEntities(value) {
      * @param {?} match
      * @return {?}
      */
-    function (match) {
-        return '&#' + match.charCodeAt(0) + ';';
-    }))
+    function (match) { return '&#' + match.charCodeAt(0) + ';'; }))
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
 }
@@ -13778,9 +23211,8 @@ function ɵɵsanitizeScript(unsafeScript) {
  * @return {?}
  */
 function getUrlSanitizer(tag, prop) {
-    if ((prop === 'src' &&
-        (tag === 'embed' || tag === 'frame' || tag === 'iframe' || tag === 'media' ||
-            tag === 'script')) ||
+    if ((prop === 'src' && (tag === 'embed' || tag === 'frame' || tag === 'iframe' ||
+        tag === 'media' || tag === 'script')) ||
         (prop === 'href' && (tag === 'base' || tag === 'link'))) {
         return ɵɵsanitizeResourceUrl;
     }
@@ -13881,42 +23313,6 @@ function getSanitizer() {
     /** @type {?} */
     const lView = getLView();
     return lView && lView[SANITIZER];
-}
-
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-const END_COMMENT = /-->/g;
-const END_COMMENT_ESCAPED = '-\u200B-\u200B>';
-/**
- * Escape the content of the strings so that it can be safely inserted into a comment node.
- *
- * The issue is that HTML does not specify any way to escape comment end text inside the comment.
- * `<!-- The way you close a comment is with "-->". -->`. Above the `"-->"` is meant to be text not
- * an end to the comment. This can be created programmatically through DOM APIs.
- *
- * ```
- * div.innerHTML = div.innerHTML
- * ```
- *
- * One would expect that the above code would be safe to do, but it turns out that because comment
- * text is not escaped, the comment may contain text which will prematurely close the comment
- * opening up the application for XSS attack. (In SSR we programmatically create comment nodes which
- * may contain such text and expect them to be safe.)
- *
- * This function escapes the comment text by looking for the closing char sequence `-->` and replace
- * it with `-_-_>` where the `_` is a zero width space `\u200B`. The result is that if a comment
- * contains `-->` text it will render normally but it will not cause the HTML parser to close the
- * comment.
- *
- * @param value text to make safe for comment node by escaping the comment close character sequence
- */
-function escapeCommentText(value) {
-    return value.replace(END_COMMENT, END_COMMENT_ESCAPED);
 }
 
 /**
@@ -14548,10 +23944,8 @@ const TNodeFlags = {
 const TNodeProviderIndexes = {
     /** The index of the first provider on this node is encoded on the least significant bits */
     ProvidersStartIndexMask: 65535,
-    /**
-       The count of view providers from the component on this node is encoded on the 16 most
-       significant bits
-     */
+    /** The count of view providers from the component on this node is encoded on the 16 most
+       significant bits */
     CptViewProvidersCountShift: 16,
     CptViewProvidersCountShifter: 65536,
 };
@@ -14572,21 +23966,21 @@ const AttributeMarker = {
      */
     NamespaceURI: 0,
     /**
-     * Signals class declaration.
-     *
-     * Each value following `Classes` designates a class name to include on the element.
-     * ## Example:
-     *
-     * Given:
-     * ```
-     * <div class="foo bar baz">...<d/vi>
-     * ```
-     *
-     * the generated code is:
-     * ```
-     * var _c1 = [AttributeMarker.Classes, 'foo', 'bar', 'baz'];
-     * ```
-     */
+      * Signals class declaration.
+      *
+      * Each value following `Classes` designates a class name to include on the element.
+      * ## Example:
+      *
+      * Given:
+      * ```
+      * <div class="foo bar baz">...<d/vi>
+      * ```
+      *
+      * the generated code is:
+      * ```
+      * var _c1 = [AttributeMarker.Classes, 'foo', 'bar', 'baz'];
+      * ```
+      */
     Classes: 1,
     /**
      * Signals style declaration.
@@ -14905,15 +24299,6 @@ function isCssClassMatching(attrs, cssClassToMatch, isProjectionMode) {
     return false;
 }
 /**
- * Checks whether the `tNode` represents an inline template (e.g. `*ngFor`).
- *
- * @param {?} tNode current TNode
- * @return {?}
- */
-function isInlineTemplate(tNode) {
-    return tNode.type === 0 /* Container */ && tNode.tagName !== NG_TEMPLATE_SELECTOR;
-}
-/**
  * Function that checks whether a given tNode matches tag-based selector and has a valid type.
  *
  * Matching can be performed in 2 modes: projection mode (when we project nodes) and regular
@@ -14998,9 +24383,11 @@ function isNodeMatchingSelector(tNode, selector, isProjectionMode) {
                 continue;
             }
             /** @type {?} */
+            const isInlineTemplate = tNode.type == 0 /* Container */ && tNode.tagName !== NG_TEMPLATE_SELECTOR;
+            /** @type {?} */
             const attrName = (mode & 8 /* CLASS */) ? 'class' : current;
             /** @type {?} */
-            const attrIndexInNode = findAttrIndexInNode(attrName, nodeAttrs, isInlineTemplate(tNode), isProjectionMode);
+            const attrIndexInNode = findAttrIndexInNode(attrName, nodeAttrs, isInlineTemplate, isProjectionMode);
             if (attrIndexInNode === -1) {
                 if (isPositive(mode))
                     return false;
@@ -15014,8 +24401,7 @@ function isNodeMatchingSelector(tNode, selector, isProjectionMode) {
                     nodeAttrValue = '';
                 }
                 else {
-                    ngDevMode &&
-                        assertNotEqual(nodeAttrs[attrIndexInNode], 0 /* NamespaceURI */, 'We do not match directives on namespaced attributes');
+                    ngDevMode && assertNotEqual(nodeAttrs[attrIndexInNode], 0 /* NamespaceURI */, 'We do not match directives on namespaced attributes');
                     // we lowercase the attribute value to be able to match
                     // selectors without case-sensitivity
                     // (selectors are already in lowercase when generated)
@@ -15175,13 +24561,7 @@ function matchTemplateAttribute(attrs, name) {
     if (i > -1) {
         i++;
         while (i < attrs.length) {
-            /** @type {?} */
-            const attr = attrs[i];
-            // Return in case we checked all template attrs and are switching to the next section in the
-            // attrs array (that starts with a number that represents an attribute marker).
-            if (typeof attr === 'number')
-                return -1;
-            if (attr === name)
+            if (attrs[i] === name)
                 return i;
             i++;
         }
@@ -15411,32 +24791,6 @@ function getRootContext(viewOrComponent) {
     ngDevMode &&
         assertDefined(rootView[CONTEXT], 'RootView has no context. Perhaps it is disconnected?');
     return (/** @type {?} */ (rootView[CONTEXT]));
-}
-/**
- * Gets the first `LContainer` in the LView or `null` if none exists.
- * @param {?} lView
- * @return {?}
- */
-function getFirstLContainer(lView) {
-    return getNearestLContainer(lView[CHILD_HEAD]);
-}
-/**
- * Gets the next `LContainer` that is a sibling of the given container.
- * @param {?} container
- * @return {?}
- */
-function getNextLContainer(container) {
-    return getNearestLContainer(container[NEXT]);
-}
-/**
- * @param {?} viewOrContainer
- * @return {?}
- */
-function getNearestLContainer(viewOrContainer) {
-    while (viewOrContainer !== null && !isLContainer(viewOrContainer)) {
-        viewOrContainer = viewOrContainer[NEXT];
-    }
-    return viewOrContainer;
 }
 
 /**
@@ -16165,7 +25519,6 @@ const TViewConstructor = class TView {
      * @param {?} firstChild
      * @param {?} schemas
      * @param {?} consts
-     * @param {?} incompleteFirstPass
      */
     constructor(type, //
     id, //
@@ -16196,9 +25549,7 @@ const TViewConstructor = class TView {
     pipeRegistry, //
     firstChild, //
     schemas, //
-    consts, //
-    incompleteFirstPass //
-    ) {
+    consts) {
         this.type = type;
         this.id = id;
         this.blueprint = blueprint;
@@ -16229,7 +25580,6 @@ const TViewConstructor = class TView {
         this.firstChild = firstChild;
         this.schemas = schemas;
         this.consts = consts;
-        this.incompleteFirstPass = incompleteFirstPass;
     }
     /**
      * @return {?}
@@ -16267,10 +25617,8 @@ class TNode$1 {
      * @param {?} parent
      * @param {?} projection
      * @param {?} styles
-     * @param {?} stylesWithoutHost
      * @param {?} residualStyles
      * @param {?} classes
-     * @param {?} classesWithoutHost
      * @param {?} residualClasses
      * @param {?} classBindings
      * @param {?} styleBindings
@@ -16299,10 +25647,8 @@ class TNode$1 {
     parent, //
     projection, //
     styles, //
-    stylesWithoutHost, //
     residualStyles, //
     classes, //
-    classesWithoutHost, //
     residualClasses, //
     classBindings, //
     styleBindings) {
@@ -16330,10 +25676,8 @@ class TNode$1 {
         this.parent = parent;
         this.projection = projection;
         this.styles = styles;
-        this.stylesWithoutHost = stylesWithoutHost;
         this.residualStyles = residualStyles;
         this.classes = classes;
-        this.classesWithoutHost = classesWithoutHost;
         this.residualClasses = residualClasses;
         this.classBindings = classBindings;
         this.styleBindings = styleBindings;
@@ -16410,15 +25754,11 @@ class TNode$1 {
     /**
      * @return {?}
      */
-    get styleBindings_() {
-        return toDebugStyleBinding(this, false);
-    }
+    get styleBindings_() { return toDebugStyleBinding(this, false); }
     /**
      * @return {?}
      */
-    get classBindings_() {
-        return toDebugStyleBinding(this, true);
-    }
+    get classBindings_() { return toDebugStyleBinding(this, true); }
 }
 if (false) {}
 /** @type {?} */
@@ -16488,8 +25828,8 @@ function processTNodeChildren(tNode, buf) {
 const TViewData = NG_DEV_MODE && createNamedArrayType('TViewData') || (/** @type {?} */ ((/** @type {?} */ (null))));
 /** @type {?} */
 let TVIEWDATA_EMPTY;
-// can't initialize here or it will not be tree shaken, because
-// `LView` constructor could have side-effects.
+// can't initialize here or it will not be tree shaken, because `LView`
+// constructor could have side-effects.
 /**
  * This function clones a blueprint and creates TData.
  *
@@ -16604,37 +25944,29 @@ class LViewDebug {
             attached: !!(flags & 128 /* Attached */),
             destroyed: !!(flags & 256 /* Destroyed */),
             isRoot: !!(flags & 512 /* IsRoot */),
-            indexWithinInitPhase: flags >> 11 /* IndexWithinInitPhaseShift */,
+            indexWithinInitPhase: flags >> 10 /* IndexWithinInitPhaseShift */,
         };
     }
     /**
      * @return {?}
      */
-    get parent() {
-        return toDebug(this._raw_lView[PARENT]);
-    }
+    get parent() { return toDebug(this._raw_lView[PARENT]); }
     /**
      * @return {?}
      */
-    get host() {
-        return toHtml(this._raw_lView[HOST], true);
-    }
+    get host() { return toHtml(this._raw_lView[HOST], true); }
     /**
      * @return {?}
      */
-    get html() {
-        return (this.nodes || []).map((/**
-         * @param {?} node
-         * @return {?}
-         */
-        node => toHtml(node.native, true))).join('');
-    }
+    get html() { return (this.nodes || []).map((/**
+     * @param {?} node
+     * @return {?}
+     */
+    node => toHtml(node.native, true))).join(''); }
     /**
      * @return {?}
      */
-    get context() {
-        return this._raw_lView[CONTEXT];
-    }
+    get context() { return this._raw_lView[CONTEXT]; }
     /**
      * The tree of nodes associated with the current `LView`. The nodes have been normalized into
      * a
@@ -16651,75 +25983,51 @@ class LViewDebug {
     /**
      * @return {?}
      */
-    get tView() {
-        return this._raw_lView[TVIEW];
-    }
+    get tView() { return this._raw_lView[TVIEW]; }
     /**
      * @return {?}
      */
-    get cleanup() {
-        return this._raw_lView[CLEANUP];
-    }
+    get cleanup() { return this._raw_lView[CLEANUP]; }
     /**
      * @return {?}
      */
-    get injector() {
-        return this._raw_lView[INJECTOR$1];
-    }
+    get injector() { return this._raw_lView[INJECTOR$1]; }
     /**
      * @return {?}
      */
-    get rendererFactory() {
-        return this._raw_lView[RENDERER_FACTORY];
-    }
+    get rendererFactory() { return this._raw_lView[RENDERER_FACTORY]; }
     /**
      * @return {?}
      */
-    get renderer() {
-        return this._raw_lView[RENDERER];
-    }
+    get renderer() { return this._raw_lView[RENDERER]; }
     /**
      * @return {?}
      */
-    get sanitizer() {
-        return this._raw_lView[SANITIZER];
-    }
+    get sanitizer() { return this._raw_lView[SANITIZER]; }
     /**
      * @return {?}
      */
-    get childHead() {
-        return toDebug(this._raw_lView[CHILD_HEAD]);
-    }
+    get childHead() { return toDebug(this._raw_lView[CHILD_HEAD]); }
     /**
      * @return {?}
      */
-    get next() {
-        return toDebug(this._raw_lView[NEXT]);
-    }
+    get next() { return toDebug(this._raw_lView[NEXT]); }
     /**
      * @return {?}
      */
-    get childTail() {
-        return toDebug(this._raw_lView[CHILD_TAIL]);
-    }
+    get childTail() { return toDebug(this._raw_lView[CHILD_TAIL]); }
     /**
      * @return {?}
      */
-    get declarationView() {
-        return toDebug(this._raw_lView[DECLARATION_VIEW]);
-    }
+    get declarationView() { return toDebug(this._raw_lView[DECLARATION_VIEW]); }
     /**
      * @return {?}
      */
-    get queries() {
-        return this._raw_lView[QUERIES];
-    }
+    get queries() { return this._raw_lView[QUERIES]; }
     /**
      * @return {?}
      */
-    get tHost() {
-        return this._raw_lView[T_HOST];
-    }
+    get tHost() { return this._raw_lView[T_HOST]; }
     /**
      * Normalized view of child views (and containers) attached at this location.
      * @return {?}
@@ -16795,8 +26103,13 @@ class LContainerDebug {
     /**
      * @return {?}
      */
+    get activeIndex() { return getLContainerActiveIndex(this._raw_lContainer); }
+    /**
+     * @return {?}
+     */
     get hasTransplantedViews() {
-        return this._raw_lContainer[HAS_TRANSPLANTED_VIEWS];
+        return (this._raw_lContainer[ACTIVE_INDEX] & 1 /* HAS_TRANSPLANTED_VIEWS */) ===
+            1 /* HAS_TRANSPLANTED_VIEWS */;
     }
     /**
      * @return {?}
@@ -16808,33 +26121,23 @@ class LContainerDebug {
     /**
      * @return {?}
      */
-    get parent() {
-        return toDebug(this._raw_lContainer[PARENT]);
-    }
+    get parent() { return toDebug(this._raw_lContainer[PARENT]); }
     /**
      * @return {?}
      */
-    get movedViews() {
-        return this._raw_lContainer[MOVED_VIEWS];
-    }
+    get movedViews() { return this._raw_lContainer[MOVED_VIEWS]; }
     /**
      * @return {?}
      */
-    get host() {
-        return this._raw_lContainer[HOST];
-    }
+    get host() { return this._raw_lContainer[HOST]; }
     /**
      * @return {?}
      */
-    get native() {
-        return this._raw_lContainer[NATIVE];
-    }
+    get native() { return this._raw_lContainer[NATIVE]; }
     /**
      * @return {?}
      */
-    get next() {
-        return toDebug(this._raw_lContainer[NEXT]);
-    }
+    get next() { return toDebug(this._raw_lContainer[NEXT]); }
 }
 if (false) {}
 /**
@@ -16869,9 +26172,7 @@ class I18NDebugItem {
     /**
      * @return {?}
      */
-    get tNode() {
-        return getTNode(this._lView[TVIEW], this.nodeIndex);
-    }
+    get tNode() { return getTNode(this._lView[TVIEW], this.nodeIndex); }
 }
 if (false) {}
 /**
@@ -16896,9 +26197,7 @@ function attachI18nOpCodesDebug(mutateOpCodes, updateOpCodes, icus, lView) {
              * @param {?} icuCase
              * @return {?}
              */
-            icuCase => {
-                attachDebugObject(icuCase, new I18nMutateOpCodesDebug(icuCase, lView));
-            }));
+            icuCase => { attachDebugObject(icuCase, new I18nMutateOpCodesDebug(icuCase, lView)); }));
             icu.update.forEach((/**
              * @param {?} icuCase
              * @return {?}
@@ -17052,17 +26351,14 @@ class I18nUpdateOpCodesDebug {
                                     __raw_opCode: opCode,
                                     checkBit,
                                     type: 'Attr',
-                                    attrValue: value,
-                                    attrName,
-                                    sanitizeFn,
+                                    attrValue: value, attrName, sanitizeFn,
                                 });
                                 break;
                             case 0 /* Text */:
                                 results.push({
                                     __raw_opCode: opCode,
                                     checkBit,
-                                    type: 'Text',
-                                    nodeIndex,
+                                    type: 'Text', nodeIndex,
                                     text: value,
                                 });
                                 break;
@@ -17286,8 +26582,7 @@ function createLView(parentLView, tView, context, flags, host, tHostNode, render
     lView[SANITIZER] = sanitizer || parentLView && parentLView[SANITIZER] || (/** @type {?} */ (null));
     lView[(/** @type {?} */ (INJECTOR$1))] = injector || parentLView && parentLView[INJECTOR$1] || null;
     lView[T_HOST] = tHostNode;
-    ngDevMode &&
-        assertEqual(tView.type == 2 /* Embedded */ ? parentLView !== null : true, true, 'Embedded views must have parentLView');
+    ngDevMode && assertEqual(tView.type == 2 /* Embedded */ ? parentLView !== null : true, true, 'Embedded views must have parentLView');
     lView[DECLARATION_COMPONENT_VIEW] =
         tView.type == 2 /* Embedded */ ? (/** @type {?} */ (parentLView))[DECLARATION_COMPONENT_VIEW] : lView;
     ngDevMode && attachLViewDebug(lView);
@@ -17373,7 +26668,7 @@ function assignTViewNodeToLView(tView, tParentNode, index, lView) {
         tView.node = tNode = (/** @type {?} */ (createTNode(tView, (/** @type {?} */ (tParentNode)), //
         2 /* View */, index, null, null)));
     }
-    lView[T_HOST] = (/** @type {?} */ (tNode));
+    return lView[T_HOST] = (/** @type {?} */ (tNode));
 }
 /**
  * When elements are created dynamically after a view blueprint is created (e.g. through
@@ -17386,8 +26681,7 @@ function assignTViewNodeToLView(tView, tParentNode, index, lView) {
  * @return {?}
  */
 function allocExpando(tView, lView, numSlotsToAlloc) {
-    ngDevMode &&
-        assertGreaterThan(numSlotsToAlloc, 0, 'The number of slots to alloc should be greater than 0');
+    ngDevMode && assertGreaterThan(numSlotsToAlloc, 0, 'The number of slots to alloc should be greater than 0');
     if (numSlotsToAlloc > 0) {
         if (tView.firstCreatePass) {
             for (let i = 0; i < numSlotsToAlloc; i++) {
@@ -17466,14 +26760,6 @@ function renderView(tView, lView, context) {
             renderChildComponents(lView, components);
         }
     }
-    catch (error) {
-        // If we didn't manage to get past the first template pass due to
-        // an error, mark the view as corrupted so we can try to recover.
-        if (tView.firstCreatePass) {
-            tView.incompleteFirstPass = true;
-        }
-        throw error;
-    }
     finally {
         lView[FLAGS] &= ~4 /* CreationMode */;
         leaveView();
@@ -17529,11 +26815,7 @@ function refreshView(tView, lView, templateFn, context) {
                 incrementInitPhaseFlags(lView, 0 /* OnInitHooksToBeRun */);
             }
         }
-        // First mark transplanted views that are declared in this lView as needing a refresh at their
-        // insertion points. This is needed to avoid the situation where the template is defined in this
-        // `LView` but its declaration appears after the insertion component.
-        markTransplantedViewsForRefresh(lView);
-        refreshEmbeddedViews(lView);
+        refreshDynamicEmbeddedViews(lView);
         // Content query results must be refreshed before content hooks are called.
         if (tView.contentQueries !== null) {
             refreshContentQueries(tView, lView);
@@ -17608,10 +26890,6 @@ function refreshView(tView, lView, templateFn, context) {
         // be different in production mode where the component dirty state is not reset.
         if (!checkNoChangesMode) {
             lView[FLAGS] &= ~(64 /* Dirty */ | 8 /* FirstLViewPass */);
-        }
-        if (lView[FLAGS] & 1024 /* RefreshTransplantedView */) {
-            lView[FLAGS] &= ~1024 /* RefreshTransplantedView */;
-            updateTransplantedViewCount((/** @type {?} */ (lView[PARENT])), -1);
         }
     }
     finally {
@@ -17745,14 +27023,8 @@ function saveResolvedLocalsInData(viewData, tNode, localRefExtractor = getNative
  * @return {?} TView
  */
 function getOrCreateTComponentView(def) {
-    /** @type {?} */
-    const tView = def.tView;
-    // Create a TView if there isn't one, or recreate it if the first create pass didn't
-    // complete successfuly since we can't know for sure whether it's in a usable shape.
-    if (tView === null || tView.incompleteFirstPass) {
-        return def.tView = createTView(1 /* Component */, -1, def.template, def.decls, def.vars, def.directiveDefs, def.pipeDefs, def.viewQuery, def.schemas, def.consts);
-    }
-    return tView;
+    return def.tView ||
+        (def.tView = createTView(1 /* Component */, -1, def.template, def.decls, def.vars, def.directiveDefs, def.pipeDefs, def.viewQuery, def.schemas, def.consts));
 }
 /**
  * Creates a TView instance
@@ -17800,7 +27072,7 @@ function createTView(type, viewIndex, templateFn, decls, vars, directives, pipes
         null, // contentCheckHooks: HookData|null,
         null, // viewHooks: HookData|null,
         null, // viewCheckHooks: HookData|null,
-        null, // destroyHooks: DestroyHookData|null,
+        null, // destroyHooks: HookData|null,
         null, // cleanup: any[]|null,
         null, // contentQueries: number[]|null,
         null, // components: number[]|null,
@@ -17810,9 +27082,7 @@ function createTView(type, viewIndex, templateFn, decls, vars, directives, pipes
         typeof pipes === 'function' ? pipes() : pipes, // pipeRegistry: PipeDefList|null,
         null, // firstChild: TNode|null,
         schemas, // schemas: SchemaMetadata[]|null,
-        consts, // consts: TConstants|null
-        false // incompleteFirstPass: boolean
-        ) :
+        consts) : // consts: TConstants|null
         {
             type: type,
             id: viewIndex,
@@ -17844,7 +27114,6 @@ function createTView(type, viewIndex, templateFn, decls, vars, directives, pipes
             firstChild: null,
             schemas: schemas,
             consts: consts,
-            incompleteFirstPass: false
         };
 }
 /**
@@ -17987,10 +27256,8 @@ function createTNode(tView, tParent, type, adjustedIndex, tagName, attrs) {
     tParent, // parent: TElementNode|TContainerNode|null
     null, // projection: number|(ITNode|RNode[])[]|null
     null, // styles: string|null
-    null, // stylesWithoutHost: string|null
     undefined, // residualStyles: string|null
     null, // classes: string|null
-    null, // classesWithoutHost: string|null
     undefined, (/** @type {?} */ (0)), (/** @type {?} */ (0))) :
         {
             type: type,
@@ -18016,10 +27283,8 @@ function createTNode(tView, tParent, type, adjustedIndex, tagName, attrs) {
             parent: tParent,
             projection: null,
             styles: null,
-            stylesWithoutHost: null,
             residualStyles: undefined,
             classes: null,
-            classesWithoutHost: null,
             residualClasses: undefined,
             classBindings: (/** @type {?} */ (0)),
             styleBindings: (/** @type {?} */ (0)),
@@ -18075,15 +27340,7 @@ function initializeInputAndOutputAliases(tView, tNode) {
         const directiveDef = (/** @type {?} */ (defs[i]));
         /** @type {?} */
         const directiveInputs = directiveDef.inputs;
-        // Do not use unbound attributes as inputs to structural directives, since structural
-        // directive inputs can only be set using microsyntax (e.g. `<div *dir="exp">`).
-        // TODO(FW-1930): microsyntax expressions may also contain unbound/static attributes, which
-        // should be set for inline templates.
-        /** @type {?} */
-        const initialInputs = (tNodeAttrs !== null && !isInlineTemplate(tNode)) ?
-            generateInitialInputs(directiveInputs, tNodeAttrs) :
-            null;
-        inputsFromAttrs.push(initialInputs);
+        inputsFromAttrs.push(tNodeAttrs !== null ? generateInitialInputs(directiveInputs, tNodeAttrs) : null);
         inputsStore = generatePropertyAliases(directiveInputs, i, inputsStore);
         outputsStore = generatePropertyAliases(directiveDef.outputs, i, outputsStore);
     }
@@ -18225,7 +27482,7 @@ function setNgReflectProperty(lView, element, type, attrName, value) {
     }
     else {
         /** @type {?} */
-        const textContent = escapeCommentText(`bindings=${JSON.stringify({ [attrName]: debugValue }, null, 2)}`);
+        const textContent = `bindings=${JSON.stringify({ [attrName]: debugValue }, null, 2)}`;
         if (isProceduralRenderer(renderer)) {
             renderer.setValue(((/** @type {?} */ (element))), textContent);
         }
@@ -18266,12 +27523,6 @@ function setNgReflectProperties(lView, element, type, dataValue, value) {
  * @return {?}
  */
 function validateProperty(tView, lView, element, propName, tNode) {
-    // If `schemas` is set to `null`, that's an indication that this Component was compiled in AOT
-    // mode where this check happens at compile time. In JIT mode, `schemas` is always present and
-    // defined as an array (as an empty array in case `schemas` field is not defined) and we should
-    // execute the check below.
-    if (tView.schemas === null)
-        return true;
     // The property is considered valid if the element matches the schema, it exists on the element
     // or it is synthetic, and we are in a browser context (web worker nodes should be skipped).
     if (matchingSchemas(tView, lView, tNode.tagName) || propName in element ||
@@ -18402,8 +27653,7 @@ function resolveDirectives(tView, lView, tNode, localRefs) {
                     preOrderHooksFound = true;
                 }
                 if (!preOrderCheckHooksFound && (def.onChanges || def.doCheck)) {
-                    (tView.preOrderCheckHooks || (tView.preOrderCheckHooks = []))
-                        .push(tNode.index - HEADER_OFFSET);
+                    (tView.preOrderCheckHooks || (tView.preOrderCheckHooks = [])).push(tNode.index - HEADER_OFFSET);
                     preOrderCheckHooksFound = true;
                 }
                 addHostBindingsToExpandoInstructions(tView, def);
@@ -18524,16 +27774,13 @@ function invokeDirectivesHostBindings(tView, lView, tNode) {
     const firstCreatePass = tView.firstCreatePass;
     /** @type {?} */
     const elementIndex = tNode.index - HEADER_OFFSET;
-    /** @type {?} */
-    const currentDirectiveIndex = getCurrentDirectiveIndex();
     try {
         setSelectedIndex(elementIndex);
-        for (let dirIndex = start; dirIndex < end; dirIndex++) {
+        for (let i = start; i < end; i++) {
             /** @type {?} */
-            const def = (/** @type {?} */ (tView.data[dirIndex]));
+            const def = (/** @type {?} */ (tView.data[i]));
             /** @type {?} */
-            const directive = lView[dirIndex];
-            setCurrentDirectiveIndex(dirIndex);
+            const directive = lView[i];
             if (def.hostBindings !== null || def.hostVars !== 0 || def.hostAttrs !== null) {
                 invokeHostBindingsInCreationMode(def, directive);
             }
@@ -18544,7 +27791,6 @@ function invokeDirectivesHostBindings(tView, lView, tNode) {
     }
     finally {
         setSelectedIndex(-1);
-        setCurrentDirectiveIndex(currentDirectiveIndex);
     }
 }
 /**
@@ -18570,8 +27816,7 @@ function invokeHostBindingsInCreationMode(def, directive) {
  * @return {?}
  */
 function generateExpandoInstructionBlock(tView, tNode, directiveCount) {
-    ngDevMode &&
-        assertEqual(tView.firstCreatePass, true, 'Expando block should only be generated on first create pass.');
+    ngDevMode && assertEqual(tView.firstCreatePass, true, 'Expando block should only be generated on first create pass.');
     // Important: In JS `-x` and `0-x` is not the same! If `x===0` then `-x` will produce `-0` which
     // requires non standard math arithmetic and it can prevent VM optimizations.
     // `0-0` will always produce `0` and will not cause a potential deoptimization in VM.
@@ -18581,8 +27826,7 @@ function generateExpandoInstructionBlock(tView, tNode, directiveCount) {
     const providerStartIndex = tNode.providerIndexes & 65535 /* ProvidersStartIndexMask */;
     /** @type {?} */
     const providerCount = tView.data.length - providerStartIndex;
-    (tView.expandoInstructions || (tView.expandoInstructions = []))
-        .push(elementIndex, providerCount, directiveCount);
+    (tView.expandoInstructions || (tView.expandoInstructions = [])).push(elementIndex, providerCount, directiveCount);
 }
 /**
  * Matches the current node against all available selectors.
@@ -18594,8 +27838,7 @@ function generateExpandoInstructionBlock(tView, tNode, directiveCount) {
  */
 function findDirectiveDefMatches(tView, viewData, tNode) {
     ngDevMode && assertFirstCreatePass(tView);
-    ngDevMode &&
-        assertNodeOfPossibleTypes(tNode, 3 /* Element */, 4 /* ElementContainer */, 0 /* Container */);
+    ngDevMode && assertNodeOfPossibleTypes(tNode, 3 /* Element */, 4 /* ElementContainer */, 0 /* Container */);
     /** @type {?} */
     const registry = tView.directiveRegistry;
     /** @type {?} */
@@ -18633,8 +27876,7 @@ function findDirectiveDefMatches(tView, viewData, tNode) {
 function markAsComponentHost(tView, hostTNode) {
     ngDevMode && assertFirstCreatePass(tView);
     hostTNode.flags |= 2 /* isComponentHost */;
-    (tView.components || (tView.components = ngDevMode ? new TViewComponents() : []))
-        .push(hostTNode.index);
+    (tView.components || (tView.components = ngDevMode ? new TViewComponents() : [])).push(hostTNode.index);
 }
 /**
  * Caches local names and their matching directive indices for query and template lookups.
@@ -18646,7 +27888,8 @@ function markAsComponentHost(tView, hostTNode) {
 function cacheMatchingLocalNames(tNode, localRefs, exportsMap) {
     if (localRefs) {
         /** @type {?} */
-        const localNames = tNode.localNames = ngDevMode ? new TNodeLocalNames() : [];
+        const localNames = tNode.localNames =
+            ngDevMode ? new TNodeLocalNames() : [];
         // Local names must be stored in tNode in the same order that localRefs are defined
         // in the template to ensure the data is loaded in the same slots as their refs
         // in the template (for template queries).
@@ -18687,8 +27930,7 @@ function saveNameToExportMap(index, def, exportsMap) {
  * @return {?}
  */
 function initTNodeFlags(tNode, index, numberOfDirectives) {
-    ngDevMode &&
-        assertNotEqual(numberOfDirectives, tNode.directiveEnd - tNode.directiveStart, 'Reached the max number of directives');
+    ngDevMode && assertNotEqual(numberOfDirectives, tNode.directiveEnd - tNode.directiveStart, 'Reached the max number of directives');
     tNode.flags |= 1 /* isDirectiveHost */;
     // When the first directive is created on a node, save the index
     tNode.directiveStart = index;
@@ -18874,68 +28116,95 @@ function createLContainer(hostNative, currentView, native, tNode) {
     /** @type {?} */
     const lContainer = new (ngDevMode ? LContainerArray : Array)(hostNative, // host native
     true, // Boolean `true` in this position signifies that this is an `LContainer`
-    false, // has transplanted views
+    -1 /* DYNAMIC_EMBEDDED_VIEWS_ONLY */ << 1 /* SHIFT */, // active index
     currentView, // parent
     null, // next
-    0, // transplanted views to refresh count
+    null, // queries
     tNode, // t_host
     native, // native,
-    null, // view refs
     null);
-    ngDevMode &&
-        assertEqual(lContainer.length, CONTAINER_HEADER_OFFSET, 'Should allocate correct number of slots for LContainer header.');
     ngDevMode && attachLContainerDebug(lContainer);
     return lContainer;
 }
 /**
- * Goes over embedded views (ones created through ViewContainerRef APIs) and refreshes
+ * Goes over dynamic embedded views (ones created through ViewContainerRef APIs) and refreshes
  * them by executing an associated template function.
  * @param {?} lView
  * @return {?}
  */
-function refreshEmbeddedViews(lView) {
-    for (let lContainer = getFirstLContainer(lView); lContainer !== null; lContainer = getNextLContainer(lContainer)) {
-        for (let i = CONTAINER_HEADER_OFFSET; i < lContainer.length; i++) {
-            /** @type {?} */
-            const embeddedLView = lContainer[i];
-            /** @type {?} */
-            const embeddedTView = embeddedLView[TVIEW];
-            ngDevMode && assertDefined(embeddedTView, 'TView must be allocated');
-            if (viewAttachedToChangeDetector(embeddedLView)) {
-                refreshView(embeddedTView, embeddedLView, embeddedTView.template, (/** @type {?} */ (embeddedLView[CONTEXT])));
+function refreshDynamicEmbeddedViews(lView) {
+    /** @type {?} */
+    let viewOrContainer = lView[CHILD_HEAD];
+    while (viewOrContainer !== null) {
+        // Note: viewOrContainer can be an LView or an LContainer instance, but here we are only
+        // interested in LContainer
+        /** @type {?} */
+        let activeIndexFlag;
+        if (isLContainer(viewOrContainer) &&
+            (activeIndexFlag = viewOrContainer[ACTIVE_INDEX]) >> 1 /* SHIFT */ ===
+                -1 /* DYNAMIC_EMBEDDED_VIEWS_ONLY */) {
+            for (let i = CONTAINER_HEADER_OFFSET; i < viewOrContainer.length; i++) {
+                /** @type {?} */
+                const embeddedLView = (/** @type {?} */ (viewOrContainer[i]));
+                /** @type {?} */
+                const embeddedTView = embeddedLView[TVIEW];
+                ngDevMode && assertDefined(embeddedTView, 'TView must be allocated');
+                if (viewAttachedToChangeDetector(embeddedLView)) {
+                    refreshView(embeddedTView, embeddedLView, embeddedTView.template, (/** @type {?} */ (embeddedLView[CONTEXT])));
+                }
+            }
+            if ((activeIndexFlag & 1 /* HAS_TRANSPLANTED_VIEWS */) !== 0) {
+                // We should only CD moved views if the component where they were inserted does not match
+                // the component where they were declared and insertion is on-push. Moved views also
+                // contains intra component moves, or check-always which need to be skipped.
+                refreshTransplantedViews(viewOrContainer, (/** @type {?} */ (lView[DECLARATION_COMPONENT_VIEW])));
             }
         }
+        viewOrContainer = viewOrContainer[NEXT];
     }
 }
 /**
- * Mark transplanted views as needing to be refreshed at their insertion points.
+ * Refresh transplanted LViews.
  *
- * @param {?} lView The `LView` that may have transplanted views.
+ * See: `ActiveIndexFlag.HAS_TRANSPLANTED_VIEWS` and `LView[DECLARATION_COMPONENT_VIEW]` for
+ * explanation of transplanted views.
+ *
+ * @param {?} lContainer The `LContainer` which has transplanted views.
+ * @param {?} declaredComponentLView The `lContainer` parent component `LView`.
  * @return {?}
  */
-function markTransplantedViewsForRefresh(lView) {
-    for (let lContainer = getFirstLContainer(lView); lContainer !== null; lContainer = getNextLContainer(lContainer)) {
-        if (!lContainer[HAS_TRANSPLANTED_VIEWS])
-            continue;
+function refreshTransplantedViews(lContainer, declaredComponentLView) {
+    /** @type {?} */
+    const movedViews = (/** @type {?} */ (lContainer[MOVED_VIEWS]));
+    ngDevMode && assertDefined(movedViews, 'Transplanted View flags set but missing MOVED_VIEWS');
+    for (let i = 0; i < movedViews.length; i++) {
         /** @type {?} */
-        const movedViews = (/** @type {?} */ (lContainer[MOVED_VIEWS]));
-        ngDevMode && assertDefined(movedViews, 'Transplanted View flags set but missing MOVED_VIEWS');
-        for (let i = 0; i < movedViews.length; i++) {
+        const movedLView = (/** @type {?} */ (movedViews[i]));
+        /** @type {?} */
+        const insertionLContainer = (/** @type {?} */ (movedLView[PARENT]));
+        ngDevMode && assertLContainer(insertionLContainer);
+        /** @type {?} */
+        const insertedComponentLView = (/** @type {?} */ (insertionLContainer[PARENT][DECLARATION_COMPONENT_VIEW]));
+        ngDevMode && assertDefined(insertedComponentLView, 'Missing LView');
+        // Check if we have a transplanted view by compering declaration and insertion location.
+        if (insertedComponentLView !== declaredComponentLView) {
+            // Yes the `LView` is transplanted.
+            // Here we would like to know if the component is `OnPush`. We don't have
+            // explicit `OnPush` flag instead we set `CheckAlways` to false (which is `OnPush`)
+            // Not to be confused with `ManualOnPush` which is used with wether a DOM event
+            // should automatically mark a view as dirty.
             /** @type {?} */
-            const movedLView = (/** @type {?} */ (movedViews[i]));
-            /** @type {?} */
-            const insertionLContainer = (/** @type {?} */ (movedLView[PARENT]));
-            ngDevMode && assertLContainer(insertionLContainer);
-            // We don't want to increment the counter if the moved LView was already marked for
-            // refresh.
-            if ((movedLView[FLAGS] & 1024 /* RefreshTransplantedView */) === 0) {
-                updateTransplantedViewCount(insertionLContainer, 1);
+            const insertionComponentIsOnPush = (insertedComponentLView[FLAGS] & 16 /* CheckAlways */) === 0;
+            if (insertionComponentIsOnPush) {
+                // Here we know that the template has been transplanted across components and is
+                // on-push (not just moved within a component). If the insertion is marked dirty, then
+                // there is no need to CD here as we will do it again later when we get to insertion
+                // point.
+                /** @type {?} */
+                const movedTView = movedLView[TVIEW];
+                ngDevMode && assertDefined(movedTView, 'TView must be allocated');
+                refreshView(movedTView, movedLView, movedTView.template, (/** @type {?} */ (movedLView[CONTEXT])));
             }
-            // Note, it is possible that the `movedViews` is tracking views that are transplanted *and*
-            // those that aren't (declaration component === insertion component). In the latter case,
-            // it's fine to add the flag, as we will clear it immediately in
-            // `refreshEmbeddedViews` for the view currently being refreshed.
-            movedLView[FLAGS] |= 1024 /* RefreshTransplantedView */;
         }
     }
 }
@@ -18952,56 +28221,11 @@ function refreshComponent(hostLView, componentHostIdx) {
     /** @type {?} */
     const componentView = getComponentLViewByIndex(componentHostIdx, hostLView);
     // Only attached components that are CheckAlways or OnPush and dirty should be refreshed
-    if (viewAttachedToChangeDetector(componentView)) {
+    if (viewAttachedToChangeDetector(componentView) &&
+        componentView[FLAGS] & (16 /* CheckAlways */ | 64 /* Dirty */)) {
         /** @type {?} */
-        const tView = componentView[TVIEW];
-        if (componentView[FLAGS] & (16 /* CheckAlways */ | 64 /* Dirty */)) {
-            refreshView(tView, componentView, tView.template, componentView[CONTEXT]);
-        }
-        else if (componentView[TRANSPLANTED_VIEWS_TO_REFRESH] > 0) {
-            // Only attached components that are CheckAlways or OnPush and dirty should be refreshed
-            refreshContainsDirtyView(componentView);
-        }
-    }
-}
-/**
- * Refreshes all transplanted views marked with `LViewFlags.RefreshTransplantedView` that are
- * children or descendants of the given lView.
- *
- * @param {?} lView The lView which contains descendant transplanted views that need to be refreshed.
- * @return {?}
- */
-function refreshContainsDirtyView(lView) {
-    for (let lContainer = getFirstLContainer(lView); lContainer !== null; lContainer = getNextLContainer(lContainer)) {
-        for (let i = CONTAINER_HEADER_OFFSET; i < lContainer.length; i++) {
-            /** @type {?} */
-            const embeddedLView = lContainer[i];
-            if (embeddedLView[FLAGS] & 1024 /* RefreshTransplantedView */) {
-                /** @type {?} */
-                const embeddedTView = embeddedLView[TVIEW];
-                ngDevMode && assertDefined(embeddedTView, 'TView must be allocated');
-                refreshView(embeddedTView, embeddedLView, embeddedTView.template, (/** @type {?} */ (embeddedLView[CONTEXT])));
-            }
-            else if (embeddedLView[TRANSPLANTED_VIEWS_TO_REFRESH] > 0) {
-                refreshContainsDirtyView(embeddedLView);
-            }
-        }
-    }
-    /** @type {?} */
-    const tView = lView[TVIEW];
-    // Refresh child component views.
-    /** @type {?} */
-    const components = tView.components;
-    if (components !== null) {
-        for (let i = 0; i < components.length; i++) {
-            /** @type {?} */
-            const componentView = getComponentLViewByIndex(components[i], lView);
-            // Only attached components that are CheckAlways or OnPush and dirty should be refreshed
-            if (viewAttachedToChangeDetector(componentView) &&
-                componentView[TRANSPLANTED_VIEWS_TO_REFRESH] > 0) {
-                refreshContainsDirtyView(componentView);
-            }
-        }
+        const componentTView = componentView[TVIEW];
+        refreshView(componentTView, componentView, componentTView.template, componentView[CONTEXT]);
     }
 }
 /**
@@ -19310,22 +28534,14 @@ function getTViewCleanup(tView) {
 /**
  * There are cases where the sub component's renderer needs to be included
  * instead of the current renderer (see the componentSyntheticHost* instructions).
- * @param {?} currentDef
  * @param {?} tNode
  * @param {?} lView
  * @return {?}
  */
-function loadComponentRenderer(currentDef, tNode, lView) {
-    // TODO(FW-2043): the `currentDef` is null when host bindings are invoked while creating root
-    // component (see packages/core/src/render3/component.ts). This is not consistent with the process
-    // of creating inner components, when current directive index is available in the state. In order
-    // to avoid relying on current def being `null` (thus special-casing root component creation), the
-    // process of creating root component should be unified with the process of creating inner
-    // components.
-    if (currentDef === null || isComponentDef(currentDef)) {
-        lView = (/** @type {?} */ (unwrapLView(lView[tNode.index])));
-    }
-    return lView[RENDERER];
+function loadComponentRenderer(tNode, lView) {
+    /** @type {?} */
+    const componentLView = (/** @type {?} */ (unwrapLView(lView[tNode.index])));
+    return componentLView[RENDERER];
 }
 /**
  * Handles an error thrown in an LView.
@@ -19658,13 +28874,18 @@ function trackMovedView(declarationContainer, lView) {
     const insertedComponentLView = (/** @type {?} */ (insertedLContainer[PARENT]))[DECLARATION_COMPONENT_VIEW];
     ngDevMode && assertDefined(insertedComponentLView, 'Missing insertedComponentLView');
     /** @type {?} */
-    const declaredComponentLView = lView[DECLARATION_COMPONENT_VIEW];
-    ngDevMode && assertDefined(declaredComponentLView, 'Missing declaredComponentLView');
-    if (declaredComponentLView !== insertedComponentLView) {
-        // At this point the declaration-component is not same as insertion-component; this means that
-        // this is a transplanted view. Mark the declared lView as having transplanted views so that
-        // those views can participate in CD.
-        declarationContainer[HAS_TRANSPLANTED_VIEWS] = true;
+    const insertedComponentIsOnPush = (insertedComponentLView[FLAGS] & 16 /* CheckAlways */) !== 16 /* CheckAlways */;
+    if (insertedComponentIsOnPush) {
+        /** @type {?} */
+        const declaredComponentLView = lView[DECLARATION_COMPONENT_VIEW];
+        ngDevMode && assertDefined(declaredComponentLView, 'Missing declaredComponentLView');
+        if (declaredComponentLView !== insertedComponentLView) {
+            // At this point the declaration-component is not same as insertion-component and we are in
+            // on-push mode, this means that this is a transplanted view. Mark the declared lView as
+            // having
+            // transplanted views so that those views can participate in CD.
+            declarationContainer[ACTIVE_INDEX] |= 1 /* HAS_TRANSPLANTED_VIEWS */;
+        }
     }
     if (movedViews === null) {
         declarationContainer[MOVED_VIEWS] = [lView];
@@ -19680,22 +28901,12 @@ function trackMovedView(declarationContainer, lView) {
  */
 function detachMovedView(declarationContainer, lView) {
     ngDevMode && assertLContainer(declarationContainer);
-    ngDevMode &&
-        assertDefined(declarationContainer[MOVED_VIEWS], 'A projected view should belong to a non-empty projected views collection');
+    ngDevMode && assertDefined(declarationContainer[MOVED_VIEWS], 'A projected view should belong to a non-empty projected views collection');
     /** @type {?} */
     const movedViews = (/** @type {?} */ (declarationContainer[MOVED_VIEWS]));
     /** @type {?} */
-    const declarationViewIndex = movedViews.indexOf(lView);
-    /** @type {?} */
-    const insertionLContainer = (/** @type {?} */ (lView[PARENT]));
-    ngDevMode && assertLContainer(insertionLContainer);
-    // If the view was marked for refresh but then detached before it was checked (where the flag
-    // would be cleared and the counter decremented), we need to decrement the view counter here
-    // instead.
-    if (lView[FLAGS] & 1024 /* RefreshTransplantedView */) {
-        updateTransplantedViewCount(insertionLContainer, -1);
-    }
-    movedViews.splice(declarationViewIndex, 1);
+    const declaredViewIndex = movedViews.indexOf(lView);
+    movedViews.splice(declaredViewIndex, 1);
 }
 /**
  * Detaches a view from a container.
@@ -19908,16 +29119,7 @@ function executeOnDestroys(tView, lView) {
             const context = lView[(/** @type {?} */ (destroyHooks[i]))];
             // Only call the destroy hook if the context has been requested.
             if (!(context instanceof NodeInjectorFactory)) {
-                /** @type {?} */
-                const toCall = (/** @type {?} */ (destroyHooks[i + 1]));
-                if (Array.isArray(toCall)) {
-                    for (let j = 0; j < toCall.length; j += 2) {
-                        ((/** @type {?} */ (toCall[j + 1]))).call(context[(/** @type {?} */ (toCall[j]))]);
-                    }
-                }
-                else {
-                    toCall.call(context);
-                }
+                ((/** @type {?} */ (destroyHooks[i + 1]))).call(context);
             }
         }
     }
@@ -19943,9 +29145,8 @@ function getRenderParent(tView, tNode, currentView) {
     // can't be used as a render parent.
     /** @type {?} */
     let parentTNode = tNode.parent;
-    while (parentTNode != null &&
-        (parentTNode.type === 4 /* ElementContainer */ ||
-            parentTNode.type === 5 /* IcuContainer */)) {
+    while (parentTNode != null && (parentTNode.type === 4 /* ElementContainer */ ||
+        parentTNode.type === 5 /* IcuContainer */)) {
         tNode = parentTNode;
         parentTNode = tNode.parent;
     }
@@ -20149,8 +29350,7 @@ function appendChild(tView, lView, childEl, childTNode) {
  */
 function getFirstNativeNode(lView, tNode) {
     if (tNode !== null) {
-        ngDevMode &&
-            assertNodeOfPossibleTypes(tNode, 3 /* Element */, 0 /* Container */, 4 /* ElementContainer */, 5 /* IcuContainer */, 1 /* Projection */);
+        ngDevMode && assertNodeOfPossibleTypes(tNode, 3 /* Element */, 0 /* Container */, 4 /* ElementContainer */, 5 /* IcuContainer */, 1 /* Projection */);
         /** @type {?} */
         const tNodeType = tNode.type;
         if (tNodeType === 3 /* Element */) {
@@ -20246,8 +29446,7 @@ function nativeRemoveNode(renderer, rNode, isHostElement) {
 function applyNodes(renderer, action, tNode, lView, renderParent, beforeNode, isProjection) {
     while (tNode != null) {
         ngDevMode && assertTNodeForLView(tNode, lView);
-        ngDevMode &&
-            assertNodeOfPossibleTypes(tNode, 0 /* Container */, 3 /* Element */, 4 /* ElementContainer */, 1 /* Projection */, 1 /* Projection */, 5 /* IcuContainer */);
+        ngDevMode && assertNodeOfPossibleTypes(tNode, 0 /* Container */, 3 /* Element */, 4 /* ElementContainer */, 1 /* Projection */, 1 /* Projection */, 5 /* IcuContainer */);
         /** @type {?} */
         const rawSlotValue = lView[tNode.index];
         /** @type {?} */
@@ -20590,6 +29789,10 @@ class ViewRef {
         this._cdRefInjectingView = _cdRefInjectingView;
         this._appRef = null;
         this._viewContainerRef = null;
+        /**
+         * \@internal
+         */
+        this._tViewNode = null;
     }
     /**
      * @return {?}
@@ -20607,9 +29810,7 @@ class ViewRef {
     /**
      * @return {?}
      */
-    get context() {
-        return (/** @type {?} */ (this._lView[CONTEXT]));
-    }
+    get context() { return (/** @type {?} */ (this._lView[CONTEXT])); }
     /**
      * @return {?}
      */
@@ -20637,9 +29838,7 @@ class ViewRef {
      * @param {?} callback
      * @return {?}
      */
-    onDestroy(callback) {
-        storeCleanupFn(this._lView[TVIEW], this._lView, callback);
-    }
+    onDestroy(callback) { storeCleanupFn(this._lView[TVIEW], this._lView, callback); }
     /**
      * Marks a view and all of its ancestors dirty.
      *
@@ -20675,9 +29874,7 @@ class ViewRef {
      * ```
      * @return {?}
      */
-    markForCheck() {
-        markViewDirty(this._cdRefInjectingView || this._lView);
-    }
+    markForCheck() { markViewDirty(this._cdRefInjectingView || this._lView); }
     /**
      * Detaches the view from the change detection tree.
      *
@@ -20731,9 +29928,7 @@ class ViewRef {
      * ```
      * @return {?}
      */
-    detach() {
-        this._lView[FLAGS] &= ~128 /* Attached */;
-    }
+    detach() { this._lView[FLAGS] &= ~128 /* Attached */; }
     /**
      * Re-attaches a view to the change detection tree.
      *
@@ -20790,9 +29985,7 @@ class ViewRef {
      * ```
      * @return {?}
      */
-    reattach() {
-        this._lView[FLAGS] |= 128 /* Attached */;
-    }
+    reattach() { this._lView[FLAGS] |= 128 /* Attached */; }
     /**
      * Checks the view and its children.
      *
@@ -20815,9 +30008,7 @@ class ViewRef {
      * See {\@link ChangeDetectorRef#detach detach} for more information.
      * @return {?}
      */
-    detectChanges() {
-        detectChangesInternal(this._lView[TVIEW], this._lView, this.context);
-    }
+    detectChanges() { detectChangesInternal(this._lView[TVIEW], this._lView, this.context); }
     /**
      * Checks the change detector and its children, and throws if any changes are detected.
      *
@@ -20825,9 +30016,7 @@ class ViewRef {
      * introduce other changes.
      * @return {?}
      */
-    checkNoChanges() {
-        checkNoChangesInternal(this._lView[TVIEW], this._lView, this.context);
-    }
+    checkNoChanges() { checkNoChangesInternal(this._lView[TVIEW], this._lView, this.context); }
     /**
      * @param {?} vcRef
      * @return {?}
@@ -20872,21 +30061,15 @@ class RootViewRef extends ViewRef {
     /**
      * @return {?}
      */
-    detectChanges() {
-        detectChangesInRootView(this._view);
-    }
+    detectChanges() { detectChangesInRootView(this._view); }
     /**
      * @return {?}
      */
-    checkNoChanges() {
-        checkNoChangesInRootView(this._view);
-    }
+    checkNoChanges() { checkNoChangesInRootView(this._view); }
     /**
      * @return {?}
      */
-    get context() {
-        return (/** @type {?} */ (null));
-    }
+    get context() { return (/** @type {?} */ (null)); }
 }
 if (false) {}
 /**
@@ -20899,8 +30082,7 @@ if (false) {}
  */
 function collectNativeNodes(tView, lView, tNode, result, isProjection = false) {
     while (tNode !== null) {
-        ngDevMode &&
-            assertNodeOfPossibleTypes(tNode, 3 /* Element */, 0 /* Container */, 1 /* Projection */, 4 /* ElementContainer */, 5 /* IcuContainer */);
+        ngDevMode && assertNodeOfPossibleTypes(tNode, 3 /* Element */, 0 /* Container */, 1 /* Projection */, 4 /* ElementContainer */, 5 /* IcuContainer */);
         /** @type {?} */
         const lNode = lView[tNode.index];
         if (lNode !== null) {
@@ -20931,20 +30113,11 @@ function collectNativeNodes(tView, lView, tNode, result, isProjection = false) {
             /** @type {?} */
             const componentHost = (/** @type {?} */ (componentView[T_HOST]));
             /** @type {?} */
-            const slotIdx = (/** @type {?} */ (tNode.projection));
-            ngDevMode &&
-                assertDefined(componentHost.projection, 'Components with projection nodes (<ng-content>) must have projection slots defined.');
+            const parentView = getLViewParent(componentView);
             /** @type {?} */
-            const nodesInSlot = (/** @type {?} */ (componentHost.projection))[slotIdx];
-            if (Array.isArray(nodesInSlot)) {
-                result.push(...nodesInSlot);
-            }
-            else {
-                /** @type {?} */
-                const parentView = (/** @type {?} */ (getLViewParent(componentView)));
-                ngDevMode &&
-                    assertDefined(parentView, 'Component views should always have a parent view (component\'s host view)');
-                collectNativeNodes(parentView[TVIEW], parentView, nodesInSlot, result, true);
+            let firstProjectedNode = ((/** @type {?} */ (componentHost.projection)))[(/** @type {?} */ (tNode.projection))];
+            if (firstProjectedNode !== null && parentView !== null) {
+                collectNativeNodes(parentView[TVIEW], parentView, firstProjectedNode, result, true);
             }
         }
         tNode = isProjection ? tNode.projectionNext : tNode.next;
@@ -21039,7 +30212,10 @@ function createTemplateRef(TemplateRefToken, ElementRefToken, hostTNode, hostVie
                     embeddedLView[QUERIES] = declarationViewLQueries.createEmbeddedView(embeddedTView);
                 }
                 renderView(embeddedTView, embeddedLView, context);
-                return new ViewRef(embeddedLView);
+                /** @type {?} */
+                const viewRef = new ViewRef(embeddedLView);
+                viewRef._tViewNode = (/** @type {?} */ (embeddedLView[T_HOST]));
+                return viewRef;
             }
         };
     }
@@ -21098,9 +30274,7 @@ function createContainerRef(ViewContainerRefToken, ElementRefToken, hostTNode, h
             /**
              * @return {?}
              */
-            get injector() {
-                return new NodeInjector(this._hostTNode, this._hostView);
-            }
+            get injector() { return new NodeInjector(this._hostTNode, this._hostView); }
             /**
              * @deprecated No replacement
              * @return {?}
@@ -21134,9 +30308,7 @@ function createContainerRef(ViewContainerRefToken, ElementRefToken, hostTNode, h
             /**
              * @return {?}
              */
-            get length() {
-                return this._lContainer.length - CONTAINER_HEADER_OFFSET;
-            }
+            get length() { return this._lContainer.length - CONTAINER_HEADER_OFFSET; }
             /**
              * @template C
              * @param {?} templateRef
@@ -21205,8 +30377,7 @@ function createContainerRef(ViewContainerRefToken, ElementRefToken, hostTNode, h
                     else {
                         /** @type {?} */
                         const prevLContainer = (/** @type {?} */ (lView[PARENT]));
-                        ngDevMode &&
-                            assertEqual(isLContainer(prevLContainer), true, 'An attached view should have its PARENT point to a container.');
+                        ngDevMode && assertEqual(isLContainer(prevLContainer), true, 'An attached view should have its PARENT point to a container.');
                         // We need to re-create a R3ViewContainerRef instance since those are not stored on
                         // LView (nor anywhere else).
                         /** @type {?} */
@@ -21297,8 +30468,7 @@ function createContainerRef(ViewContainerRefToken, ElementRefToken, hostTNode, h
             }
         };
     }
-    ngDevMode &&
-        assertNodeOfPossibleTypes(hostTNode, 0 /* Container */, 3 /* Element */, 4 /* ElementContainer */);
+    ngDevMode && assertNodeOfPossibleTypes(hostTNode, 0 /* Container */, 3 /* Element */, 4 /* ElementContainer */);
     /** @type {?} */
     let lContainer;
     /** @type {?} */
@@ -21306,6 +30476,7 @@ function createContainerRef(ViewContainerRefToken, ElementRefToken, hostTNode, h
     if (isLContainer(slotValue)) {
         // If the host is a container, we don't need to create a new LContainer
         lContainer = slotValue;
+        setLContainerActiveIndex(lContainer, -1 /* DYNAMIC_EMBEDDED_VIEWS_ONLY */);
     }
     else {
         /** @type {?} */
@@ -21519,7 +30690,7 @@ function isType(v) {
 const DELEGATE_CTOR = /^function\s+\S+\(\)\s*{[\s\S]+\.apply\(this,\s*arguments\)/;
 const INHERITED_CLASS = /^class\s+[A-Za-z\d$_]*\s*extends\s+[^{]+{/;
 const INHERITED_CLASS_WITH_CTOR = /^class\s+[A-Za-z\d$_]*\s*extends\s+[^{]+{[\s\S]*constructor\s*\(/;
-const INHERITED_CLASS_WITH_DELEGATE_CTOR = /^class\s+[A-Za-z\d$_]*\s*extends\s+[^{]+{[\s\S]*constructor\s*\(\)\s*{\s*super\(\.\.\.arguments\)/;
+const INHERITED_CLASS_WITH_DELEGATE_CTOR = /^class\s+[A-Za-z\d$_]*\s*extends\s+[^{]+{[\s\S]*constructor\s*\(\)\s*{\s+super\(\.\.\.arguments\)/;
 /**
  * Determine whether a stringified type is a class which delegates its constructor
  * to its parent.
@@ -21533,15 +30704,9 @@ function isDelegateCtor(typeStr) {
         (INHERITED_CLASS.test(typeStr) && !INHERITED_CLASS_WITH_CTOR.test(typeStr));
 }
 class ReflectionCapabilities {
-    constructor(reflect) {
-        this._reflect = reflect || _global['Reflect'];
-    }
-    isReflectionEnabled() {
-        return true;
-    }
-    factory(t) {
-        return (...args) => new t(...args);
-    }
+    constructor(reflect) { this._reflect = reflect || _global['Reflect']; }
+    isReflectionEnabled() { return true; }
+    factory(t) { return (...args) => new t(...args); }
     /** @internal */
     _zipTypesAndAnnotations(paramTypes, paramAnnotations) {
         let result;
@@ -21710,12 +30875,8 @@ class ReflectionCapabilities {
     hasLifecycleHook(type, lcProperty) {
         return type instanceof Type && lcProperty in type.prototype;
     }
-    guards(type) {
-        return {};
-    }
-    getter(name) {
-        return new Function('o', 'return o.' + name + ';');
-    }
+    guards(type) { return {}; }
+    getter(name) { return new Function('o', 'return o.' + name + ';'); }
     setter(name) {
         return new Function('o', 'v', 'return o.' + name + ' = v;');
     }
@@ -21733,15 +30894,11 @@ class ReflectionCapabilities {
         // Runtime type
         return `./${stringify(type)}`;
     }
-    resourceUri(type) {
-        return `./${stringify(type)}`;
-    }
+    resourceUri(type) { return `./${stringify(type)}`; }
     resolveIdentifier(name, moduleUrl, members, runtime) {
         return runtime;
     }
-    resolveEnum(enumIdentifier, name) {
-        return enumIdentifier[name];
-    }
+    resolveEnum(enumIdentifier, name) { return enumIdentifier[name]; }
 }
 function convertTsickleDecoratorIntoMetadata(decoratorInvocations) {
     if (!decoratorInvocations) {
@@ -22254,12 +31411,11 @@ class R3Injector {
         // Start off by creating Records for every provider declared in every InjectorType
         // included transitively in additional providers then do the same for `def`. This order is
         // important because `def` may include providers that override ones in additionalProviders.
-        additionalProviders &&
-            deepForEach(additionalProviders, (/**
-             * @param {?} provider
-             * @return {?}
-             */
-            provider => this.processProvider(provider, def, additionalProviders)));
+        additionalProviders && deepForEach(additionalProviders, (/**
+         * @param {?} provider
+         * @return {?}
+         */
+        provider => this.processProvider(provider, def, additionalProviders)));
         deepForEach([def], (/**
          * @param {?} injectorDef
          * @return {?}
@@ -22279,9 +31435,7 @@ class R3Injector {
      * Flag indicating that this injector was previously destroyed.
      * @return {?}
      */
-    get destroyed() {
-        return this._destroyed;
-    }
+    get destroyed() { return this._destroyed; }
     /**
      * Destroy the injector and release references to every instance or provider associated with it.
      *
@@ -22384,13 +31538,11 @@ class R3Injector {
      * \@internal
      * @return {?}
      */
-    _resolveInjectorDefTypes() {
-        this.injectorDefTypes.forEach((/**
-         * @param {?} defType
-         * @return {?}
-         */
-        defType => this.get(defType)));
-    }
+    _resolveInjectorDefTypes() { this.injectorDefTypes.forEach((/**
+     * @param {?} defType
+     * @return {?}
+     */
+    defType => this.get(defType))); }
     /**
      * @return {?}
      */
@@ -22895,7 +32047,7 @@ class Injector {
 Injector.THROW_IF_NOT_FOUND = THROW_IF_NOT_FOUND;
 Injector.NULL = new NullInjector();
 /** @nocollapse */
-Injector.ɵprov = ɵɵdefineInjectable({
+/** @nocollapse */ Injector.ɵprov = ɵɵdefineInjectable({
     token: Injector,
     providedIn: (/** @type {?} */ ('any')),
     factory: (/**
@@ -23621,9 +32773,7 @@ class ReflectiveKey {
     /**
      * @return {?} the number of keys registered in the system.
      */
-    static get numberOfKeys() {
-        return _globalKeyRegistry.numberOfKeys;
-    }
+    static get numberOfKeys() { return _globalKeyRegistry.numberOfKeys; }
 }
 if (false) {}
 class KeyRegistry {
@@ -23648,9 +32798,7 @@ class KeyRegistry {
     /**
      * @return {?}
      */
-    get numberOfKeys() {
-        return this._allKeys.size;
-    }
+    get numberOfKeys() { return this._allKeys.size; }
 }
 if (false) {}
 /** @type {?} */
@@ -23671,12 +32819,8 @@ class Reflector {
     constructor(reflectionCapabilities) {
         this.reflectionCapabilities = reflectionCapabilities;
     }
-    updateCapabilities(caps) {
-        this.reflectionCapabilities = caps;
-    }
-    factory(type) {
-        return this.reflectionCapabilities.factory(type);
-    }
+    updateCapabilities(caps) { this.reflectionCapabilities = caps; }
+    factory(type) { return this.reflectionCapabilities.factory(type); }
     parameters(typeOrFunc) {
         return this.reflectionCapabilities.parameters(typeOrFunc);
     }
@@ -23689,21 +32833,11 @@ class Reflector {
     hasLifecycleHook(type, lcProperty) {
         return this.reflectionCapabilities.hasLifecycleHook(type, lcProperty);
     }
-    getter(name) {
-        return this.reflectionCapabilities.getter(name);
-    }
-    setter(name) {
-        return this.reflectionCapabilities.setter(name);
-    }
-    method(name) {
-        return this.reflectionCapabilities.method(name);
-    }
-    importUri(type) {
-        return this.reflectionCapabilities.importUri(type);
-    }
-    resourceUri(type) {
-        return this.reflectionCapabilities.resourceUri(type);
-    }
+    getter(name) { return this.reflectionCapabilities.getter(name); }
+    setter(name) { return this.reflectionCapabilities.setter(name); }
+    method(name) { return this.reflectionCapabilities.method(name); }
+    importUri(type) { return this.reflectionCapabilities.importUri(type); }
+    resourceUri(type) { return this.reflectionCapabilities.resourceUri(type); }
     resolveIdentifier(name, moduleUrl, members, runtime) {
         return this.reflectionCapabilities.resolveIdentifier(name, moduleUrl, members, runtime);
     }
@@ -24274,9 +33408,7 @@ class ReflectiveInjector_ {
      * @private
      * @return {?}
      */
-    _getMaxNumberOfObjects() {
-        return this.objs.length;
-    }
+    _getMaxNumberOfObjects() { return this.objs.length; }
     /**
      * @private
      * @param {?} provider
@@ -24445,9 +33577,7 @@ class ReflectiveInjector_ {
     /**
      * @return {?}
      */
-    toString() {
-        return this.displayName;
-    }
+    toString() { return this.displayName; }
 }
 ReflectiveInjector_.INJECTOR_KEY = ReflectiveKey.get(Injector);
 if (false) {}
@@ -24850,41 +33980,36 @@ function componentDefResolved(type) {
  *
  * @param {?} tNode The `TNode` into which the styling information should be loaded.
  * @param {?} attrs `TAttributes` containing the styling information.
- * @param {?} writeToHost Where should the resulting static styles be written?
- *   - `false` Write to `TNode.stylesWithoutHost` / `TNode.classesWithoutHost`
- *   - `true` Write to `TNode.styles` / `TNode.classes`
  * @return {?}
  */
-function computeStaticStyling(tNode, attrs, writeToHost) {
+function computeStaticStyling(tNode, attrs) {
     ngDevMode &&
         assertFirstCreatePass(getTView(), 'Expecting to be called in first template pass only');
     /** @type {?} */
-    let styles = writeToHost ? tNode.styles : null;
+    let styles = tNode.styles;
     /** @type {?} */
-    let classes = writeToHost ? tNode.classes : null;
+    let classes = tNode.classes;
     /** @type {?} */
     let mode = 0;
-    if (attrs !== null) {
-        for (let i = 0; i < attrs.length; i++) {
+    for (let i = 0; i < attrs.length; i++) {
+        /** @type {?} */
+        const value = attrs[i];
+        if (typeof value === 'number') {
+            mode = value;
+        }
+        else if (mode == 1 /* Classes */) {
+            classes = concatStringsWithSpace(classes, (/** @type {?} */ (value)));
+        }
+        else if (mode == 2 /* Styles */) {
             /** @type {?} */
-            const value = attrs[i];
-            if (typeof value === 'number') {
-                mode = value;
-            }
-            else if (mode == 1 /* Classes */) {
-                classes = concatStringsWithSpace(classes, (/** @type {?} */ (value)));
-            }
-            else if (mode == 2 /* Styles */) {
-                /** @type {?} */
-                const style = (/** @type {?} */ (value));
-                /** @type {?} */
-                const styleValue = (/** @type {?} */ (attrs[++i]));
-                styles = concatStringsWithSpace(styles, style + ': ' + styleValue + ';');
-            }
+            const style = (/** @type {?} */ (value));
+            /** @type {?} */
+            const styleValue = (/** @type {?} */ (attrs[++i]));
+            styles = concatStringsWithSpace(styles, style + ': ' + styleValue + ';');
         }
     }
-    writeToHost ? tNode.styles = styles : tNode.stylesWithoutHost = styles;
-    writeToHost ? tNode.classes = classes : tNode.classesWithoutHost = classes;
+    styles !== null && (tNode.styles = styles);
+    classes !== null && (tNode.classes = classes);
 }
 
 /**
@@ -25049,17 +34174,13 @@ class WrappedValue {
     /**
      * @param {?} value
      */
-    constructor(value) {
-        this.wrapped = value;
-    }
+    constructor(value) { this.wrapped = value; }
     /**
      * Creates a wrapped value.
      * @param {?} value
      * @return {?}
      */
-    static wrap(value) {
-        return new WrappedValue(value);
-    }
+    static wrap(value) { return new WrappedValue(value); }
     /**
      * Returns the underlying value of a wrapped value.
      * Returns the given `value` when it is not wrapped.
@@ -25067,17 +34188,13 @@ class WrappedValue {
      * @param {?} value
      * @return {?}
      */
-    static unwrap(value) {
-        return WrappedValue.isWrapped(value) ? value.wrapped : value;
-    }
+    static unwrap(value) { return WrappedValue.isWrapped(value) ? value.wrapped : value; }
     /**
      * Returns true if `value` is a wrapped value.
      * @param {?} value
      * @return {?}
      */
-    static isWrapped(value) {
-        return value instanceof WrappedValue;
-    }
+    static isWrapped(value) { return value instanceof WrappedValue; }
 }
 if (false) {}
 /**
@@ -25410,8 +34527,9 @@ function interpolation4(lView, prefix, v0, i0, v1, i1, v2, i2, v3, suffix) {
     /** @type {?} */
     const different = bindingUpdated4(lView, bindingIndex, v0, v1, v2, v3);
     incrementBindingIndex(4);
-    return different ? prefix + renderStringify(v0) + i0 + renderStringify(v1) + i1 +
-        renderStringify(v2) + i2 + renderStringify(v3) + suffix :
+    return different ?
+        prefix + renderStringify(v0) + i0 + renderStringify(v1) + i1 + renderStringify(v2) + i2 +
+            renderStringify(v3) + suffix :
         NO_CHANGE;
 }
 /**
@@ -25437,8 +34555,9 @@ function interpolation5(lView, prefix, v0, i0, v1, i1, v2, i2, v3, i3, v4, suffi
     let different = bindingUpdated4(lView, bindingIndex, v0, v1, v2, v3);
     different = bindingUpdated(lView, bindingIndex + 4, v4) || different;
     incrementBindingIndex(5);
-    return different ? prefix + renderStringify(v0) + i0 + renderStringify(v1) + i1 +
-        renderStringify(v2) + i2 + renderStringify(v3) + i3 + renderStringify(v4) + suffix :
+    return different ?
+        prefix + renderStringify(v0) + i0 + renderStringify(v1) + i1 + renderStringify(v2) + i2 +
+            renderStringify(v3) + i3 + renderStringify(v4) + suffix :
         NO_CHANGE;
 }
 /**
@@ -25498,9 +34617,10 @@ function interpolation7(lView, prefix, v0, i0, v1, i1, v2, i2, v3, i3, v4, i4, v
     let different = bindingUpdated4(lView, bindingIndex, v0, v1, v2, v3);
     different = bindingUpdated3(lView, bindingIndex + 4, v4, v5, v6) || different;
     incrementBindingIndex(7);
-    return different ? prefix + renderStringify(v0) + i0 + renderStringify(v1) + i1 +
-        renderStringify(v2) + i2 + renderStringify(v3) + i3 + renderStringify(v4) + i4 +
-        renderStringify(v5) + i5 + renderStringify(v6) + suffix :
+    return different ?
+        prefix + renderStringify(v0) + i0 + renderStringify(v1) + i1 + renderStringify(v2) + i2 +
+            renderStringify(v3) + i3 + renderStringify(v4) + i4 + renderStringify(v5) + i5 +
+            renderStringify(v6) + suffix :
         NO_CHANGE;
 }
 /**
@@ -25532,9 +34652,10 @@ function interpolation8(lView, prefix, v0, i0, v1, i1, v2, i2, v3, i3, v4, i4, v
     let different = bindingUpdated4(lView, bindingIndex, v0, v1, v2, v3);
     different = bindingUpdated4(lView, bindingIndex + 4, v4, v5, v6, v7) || different;
     incrementBindingIndex(8);
-    return different ? prefix + renderStringify(v0) + i0 + renderStringify(v1) + i1 +
-        renderStringify(v2) + i2 + renderStringify(v3) + i3 + renderStringify(v4) + i4 +
-        renderStringify(v5) + i5 + renderStringify(v6) + i6 + renderStringify(v7) + suffix :
+    return different ?
+        prefix + renderStringify(v0) + i0 + renderStringify(v1) + i1 + renderStringify(v2) + i2 +
+            renderStringify(v3) + i3 + renderStringify(v4) + i4 + renderStringify(v5) + i5 +
+            renderStringify(v6) + i6 + renderStringify(v7) + suffix :
         NO_CHANGE;
 }
 
@@ -25662,8 +34783,7 @@ function ɵɵattributeInterpolate3(attrName, prefix, v0, i0, v1, i1, v2, suffix,
         /** @type {?} */
         const tNode = getSelectedTNode();
         elementAttributeInternal(tNode, lView, attrName, interpolatedValue, sanitizer, namespace);
-        ngDevMode &&
-            storePropertyBindingMetadata(getTView().data, tNode, 'attr.' + attrName, getBindingIndex() - 3, prefix, i0, i1, suffix);
+        ngDevMode && storePropertyBindingMetadata(getTView().data, tNode, 'attr.' + attrName, getBindingIndex() - 3, prefix, i0, i1, suffix);
     }
     return ɵɵattributeInterpolate3;
 }
@@ -25708,8 +34828,7 @@ function ɵɵattributeInterpolate4(attrName, prefix, v0, i0, v1, i1, v2, i2, v3,
         /** @type {?} */
         const tNode = getSelectedTNode();
         elementAttributeInternal(tNode, lView, attrName, interpolatedValue, sanitizer, namespace);
-        ngDevMode &&
-            storePropertyBindingMetadata(getTView().data, tNode, 'attr.' + attrName, getBindingIndex() - 4, prefix, i0, i1, i2, suffix);
+        ngDevMode && storePropertyBindingMetadata(getTView().data, tNode, 'attr.' + attrName, getBindingIndex() - 4, prefix, i0, i1, i2, suffix);
     }
     return ɵɵattributeInterpolate4;
 }
@@ -25756,8 +34875,7 @@ function ɵɵattributeInterpolate5(attrName, prefix, v0, i0, v1, i1, v2, i2, v3,
         /** @type {?} */
         const tNode = getSelectedTNode();
         elementAttributeInternal(tNode, lView, attrName, interpolatedValue, sanitizer, namespace);
-        ngDevMode &&
-            storePropertyBindingMetadata(getTView().data, tNode, 'attr.' + attrName, getBindingIndex() - 5, prefix, i0, i1, i2, i3, suffix);
+        ngDevMode && storePropertyBindingMetadata(getTView().data, tNode, 'attr.' + attrName, getBindingIndex() - 5, prefix, i0, i1, i2, i3, suffix);
     }
     return ɵɵattributeInterpolate5;
 }
@@ -25806,8 +34924,7 @@ function ɵɵattributeInterpolate6(attrName, prefix, v0, i0, v1, i1, v2, i2, v3,
         /** @type {?} */
         const tNode = getSelectedTNode();
         elementAttributeInternal(tNode, lView, attrName, interpolatedValue, sanitizer, namespace);
-        ngDevMode &&
-            storePropertyBindingMetadata(getTView().data, tNode, 'attr.' + attrName, getBindingIndex() - 6, prefix, i0, i1, i2, i3, i4, suffix);
+        ngDevMode && storePropertyBindingMetadata(getTView().data, tNode, 'attr.' + attrName, getBindingIndex() - 6, prefix, i0, i1, i2, i3, i4, suffix);
     }
     return ɵɵattributeInterpolate6;
 }
@@ -25858,8 +34975,7 @@ function ɵɵattributeInterpolate7(attrName, prefix, v0, i0, v1, i1, v2, i2, v3,
         /** @type {?} */
         const tNode = getSelectedTNode();
         elementAttributeInternal(tNode, lView, attrName, interpolatedValue, sanitizer, namespace);
-        ngDevMode &&
-            storePropertyBindingMetadata(getTView().data, tNode, 'attr.' + attrName, getBindingIndex() - 7, prefix, i0, i1, i2, i3, i4, i5, suffix);
+        ngDevMode && storePropertyBindingMetadata(getTView().data, tNode, 'attr.' + attrName, getBindingIndex() - 7, prefix, i0, i1, i2, i3, i4, i5, suffix);
     }
     return ɵɵattributeInterpolate7;
 }
@@ -25912,8 +35028,7 @@ function ɵɵattributeInterpolate8(attrName, prefix, v0, i0, v1, i1, v2, i2, v3,
         /** @type {?} */
         const tNode = getSelectedTNode();
         elementAttributeInternal(tNode, lView, attrName, interpolatedValue, sanitizer, namespace);
-        ngDevMode &&
-            storePropertyBindingMetadata(getTView().data, tNode, 'attr.' + attrName, getBindingIndex() - 8, prefix, i0, i1, i2, i3, i4, i5, i6, suffix);
+        ngDevMode && storePropertyBindingMetadata(getTView().data, tNode, 'attr.' + attrName, getBindingIndex() - 8, prefix, i0, i1, i2, i3, i4, i5, i6, suffix);
     }
     return ɵɵattributeInterpolate8;
 }
@@ -26025,9 +35140,33 @@ function tick(component) {
 
 /**
  * @fileoverview added by tsickle
- * Generated from: packages/core/src/render3/instructions/template.ts
+ * Generated from: packages/core/src/render3/instructions/container.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * Creates an LContainer for inline views, e.g.
+ *
+ * % if (showing) {
+ *   <div></div>
+ * % }
+ *
+ * \@codeGenApi
+ * @param {?} index The index of the container in the data array
+ *
+ * @return {?}
+ */
+function ɵɵcontainer(index) {
+    /** @type {?} */
+    const lView = getLView();
+    /** @type {?} */
+    const tView = getTView();
+    /** @type {?} */
+    const tNode = containerInternal(tView, lView, index, null, null);
+    if (tView.firstCreatePass) {
+        tNode.tViews = [];
+    }
+    setIsNotParent();
+}
 /**
  * @param {?} index
  * @param {?} tView
@@ -26105,6 +35244,105 @@ function ɵɵtemplate(index, templateFn, decls, vars, tagName, attrsIndex, local
     if (localRefsIndex != null) {
         saveResolvedLocalsInData(lView, tNode, localRefExtractor);
     }
+}
+/**
+ * Sets a container up to receive views.
+ *
+ * \@codeGenApi
+ * @param {?} index The index of the container in the data array
+ *
+ * @return {?}
+ */
+function ɵɵcontainerRefreshStart(index) {
+    /** @type {?} */
+    const lView = getLView();
+    /** @type {?} */
+    const tView = getTView();
+    /** @type {?} */
+    let previousOrParentTNode = (/** @type {?} */ (load(tView.data, index)));
+    ngDevMode && assertNodeType(previousOrParentTNode, 0 /* Container */);
+    setPreviousOrParentTNode(previousOrParentTNode, true);
+    lView[index + HEADER_OFFSET][ACTIVE_INDEX] = 0;
+    // We need to execute init hooks here so ngOnInit hooks are called in top level views
+    // before they are called in embedded views (for backwards compatibility).
+    if (!getCheckNoChangesMode()) {
+        /** @type {?} */
+        const hooksInitPhaseCompleted = (lView[FLAGS] & 3 /* InitPhaseStateMask */) === 3 /* InitPhaseCompleted */;
+        if (hooksInitPhaseCompleted) {
+            /** @type {?} */
+            const preOrderCheckHooks = tView.preOrderCheckHooks;
+            if (preOrderCheckHooks !== null) {
+                executeCheckHooks(lView, preOrderCheckHooks, null);
+            }
+        }
+        else {
+            /** @type {?} */
+            const preOrderHooks = tView.preOrderHooks;
+            if (preOrderHooks !== null) {
+                executeInitAndCheckHooks(lView, preOrderHooks, 0 /* OnInitHooksToBeRun */, null);
+            }
+            incrementInitPhaseFlags(lView, 0 /* OnInitHooksToBeRun */);
+        }
+    }
+}
+/**
+ * Marks the end of the LContainer.
+ *
+ * Marking the end of LContainer is the time when to child views get inserted or removed.
+ *
+ * \@codeGenApi
+ * @return {?}
+ */
+function ɵɵcontainerRefreshEnd() {
+    /** @type {?} */
+    let previousOrParentTNode = getPreviousOrParentTNode();
+    if (getIsParent()) {
+        setIsNotParent();
+    }
+    else {
+        ngDevMode && assertNodeType(previousOrParentTNode, 2 /* View */);
+        ngDevMode && assertHasParent(previousOrParentTNode);
+        previousOrParentTNode = (/** @type {?} */ (previousOrParentTNode.parent));
+        setPreviousOrParentTNode(previousOrParentTNode, false);
+    }
+    ngDevMode && assertNodeType(previousOrParentTNode, 0 /* Container */);
+    /** @type {?} */
+    const lContainer = getLView()[previousOrParentTNode.index];
+    /** @type {?} */
+    const nextIndex = getLContainerActiveIndex(lContainer);
+    // remove extra views at the end of the container
+    while (nextIndex < lContainer.length - CONTAINER_HEADER_OFFSET) {
+        removeView(lContainer, nextIndex);
+    }
+}
+/**
+ * @param {?} tView
+ * @param {?} lView
+ * @param {?} nodeIndex
+ * @param {?} tagName
+ * @param {?} attrs
+ * @return {?}
+ */
+function containerInternal(tView, lView, nodeIndex, tagName, attrs) {
+    ngDevMode && assertEqual(getBindingIndex(), tView.bindingStartIndex, 'container nodes should be created before any bindings');
+    /** @type {?} */
+    const adjustedIndex = nodeIndex + HEADER_OFFSET;
+    ngDevMode && assertDataInRange(lView, nodeIndex + HEADER_OFFSET);
+    ngDevMode && ngDevMode.rendererCreateComment++;
+    /** @type {?} */
+    const comment = lView[adjustedIndex] =
+        lView[RENDERER].createComment(ngDevMode ? 'container' : '');
+    /** @type {?} */
+    const tNode = getOrCreateTNode(tView, lView[T_HOST], nodeIndex, 0 /* Container */, tagName, attrs);
+    /** @type {?} */
+    const lContainer = lView[adjustedIndex] = createLContainer(comment, lView, comment, tNode);
+    appendChild(tView, lView, comment, tNode);
+    attachPatchData(comment, lView);
+    // Containers are added to the current view tree instead of their embedded views
+    // because views can be removed and re-inserted.
+    addToViewTree(lView, lContainer);
+    ngDevMode && assertNodeType(getPreviousOrParentTNode(), 0 /* Container */);
+    return tNode;
 }
 
 /**
@@ -26286,11 +35524,8 @@ function elementStartFirstCreatePass(index, tView, lView, native, name, attrsInd
     /** @type {?} */
     const hasDirectives = resolveDirectives(tView, lView, tNode, getConstant(tViewConsts, localRefsIndex));
     ngDevMode && warnAboutUnknownElement(tView, lView, native, tNode, hasDirectives);
-    if (tNode.attrs !== null) {
-        computeStaticStyling(tNode, tNode.attrs, false);
-    }
     if (tNode.mergedAttrs !== null) {
-        computeStaticStyling(tNode, tNode.mergedAttrs, true);
+        computeStaticStyling(tNode, tNode.mergedAttrs);
     }
     if (tView.queries !== null) {
         tView.queries.elementStart(tView, tNode);
@@ -26319,8 +35554,7 @@ function ɵɵelementStart(index, name, attrsIndex, localRefsIndex) {
     const tView = getTView();
     /** @type {?} */
     const adjustedIndex = HEADER_OFFSET + index;
-    ngDevMode &&
-        assertEqual(getBindingIndex(), tView.bindingStartIndex, 'elements should be created before any bindings');
+    ngDevMode && assertEqual(getBindingIndex(), tView.bindingStartIndex, 'elements should be created before any bindings');
     ngDevMode && ngDevMode.rendererCreateElement++;
     ngDevMode && assertDataInRange(lView, adjustedIndex);
     /** @type {?} */
@@ -26393,11 +35627,11 @@ function ɵɵelementEnd() {
             (/** @type {?} */ (tView.queries)).elementEnd(previousOrParentTNode);
         }
     }
-    if (tNode.classesWithoutHost != null && hasClassInput(tNode)) {
-        setDirectiveInputsWhichShadowsStyling(tView, tNode, getLView(), tNode.classesWithoutHost, true);
+    if (tNode.classes !== null && hasClassInput(tNode)) {
+        setDirectiveInputsWhichShadowsStyling(tView, tNode, getLView(), tNode.classes, true);
     }
-    if (tNode.stylesWithoutHost != null && hasStyleInput(tNode)) {
-        setDirectiveInputsWhichShadowsStyling(tView, tNode, getLView(), tNode.stylesWithoutHost, false);
+    if (tNode.styles !== null && hasStyleInput(tNode)) {
+        setDirectiveInputsWhichShadowsStyling(tView, tNode, getLView(), tNode.styles, false);
     }
 }
 /**
@@ -26450,9 +35684,11 @@ function warnAboutUnknownElement(tView, lView, element, tNode, hasDirectives) {
         if (isUnknown && !matchingSchemas(tView, lView, tagName)) {
             /** @type {?} */
             let warning = `'${tagName}' is not a known element:\n`;
-            warning += `1. If '${tagName}' is an Angular component, then verify that it is part of this module.\n`;
+            warning +=
+                `1. If '${tagName}' is an Angular component, then verify that it is part of this module.\n`;
             if (tagName && tagName.indexOf('-') > -1) {
-                warning += `2. If '${tagName}' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.`;
+                warning +=
+                    `2. If '${tagName}' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.`;
             }
             else {
                 warning +=
@@ -26487,7 +35723,7 @@ function elementContainerStartFirstCreatePass(index, tView, lView, attrsIndex, l
     // While ng-container doesn't necessarily support styling, we use the style context to identify
     // and execute directives on the ng-container.
     if (attrs !== null) {
-        computeStaticStyling(tNode, attrs, true);
+        computeStaticStyling(tNode, attrs);
     }
     /** @type {?} */
     const localRefs = getConstant(tViewConsts, localRefsIndex);
@@ -26520,8 +35756,7 @@ function ɵɵelementContainerStart(index, attrsIndex, localRefsIndex) {
     /** @type {?} */
     const adjustedIndex = index + HEADER_OFFSET;
     ngDevMode && assertDataInRange(lView, adjustedIndex);
-    ngDevMode &&
-        assertEqual(getBindingIndex(), tView.bindingStartIndex, 'element containers should be created before any bindings');
+    ngDevMode && assertEqual(getBindingIndex(), tView.bindingStartIndex, 'element containers should be created before any bindings');
     /** @type {?} */
     const tNode = tView.firstCreatePass ?
         elementContainerStartFirstCreatePass(index, tView, lView, attrsIndex, localRefsIndex) :
@@ -26582,6 +35817,141 @@ function ɵɵelementContainerEnd() {
 function ɵɵelementContainer(index, attrsIndex, localRefsIndex) {
     ɵɵelementContainerStart(index, attrsIndex, localRefsIndex);
     ɵɵelementContainerEnd();
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/core/src/render3/instructions/embedded_view.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Marks the start of an embedded view.
+ *
+ * \@codeGenApi
+ * @param {?} viewBlockId The ID of this view
+ * @param {?} decls
+ * @param {?} vars
+ * @return {?} boolean Whether or not this view is in creation mode
+ *
+ */
+function ɵɵembeddedViewStart(viewBlockId, decls, vars) {
+    /** @type {?} */
+    const lView = getLView();
+    /** @type {?} */
+    const previousOrParentTNode = getPreviousOrParentTNode();
+    // The previous node can be a view node if we are processing an inline for loop
+    /** @type {?} */
+    const containerTNode = previousOrParentTNode.type === 2 /* View */ ?
+        (/** @type {?} */ (previousOrParentTNode.parent)) :
+        previousOrParentTNode;
+    /** @type {?} */
+    const lContainer = (/** @type {?} */ (lView[containerTNode.index]));
+    ngDevMode && assertNodeType(containerTNode, 0 /* Container */);
+    /** @type {?} */
+    let viewToRender = scanForView(lContainer, getLContainerActiveIndex(lContainer), viewBlockId);
+    if (viewToRender) {
+        setIsParent();
+        enterView(viewToRender, viewToRender[TVIEW].node);
+    }
+    else {
+        // When we create a new LView, we always reset the state of the instructions.
+        viewToRender = createLView(lView, getOrCreateEmbeddedTView(viewBlockId, decls, vars, (/** @type {?} */ (containerTNode))), null, 16 /* CheckAlways */, null, null);
+        /** @type {?} */
+        const tParentNode = getIsParent() ? previousOrParentTNode :
+            previousOrParentTNode && previousOrParentTNode.parent;
+        assignTViewNodeToLView(viewToRender[TVIEW], tParentNode, viewBlockId, viewToRender);
+        enterView(viewToRender, viewToRender[TVIEW].node);
+    }
+    if (lContainer) {
+        if (isCreationMode(viewToRender)) {
+            // it is a new view, insert it into collection of views for a given container
+            insertView(viewToRender[TVIEW], viewToRender, lContainer, getLContainerActiveIndex(lContainer));
+        }
+        lContainer[ACTIVE_INDEX] += 2 /* INCREMENT */;
+    }
+    return isCreationMode(viewToRender) ? 1 /* Create */ | 2 /* Update */ :
+        2 /* Update */;
+}
+/**
+ * Initialize the TView (e.g. static data) for the active embedded view.
+ *
+ * Each embedded view block must create or retrieve its own TView. Otherwise, the embedded view's
+ * static data for a particular node would overwrite the static data for a node in the view above
+ * it with the same index (since it's in the same template).
+ *
+ * @param {?} viewIndex The index of the TView in TNode.tViews
+ * @param {?} decls The number of nodes, local refs, and pipes in this template
+ * @param {?} vars The number of bindings and pure function bindings in this template
+ * @param {?} parent
+ * @return {?} TView
+ */
+function getOrCreateEmbeddedTView(viewIndex, decls, vars, parent) {
+    /** @type {?} */
+    const tView = getLView()[TVIEW];
+    ngDevMode && assertNodeType(parent, 0 /* Container */);
+    /** @type {?} */
+    const containerTViews = (/** @type {?} */ (parent.tViews));
+    ngDevMode && assertDefined(containerTViews, 'TView expected');
+    ngDevMode && assertEqual(Array.isArray(containerTViews), true, 'TViews should be in an array');
+    if (viewIndex >= containerTViews.length || containerTViews[viewIndex] == null) {
+        containerTViews[viewIndex] = createTView(2 /* Embedded */, viewIndex, null, decls, vars, tView.directiveRegistry, tView.pipeRegistry, null, null, tView.consts);
+    }
+    return containerTViews[viewIndex];
+}
+/**
+ * Looks for a view with a given view block id inside a provided LContainer.
+ * Removes views that need to be deleted in the process.
+ *
+ * @param {?} lContainer to search for views
+ * @param {?} startIdx starting index in the views array to search from
+ * @param {?} viewBlockId exact view block id to look for
+ * @return {?}
+ */
+function scanForView(lContainer, startIdx, viewBlockId) {
+    for (let i = startIdx + CONTAINER_HEADER_OFFSET; i < lContainer.length; i++) {
+        /** @type {?} */
+        const viewAtPositionId = lContainer[i][TVIEW].id;
+        if (viewAtPositionId === viewBlockId) {
+            return lContainer[i];
+        }
+        else if (viewAtPositionId < viewBlockId) {
+            // found a view that should not be at this position - remove
+            removeView(lContainer, i - CONTAINER_HEADER_OFFSET);
+        }
+        else {
+            // found a view with id greater than the one we are searching for
+            // which means that required view doesn't exist and can't be found at
+            // later positions in the views array - stop the searchdef.cont here
+            break;
+        }
+    }
+    return null;
+}
+/**
+ * Marks the end of an embedded view.
+ *
+ * \@codeGenApi
+ * @return {?}
+ */
+function ɵɵembeddedViewEnd() {
+    /** @type {?} */
+    const lView = getLView();
+    /** @type {?} */
+    const tView = getTView();
+    /** @type {?} */
+    const viewHost = lView[T_HOST];
+    /** @type {?} */
+    const context = lView[CONTEXT];
+    if (isCreationMode(lView)) {
+        renderView(tView, lView, context); // creation mode pass
+    }
+    refreshView(tView, lView, tView.template, context); // update mode pass
+    // update mode pass
+    /** @type {?} */
+    const lContainer = (/** @type {?} */ (lView[PARENT]));
+    ngDevMode && assertLContainerOrUndefined(lContainer);
+    leaveView();
+    setPreviousOrParentTNode((/** @type {?} */ (viewHost)), false);
 }
 
 /**
@@ -26658,7 +36028,7 @@ function ɵɵlistener(eventName, listenerFn, useCapture = false, eventTargetReso
     return ɵɵlistener;
 }
 /**
- * Registers a synthetic host listener (e.g. `(\@foo.start)`) on a component or directive.
+ * Registers a synthetic host listener (e.g. `(\@foo.start)`) on a component.
  *
  * This instruction is for compatibility purposes and is designed to ensure that a
  * synthetic host listener (e.g. `\@HostListener('\@foo.start')`) properly gets rendered
@@ -26685,11 +36055,9 @@ function ɵɵcomponentHostSyntheticListener(eventName, listenerFn, useCapture = 
     /** @type {?} */
     const lView = getLView();
     /** @type {?} */
+    const renderer = loadComponentRenderer(tNode, lView);
+    /** @type {?} */
     const tView = getTView();
-    /** @type {?} */
-    const currentDef = getCurrentDirectiveDef(tView.data);
-    /** @type {?} */
-    const renderer = loadComponentRenderer(currentDef, tNode, lView);
     listenerInternal(tView, lView, renderer, tNode, eventName, listenerFn, useCapture, eventTargetResolver);
     return ɵɵcomponentHostSyntheticListener;
 }
@@ -26755,8 +36123,7 @@ function listenerInternal(tView, lView, renderer, tNode, eventName, listenerFn, 
     // register a listener and store its cleanup function on LView.
     /** @type {?} */
     const lCleanup = getLCleanup(lView);
-    ngDevMode &&
-        assertNodeOfPossibleTypes(tNode, 3 /* Element */, 0 /* Container */, 4 /* ElementContainer */);
+    ngDevMode && assertNodeOfPossibleTypes(tNode, 3 /* Element */, 0 /* Container */, 4 /* ElementContainer */);
     /** @type {?} */
     let processOutputs = true;
     // add native event listener - applicable to elements only
@@ -27168,8 +36535,7 @@ function ɵɵpropertyInterpolate1(propName, prefix, v0, suffix, sanitizer) {
         /** @type {?} */
         const tNode = getSelectedTNode();
         elementPropertyInternal(tView, tNode, lView, propName, interpolatedValue, lView[RENDERER], sanitizer, false);
-        ngDevMode &&
-            storePropertyBindingMetadata(tView.data, tNode, propName, getBindingIndex() - 1, prefix, suffix);
+        ngDevMode && storePropertyBindingMetadata(tView.data, tNode, propName, getBindingIndex() - 1, prefix, suffix);
     }
     return ɵɵpropertyInterpolate1;
 }
@@ -27214,8 +36580,7 @@ function ɵɵpropertyInterpolate2(propName, prefix, v0, i0, v1, suffix, sanitize
         /** @type {?} */
         const tNode = getSelectedTNode();
         elementPropertyInternal(tView, tNode, lView, propName, interpolatedValue, lView[RENDERER], sanitizer, false);
-        ngDevMode &&
-            storePropertyBindingMetadata(tView.data, tNode, propName, getBindingIndex() - 2, prefix, i0, suffix);
+        ngDevMode && storePropertyBindingMetadata(tView.data, tNode, propName, getBindingIndex() - 2, prefix, i0, suffix);
     }
     return ɵɵpropertyInterpolate2;
 }
@@ -27263,8 +36628,7 @@ function ɵɵpropertyInterpolate3(propName, prefix, v0, i0, v1, i1, v2, suffix, 
         /** @type {?} */
         const tNode = getSelectedTNode();
         elementPropertyInternal(tView, tNode, lView, propName, interpolatedValue, lView[RENDERER], sanitizer, false);
-        ngDevMode &&
-            storePropertyBindingMetadata(tView.data, tNode, propName, getBindingIndex() - 3, prefix, i0, i1, suffix);
+        ngDevMode && storePropertyBindingMetadata(tView.data, tNode, propName, getBindingIndex() - 3, prefix, i0, i1, suffix);
     }
     return ɵɵpropertyInterpolate3;
 }
@@ -27479,8 +36843,7 @@ function ɵɵpropertyInterpolate7(propName, prefix, v0, i0, v1, i1, v2, i2, v3, 
         /** @type {?} */
         const tNode = getSelectedTNode();
         elementPropertyInternal(tView, tNode, lView, propName, interpolatedValue, lView[RENDERER], sanitizer, false);
-        ngDevMode &&
-            storePropertyBindingMetadata(tView.data, tNode, propName, getBindingIndex() - 7, prefix, i0, i1, i2, i3, i4, i5, suffix);
+        ngDevMode && storePropertyBindingMetadata(tView.data, tNode, propName, getBindingIndex() - 7, prefix, i0, i1, i2, i3, i4, i5, suffix);
     }
     return ɵɵpropertyInterpolate7;
 }
@@ -27538,8 +36901,7 @@ function ɵɵpropertyInterpolate8(propName, prefix, v0, i0, v1, i1, v2, i2, v3, 
         /** @type {?} */
         const tNode = getSelectedTNode();
         elementPropertyInternal(tView, tNode, lView, propName, interpolatedValue, lView[RENDERER], sanitizer, false);
-        ngDevMode &&
-            storePropertyBindingMetadata(tView.data, tNode, propName, getBindingIndex() - 8, prefix, i0, i1, i2, i3, i4, i5, i6, suffix);
+        ngDevMode && storePropertyBindingMetadata(tView.data, tNode, propName, getBindingIndex() - 8, prefix, i0, i1, i2, i3, i4, i5, i6, suffix);
     }
     return ɵɵpropertyInterpolate8;
 }
@@ -27597,12 +36959,12 @@ function ɵɵpropertyInterpolateV(propName, values, sanitizer) {
 }
 
 /**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
+* @license
+* Copyright Google Inc. All Rights Reserved.
+*
+* Use of this source code is governed by an MIT-style license that can be
+* found in the LICENSE file at https://angular.io/license
+*/
 /**
  * This file contains reuseable "empty" symbols that can be used as default return values
  * in different parts of the rendering code. Because the same symbols are returned, this
@@ -27868,8 +37230,7 @@ function insertTStylingBinding(tData, tNode, tStylingKeyWithStatic, index, isHos
         // We are inserting in template section.
         // We need to set this binding's "previous" to the current template tail
         tData[index + 1] = toTStylingRange(tmplTail, 0);
-        ngDevMode &&
-            assertEqual(tmplHead !== 0 && tmplTail === 0, false, 'Adding template bindings after hostBindings is not allowed.');
+        ngDevMode && assertEqual(tmplHead !== 0 && tmplTail === 0, false, 'Adding template bindings after hostBindings is not allowed.');
         if (tmplHead === 0) {
             tmplHead = index;
         }
@@ -28589,7 +37950,7 @@ function checkStylingMap(keyValueArraySet, stringParser, value, isClassBased) {
             // thing as it would think that the static portion was removed. For this reason we
             // concatenate it so that `[ngStyle]`/`[ngClass]`  can continue to work on changed.
             /** @type {?} */
-            let staticPrefix = isClassBased ? tNode.classesWithoutHost : tNode.stylesWithoutHost;
+            let staticPrefix = isClassBased ? tNode.classes : tNode.styles;
             ngDevMode && isClassBased === false && staticPrefix !== null &&
                 assertEqual(staticPrefix.endsWith(';'), true, 'Expecting static portion to end with \';\'');
             if (staticPrefix !== null) {
@@ -28668,7 +38029,7 @@ function stylingFirstUpdatePass(tView, tStylingKey, bindingIndex, isClassBased) 
  */
 function wrapInStaticStylingKey(tData, tNode, stylingKey, isClassBased) {
     /** @type {?} */
-    const hostDirectiveDef = getCurrentDirectiveDef(tData);
+    const hostDirectiveDef = getHostDirectiveDef(tData);
     /** @type {?} */
     let residual = isClassBased ? tNode.residualClasses : tNode.residualStyles;
     if (hostDirectiveDef === null) {
@@ -28810,8 +38171,7 @@ function getTemplateHeadTStylingKey(tData, tNode, isClassBased) {
 function setTemplateHeadTStylingKey(tData, tNode, isClassBased, tStylingKey) {
     /** @type {?} */
     const bindings = isClassBased ? tNode.classBindings : tNode.styleBindings;
-    ngDevMode &&
-        assertNotEqual(getTStylingRangeNext(bindings), 0, 'Expecting to have at least one template styling binding.');
+    ngDevMode && assertNotEqual(getTStylingRangeNext(bindings), 0, 'Expecting to have at least one template styling binding.');
     tData[getTStylingRangePrev(bindings)] = tStylingKey;
 }
 /**
@@ -28916,6 +38276,18 @@ function collectStylingFromTAttrs(stylingKey, attrs, isClassBased) {
         }
     }
     return stylingKey === undefined ? null : stylingKey;
+}
+/**
+ * Retrieve the current `DirectiveDef` which is active when `hostBindings` style instruction is
+ * being executed (or `null` if we are in `template`.)
+ *
+ * @param {?} tData Current `TData` where the `DirectiveDef` will be looked up at.
+ * @return {?}
+ */
+function getHostDirectiveDef(tData) {
+    /** @type {?} */
+    const currentDirectiveIndex = getCurrentDirectiveIndex();
+    return currentDirectiveIndex === -1 ? null : (/** @type {?} */ (tData[currentDirectiveIndex]));
 }
 /**
  * Convert user input to `KeyValueArray`.
@@ -29277,8 +38649,7 @@ function ɵɵtext(index, value = '') {
     const tView = getTView();
     /** @type {?} */
     const adjustedIndex = index + HEADER_OFFSET;
-    ngDevMode &&
-        assertEqual(getBindingIndex(), tView.bindingStartIndex, 'text nodes should be created before any bindings');
+    ngDevMode && assertEqual(getBindingIndex(), tView.bindingStartIndex, 'text nodes should be created before any bindings');
     ngDevMode && assertDataInRange(lView, adjustedIndex);
     /** @type {?} */
     const tNode = tView.firstCreatePass ?
@@ -30736,7 +40107,7 @@ function ɵɵhostProperty(propName, value, sanitizer) {
     return ɵɵhostProperty;
 }
 /**
- * Updates a synthetic host binding (e.g. `[\@foo]`) on a component or directive.
+ * Updates a synthetic host binding (e.g. `[\@foo]`) on a component.
  *
  * This instruction is for compatibility purposes and is designed to ensure that a
  * synthetic host binding (e.g. `\@HostBinding('\@foo')`) properly gets rendered in
@@ -30768,9 +40139,7 @@ function ɵɵupdateSyntheticHostBinding(propName, value, sanitizer) {
         /** @type {?} */
         const tNode = getSelectedTNode();
         /** @type {?} */
-        const currentDef = getCurrentDirectiveDef(tView.data);
-        /** @type {?} */
-        const renderer = loadComponentRenderer(currentDef, tNode, lView);
+        const renderer = loadComponentRenderer(tNode, lView);
         elementPropertyInternal(tView, tNode, lView, propName, value, renderer, sanitizer, true);
         ngDevMode && storePropertyBindingMetadata(tView.data, tNode, propName, bindingIndex);
     }
@@ -31410,7 +40779,7 @@ function createRootComponentView(rNode, def, rootView, rendererFactory, hostRend
     /** @type {?} */
     const mergedAttrs = tNode.mergedAttrs = def.hostAttrs;
     if (mergedAttrs !== null) {
-        computeStaticStyling(tNode, mergedAttrs, true);
+        computeStaticStyling(tNode, mergedAttrs);
         if (rNode !== null) {
             setUpAttributes(hostRenderer, rNode, mergedAttrs);
             if (tNode.classes !== null) {
@@ -31866,9 +41235,7 @@ class SimpleChange {
     /**
      * Check whether the new value is the first value assigned.
      */
-    isFirstChange() {
-        return this.firstChange;
-    }
+    isFirstChange() { return this.firstChange; }
 }
 
 /**
@@ -32128,7 +41495,7 @@ function resolveProvider$1(provider, tInjectables, lInjectablesBlueprint, isComp
                 if (!isViewProvider && doesViewProvidersFactoryExist) {
                     lInjectablesBlueprint[existingViewProvidersFactoryIndex].providerFactory = factory;
                 }
-                registerDestroyHooksIfSupported(tView, provider, tInjectables.length, 0);
+                registerDestroyHooksIfSupported(tView, provider, tInjectables.length);
                 tInjectables.push(token);
                 tNode.directiveStart++;
                 tNode.directiveEnd++;
@@ -32140,11 +41507,10 @@ function resolveProvider$1(provider, tInjectables, lInjectablesBlueprint, isComp
             }
             else {
                 // Cases 1.b and 2.b
-                /** @type {?} */
-                const indexInFactory = multiFactoryAdd((/** @type {?} */ (lInjectablesBlueprint))[isViewProvider ? existingViewProvidersFactoryIndex :
-                    existingProvidersFactoryIndex], providerFactory, !isViewProvider && isComponent);
-                registerDestroyHooksIfSupported(tView, provider, existingProvidersFactoryIndex > -1 ? existingProvidersFactoryIndex :
-                    existingViewProvidersFactoryIndex, indexInFactory);
+                registerDestroyHooksIfSupported(tView, provider, existingProvidersFactoryIndex > -1 ?
+                    existingProvidersFactoryIndex :
+                    existingViewProvidersFactoryIndex);
+                multiFactoryAdd((/** @type {?} */ (lInjectablesBlueprint))[isViewProvider ? existingViewProvidersFactoryIndex : existingProvidersFactoryIndex], providerFactory, !isViewProvider && isComponent);
             }
             if (!isViewProvider && isComponent && doesViewProvidersFactoryExist) {
                 (/** @type {?} */ (lInjectablesBlueprint[existingViewProvidersFactoryIndex].componentProviders))++;
@@ -32157,11 +41523,9 @@ function resolveProvider$1(provider, tInjectables, lInjectablesBlueprint, isComp
  * @param {?} tView `TView` in which to register the hook.
  * @param {?} provider Provider whose hook should be registered.
  * @param {?} contextIndex Index under which to find the context for the hook when it's being invoked.
- * @param {?=} indexInFactory Only required for `multi` providers. Index of the provider in the multi
- * provider factory.
  * @return {?}
  */
-function registerDestroyHooksIfSupported(tView, provider, contextIndex, indexInFactory) {
+function registerDestroyHooksIfSupported(tView, provider, contextIndex) {
     /** @type {?} */
     const providerIsTypeProvider = isTypeProvider(provider);
     if (providerIsTypeProvider || isClassProvider(provider)) {
@@ -32170,23 +41534,7 @@ function registerDestroyHooksIfSupported(tView, provider, contextIndex, indexInF
         /** @type {?} */
         const ngOnDestroy = prototype.ngOnDestroy;
         if (ngOnDestroy) {
-            /** @type {?} */
-            const hooks = tView.destroyHooks || (tView.destroyHooks = []);
-            if (!providerIsTypeProvider && (((/** @type {?} */ (provider)))).multi) {
-                ngDevMode &&
-                    assertDefined(indexInFactory, 'indexInFactory when registering multi factory destroy hook');
-                /** @type {?} */
-                const existingCallbacksIndex = hooks.indexOf(contextIndex);
-                if (existingCallbacksIndex === -1) {
-                    hooks.push(contextIndex, [indexInFactory, ngOnDestroy]);
-                }
-                else {
-                    ((/** @type {?} */ (hooks[existingCallbacksIndex + 1]))).push((/** @type {?} */ (indexInFactory)), ngOnDestroy);
-                }
-            }
-            else {
-                hooks.push(contextIndex, ngOnDestroy);
-            }
+            (tView.destroyHooks || (tView.destroyHooks = [])).push(contextIndex, ngOnDestroy);
         }
     }
 }
@@ -32195,13 +41543,13 @@ function registerDestroyHooksIfSupported(tView, provider, contextIndex, indexInF
  * @param {?} multiFactory
  * @param {?} factory
  * @param {?} isComponentProvider
- * @return {?} Index at which the factory was inserted.
+ * @return {?}
  */
 function multiFactoryAdd(multiFactory, factory, isComponentProvider) {
+    (/** @type {?} */ (multiFactory.multi)).push(factory);
     if (isComponentProvider) {
         (/** @type {?} */ (multiFactory.componentProviders))++;
     }
-    return (/** @type {?} */ (multiFactory.multi)).push(factory) - 1;
 }
 /**
  * Returns the index of item in the array, but only in the begin to end range.
@@ -32655,11 +42003,11 @@ const SWITCH_RENDERER2_FACTORY = SWITCH_RENDERER2_FACTORY__POST_R3__;
 class Sanitizer {
 }
 /** @nocollapse */
-Sanitizer.ɵprov = ɵɵdefineInjectable({
+/** @nocollapse */ Sanitizer.ɵprov = ɵɵdefineInjectable({
     token: Sanitizer,
     providedIn: 'root',
     factory: (/**
-     * @return {?}
+     * @nocollapse @return {?}
      */
     () => null),
 });
@@ -32698,7 +42046,7 @@ if (false) {}
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('9.1.13');
+const VERSION = new Version('9.0.7');
 
 /**
  * @fileoverview added by tsickle
@@ -32711,9 +42059,7 @@ class DefaultIterableDifferFactory {
      * @param {?} obj
      * @return {?}
      */
-    supports(obj) {
-        return isListLikeIterable$1(obj);
-    }
+    supports(obj) { return isListLikeIterable$1(obj); }
     /**
      * @template V
      * @param {?=} trackByFn
@@ -33586,15 +42932,11 @@ class _DuplicateMap {
     /**
      * @return {?}
      */
-    get isEmpty() {
-        return this.map.size === 0;
-    }
+    get isEmpty() { return this.map.size === 0; }
     /**
      * @return {?}
      */
-    clear() {
-        this.map.clear();
-    }
+    clear() { this.map.clear(); }
 }
 if (false) {}
 /**
@@ -33630,16 +42972,12 @@ class DefaultKeyValueDifferFactory {
      * @param {?} obj
      * @return {?}
      */
-    supports(obj) {
-        return obj instanceof Map || isJsObject$1(obj);
-    }
+    supports(obj) { return obj instanceof Map || isJsObject$1(obj); }
     /**
      * @template K, V
      * @return {?}
      */
-    create() {
-        return new DefaultKeyValueDiffer();
-    }
+    create() { return new DefaultKeyValueDiffer(); }
 }
 /**
  * @template K, V
@@ -34136,11 +43474,11 @@ class IterableDiffers {
     }
 }
 /** @nocollapse */
-IterableDiffers.ɵprov = ɵɵdefineInjectable({
+/** @nocollapse */ IterableDiffers.ɵprov = ɵɵdefineInjectable({
     token: IterableDiffers,
     providedIn: 'root',
     factory: (/**
-     * @return {?}
+     * @nocollapse @return {?}
      */
     () => new IterableDiffers([new DefaultIterableDifferFactory()]))
 });
@@ -34280,11 +43618,11 @@ class KeyValueDiffers {
     }
 }
 /** @nocollapse */
-KeyValueDiffers.ɵprov = ɵɵdefineInjectable({
+/** @nocollapse */ KeyValueDiffers.ɵprov = ɵɵdefineInjectable({
     token: KeyValueDiffers,
     providedIn: 'root',
     factory: (/**
-     * @return {?}
+     * @nocollapse @return {?}
      */
     () => new KeyValueDiffers([new DefaultKeyValueDifferFactory()]))
 });
@@ -34525,8 +43863,7 @@ function ViewUpdateFn() { }
 function NodeCheckFn() { }
 /** @enum {number} */
 const ArgumentType = {
-    Inline: 0,
-    Dynamic: 1,
+    Inline: 0, Dynamic: 1,
 };
 /**
  * @record
@@ -34612,8 +43949,7 @@ function OutputDef() { }
 if (false) {}
 /** @enum {number} */
 const OutputType = {
-    ElementOutput: 0,
-    DirectiveOutput: 1,
+    ElementOutput: 0, DirectiveOutput: 1,
 };
 /** @enum {number} */
 const QueryValueType = {
@@ -34672,8 +44008,7 @@ function QueryBindingDef() { }
 if (false) {}
 /** @enum {number} */
 const QueryBindingType = {
-    First: 0,
-    All: 1,
+    First: 0, All: 1,
 };
 /**
  * @record
@@ -34876,8 +44211,7 @@ class DebugContext {
 if (false) {}
 /** @enum {number} */
 const CheckType = {
-    CheckAndUpdate: 0,
-    CheckNoChanges: 1,
+    CheckAndUpdate: 0, CheckNoChanges: 1,
 };
 /**
  * @record
@@ -35231,7 +44565,8 @@ function getParentRenderElement(view, renderHost, def) {
         if ((renderParent.flags & 1 /* TypeElement */) === 0 ||
             (renderParent.flags & 33554432 /* ComponentView */) === 0 ||
             ((/** @type {?} */ (renderParent.element)).componentRendererType &&
-                (/** @type {?} */ ((/** @type {?} */ (renderParent.element)).componentRendererType)).encapsulation === ViewEncapsulation$1.Native)) {
+                (/** @type {?} */ ((/** @type {?} */ (renderParent.element)).componentRendererType)).encapsulation ===
+                    ViewEncapsulation$1.Native)) {
             // only children of non components, or children of components with native encapsulation should
             // be attached.
             return asElementData(view, (/** @type {?} */ (def.renderParent)).nodeIndex).renderElement;
@@ -35273,10 +44608,7 @@ function rootRenderNodes(view) {
 }
 /** @enum {number} */
 const RenderNodeAction = {
-    Collect: 0,
-    AppendChild: 1,
-    InsertBefore: 2,
-    RemoveChild: 3,
+    Collect: 0, AppendChild: 1, InsertBefore: 2, RemoveChild: 3,
 };
 /**
  * @param {?} view
@@ -35565,10 +44897,7 @@ function moduleProvideDef(flags, token, value, deps) {
     return {
         // will bet set by the module definition
         index: -1,
-        deps: depDefs,
-        flags,
-        token,
-        value
+        deps: depDefs, flags, token, value
     };
 }
 /**
@@ -35669,8 +44998,7 @@ function resolveNgModuleDep(data, depDef, notFoundValue = Injector.THROW_IF_NOT_
             data._def.providers[index] = data._def.providersByKey[depDef.tokenKey] = {
                 flags: 1024 /* TypeFactoryProvider */ | 4096 /* LazyProvider */,
                 value: injectableDef.factory,
-                deps: [],
-                index,
+                deps: [], index,
                 token: depDef.token,
             };
             data._providers[index] = UNDEFINED_VALUE;
@@ -35702,9 +45030,8 @@ function moduleTransitivelyPresent(ngModule, scope) {
 function targetsModule(ngModule, def) {
     /** @type {?} */
     const providedIn = def.providedIn;
-    return providedIn != null &&
-        (providedIn === 'any' || providedIn === ngModule._def.scope ||
-            moduleTransitivelyPresent(ngModule, providedIn));
+    return providedIn != null && (providedIn === 'any' || providedIn === ngModule._def.scope ||
+        moduleTransitivelyPresent(ngModule, providedIn));
 }
 /**
  * @param {?} ngModule
@@ -35969,7 +45296,8 @@ function moveEmbeddedView(elementData, oldViewIndex, newViewIndex) {
  */
 function renderAttachEmbeddedView(elementData, prevView, view) {
     /** @type {?} */
-    const prevRenderNode = prevView ? renderNode(prevView, (/** @type {?} */ (prevView.def.lastRenderRootNode))) : elementData.renderElement;
+    const prevRenderNode = prevView ? renderNode(prevView, (/** @type {?} */ (prevView.def.lastRenderRootNode))) :
+        elementData.renderElement;
     /** @type {?} */
     const parentNode = view.renderer.parentNode(prevRenderNode);
     /** @type {?} */
@@ -36114,28 +45442,20 @@ class ComponentRef_ extends ComponentRef {
     /**
      * @return {?}
      */
-    get injector() {
-        return new Injector_(this._view, this._elDef);
-    }
+    get injector() { return new Injector_(this._view, this._elDef); }
     /**
      * @return {?}
      */
-    get componentType() {
-        return (/** @type {?} */ (this._component.constructor));
-    }
+    get componentType() { return (/** @type {?} */ (this._component.constructor)); }
     /**
      * @return {?}
      */
-    destroy() {
-        this._viewRef.destroy();
-    }
+    destroy() { this._viewRef.destroy(); }
     /**
      * @param {?} callback
      * @return {?}
      */
-    onDestroy(callback) {
-        this._viewRef.onDestroy(callback);
-    }
+    onDestroy(callback) { this._viewRef.onDestroy(callback); }
 }
 if (false) {}
 /**
@@ -36165,15 +45485,11 @@ class ViewContainerRef_ {
     /**
      * @return {?}
      */
-    get element() {
-        return new ElementRef(this._data.renderElement);
-    }
+    get element() { return new ElementRef(this._data.renderElement); }
     /**
      * @return {?}
      */
-    get injector() {
-        return new Injector_(this._view, this._elDef);
-    }
+    get injector() { return new Injector_(this._view, this._elDef); }
     /**
      * @deprecated No replacement
      * @return {?}
@@ -36219,9 +45535,7 @@ class ViewContainerRef_ {
     /**
      * @return {?}
      */
-    get length() {
-        return this._embeddedViews.length;
-    }
+    get length() { return this._embeddedViews.length; }
     /**
      * @template C
      * @param {?} templateRef
@@ -36334,33 +45648,23 @@ class ViewRef_ {
     /**
      * @return {?}
      */
-    get rootNodes() {
-        return rootRenderNodes(this._view);
-    }
+    get rootNodes() { return rootRenderNodes(this._view); }
     /**
      * @return {?}
      */
-    get context() {
-        return this._view.context;
-    }
+    get context() { return this._view.context; }
     /**
      * @return {?}
      */
-    get destroyed() {
-        return (this._view.state & 128 /* Destroyed */) !== 0;
-    }
+    get destroyed() { return (this._view.state & 128 /* Destroyed */) !== 0; }
     /**
      * @return {?}
      */
-    markForCheck() {
-        markParentViewsForCheck(this._view);
-    }
+    markForCheck() { markParentViewsForCheck(this._view); }
     /**
      * @return {?}
      */
-    detach() {
-        this._view.state &= ~4 /* Attached */;
-    }
+    detach() { this._view.state &= ~4 /* Attached */; }
     /**
      * @return {?}
      */
@@ -36382,15 +45686,11 @@ class ViewRef_ {
     /**
      * @return {?}
      */
-    checkNoChanges() {
-        Services.checkNoChangesView(this._view);
-    }
+    checkNoChanges() { Services.checkNoChangesView(this._view); }
     /**
      * @return {?}
      */
-    reattach() {
-        this._view.state |= 4 /* Attached */;
-    }
+    reattach() { this._view.state |= 4 /* Attached */; }
     /**
      * @param {?} callback
      * @return {?}
@@ -36573,15 +45873,11 @@ class NgModuleRef_ {
     /**
      * @return {?}
      */
-    get instance() {
-        return this.get(this._moduleType);
-    }
+    get instance() { return this.get(this._moduleType); }
     /**
      * @return {?}
      */
-    get componentFactoryResolver() {
-        return this.get(ComponentFactoryResolver);
-    }
+    get componentFactoryResolver() { return this.get(ComponentFactoryResolver); }
     /**
      * @return {?}
      */
@@ -36601,9 +45897,7 @@ class NgModuleRef_ {
      * @param {?} callback
      * @return {?}
      */
-    onDestroy(callback) {
-        this._destroyListeners.push(callback);
-    }
+    onDestroy(callback) { this._destroyListeners.push(callback); }
 }
 if (false) {}
 
@@ -36645,8 +45939,7 @@ function directiveDef(checkIndex, flags, matchedQueries, childCount, ctor, deps,
             const [bindingIndex, nonMinifiedName] = props[prop];
             bindings[bindingIndex] = {
                 flags: 8 /* TypeProperty */,
-                name: prop,
-                nonMinifiedName,
+                name: prop, nonMinifiedName,
                 ns: null,
                 securityContext: null,
                 suffix: null
@@ -36722,15 +46015,9 @@ function _def(checkIndex, flags, matchedQueriesDsl, childCount, token, value, de
         flags,
         childFlags: 0,
         directChildFlags: 0,
-        childMatchedQueries: 0,
-        matchedQueries,
-        matchedQueryIds,
-        references,
-        ngContentIndex: -1,
-        childCount,
-        bindings,
-        bindingFlags: calcBindingFlags(bindings),
-        outputs,
+        childMatchedQueries: 0, matchedQueries, matchedQueryIds, references,
+        ngContentIndex: -1, childCount, bindings,
+        bindingFlags: calcBindingFlags(bindings), outputs,
         element: null,
         provider: { token, value, deps: depDefs },
         text: null,
@@ -37497,20 +46784,17 @@ class ComponentFactory$1 extends ComponentFactory {
                     }
                 }
             }
-            tElementNode = (/** @type {?} */ (getTNode(rootTView, 0)));
-            if (projectableNodes !== undefined) {
-                /** @type {?} */
-                const projection = tElementNode.projection = [];
-                for (let i = 0; i < this.ngContentSelectors.length; i++) {
-                    /** @type {?} */
-                    const nodesforSlot = projectableNodes[i];
-                    // Projectable nodes can be passed as array of arrays or an array of iterables (ngUpgrade
-                    // case). Here we do normalize passed data structure to be an array of arrays to avoid
-                    // complex checks down the line.
-                    // We also normalize the length of the passed in projectable nodes (to match the number of
-                    // <ng-container> slots defined by a component).
-                    projection.push(nodesforSlot != null ? Array.from(nodesforSlot) : null);
-                }
+            tElementNode = (/** @type {?} */ (getTNode(rootLView[TVIEW], 0)));
+            if (projectableNodes) {
+                // projectable nodes can be passed as array of arrays or an array of iterables (ngUpgrade
+                // case). Here we do normalize passed data structure to be an array of arrays to avoid
+                // complex checks down the line.
+                tElementNode.projection =
+                    projectableNodes.map((/**
+                     * @param {?} nodesforSlot
+                     * @return {?}
+                     */
+                    (nodesforSlot) => { return Array.from(nodesforSlot); }));
             }
             // TODO: should LifecycleHooksFeature and other host features be generated by the compiler and
             // executed here?
@@ -37526,8 +46810,7 @@ class ComponentFactory$1 extends ComponentFactory {
         if (!rootSelectorOrNode || isIsolated) {
             // The host element of the internal or isolated root view is attached to the component's host
             // view node.
-            ngDevMode && assertNodeOfPossibleTypes(rootTView.node, 2 /* View */);
-            (/** @type {?} */ (rootTView.node)).child = tElementNode;
+            (/** @type {?} */ (componentRef.hostView._tViewNode)).child = tElementNode;
         }
         return componentRef;
     }
@@ -37570,15 +46853,13 @@ class ComponentRef$1 extends ComponentRef {
         this.destroyCbs = [];
         this.instance = instance;
         this.hostView = this.changeDetectorRef = new RootViewRef(_rootLView);
-        assignTViewNodeToLView(_rootLView[TVIEW], null, -1, _rootLView);
+        this.hostView._tViewNode = assignTViewNodeToLView(_rootLView[TVIEW], null, -1, _rootLView);
         this.componentType = componentType;
     }
     /**
      * @return {?}
      */
-    get injector() {
-        return new NodeInjector(this._tNode, this._rootLView);
-    }
+    get injector() { return new NodeInjector(this._tNode, this._rootLView); }
     /**
      * @return {?}
      */
@@ -37689,7 +46970,6 @@ var localeEn = [
     '$',
     'US Dollar',
     {},
-    'ltr',
     plural
 ];
 
@@ -37818,9 +47098,8 @@ const LocaleDataIndex = {
     CurrencySymbol: 16,
     CurrencyName: 17,
     Currencies: 18,
-    Directionality: 19,
-    PluralCase: 20,
-    ExtraData: 21,
+    PluralCase: 19,
+    ExtraData: 20,
 };
 LocaleDataIndex[LocaleDataIndex.LocaleId] = 'LocaleId';
 LocaleDataIndex[LocaleDataIndex.DayPeriodsFormat] = 'DayPeriodsFormat';
@@ -37841,7 +47120,6 @@ LocaleDataIndex[LocaleDataIndex.CurrencyCode] = 'CurrencyCode';
 LocaleDataIndex[LocaleDataIndex.CurrencySymbol] = 'CurrencySymbol';
 LocaleDataIndex[LocaleDataIndex.CurrencyName] = 'CurrencyName';
 LocaleDataIndex[LocaleDataIndex.Currencies] = 'Currencies';
-LocaleDataIndex[LocaleDataIndex.Directionality] = 'Directionality';
 LocaleDataIndex[LocaleDataIndex.PluralCase] = 'PluralCase';
 LocaleDataIndex[LocaleDataIndex.ExtraData] = 'ExtraData';
 /** @enum {number} */
@@ -37852,9 +47130,7 @@ const ExtraLocaleDataIndex = {
 };
 /** @enum {number} */
 const CurrencyIndex = {
-    Symbol: 0,
-    SymbolNarrow: 1,
-    NbOfDigits: 2,
+    Symbol: 0, SymbolNarrow: 1, NbOfDigits: 2,
 };
 /**
  * Returns the canonical form of a locale name - lowercase with `_` replaced with `-`.
@@ -37870,8 +47146,6 @@ function normalizeLocale(locale) {
  * Generated from: packages/core/src/i18n/localization.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-/** @type {?} */
-const pluralMapping = ['zero', 'one', 'two', 'few', 'many'];
 /**
  * Returns the plural case based on the locale
  * @param {?} value
@@ -37880,10 +47154,21 @@ const pluralMapping = ['zero', 'one', 'two', 'few', 'many'];
  */
 function getPluralCase(value, locale) {
     /** @type {?} */
-    const plural = getLocalePluralCase(locale)(parseInt(value, 10));
-    /** @type {?} */
-    const result = pluralMapping[plural];
-    return (result !== undefined) ? result : 'other';
+    const plural = getLocalePluralCase(locale)(value);
+    switch (plural) {
+        case 0:
+            return 'zero';
+        case 1:
+            return 'one';
+        case 2:
+            return 'two';
+        case 3:
+            return 'few';
+        case 4:
+            return 'many';
+        default:
+            return 'other';
+    }
 }
 /**
  * The locale id that the application is using by default (for translations and ICU expressions).
@@ -38112,7 +47397,7 @@ function removeInnerTemplateTranslation(message) {
  * @return {?}
  */
 function getTranslationForTemplate(message, subTemplateIndex) {
-    if (isRootTemplateMessage(subTemplateIndex)) {
+    if (typeof subTemplateIndex !== 'number') {
         // We want the root template message, ignore all sub-templates
         return removeInnerTemplateTranslation(message);
     }
@@ -38259,13 +47544,6 @@ function ɵɵi18nStart(index, message, subTemplateIndex) {
 /** @type {?} */
 let i18nVarsCount;
 /**
- * @param {?} startIndex
- * @return {?}
- */
-function allocNodeIndex(startIndex) {
-    return startIndex + i18nVarsCount++;
-}
-/**
  * See `i18nStart` above.
  * @param {?} lView
  * @param {?} tView
@@ -38309,92 +47587,85 @@ function i18nStartFirstPass(lView, tView, index, message, subTemplateIndex) {
     const updateOpCodes = [];
     /** @type {?} */
     const icuExpressions = [];
-    if (message === '' && isRootTemplateMessage(subTemplateIndex)) {
-        // If top level translation is an empty string, do not invoke additional processing
-        // and just create op codes for empty text node instead.
-        createOpCodes.push(message, allocNodeIndex(startIndex), parentIndex << 17 /* SHIFT_PARENT */ | 1 /* AppendChild */);
-    }
-    else {
+    /** @type {?} */
+    const templateTranslation = getTranslationForTemplate(message, subTemplateIndex);
+    /** @type {?} */
+    const msgParts = replaceNgsp(templateTranslation).split(PH_REGEXP);
+    for (let i = 0; i < msgParts.length; i++) {
         /** @type {?} */
-        const templateTranslation = getTranslationForTemplate(message, subTemplateIndex);
-        /** @type {?} */
-        const msgParts = replaceNgsp(templateTranslation).split(PH_REGEXP);
-        for (let i = 0; i < msgParts.length; i++) {
-            /** @type {?} */
-            let value = msgParts[i];
-            if (i & 1) {
-                // Odd indexes are placeholders (elements and sub-templates)
-                if (value.charAt(0) === '/') {
-                    // It is a closing tag
-                    if (value.charAt(1) === "#" /* ELEMENT */) {
-                        /** @type {?} */
-                        const phIndex = parseInt(value.substr(2), 10);
-                        parentIndex = parentIndexStack[--parentIndexPointer];
-                        createOpCodes.push(phIndex << 3 /* SHIFT_REF */ | 5 /* ElementEnd */);
-                    }
-                }
-                else {
+        let value = msgParts[i];
+        if (i & 1) {
+            // Odd indexes are placeholders (elements and sub-templates)
+            if (value.charAt(0) === '/') {
+                // It is a closing tag
+                if (value.charAt(1) === "#" /* ELEMENT */) {
                     /** @type {?} */
-                    const phIndex = parseInt(value.substr(1), 10);
-                    /** @type {?} */
-                    const isElement = value.charAt(0) === "#" /* ELEMENT */;
-                    // The value represents a placeholder that we move to the designated index.
-                    // Note: positive indicies indicate that a TNode with a given index should also be marked
-                    // as parent while executing `Select` instruction.
-                    createOpCodes.push((isElement ? phIndex : ~phIndex) << 3 /* SHIFT_REF */ |
-                        0 /* Select */, parentIndex << 17 /* SHIFT_PARENT */ | 1 /* AppendChild */);
-                    if (isElement) {
-                        parentIndexStack[++parentIndexPointer] = parentIndex = phIndex;
-                    }
+                    const phIndex = parseInt(value.substr(2), 10);
+                    parentIndex = parentIndexStack[--parentIndexPointer];
+                    createOpCodes.push(phIndex << 3 /* SHIFT_REF */ | 5 /* ElementEnd */);
                 }
             }
             else {
-                // Even indexes are text (including bindings & ICU expressions)
                 /** @type {?} */
-                const parts = extractParts(value);
-                for (let j = 0; j < parts.length; j++) {
-                    if (j & 1) {
-                        // Odd indexes are ICU expressions
-                        /** @type {?} */
-                        const icuExpression = (/** @type {?} */ (parts[j]));
-                        // Verify that ICU expression has the right shape. Translations might contain invalid
-                        // constructions (while original messages were correct), so ICU parsing at runtime may
-                        // not succeed (thus `icuExpression` remains a string).
-                        if (typeof icuExpression !== 'object') {
-                            throw new Error(`Unable to parse ICU expression in "${templateTranslation}" message.`);
-                        }
-                        // Create the comment node that will anchor the ICU expression
-                        /** @type {?} */
-                        const icuNodeIndex = allocNodeIndex(startIndex);
-                        createOpCodes.push(COMMENT_MARKER, ngDevMode ? `ICU ${icuNodeIndex}` : '', icuNodeIndex, parentIndex << 17 /* SHIFT_PARENT */ | 1 /* AppendChild */);
-                        // Update codes for the ICU expression
-                        /** @type {?} */
-                        const mask = getBindingMask(icuExpression);
-                        icuStart(icuExpressions, icuExpression, icuNodeIndex, icuNodeIndex);
-                        // Since this is recursive, the last TIcu that was pushed is the one we want
-                        /** @type {?} */
-                        const tIcuIndex = icuExpressions.length - 1;
-                        updateOpCodes.push(toMaskBit(icuExpression.mainBinding), // mask of the main binding
-                        3, // skip 3 opCodes if not changed
-                        -1 - icuExpression.mainBinding, icuNodeIndex << 2 /* SHIFT_REF */ | 2 /* IcuSwitch */, tIcuIndex, mask, // mask of all the bindings of this ICU expression
-                        2, // skip 2 opCodes if not changed
-                        icuNodeIndex << 2 /* SHIFT_REF */ | 3 /* IcuUpdate */, tIcuIndex);
+                const phIndex = parseInt(value.substr(1), 10);
+                /** @type {?} */
+                const isElement = value.charAt(0) === "#" /* ELEMENT */;
+                // The value represents a placeholder that we move to the designated index.
+                // Note: positive indicies indicate that a TNode with a given index should also be marked as
+                // parent while executing `Select` instruction.
+                createOpCodes.push((isElement ? phIndex : ~phIndex) << 3 /* SHIFT_REF */ |
+                    0 /* Select */, parentIndex << 17 /* SHIFT_PARENT */ | 1 /* AppendChild */);
+                if (isElement) {
+                    parentIndexStack[++parentIndexPointer] = parentIndex = phIndex;
+                }
+            }
+        }
+        else {
+            // Even indexes are text (including bindings & ICU expressions)
+            /** @type {?} */
+            const parts = extractParts(value);
+            for (let j = 0; j < parts.length; j++) {
+                if (j & 1) {
+                    // Odd indexes are ICU expressions
+                    /** @type {?} */
+                    const icuExpression = (/** @type {?} */ (parts[j]));
+                    // Verify that ICU expression has the right shape. Translations might contain invalid
+                    // constructions (while original messages were correct), so ICU parsing at runtime may not
+                    // succeed (thus `icuExpression` remains a string).
+                    if (typeof icuExpression !== 'object') {
+                        throw new Error(`Unable to parse ICU expression in "${templateTranslation}" message.`);
                     }
-                    else if (parts[j] !== '') {
-                        /** @type {?} */
-                        const text = (/** @type {?} */ (parts[j]));
-                        // Even indexes are text (including bindings)
-                        /** @type {?} */
-                        const hasBinding = text.match(BINDING_REGEXP);
-                        // Create text nodes
-                        /** @type {?} */
-                        const textNodeIndex = allocNodeIndex(startIndex);
-                        createOpCodes.push(
-                        // If there is a binding, the value will be set during update
-                        hasBinding ? '' : text, textNodeIndex, parentIndex << 17 /* SHIFT_PARENT */ | 1 /* AppendChild */);
-                        if (hasBinding) {
-                            addAllToArray(generateBindingUpdateOpCodes(text, textNodeIndex), updateOpCodes);
-                        }
+                    // Create the comment node that will anchor the ICU expression
+                    /** @type {?} */
+                    const icuNodeIndex = startIndex + i18nVarsCount++;
+                    createOpCodes.push(COMMENT_MARKER, ngDevMode ? `ICU ${icuNodeIndex}` : '', icuNodeIndex, parentIndex << 17 /* SHIFT_PARENT */ | 1 /* AppendChild */);
+                    // Update codes for the ICU expression
+                    /** @type {?} */
+                    const mask = getBindingMask(icuExpression);
+                    icuStart(icuExpressions, icuExpression, icuNodeIndex, icuNodeIndex);
+                    // Since this is recursive, the last TIcu that was pushed is the one we want
+                    /** @type {?} */
+                    const tIcuIndex = icuExpressions.length - 1;
+                    updateOpCodes.push(toMaskBit(icuExpression.mainBinding), // mask of the main binding
+                    3, // skip 3 opCodes if not changed
+                    -1 - icuExpression.mainBinding, icuNodeIndex << 2 /* SHIFT_REF */ | 2 /* IcuSwitch */, tIcuIndex, mask, // mask of all the bindings of this ICU expression
+                    2, // skip 2 opCodes if not changed
+                    icuNodeIndex << 2 /* SHIFT_REF */ | 3 /* IcuUpdate */, tIcuIndex);
+                }
+                else if (parts[j] !== '') {
+                    /** @type {?} */
+                    const text = (/** @type {?} */ (parts[j]));
+                    // Even indexes are text (including bindings)
+                    /** @type {?} */
+                    const hasBinding = text.match(BINDING_REGEXP);
+                    // Create text nodes
+                    /** @type {?} */
+                    const textNodeIndex = startIndex + i18nVarsCount++;
+                    createOpCodes.push(
+                    // If there is a binding, the value will be set during update
+                    hasBinding ? '' : text, textNodeIndex, parentIndex << 17 /* SHIFT_PARENT */ | 1 /* AppendChild */);
+                    if (hasBinding) {
+                        addAllToArray(generateBindingUpdateOpCodes(text, textNodeIndex), updateOpCodes);
                     }
                 }
             }
@@ -38467,13 +47738,6 @@ function appendI18nNode(tView, tNode, parentTNode, previousTNode, lView) {
         appendChild(tView, lView, slotValue[NATIVE], tNode);
     }
     return tNode;
-}
-/**
- * @param {?} subTemplateIndex
- * @return {?}
- */
-function isRootTemplateMessage(subTemplateIndex) {
-    return subTemplateIndex === undefined;
 }
 /**
  * Handles message string post-processing for internationalization.
@@ -38643,8 +47907,7 @@ function ɵɵi18nEnd() {
  * @return {?}
  */
 function i18nEndFirstPass(tView, lView) {
-    ngDevMode &&
-        assertEqual(getBindingIndex(), tView.bindingStartIndex, 'i18nEnd should be called before any binding');
+    ngDevMode && assertEqual(getBindingIndex(), tView.bindingStartIndex, 'i18nEnd should be called before any binding');
     /** @type {?} */
     const rootIndex = i18nIndexStack[i18nIndexStackPointer--];
     /** @type {?} */
@@ -38666,9 +47929,8 @@ function i18nEndFirstPass(tView, lView) {
         // Check if an element has any local refs and skip them
         /** @type {?} */
         const tNode = getTNode(tView, index);
-        if (tNode &&
-            (tNode.type === 0 /* Container */ || tNode.type === 3 /* Element */ ||
-                tNode.type === 4 /* ElementContainer */) &&
+        if (tNode && (tNode.type === 0 /* Container */ || tNode.type === 3 /* Element */ ||
+            tNode.type === 4 /* ElementContainer */) &&
             tNode.localNames !== null) {
             // Divide by 2 to get the number of local refs,
             // since they are stored as an array that also includes directive indexes,
@@ -38795,8 +48057,7 @@ function readCreateOpCodes(index, createOpCodes, tView, lView) {
                     const commentValue = (/** @type {?} */ (createOpCodes[++i]));
                     /** @type {?} */
                     const commentNodeIndex = (/** @type {?} */ (createOpCodes[++i]));
-                    ngDevMode &&
-                        assertEqual(typeof commentValue, 'string', `Expected "${commentValue}" to be a comment node value`);
+                    ngDevMode && assertEqual(typeof commentValue, 'string', `Expected "${commentValue}" to be a comment node value`);
                     /** @type {?} */
                     const commentRNode = renderer.createComment(commentValue);
                     ngDevMode && ngDevMode.rendererCreateComment++;
@@ -38813,8 +48074,7 @@ function readCreateOpCodes(index, createOpCodes, tView, lView) {
                     const tagNameValue = (/** @type {?} */ (createOpCodes[++i]));
                     /** @type {?} */
                     const elementNodeIndex = (/** @type {?} */ (createOpCodes[++i]));
-                    ngDevMode &&
-                        assertEqual(typeof tagNameValue, 'string', `Expected "${tagNameValue}" to be an element node tag name`);
+                    ngDevMode && assertEqual(typeof tagNameValue, 'string', `Expected "${tagNameValue}" to be an element node tag name`);
                     /** @type {?} */
                     const elementRNode = renderer.createElement(tagNameValue);
                     ngDevMode && ngDevMode.rendererCreateElement++;
@@ -39447,78 +48707,6 @@ function getLocaleId() {
 
 /**
  * @fileoverview added by tsickle
- * Generated from: packages/core/src/render3/metadata.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @record
- */
-function TypeWithMetadata() { }
-if (false) {}
-/**
- * Adds decorator, constructor, and property metadata to a given type via static metadata fields
- * on the type.
- *
- * These metadata fields can later be read with Angular's `ReflectionCapabilities` API.
- *
- * Calls to `setClassMetadata` can be marked as pure, resulting in the metadata assignments being
- * tree-shaken away during production builds.
- * @param {?} type
- * @param {?} decorators
- * @param {?} ctorParameters
- * @param {?} propDecorators
- * @return {?}
- */
-function setClassMetadata(type, decorators, ctorParameters, propDecorators) {
-    return (/** @type {?} */ (noSideEffects((/**
-     * @return {?}
-     */
-    () => {
-        /** @type {?} */
-        const clazz = (/** @type {?} */ (type));
-        // We determine whether a class has its own metadata by taking the metadata from the
-        // parent constructor and checking whether it's the same as the subclass metadata below.
-        // We can't use `hasOwnProperty` here because it doesn't work correctly in IE10 for
-        // static fields that are defined by TS. See
-        // https://github.com/angular/angular/pull/28439#issuecomment-459349218.
-        /** @type {?} */
-        const parentPrototype = clazz.prototype ? Object.getPrototypeOf(clazz.prototype) : null;
-        /** @type {?} */
-        const parentConstructor = parentPrototype && parentPrototype.constructor;
-        if (decorators !== null) {
-            if (clazz.decorators !== undefined &&
-                (!parentConstructor || parentConstructor.decorators !== clazz.decorators)) {
-                clazz.decorators.push(...decorators);
-            }
-            else {
-                clazz.decorators = decorators;
-            }
-        }
-        if (ctorParameters !== null) {
-            // Rather than merging, clobber the existing parameters. If other projects exist which
-            // use tsickle-style annotations and reflect over them in the same way, this could
-            // cause issues, but that is vanishingly unlikely.
-            clazz.ctorParameters = ctorParameters;
-        }
-        if (propDecorators !== null) {
-            // The property decorator objects are merged as it is possible different fields have
-            // different decorator types. Decorators on individual fields are not merged, as it's
-            // also incredibly unlikely that a field will be decorated both with an Angular
-            // decorator and a non-Angular decorator that's also been downleveled.
-            if (clazz.propDecorators !== undefined &&
-                (!parentConstructor ||
-                    parentConstructor.propDecorators !== clazz.propDecorators)) {
-                clazz.propDecorators = Object.assign(Object.assign({}, clazz.propDecorators), propDecorators);
-            }
-            else {
-                clazz.propDecorators = propDecorators;
-            }
-        }
-    }))));
-}
-
-/**
- * @fileoverview added by tsickle
  * Generated from: packages/core/src/linker/ng_module_factory_registration.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
@@ -39628,17 +48816,14 @@ class NgModuleRef$1 extends NgModuleRef {
         this.componentFactoryResolver = new ComponentFactoryResolver$1(this);
         /** @type {?} */
         const ngModuleDef = getNgModuleDef(ngModuleType);
-        ngDevMode &&
-            assertDefined(ngModuleDef, `NgModule '${stringify(ngModuleType)}' is not a subtype of 'NgModuleType'.`);
+        ngDevMode && assertDefined(ngModuleDef, `NgModule '${stringify(ngModuleType)}' is not a subtype of 'NgModuleType'.`);
         /** @type {?} */
         const ngLocaleIdDef = getNgLocaleIdDef(ngModuleType);
         ngLocaleIdDef && setLocaleId(ngLocaleIdDef);
         this._bootstrapComponents = maybeUnwrapFn((/** @type {?} */ (ngModuleDef)).bootstrap);
         this._r3Injector = (/** @type {?} */ (createInjectorWithoutInjectorInstances(ngModuleType, _parent, [
-            { provide: NgModuleRef, useValue: this }, {
-                provide: ComponentFactoryResolver,
-                useValue: this.componentFactoryResolver
-            }
+            { provide: NgModuleRef, useValue: this },
+            { provide: ComponentFactoryResolver, useValue: this.componentFactoryResolver }
         ], stringify(ngModuleType))));
         // We need to resolve the injector types separately from the injector creation, because
         // the module might be trying to use this ref in its contructor for DI which will cause a
@@ -39731,6 +48916,76 @@ class NgModuleFactory$1 extends NgModuleFactory {
     }
 }
 if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/core/src/render3/metadata.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+function TypeWithMetadata() { }
+if (false) {}
+/**
+ * Adds decorator, constructor, and property metadata to a given type via static metadata fields
+ * on the type.
+ *
+ * These metadata fields can later be read with Angular's `ReflectionCapabilities` API.
+ *
+ * Calls to `setClassMetadata` can be marked as pure, resulting in the metadata assignments being
+ * tree-shaken away during production builds.
+ * @param {?} type
+ * @param {?} decorators
+ * @param {?} ctorParameters
+ * @param {?} propDecorators
+ * @return {?}
+ */
+function setClassMetadata(type, decorators, ctorParameters, propDecorators) {
+    return (/** @type {?} */ (noSideEffects((/**
+     * @return {?}
+     */
+    () => {
+        /** @type {?} */
+        const clazz = (/** @type {?} */ (type));
+        // We determine whether a class has its own metadata by taking the metadata from the parent
+        // constructor and checking whether it's the same as the subclass metadata below. We can't use
+        // `hasOwnProperty` here because it doesn't work correctly in IE10 for static fields that are
+        // defined by TS. See https://github.com/angular/angular/pull/28439#issuecomment-459349218.
+        /** @type {?} */
+        const parentPrototype = clazz.prototype ? Object.getPrototypeOf(clazz.prototype) : null;
+        /** @type {?} */
+        const parentConstructor = parentPrototype && parentPrototype.constructor;
+        if (decorators !== null) {
+            if (clazz.decorators !== undefined &&
+                (!parentConstructor || parentConstructor.decorators !== clazz.decorators)) {
+                clazz.decorators.push(...decorators);
+            }
+            else {
+                clazz.decorators = decorators;
+            }
+        }
+        if (ctorParameters !== null) {
+            // Rather than merging, clobber the existing parameters. If other projects exist which use
+            // tsickle-style annotations and reflect over them in the same way, this could cause issues,
+            // but that is vanishingly unlikely.
+            clazz.ctorParameters = ctorParameters;
+        }
+        if (propDecorators !== null) {
+            // The property decorator objects are merged as it is possible different fields have different
+            // decorator types. Decorators on individual fields are not merged, as it's also incredibly
+            // unlikely that a field will be decorated both with an Angular decorator and a non-Angular
+            // decorator that's also been downleveled.
+            if (clazz.propDecorators !== undefined &&
+                (!parentConstructor || parentConstructor.propDecorators !== clazz.propDecorators)) {
+                clazz.propDecorators = Object.assign(Object.assign({}, clazz.propDecorators), propDecorators);
+            }
+            else {
+                clazz.propDecorators = propDecorators;
+            }
+        }
+    }))));
+}
 
 /**
  * @fileoverview added by tsickle
@@ -39894,7 +49149,8 @@ function ɵɵpureFunction6(slotOffset, pureFn, exp1, exp2, exp3, exp4, exp5, exp
     /** @type {?} */
     const different = bindingUpdated4(lView, bindingIndex, exp1, exp2, exp3, exp4);
     return bindingUpdated2(lView, bindingIndex + 4, exp5, exp6) || different ?
-        updateBinding(lView, bindingIndex + 6, thisArg ? pureFn.call(thisArg, exp1, exp2, exp3, exp4, exp5, exp6) :
+        updateBinding(lView, bindingIndex + 6, thisArg ?
+            pureFn.call(thisArg, exp1, exp2, exp3, exp4, exp5, exp6) :
             pureFn(exp1, exp2, exp3, exp4, exp5, exp6)) :
         getBinding(lView, bindingIndex + 6);
 }
@@ -39924,7 +49180,8 @@ function ɵɵpureFunction7(slotOffset, pureFn, exp1, exp2, exp3, exp4, exp5, exp
     /** @type {?} */
     let different = bindingUpdated4(lView, bindingIndex, exp1, exp2, exp3, exp4);
     return bindingUpdated3(lView, bindingIndex + 4, exp5, exp6, exp7) || different ?
-        updateBinding(lView, bindingIndex + 7, thisArg ? pureFn.call(thisArg, exp1, exp2, exp3, exp4, exp5, exp6, exp7) :
+        updateBinding(lView, bindingIndex + 7, thisArg ?
+            pureFn.call(thisArg, exp1, exp2, exp3, exp4, exp5, exp6, exp7) :
             pureFn(exp1, exp2, exp3, exp4, exp5, exp6, exp7)) :
         getBinding(lView, bindingIndex + 7);
 }
@@ -39955,7 +49212,8 @@ function ɵɵpureFunction8(slotOffset, pureFn, exp1, exp2, exp3, exp4, exp5, exp
     /** @type {?} */
     const different = bindingUpdated4(lView, bindingIndex, exp1, exp2, exp3, exp4);
     return bindingUpdated4(lView, bindingIndex + 4, exp5, exp6, exp7, exp8) || different ?
-        updateBinding(lView, bindingIndex + 8, thisArg ? pureFn.call(thisArg, exp1, exp2, exp3, exp4, exp5, exp6, exp7, exp8) :
+        updateBinding(lView, bindingIndex + 8, thisArg ?
+            pureFn.call(thisArg, exp1, exp2, exp3, exp4, exp5, exp6, exp7, exp8) :
             pureFn(exp1, exp2, exp3, exp4, exp5, exp6, exp7, exp8)) :
         getBinding(lView, bindingIndex + 8);
 }
@@ -40138,13 +49396,8 @@ function ɵɵpipe(index, pipeName) {
     const pipeFactory = pipeDef.factory || (pipeDef.factory = getFactoryDef(pipeDef.type, true));
     /** @type {?} */
     const previousInjectImplementation = setInjectImplementation(ɵɵdirectiveInject);
-    // DI for pipes is supposed to behave like directives when placed on a component
-    // host node, which means that we have to disable access to `viewProviders`.
-    /** @type {?} */
-    const previousIncludeViewProviders = setIncludeViewProviders(false);
     /** @type {?} */
     const pipeInstance = pipeFactory();
-    setIncludeViewProviders(previousIncludeViewProviders);
     setInjectImplementation(previousInjectImplementation);
     store(tView, getLView(), index, pipeInstance);
     return pipeInstance;
@@ -40387,9 +49640,7 @@ class EventEmitter extends rxjs__WEBPACK_IMPORTED_MODULE_0__["Subject"] {
      * @param {?=} value The value to emit.
      * @return {?}
      */
-    emit(value) {
-        super.next(value);
-    }
+    emit(value) { super.next(value); }
     /**
      * Registers handlers for events emitted by this instance.
      * @param {?=} generatorOrNext When supplied, a custom handler for emitted events.
@@ -40427,42 +49678,34 @@ class EventEmitter extends rxjs__WEBPACK_IMPORTED_MODULE_0__["Subject"] {
              * @param {?} value
              * @return {?}
              */
-            (value) => {
-                generatorOrNext.next(value);
-            });
+            (value) => { generatorOrNext.next(value); });
             if (generatorOrNext.error) {
                 errorFn = this.__isAsync ? (/**
                  * @param {?} err
                  * @return {?}
                  */
-                (err) => {
-                    setTimeout((/**
-                     * @return {?}
-                     */
-                    () => generatorOrNext.error(err)));
-                }) : (/**
-                 * @param {?} err
+                (err) => { setTimeout((/**
                  * @return {?}
                  */
-                (err) => {
-                    generatorOrNext.error(err);
-                });
+                () => generatorOrNext.error(err))); }) :
+                    (/**
+                     * @param {?} err
+                     * @return {?}
+                     */
+                    (err) => { generatorOrNext.error(err); });
             }
             if (generatorOrNext.complete) {
                 completeFn = this.__isAsync ? (/**
                  * @return {?}
                  */
-                () => {
-                    setTimeout((/**
-                     * @return {?}
-                     */
-                    () => generatorOrNext.complete()));
-                }) : (/**
+                () => { setTimeout((/**
                  * @return {?}
                  */
-                () => {
-                    generatorOrNext.complete();
-                });
+                () => generatorOrNext.complete())); }) :
+                    (/**
+                     * @return {?}
+                     */
+                    () => { generatorOrNext.complete(); });
             }
         }
         else {
@@ -40470,51 +49713,42 @@ class EventEmitter extends rxjs__WEBPACK_IMPORTED_MODULE_0__["Subject"] {
              * @param {?} value
              * @return {?}
              */
-            (value) => {
-                setTimeout((/**
-                 * @return {?}
-                 */
-                () => generatorOrNext(value)));
-            }) : (/**
-             * @param {?} value
+            (value) => { setTimeout((/**
              * @return {?}
              */
-            (value) => {
-                generatorOrNext(value);
-            });
-            if (error) {
-                errorFn = this.__isAsync ? (/**
-                 * @param {?} err
+            () => generatorOrNext(value))); }) :
+                (/**
+                 * @param {?} value
                  * @return {?}
                  */
-                (err) => {
-                    setTimeout((/**
+                (value) => { generatorOrNext(value); });
+            if (error) {
+                errorFn =
+                    this.__isAsync ? (/**
+                     * @param {?} err
                      * @return {?}
                      */
-                    () => error(err)));
-                }) : (/**
-                 * @param {?} err
-                 * @return {?}
-                 */
-                (err) => {
-                    error(err);
-                });
+                    (err) => { setTimeout((/**
+                     * @return {?}
+                     */
+                    () => error(err))); }) : (/**
+                     * @param {?} err
+                     * @return {?}
+                     */
+                    (err) => { error(err); });
             }
             if (complete) {
-                completeFn = this.__isAsync ? (/**
-                 * @return {?}
-                 */
-                () => {
-                    setTimeout((/**
+                completeFn =
+                    this.__isAsync ? (/**
                      * @return {?}
                      */
-                    () => complete()));
-                }) : (/**
-                 * @return {?}
-                 */
-                () => {
-                    complete();
-                });
+                    () => { setTimeout((/**
+                     * @return {?}
+                     */
+                    () => complete())); }) : (/**
+                     * @return {?}
+                     */
+                    () => { complete(); });
             }
         }
         /** @type {?} */
@@ -40591,9 +49825,7 @@ class QueryList {
      * @param {?} fn
      * @return {?}
      */
-    map(fn) {
-        return this._results.map(fn);
-    }
+    map(fn) { return this._results.map(fn); }
     /**
      * See
      * [Array.filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
@@ -40629,9 +49861,7 @@ class QueryList {
      * @param {?} fn
      * @return {?}
      */
-    forEach(fn) {
-        this._results.forEach(fn);
-    }
+    forEach(fn) { this._results.forEach(fn); }
     /**
      * See
      * [Array.some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
@@ -40645,15 +49875,11 @@ class QueryList {
      * Returns a copy of the internal results list as an Array.
      * @return {?}
      */
-    toArray() {
-        return this._results.slice();
-    }
+    toArray() { return this._results.slice(); }
     /**
      * @return {?}
      */
-    toString() {
-        return this._results.toString();
-    }
+    toString() { return this._results.toString(); }
     /**
      * Updates the stored data of the query list, and resets the `dirty` flag to `false`, so that
      * on change detection, it will not notify of changes to the queries, unless a new change
@@ -40673,16 +49899,12 @@ class QueryList {
      * Triggers a change event by emitting on the `changes` {\@link EventEmitter}.
      * @return {?}
      */
-    notifyOnChanges() {
-        ((/** @type {?} */ (this.changes))).emit(this);
-    }
+    notifyOnChanges() { ((/** @type {?} */ (this.changes))).emit(this); }
     /**
      * internal
      * @return {?}
      */
-    setDirty() {
-        ((/** @type {?} */ (this))).dirty = true;
-    }
+    setDirty() { ((/** @type {?} */ (this))).dirty = true; }
     /**
      * internal
      * @return {?}
@@ -40877,15 +50099,11 @@ class LQuery_ {
     /**
      * @return {?}
      */
-    clone() {
-        return new LQuery_(this.queryList);
-    }
+    clone() { return new LQuery_(this.queryList); }
     /**
      * @return {?}
      */
-    setDirty() {
-        this.queryList.setDirty();
-    }
+    setDirty() { this.queryList.setDirty(); }
 }
 if (false) {}
 class LQueries_ {
@@ -40926,16 +50144,12 @@ class LQueries_ {
      * @param {?} tView
      * @return {?}
      */
-    insertView(tView) {
-        this.dirtyQueriesWithMatches(tView);
-    }
+    insertView(tView) { this.dirtyQueriesWithMatches(tView); }
     /**
      * @param {?} tView
      * @return {?}
      */
-    detachView(tView) {
-        this.dirtyQueriesWithMatches(tView);
-    }
+    detachView(tView) { this.dirtyQueriesWithMatches(tView); }
     /**
      * @private
      * @param {?} tView
@@ -40978,8 +50192,7 @@ class TQueries_ {
      * @return {?}
      */
     elementStart(tView, tNode) {
-        ngDevMode &&
-            assertFirstCreatePass(tView, 'Queries should collect results on the first template pass only');
+        ngDevMode && assertFirstCreatePass(tView, 'Queries should collect results on the first template pass only');
         for (let i = 0; i < this.queries.length; i++) {
             this.queries[i].elementStart(tView, tNode);
         }
@@ -41023,8 +50236,7 @@ class TQueries_ {
      * @return {?}
      */
     template(tView, tNode) {
-        ngDevMode &&
-            assertFirstCreatePass(tView, 'Queries should collect results on the first template pass only');
+        ngDevMode && assertFirstCreatePass(tView, 'Queries should collect results on the first template pass only');
         for (let i = 0; i < this.queries.length; i++) {
             this.queries[i].template(tView, tNode);
         }
@@ -41040,16 +50252,12 @@ class TQueries_ {
     /**
      * @return {?}
      */
-    get length() {
-        return this.queries.length;
-    }
+    get length() { return this.queries.length; }
     /**
      * @param {?} tquery
      * @return {?}
      */
-    track(tquery) {
-        this.queries.push(tquery);
-    }
+    track(tquery) { this.queries.push(tquery); }
 }
 if (false) {}
 class TQuery_ {
@@ -41094,9 +50302,7 @@ class TQuery_ {
      * @param {?} tNode
      * @return {?}
      */
-    template(tView, tNode) {
-        this.elementStart(tView, tNode);
-    }
+    template(tView, tNode) { this.elementStart(tView, tNode); }
     /**
      * @param {?} tNode
      * @param {?} childQueryIndex
@@ -41282,8 +50488,7 @@ function createSpecialToken(lView, tNode, read) {
         return createTemplateRef(TemplateRef, ElementRef, tNode, lView);
     }
     else if (read === ViewContainerRef) {
-        ngDevMode &&
-            assertNodeOfPossibleTypes(tNode, 3 /* Element */, 0 /* Container */, 4 /* ElementContainer */);
+        ngDevMode && assertNodeOfPossibleTypes(tNode, 3 /* Element */, 0 /* Container */, 4 /* ElementContainer */);
         return createContainerRef(ViewContainerRef, ElementRef, (/** @type {?} */ (tNode)), lView);
     }
     else {
@@ -41673,7 +50878,10 @@ const ɵ0$d = /**
     'ɵɵProvidersFeature': ɵɵProvidersFeature,
     'ɵɵCopyDefinitionFeature': ɵɵCopyDefinitionFeature,
     'ɵɵInheritDefinitionFeature': ɵɵInheritDefinitionFeature,
+    'ɵɵcontainer': ɵɵcontainer,
     'ɵɵnextContext': ɵɵnextContext,
+    'ɵɵcontainerRefreshStart': ɵɵcontainerRefreshStart,
+    'ɵɵcontainerRefreshEnd': ɵɵcontainerRefreshEnd,
     'ɵɵnamespaceHTML': ɵɵnamespaceHTML,
     'ɵɵnamespaceMathML': ɵɵnamespaceMathML,
     'ɵɵnamespaceSVG': ɵɵnamespaceSVG,
@@ -41773,6 +50981,8 @@ const ɵ0$d = /**
     'ɵɵtextInterpolate7': ɵɵtextInterpolate7,
     'ɵɵtextInterpolate8': ɵɵtextInterpolate8,
     'ɵɵtextInterpolateV': ɵɵtextInterpolateV,
+    'ɵɵembeddedViewStart': ɵɵembeddedViewStart,
+    'ɵɵembeddedViewEnd': ɵɵembeddedViewEnd,
     'ɵɵi18n': ɵɵi18n,
     'ɵɵi18nAttributes': ɵɵi18nAttributes,
     'ɵɵi18nExp': ɵɵi18nExp,
@@ -41800,50 +51010,6 @@ const ɵ0$d = /**
  * @type {?}
  */
 const angularCoreEnv = ((ɵ0$d))();
-
-/**
- * @fileoverview added by tsickle
- * Generated from: packages/core/src/render3/jit/jit_options.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @record
- */
-function JitCompilerOptions() { }
-if (false) {}
-/** @type {?} */
-let jitOptions = null;
-/**
- * @param {?} options
- * @return {?}
- */
-function setJitOptions(options) {
-    if (jitOptions !== null) {
-        if (options.defaultEncapsulation !== jitOptions.defaultEncapsulation) {
-            ngDevMode &&
-                console.error('Provided value for `defaultEncapsulation` can not be changed once it has been set.');
-            return;
-        }
-        if (options.preserveWhitespaces !== jitOptions.preserveWhitespaces) {
-            ngDevMode &&
-                console.error('Provided value for `preserveWhitespaces` can not be changed once it has been set.');
-            return;
-        }
-    }
-    jitOptions = options;
-}
-/**
- * @return {?}
- */
-function getJitOptions() {
-    return jitOptions;
-}
-/**
- * @return {?}
- */
-function resetJitOptions() {
-    jitOptions = null;
-}
 
 /**
  * @fileoverview added by tsickle
@@ -41985,8 +51151,7 @@ function compileNgModuleDefs(moduleType, ngModule, allowDuplicateDeclarationsInR
          */
         () => {
             if (ngInjectorDef === null) {
-                ngDevMode &&
-                    verifySemanticsOfNgModuleDef((/** @type {?} */ ((/** @type {?} */ (moduleType)))), allowDuplicateDeclarationsInRoot);
+                ngDevMode && verifySemanticsOfNgModuleDef((/** @type {?} */ ((/** @type {?} */ (moduleType)))), allowDuplicateDeclarationsInRoot);
                 /** @type {?} */
                 const meta = {
                     name: moduleType.name,
@@ -42553,36 +51718,10 @@ function compileComponent(type, metadata) {
                     error.push(`Did you run and wait for 'resolveComponentResources()'?`);
                     throw new Error(error.join('\n'));
                 }
-                // This const was called `jitOptions` previously but had to be renamed to `options` because
-                // of a bug with Terser that caused optimized JIT builds to throw a `ReferenceError`.
-                // This bug was investigated in https://github.com/angular/angular-cli/issues/17264.
-                // We should not rename it back until https://github.com/terser/terser/issues/615 is fixed.
-                /** @type {?} */
-                const options = getJitOptions();
-                /** @type {?} */
-                let preserveWhitespaces = metadata.preserveWhitespaces;
-                if (preserveWhitespaces === undefined) {
-                    if (options !== null && options.preserveWhitespaces !== undefined) {
-                        preserveWhitespaces = options.preserveWhitespaces;
-                    }
-                    else {
-                        preserveWhitespaces = false;
-                    }
-                }
-                /** @type {?} */
-                let encapsulation = metadata.encapsulation;
-                if (encapsulation === undefined) {
-                    if (options !== null && options.defaultEncapsulation !== undefined) {
-                        encapsulation = options.defaultEncapsulation;
-                    }
-                    else {
-                        encapsulation = ViewEncapsulation$1.Emulated;
-                    }
-                }
                 /** @type {?} */
                 const templateUrl = metadata.templateUrl || `ng:///${type.name}/template.html`;
                 /** @type {?} */
-                const meta = Object.assign(Object.assign({}, directiveMetadata(type, metadata)), { typeSourceSpan: compiler.createParseSourceSpan('Component', type.name, templateUrl), template: metadata.template || '', preserveWhitespaces, styles: metadata.styles || EMPTY_ARRAY, animations: metadata.animations, directives: [], changeDetection: metadata.changeDetection, pipes: new Map(), encapsulation, interpolation: metadata.interpolation, viewProviders: metadata.viewProviders || null });
+                const meta = Object.assign(Object.assign({}, directiveMetadata(type, metadata)), { typeSourceSpan: compiler.createParseSourceSpan('Component', type.name, templateUrl), template: metadata.template || '', preserveWhitespaces: metadata.preserveWhitespaces || false, styles: metadata.styles || EMPTY_ARRAY, animations: metadata.animations, directives: [], changeDetection: metadata.changeDetection, pipes: new Map(), encapsulation: metadata.encapsulation || ViewEncapsulation$1.Emulated, interpolation: metadata.interpolation, viewProviders: metadata.viewProviders || null });
                 if (meta.usesInheritance) {
                     addDirectiveDefToUndecoratedParents(type);
                 }
@@ -43316,14 +52455,6 @@ const SWITCH_COMPILE_NGMODULE = SWITCH_COMPILE_NGMODULE__POST_R3__;
  */
 
 /**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-
-/**
  * @fileoverview added by tsickle
  * Generated from: packages/core/src/application_init.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
@@ -43393,20 +52524,14 @@ class ApplicationInitStatus {
                 }
             }
         }
-        Promise.all(asyncInitPromises)
-            .then((/**
+        Promise.all(asyncInitPromises).then((/**
          * @return {?}
          */
-        () => {
-            complete();
-        }))
-            .catch((/**
+        () => { complete(); })).catch((/**
          * @param {?} e
          * @return {?}
          */
-        e => {
-            this.reject(e);
-        }));
+        e => { this.reject(e); }));
         if (asyncInitPromises.length === 0) {
             complete();
         }
@@ -43818,9 +52943,7 @@ class Compiler {
      * @param {?} moduleType
      * @return {?}
      */
-    getModuleId(moduleType) {
-        return undefined;
-    }
+    getModuleId(moduleType) { return undefined; }
 }
 Compiler.ɵfac = function Compiler_Factory(t) { return new (t || Compiler)(); };
 Compiler.ɵprov = ɵɵdefineInjectable({ token: Compiler, factory: Compiler.ɵfac });
@@ -43856,9 +52979,7 @@ const promise = (() => Promise.resolve(0))();
 function scheduleMicroTask(fn) {
     if (typeof Zone === 'undefined') {
         // use promise to schedule microTask instead of use Zone
-        promise.then(() => {
-            fn && fn.apply(null, null);
-        });
+        promise.then(() => { fn && fn.apply(null, null); });
     }
     else {
         Zone.current.scheduleMicroTask('scheduleMicrotask', fn);
@@ -44025,9 +53146,7 @@ class NgZone {
     /**
      * @return {?}
      */
-    static isInAngularZone() {
-        return Zone.current.get('isAngularZone') === true;
-    }
+    static isInAngularZone() { return Zone.current.get('isAngularZone') === true; }
     /**
      * @return {?}
      */
@@ -44191,9 +53310,7 @@ function forkInnerZoneWithAngularBehavior(zone) {
     const delayChangeDetectionForEventsDelegate = (/**
      * @return {?}
      */
-    () => {
-        delayChangeDetectionForEvents(zone);
-    });
+    () => { delayChangeDetectionForEvents(zone); });
     /** @type {?} */
     const maybeDelayChangeDetection = !!zone.shouldCoalesceEventChangeDetection &&
         zone.nativeRequestAnimationFrame && delayChangeDetectionForEventsDelegate;
@@ -44347,9 +53464,7 @@ class NoopNgZone {
      * @param {?} fn
      * @return {?}
      */
-    runOutsideAngular(fn) {
-        return fn();
-    }
+    runOutsideAngular(fn) { return fn(); }
     /**
      * @param {?} fn
      * @param {?=} applyThis
@@ -44593,9 +53708,7 @@ class Testability {
      * @deprecated pending requests are now tracked with zones
      * @return {?}
      */
-    getPendingRequestCount() {
-        return this._pendingCount;
-    }
+    getPendingRequestCount() { return this._pendingCount; }
     /**
      * Find providers by name
      * @param {?} using The root element to search from
@@ -44644,38 +53757,28 @@ class TestabilityRegistry {
      * @param {?} token token of application, root element
      * @return {?}
      */
-    unregisterApplication(token) {
-        this._applications.delete(token);
-    }
+    unregisterApplication(token) { this._applications.delete(token); }
     /**
      * Unregisters all applications
      * @return {?}
      */
-    unregisterAllApplications() {
-        this._applications.clear();
-    }
+    unregisterAllApplications() { this._applications.clear(); }
     /**
      * Get a testability hook associated with the application
      * @param {?} elem root element
      * @return {?}
      */
-    getTestability(elem) {
-        return this._applications.get(elem) || null;
-    }
+    getTestability(elem) { return this._applications.get(elem) || null; }
     /**
      * Get all registered testabilities
      * @return {?}
      */
-    getAllTestabilities() {
-        return Array.from(this._applications.values());
-    }
+    getAllTestabilities() { return Array.from(this._applications.values()); }
     /**
      * Get all registered applications(root elements)
      * @return {?}
      */
-    getAllRootElements() {
-        return Array.from(this._applications.keys());
-    }
+    getAllRootElements() { return Array.from(this._applications.keys()); }
     /**
      * Find testability of a node in the Tree
      * @param {?} elem node
@@ -44765,29 +53868,12 @@ function compileNgModuleFactory__PRE_R3__(injector, options, moduleType) {
 function compileNgModuleFactory__POST_R3__(injector, options, moduleType) {
     ngDevMode && assertNgModuleType(moduleType);
     /** @type {?} */
-    const compilerOptions = injector.get(COMPILER_OPTIONS, []).concat(options);
-    if (typeof ngJitMode === 'undefined' || ngJitMode) {
-        // Configure the compiler to use the provided options. This call may fail when multiple modules
-        // are bootstrapped with incompatible options, as a component can only be compiled according to
-        // a single set of options.
-        setJitOptions({
-            defaultEncapsulation: _lastDefined(compilerOptions.map((/**
-             * @param {?} options
-             * @return {?}
-             */
-            options => options.defaultEncapsulation))),
-            preserveWhitespaces: _lastDefined(compilerOptions.map((/**
-             * @param {?} options
-             * @return {?}
-             */
-            options => options.preserveWhitespaces))),
-        });
-    }
-    /** @type {?} */
     const moduleFactory = new NgModuleFactory$1(moduleType);
     if (isComponentResourceResolutionQueueEmpty()) {
         return Promise.resolve(moduleFactory);
     }
+    /** @type {?} */
+    const compilerOptions = injector.get(COMPILER_OPTIONS, []).concat(options);
     /** @type {?} */
     const compilerProviders = _mergeArrays(compilerOptions.map((/**
      * @param {?} o
@@ -45060,15 +54146,11 @@ class PlatformRef {
             (/** @type {?} */ (ngZone)).runOutsideAngular((/**
              * @return {?}
              */
-            () => (/** @type {?} */ (ngZone)).onError.subscribe({
-                next: (/**
+            () => (/** @type {?} */ (ngZone)).onError.subscribe({ next: (/**
                  * @param {?} error
                  * @return {?}
                  */
-                (error) => {
-                    exceptionHandler.handleError(error);
-                })
-            })));
+                (error) => { exceptionHandler.handleError(error); }) })));
             return _callAndReportToErrorHandler(exceptionHandler, (/** @type {?} */ (ngZone)), (/**
              * @return {?}
              */
@@ -45141,8 +54223,7 @@ class PlatformRef {
             moduleRef.instance.ngDoBootstrap(appRef);
         }
         else {
-            throw new Error(`The module ${stringify(moduleRef.instance
-                .constructor)} was bootstrapped, but it does not declare "@NgModule.bootstrap" components nor a "ngDoBootstrap" method. ` +
+            throw new Error(`The module ${stringify(moduleRef.instance.constructor)} was bootstrapped, but it does not declare "@NgModule.bootstrap" components nor a "ngDoBootstrap" method. ` +
                 `Please define one of these.`);
         }
         this._modules.push(moduleRef);
@@ -45152,17 +54233,13 @@ class PlatformRef {
      * @param {?} callback
      * @return {?}
      */
-    onDestroy(callback) {
-        this._destroyListeners.push(callback);
-    }
+    onDestroy(callback) { this._destroyListeners.push(callback); }
     /**
      * Retrieve the platform {\@link Injector}, which is the parent injector for
      * every Angular application on the page and provides singleton providers.
      * @return {?}
      */
-    get injector() {
-        return this._injector;
-    }
+    get injector() { return this._injector; }
     /**
      * Destroy the Angular platform and all Angular applications on the page.
      * @return {?}
@@ -45186,9 +54263,7 @@ class PlatformRef {
     /**
      * @return {?}
      */
-    get destroyed() {
-        return this._destroyed;
-    }
+    get destroyed() { return this._destroyed; }
 }
 PlatformRef.ɵfac = function PlatformRef_Factory(t) { return new (t || PlatformRef)(ɵɵinject(Injector)); };
 PlatformRef.ɵprov = ɵɵdefineInjectable({ token: PlatformRef, factory: PlatformRef.ɵfac });
@@ -45397,19 +54472,13 @@ class ApplicationRef {
          */
         this.components = [];
         this._enforceNoNewChanges = isDevMode();
-        this._zone.onMicrotaskEmpty.subscribe({
-            next: (/**
+        this._zone.onMicrotaskEmpty.subscribe({ next: (/**
              * @return {?}
              */
-            () => {
-                this._zone.run((/**
-                 * @return {?}
-                 */
-                () => {
-                    this.tick();
-                }));
-            })
-        });
+            () => { this._zone.run((/**
+             * @return {?}
+             */
+            () => { this.tick(); })); }) });
         /** @type {?} */
         const isCurrentlyStable = new rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"]((/**
          * @param {?} observer
@@ -45470,9 +54539,7 @@ class ApplicationRef {
                     this._zone.runOutsideAngular((/**
                      * @return {?}
                      */
-                    () => {
-                        observer.next(false);
-                    }));
+                    () => { observer.next(false); }));
                 }
             }));
             return (/**
@@ -45530,9 +54597,7 @@ class ApplicationRef {
         compRef.onDestroy((/**
          * @return {?}
          */
-        () => {
-            this._unloadComponent(compRef);
-        }));
+        () => { this._unloadComponent(compRef); }));
         /** @type {?} */
         const testability = compRef.injector.get(Testability, null);
         if (testability) {
@@ -45649,9 +54714,7 @@ class ApplicationRef {
      * Returns the number of attached views.
      * @return {?}
      */
-    get viewCount() {
-        return this._views.length;
-    }
+    get viewCount() { return this._views.length; }
 }
 ApplicationRef.ɵfac = function ApplicationRef_Factory(t) { return new (t || ApplicationRef)(ɵɵinject(NgZone), ɵɵinject(Console), ɵɵinject(Injector), ɵɵinject(ErrorHandler), ɵɵinject(ComponentFactoryResolver), ɵɵinject(ApplicationInitStatus)); };
 ApplicationRef.ɵprov = ɵɵdefineInjectable({ token: ApplicationRef, factory: ApplicationRef.ɵfac });
@@ -45680,19 +54743,6 @@ function remove(list, el) {
     if (index > -1) {
         list.splice(index, 1);
     }
-}
-/**
- * @template T
- * @param {?} args
- * @return {?}
- */
-function _lastDefined(args) {
-    for (let i = args.length - 1; i >= 0; i--) {
-        if (args[i] !== undefined) {
-            return args[i];
-        }
-    }
-    return undefined;
 }
 /**
  * @param {?} parts
@@ -46031,33 +55081,23 @@ class DebugNode__PRE_R3__ {
     /**
      * @return {?}
      */
-    get injector() {
-        return this._debugContext.injector;
-    }
+    get injector() { return this._debugContext.injector; }
     /**
      * @return {?}
      */
-    get componentInstance() {
-        return this._debugContext.component;
-    }
+    get componentInstance() { return this._debugContext.component; }
     /**
      * @return {?}
      */
-    get context() {
-        return this._debugContext.context;
-    }
+    get context() { return this._debugContext.context; }
     /**
      * @return {?}
      */
-    get references() {
-        return this._debugContext.references;
-    }
+    get references() { return this._debugContext.references; }
     /**
      * @return {?}
      */
-    get providerTokens() {
-        return this._debugContext.providerTokens;
-    }
+    get providerTokens() { return this._debugContext.providerTokens; }
 }
 if (false) {}
 // WARNING: interface has both a type and a value, skipping emit
@@ -46172,7 +55212,8 @@ class DebugElement__PRE_R3__ extends DebugNode__PRE_R3__ {
      * @return {?}
      */
     get children() {
-        return (/** @type {?} */ (this.childNodes //
+        return (/** @type {?} */ (this
+            .childNodes //
             .filter((/**
          * @param {?} node
          * @return {?}
@@ -46255,9 +55296,7 @@ class DebugNode__POST_R3__ {
     /**
      * @param {?} nativeNode
      */
-    constructor(nativeNode) {
-        this.nativeNode = nativeNode;
-    }
+    constructor(nativeNode) { this.nativeNode = nativeNode; }
     /**
      * @return {?}
      */
@@ -46269,9 +55308,7 @@ class DebugNode__POST_R3__ {
     /**
      * @return {?}
      */
-    get injector() {
-        return getInjector(this.nativeNode);
-    }
+    get injector() { return getInjector(this.nativeNode); }
     /**
      * @return {?}
      */
@@ -46300,15 +55337,11 @@ class DebugNode__POST_R3__ {
     /**
      * @return {?}
      */
-    get references() {
-        return getLocalRefs(this.nativeNode);
-    }
+    get references() { return getLocalRefs(this.nativeNode); }
     /**
      * @return {?}
      */
-    get providerTokens() {
-        return getInjectionTokens((/** @type {?} */ (this.nativeNode)));
-    }
+    get providerTokens() { return getInjectionTokens((/** @type {?} */ (this.nativeNode))); }
 }
 if (false) {}
 class DebugElement__POST_R3__ extends DebugNode__POST_R3__ {
@@ -47082,9 +56115,7 @@ function zoneSchedulerFactory(ngZone) {
      * @param {?} fn
      * @return {?}
      */
-    function (fn) {
-        queue.push(fn);
-    });
+    function (fn) { queue.push(fn); });
 }
 /**
  * Configures the root injector for an app with
@@ -47101,7 +56132,8 @@ class ApplicationModule {
     /**
      * @param {?} appRef
      */
-    constructor(appRef) { }
+    constructor(appRef) {
+    }
 }
 ApplicationModule.ɵmod = ɵɵdefineNgModule({ type: ApplicationModule });
 ApplicationModule.ɵinj = ɵɵdefineInjector({ factory: function ApplicationModule_Factory(t) { return new (t || ApplicationModule)(ɵɵinject(ApplicationRef)); }, providers: APPLICATION_MODULE_PROVIDERS });
@@ -47145,20 +56177,14 @@ function anchorDef(flags, matchedQueriesDsl, ngContentIndex, childCount, handleE
         checkIndex: -1,
         childFlags: 0,
         directChildFlags: 0,
-        childMatchedQueries: 0,
-        matchedQueries,
-        matchedQueryIds,
-        references,
-        ngContentIndex,
-        childCount,
+        childMatchedQueries: 0, matchedQueries, matchedQueryIds, references, ngContentIndex, childCount,
         bindings: [],
         bindingFlags: 0,
         outputs: [],
         element: {
             ns: null,
             name: null,
-            attrs: null,
-            template,
+            attrs: null, template,
             componentProvider: null,
             componentView: null,
             componentRendererType: null,
@@ -47226,8 +56252,11 @@ function elementDef(checkIndex, flags, matchedQueriesDsl, ngContentIndex, childC
     const outputDefs = [];
     for (let i = 0; i < outputs.length; i++) {
         const [target, eventName] = outputs[i];
-        outputDefs[i] =
-            { type: 0 /* ElementOutput */, target: (/** @type {?} */ (target)), eventName, propName: null };
+        outputDefs[i] = {
+            type: 0 /* ElementOutput */,
+            target: (/** @type {?} */ (target)), eventName,
+            propName: null
+        };
     }
     fixedAttrs = fixedAttrs || [];
     /** @type {?} */
@@ -47256,12 +56285,7 @@ function elementDef(checkIndex, flags, matchedQueriesDsl, ngContentIndex, childC
         flags,
         childFlags: 0,
         directChildFlags: 0,
-        childMatchedQueries: 0,
-        matchedQueries,
-        matchedQueryIds,
-        references,
-        ngContentIndex,
-        childCount,
+        childMatchedQueries: 0, matchedQueries, matchedQueryIds, references, ngContentIndex, childCount,
         bindings: bindingDefs,
         bindingFlags: calcBindingFlags(bindingDefs),
         outputs: outputDefs,
@@ -47579,8 +56603,7 @@ function queryDef(flags, id, bindings) {
         outputIndex: -1,
         // regular values
         // TODO(vicb): check
-        checkIndex: -1,
-        flags,
+        checkIndex: -1, flags,
         childFlags: 0,
         directChildFlags: 0,
         childMatchedQueries: 0,
@@ -47806,8 +56829,7 @@ function ngContentDef(ngContentIndex, index) {
         childMatchedQueries: 0,
         matchedQueries: {},
         matchedQueryIds: 0,
-        references: {},
-        ngContentIndex,
+        references: {}, ngContentIndex,
         childCount: 0,
         bindings: [],
         bindingFlags: 0,
@@ -47918,8 +56940,7 @@ function _pureExpressionDef(flags, checkIndex, propertyNames) {
         matchedQueryIds: 0,
         references: {},
         ngContentIndex: -1,
-        childCount: 0,
-        bindings,
+        childCount: 0, bindings,
         bindingFlags: calcBindingFlags(bindings),
         outputs: [],
         element: null,
@@ -48157,10 +57178,8 @@ function textDef(checkIndex, ngContentIndex, staticText) {
         childMatchedQueries: 0,
         matchedQueries: {},
         matchedQueryIds: 0,
-        references: {},
-        ngContentIndex,
-        childCount: 0,
-        bindings,
+        references: {}, ngContentIndex,
+        childCount: 0, bindings,
         bindingFlags: 8 /* TypeProperty */,
         outputs: [],
         element: null,
@@ -48448,15 +57467,12 @@ function viewDef(flags, nodes, updateDirectives, updateRenderer) {
         factory: null,
         nodeFlags: viewNodeFlags,
         rootNodeFlags: viewRootNodeFlags,
-        nodeMatchedQueries: viewMatchedQueries,
-        flags,
+        nodeMatchedQueries: viewMatchedQueries, flags,
         nodes: nodes,
         updateDirectives: updateDirectives || NOOP,
-        updateRenderer: updateRenderer || NOOP,
-        handleEvent,
+        updateRenderer: updateRenderer || NOOP, handleEvent,
         bindingCount: viewBindingCount,
-        outputCount: viewDisposableCount,
-        lastRenderRootNode
+        outputCount: viewDisposableCount, lastRenderRootNode
     };
 }
 /**
@@ -48574,16 +57590,11 @@ function createView(root, renderer, parent, parentNodeDef, def) {
     const view = {
         def,
         parent,
-        viewContainerParent: null,
-        parentNodeDef,
+        viewContainerParent: null, parentNodeDef,
         context: null,
-        component: null,
-        nodes,
-        state: 13 /* CatInit */,
-        root,
-        renderer,
-        oldValues: new Array(def.bindingCount),
-        disposables,
+        component: null, nodes,
+        state: 13 /* CatInit */, root, renderer,
+        oldValues: new Array(def.bindingCount), disposables,
         initIndex: -1
     };
     return view;
@@ -49238,13 +58249,15 @@ function createProdServices() {
          * @param {?} checkType
          * @return {?}
          */
-        (view, checkType) => view.def.updateDirectives(checkType === 0 /* CheckAndUpdate */ ? prodCheckAndUpdateNode : prodCheckNoChangesNode, view)),
+        (view, checkType) => view.def.updateDirectives(checkType === 0 /* CheckAndUpdate */ ? prodCheckAndUpdateNode :
+            prodCheckNoChangesNode, view)),
         updateRenderer: (/**
          * @param {?} view
          * @param {?} checkType
          * @return {?}
          */
-        (view, checkType) => view.def.updateRenderer(checkType === 0 /* CheckAndUpdate */ ? prodCheckAndUpdateNode : prodCheckNoChangesNode, view)),
+        (view, checkType) => view.def.updateRenderer(checkType === 0 /* CheckAndUpdate */ ? prodCheckAndUpdateNode :
+            prodCheckNoChangesNode, view)),
     };
 }
 /**
@@ -49323,13 +58336,8 @@ function createRootData(elInjector, ngModule, rendererFactory, projectableNodes,
     const renderer = rendererFactory.createRenderer(null, null);
     return {
         ngModule,
-        injector: elInjector,
-        projectableNodes,
-        selectorOrNode: rootSelectorOrNode,
-        sanitizer,
-        rendererFactory,
-        renderer,
-        errorHandler
+        injector: elInjector, projectableNodes,
+        selectorOrNode: rootSelectorOrNode, sanitizer, rendererFactory, renderer, errorHandler
     };
 }
 /**
@@ -49812,7 +58820,7 @@ function debugCheckAndUpdateNode(view, nodeDef, argStyle, givenValues) {
             const el = asElementData(view, elDef.nodeIndex).renderElement;
             if (!(/** @type {?} */ (elDef.element)).name) {
                 // a comment.
-                view.renderer.setValue(el, escapeCommentText(`bindings=${JSON.stringify(bindingValues, null, 2)}`));
+                view.renderer.setValue(el, `bindings=${JSON.stringify(bindingValues, null, 2)}`);
             }
             else {
                 // a regular element.
@@ -49909,21 +58917,15 @@ class DebugContext_ {
     /**
      * @return {?}
      */
-    get injector() {
-        return createInjector$1(this.elView, this.elDef);
-    }
+    get injector() { return createInjector$1(this.elView, this.elDef); }
     /**
      * @return {?}
      */
-    get component() {
-        return this.elOrCompView.component;
-    }
+    get component() { return this.elOrCompView.component; }
     /**
      * @return {?}
      */
-    get context() {
-        return this.elOrCompView.context;
-    }
+    get context() { return this.elOrCompView.context; }
     /**
      * @return {?}
      */
@@ -50162,9 +59164,7 @@ class DebugRenderer2 {
      * @param {?} nativeElement
      * @return {?}
      */
-    createDebugContext(nativeElement) {
-        return this.debugContextFactory(nativeElement);
-    }
+    createDebugContext(nativeElement) { return this.debugContextFactory(nativeElement); }
     /**
      * @param {?} node
      * @return {?}
@@ -50183,9 +59183,7 @@ class DebugRenderer2 {
     /**
      * @return {?}
      */
-    destroy() {
-        this.delegate.destroy();
-    }
+    destroy() { this.delegate.destroy(); }
     /**
      * @param {?} name
      * @param {?=} namespace
@@ -50210,7 +59208,7 @@ class DebugRenderer2 {
      */
     createComment(value) {
         /** @type {?} */
-        const comment = this.delegate.createComment(escapeCommentText(value));
+        const comment = this.delegate.createComment(value);
         /** @type {?} */
         const debugCtx = this.createDebugContext(comment);
         if (debugCtx) {
@@ -50417,24 +59415,18 @@ class DebugRenderer2 {
      * @param {?} node
      * @return {?}
      */
-    parentNode(node) {
-        return this.delegate.parentNode(node);
-    }
+    parentNode(node) { return this.delegate.parentNode(node); }
     /**
      * @param {?} node
      * @return {?}
      */
-    nextSibling(node) {
-        return this.delegate.nextSibling(node);
-    }
+    nextSibling(node) { return this.delegate.nextSibling(node); }
     /**
      * @param {?} node
      * @param {?} value
      * @return {?}
      */
-    setValue(node, value) {
-        return this.delegate.setValue(node, value);
-    }
+    setValue(node, value) { return this.delegate.setValue(node, value); }
 }
 if (false) {}
 
@@ -50494,10 +59486,7 @@ function cloneNgModuleDefinition(def) {
     }
     return {
         factory: def.factory,
-        scope: def.scope,
-        providers,
-        modules,
-        providersByKey,
+        scope: def.scope, providers, modules, providersByKey,
     };
 }
 class NgModuleFactory_ extends NgModuleFactory {
@@ -50597,6 +59586,843 @@ if (ngDevMode) {
 
 /***/ }),
 
+/***/ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/animations.js":
+/*!************************************************************************************!*\
+  !*** ./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/animations.js ***!
+  \************************************************************************************/
+/*! exports provided: ANIMATION_MODULE_TYPE, BrowserAnimationsModule, NoopAnimationsModule, ɵAnimationRenderer, ɵAnimationRendererFactory, ɵBrowserAnimationBuilder, ɵBrowserAnimationFactory, ɵInjectableAnimationEngine, ɵangular_packages_platform_browser_animations_animations_a, ɵangular_packages_platform_browser_animations_animations_b, ɵangular_packages_platform_browser_animations_animations_c, ɵangular_packages_platform_browser_animations_animations_d, ɵangular_packages_platform_browser_animations_animations_e, ɵangular_packages_platform_browser_animations_animations_f */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ANIMATION_MODULE_TYPE", function() { return ANIMATION_MODULE_TYPE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrowserAnimationsModule", function() { return BrowserAnimationsModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoopAnimationsModule", function() { return NoopAnimationsModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵAnimationRenderer", function() { return AnimationRenderer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵAnimationRendererFactory", function() { return AnimationRendererFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵBrowserAnimationBuilder", function() { return BrowserAnimationBuilder; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵBrowserAnimationFactory", function() { return BrowserAnimationFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵInjectableAnimationEngine", function() { return InjectableAnimationEngine; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_platform_browser_animations_animations_a", function() { return instantiateSupportedAnimationDriver; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_platform_browser_animations_animations_b", function() { return instantiateDefaultStyleNormalizer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_platform_browser_animations_animations_c", function() { return instantiateRendererFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_platform_browser_animations_animations_d", function() { return BROWSER_ANIMATIONS_PROVIDERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_platform_browser_animations_animations_e", function() { return BROWSER_NOOP_ANIMATIONS_PROVIDERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_platform_browser_animations_animations_f", function() { return BaseAnimationRenderer; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/__ivy_ngcc__/fesm2015/animations.js");
+/* harmony import */ var _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/animations/browser */ "./node_modules/@angular/animations/__ivy_ngcc__/fesm2015/browser.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/**
+ * @license Angular v9.0.7
+ * (c) 2010-2020 Google LLC. https://angular.io/
+ * License: MIT
+ */
+
+
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser/animations/src/animation_builder.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+
+class BrowserAnimationBuilder extends _angular_animations__WEBPACK_IMPORTED_MODULE_2__["AnimationBuilder"] {
+    /**
+     * @param {?} rootRenderer
+     * @param {?} doc
+     */
+    constructor(rootRenderer, doc) {
+        super();
+        this._nextAnimationId = 0;
+        /** @type {?} */
+        const typeData = (/** @type {?} */ ({
+            id: '0',
+            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None,
+            styles: [],
+            data: { animation: [] }
+        }));
+        this._renderer = (/** @type {?} */ (rootRenderer.createRenderer(doc.body, typeData)));
+    }
+    /**
+     * @param {?} animation
+     * @return {?}
+     */
+    build(animation) {
+        /** @type {?} */
+        const id = this._nextAnimationId.toString();
+        this._nextAnimationId++;
+        /** @type {?} */
+        const entry = Array.isArray(animation) ? Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["sequence"])(animation) : animation;
+        issueAnimationCommand(this._renderer, null, id, 'register', [entry]);
+        return new BrowserAnimationFactory(id, this._renderer);
+    }
+}
+BrowserAnimationBuilder.ɵfac = function BrowserAnimationBuilder_Factory(t) { return new (t || BrowserAnimationBuilder)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["RendererFactory2"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"])); };
+BrowserAnimationBuilder.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: BrowserAnimationBuilder, factory: BrowserAnimationBuilder.ɵfac });
+/** @nocollapse */
+BrowserAnimationBuilder.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["RendererFactory2"] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"],] }] }
+];
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](BrowserAnimationBuilder, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"]
+    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["RendererFactory2"] }, { type: undefined, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
+                args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
+            }] }]; }, null); })();
+if (false) {}
+class BrowserAnimationFactory extends _angular_animations__WEBPACK_IMPORTED_MODULE_2__["AnimationFactory"] {
+    /**
+     * @param {?} _id
+     * @param {?} _renderer
+     */
+    constructor(_id, _renderer) {
+        super();
+        this._id = _id;
+        this._renderer = _renderer;
+    }
+    /**
+     * @param {?} element
+     * @param {?=} options
+     * @return {?}
+     */
+    create(element, options) {
+        return new RendererAnimationPlayer(this._id, element, options || {}, this._renderer);
+    }
+}
+if (false) {}
+class RendererAnimationPlayer {
+    /**
+     * @param {?} id
+     * @param {?} element
+     * @param {?} options
+     * @param {?} _renderer
+     */
+    constructor(id, element, options, _renderer) {
+        this.id = id;
+        this.element = element;
+        this._renderer = _renderer;
+        this.parentPlayer = null;
+        this._started = false;
+        this.totalTime = 0;
+        this._command('create', options);
+    }
+    /**
+     * @private
+     * @param {?} eventName
+     * @param {?} callback
+     * @return {?}
+     */
+    _listen(eventName, callback) {
+        return this._renderer.listen(this.element, `@@${this.id}:${eventName}`, callback);
+    }
+    /**
+     * @private
+     * @param {?} command
+     * @param {...?} args
+     * @return {?}
+     */
+    _command(command, ...args) {
+        return issueAnimationCommand(this._renderer, this.element, this.id, command, args);
+    }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onDone(fn) { this._listen('done', fn); }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onStart(fn) { this._listen('start', fn); }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    onDestroy(fn) { this._listen('destroy', fn); }
+    /**
+     * @return {?}
+     */
+    init() { this._command('init'); }
+    /**
+     * @return {?}
+     */
+    hasStarted() { return this._started; }
+    /**
+     * @return {?}
+     */
+    play() {
+        this._command('play');
+        this._started = true;
+    }
+    /**
+     * @return {?}
+     */
+    pause() { this._command('pause'); }
+    /**
+     * @return {?}
+     */
+    restart() { this._command('restart'); }
+    /**
+     * @return {?}
+     */
+    finish() { this._command('finish'); }
+    /**
+     * @return {?}
+     */
+    destroy() { this._command('destroy'); }
+    /**
+     * @return {?}
+     */
+    reset() { this._command('reset'); }
+    /**
+     * @param {?} p
+     * @return {?}
+     */
+    setPosition(p) { this._command('setPosition', p); }
+    /**
+     * @return {?}
+     */
+    getPosition() { return 0; }
+}
+if (false) {}
+/**
+ * @param {?} renderer
+ * @param {?} element
+ * @param {?} id
+ * @param {?} command
+ * @param {?} args
+ * @return {?}
+ */
+function issueAnimationCommand(renderer, element, id, command, args) {
+    return renderer.setProperty(element, `@@${id}:${command}`, args);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser/animations/src/animation_renderer.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const ANIMATION_PREFIX = '@';
+/** @type {?} */
+const DISABLE_ANIMATIONS_FLAG = '@.disabled';
+/**
+ * @record
+ */
+function RecursiveAnimationTriggerMetadata() { }
+class AnimationRendererFactory {
+    /**
+     * @param {?} delegate
+     * @param {?} engine
+     * @param {?} _zone
+     */
+    constructor(delegate, engine, _zone) {
+        this.delegate = delegate;
+        this.engine = engine;
+        this._zone = _zone;
+        this._currentId = 0;
+        this._microtaskId = 1;
+        this._animationCallbacksBuffer = [];
+        this._rendererCache = new Map();
+        this._cdRecurDepth = 0;
+        this.promise = Promise.resolve(0);
+        engine.onRemovalComplete = (/**
+         * @param {?} element
+         * @param {?} delegate
+         * @return {?}
+         */
+        (element, delegate) => {
+            // Note: if an component element has a leave animation, and the component
+            // a host leave animation, the view engine will call `removeChild` for the parent
+            // component renderer as well as for the child component renderer.
+            // Therefore, we need to check if we already removed the element.
+            if (delegate && delegate.parentNode(element)) {
+                delegate.removeChild(element.parentNode, element);
+            }
+        });
+    }
+    /**
+     * @param {?} hostElement
+     * @param {?} type
+     * @return {?}
+     */
+    createRenderer(hostElement, type) {
+        /** @type {?} */
+        const EMPTY_NAMESPACE_ID = '';
+        // cache the delegates to find out which cached delegate can
+        // be used by which cached renderer
+        /** @type {?} */
+        const delegate = this.delegate.createRenderer(hostElement, type);
+        if (!hostElement || !type || !type.data || !type.data['animation']) {
+            /** @type {?} */
+            let renderer = this._rendererCache.get(delegate);
+            if (!renderer) {
+                renderer = new BaseAnimationRenderer(EMPTY_NAMESPACE_ID, delegate, this.engine);
+                // only cache this result when the base renderer is used
+                this._rendererCache.set(delegate, renderer);
+            }
+            return renderer;
+        }
+        /** @type {?} */
+        const componentId = type.id;
+        /** @type {?} */
+        const namespaceId = type.id + '-' + this._currentId;
+        this._currentId++;
+        this.engine.register(namespaceId, hostElement);
+        /** @type {?} */
+        const registerTrigger = (/**
+         * @param {?} trigger
+         * @return {?}
+         */
+        (trigger) => {
+            if (Array.isArray(trigger)) {
+                trigger.forEach(registerTrigger);
+            }
+            else {
+                this.engine.registerTrigger(componentId, namespaceId, hostElement, trigger.name, trigger);
+            }
+        });
+        /** @type {?} */
+        const animationTriggers = (/** @type {?} */ (type.data['animation']));
+        animationTriggers.forEach(registerTrigger);
+        return new AnimationRenderer(this, namespaceId, delegate, this.engine);
+    }
+    /**
+     * @return {?}
+     */
+    begin() {
+        this._cdRecurDepth++;
+        if (this.delegate.begin) {
+            this.delegate.begin();
+        }
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _scheduleCountTask() {
+        // always use promise to schedule microtask instead of use Zone
+        this.promise.then((/**
+         * @return {?}
+         */
+        () => { this._microtaskId++; }));
+    }
+    /**
+     * \@internal
+     * @param {?} count
+     * @param {?} fn
+     * @param {?} data
+     * @return {?}
+     */
+    scheduleListenerCallback(count, fn, data) {
+        if (count >= 0 && count < this._microtaskId) {
+            this._zone.run((/**
+             * @return {?}
+             */
+            () => fn(data)));
+            return;
+        }
+        if (this._animationCallbacksBuffer.length == 0) {
+            Promise.resolve(null).then((/**
+             * @return {?}
+             */
+            () => {
+                this._zone.run((/**
+                 * @return {?}
+                 */
+                () => {
+                    this._animationCallbacksBuffer.forEach((/**
+                     * @param {?} tuple
+                     * @return {?}
+                     */
+                    tuple => {
+                        const [fn, data] = tuple;
+                        fn(data);
+                    }));
+                    this._animationCallbacksBuffer = [];
+                }));
+            }));
+        }
+        this._animationCallbacksBuffer.push([fn, data]);
+    }
+    /**
+     * @return {?}
+     */
+    end() {
+        this._cdRecurDepth--;
+        // this is to prevent animations from running twice when an inner
+        // component does CD when a parent component instead has inserted it
+        if (this._cdRecurDepth == 0) {
+            this._zone.runOutsideAngular((/**
+             * @return {?}
+             */
+            () => {
+                this._scheduleCountTask();
+                this.engine.flush(this._microtaskId);
+            }));
+        }
+        if (this.delegate.end) {
+            this.delegate.end();
+        }
+    }
+    /**
+     * @return {?}
+     */
+    whenRenderingDone() { return this.engine.whenRenderingDone(); }
+}
+AnimationRendererFactory.ɵfac = function AnimationRendererFactory_Factory(t) { return new (t || AnimationRendererFactory)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["RendererFactory2"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵAnimationEngine"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+AnimationRendererFactory.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: AnimationRendererFactory, factory: AnimationRendererFactory.ɵfac });
+/** @nocollapse */
+AnimationRendererFactory.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["RendererFactory2"] },
+    { type: _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵAnimationEngine"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AnimationRendererFactory, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"]
+    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["RendererFactory2"] }, { type: _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵAnimationEngine"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, null); })();
+if (false) {}
+class BaseAnimationRenderer {
+    /**
+     * @param {?} namespaceId
+     * @param {?} delegate
+     * @param {?} engine
+     */
+    constructor(namespaceId, delegate, engine) {
+        this.namespaceId = namespaceId;
+        this.delegate = delegate;
+        this.engine = engine;
+        this.destroyNode = this.delegate.destroyNode ? (/**
+         * @param {?} n
+         * @return {?}
+         */
+        (n) => (/** @type {?} */ (delegate.destroyNode))(n)) : null;
+    }
+    /**
+     * @return {?}
+     */
+    get data() { return this.delegate.data; }
+    /**
+     * @return {?}
+     */
+    destroy() {
+        this.engine.destroy(this.namespaceId, this.delegate);
+        this.delegate.destroy();
+    }
+    /**
+     * @param {?} name
+     * @param {?=} namespace
+     * @return {?}
+     */
+    createElement(name, namespace) {
+        return this.delegate.createElement(name, namespace);
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    createComment(value) { return this.delegate.createComment(value); }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    createText(value) { return this.delegate.createText(value); }
+    /**
+     * @param {?} parent
+     * @param {?} newChild
+     * @return {?}
+     */
+    appendChild(parent, newChild) {
+        this.delegate.appendChild(parent, newChild);
+        this.engine.onInsert(this.namespaceId, newChild, parent, false);
+    }
+    /**
+     * @param {?} parent
+     * @param {?} newChild
+     * @param {?} refChild
+     * @return {?}
+     */
+    insertBefore(parent, newChild, refChild) {
+        this.delegate.insertBefore(parent, newChild, refChild);
+        this.engine.onInsert(this.namespaceId, newChild, parent, true);
+    }
+    /**
+     * @param {?} parent
+     * @param {?} oldChild
+     * @param {?} isHostElement
+     * @return {?}
+     */
+    removeChild(parent, oldChild, isHostElement) {
+        this.engine.onRemove(this.namespaceId, oldChild, this.delegate, isHostElement);
+    }
+    /**
+     * @param {?} selectorOrNode
+     * @param {?=} preserveContent
+     * @return {?}
+     */
+    selectRootElement(selectorOrNode, preserveContent) {
+        return this.delegate.selectRootElement(selectorOrNode, preserveContent);
+    }
+    /**
+     * @param {?} node
+     * @return {?}
+     */
+    parentNode(node) { return this.delegate.parentNode(node); }
+    /**
+     * @param {?} node
+     * @return {?}
+     */
+    nextSibling(node) { return this.delegate.nextSibling(node); }
+    /**
+     * @param {?} el
+     * @param {?} name
+     * @param {?} value
+     * @param {?=} namespace
+     * @return {?}
+     */
+    setAttribute(el, name, value, namespace) {
+        this.delegate.setAttribute(el, name, value, namespace);
+    }
+    /**
+     * @param {?} el
+     * @param {?} name
+     * @param {?=} namespace
+     * @return {?}
+     */
+    removeAttribute(el, name, namespace) {
+        this.delegate.removeAttribute(el, name, namespace);
+    }
+    /**
+     * @param {?} el
+     * @param {?} name
+     * @return {?}
+     */
+    addClass(el, name) { this.delegate.addClass(el, name); }
+    /**
+     * @param {?} el
+     * @param {?} name
+     * @return {?}
+     */
+    removeClass(el, name) { this.delegate.removeClass(el, name); }
+    /**
+     * @param {?} el
+     * @param {?} style
+     * @param {?} value
+     * @param {?=} flags
+     * @return {?}
+     */
+    setStyle(el, style, value, flags) {
+        this.delegate.setStyle(el, style, value, flags);
+    }
+    /**
+     * @param {?} el
+     * @param {?} style
+     * @param {?=} flags
+     * @return {?}
+     */
+    removeStyle(el, style, flags) {
+        this.delegate.removeStyle(el, style, flags);
+    }
+    /**
+     * @param {?} el
+     * @param {?} name
+     * @param {?} value
+     * @return {?}
+     */
+    setProperty(el, name, value) {
+        if (name.charAt(0) == ANIMATION_PREFIX && name == DISABLE_ANIMATIONS_FLAG) {
+            this.disableAnimations(el, !!value);
+        }
+        else {
+            this.delegate.setProperty(el, name, value);
+        }
+    }
+    /**
+     * @param {?} node
+     * @param {?} value
+     * @return {?}
+     */
+    setValue(node, value) { this.delegate.setValue(node, value); }
+    /**
+     * @param {?} target
+     * @param {?} eventName
+     * @param {?} callback
+     * @return {?}
+     */
+    listen(target, eventName, callback) {
+        return this.delegate.listen(target, eventName, callback);
+    }
+    /**
+     * @protected
+     * @param {?} element
+     * @param {?} value
+     * @return {?}
+     */
+    disableAnimations(element, value) {
+        this.engine.disableAnimations(element, value);
+    }
+}
+if (false) {}
+class AnimationRenderer extends BaseAnimationRenderer {
+    /**
+     * @param {?} factory
+     * @param {?} namespaceId
+     * @param {?} delegate
+     * @param {?} engine
+     */
+    constructor(factory, namespaceId, delegate, engine) {
+        super(namespaceId, delegate, engine);
+        this.factory = factory;
+        this.namespaceId = namespaceId;
+    }
+    /**
+     * @param {?} el
+     * @param {?} name
+     * @param {?} value
+     * @return {?}
+     */
+    setProperty(el, name, value) {
+        if (name.charAt(0) == ANIMATION_PREFIX) {
+            if (name.charAt(1) == '.' && name == DISABLE_ANIMATIONS_FLAG) {
+                value = value === undefined ? true : !!value;
+                this.disableAnimations(el, (/** @type {?} */ (value)));
+            }
+            else {
+                this.engine.process(this.namespaceId, el, name.substr(1), value);
+            }
+        }
+        else {
+            this.delegate.setProperty(el, name, value);
+        }
+    }
+    /**
+     * @param {?} target
+     * @param {?} eventName
+     * @param {?} callback
+     * @return {?}
+     */
+    listen(target, eventName, callback) {
+        if (eventName.charAt(0) == ANIMATION_PREFIX) {
+            /** @type {?} */
+            const element = resolveElementFromTarget(target);
+            /** @type {?} */
+            let name = eventName.substr(1);
+            /** @type {?} */
+            let phase = '';
+            // @listener.phase is for trigger animation callbacks
+            // @@listener is for animation builder callbacks
+            if (name.charAt(0) != ANIMATION_PREFIX) {
+                [name, phase] = parseTriggerCallbackName(name);
+            }
+            return this.engine.listen(this.namespaceId, element, name, phase, (/**
+             * @param {?} event
+             * @return {?}
+             */
+            event => {
+                /** @type {?} */
+                const countId = ((/** @type {?} */ (event)))['_data'] || -1;
+                this.factory.scheduleListenerCallback(countId, callback, event);
+            }));
+        }
+        return this.delegate.listen(target, eventName, callback);
+    }
+}
+if (false) {}
+/**
+ * @param {?} target
+ * @return {?}
+ */
+function resolveElementFromTarget(target) {
+    switch (target) {
+        case 'body':
+            return document.body;
+        case 'document':
+            return document;
+        case 'window':
+            return window;
+        default:
+            return target;
+    }
+}
+/**
+ * @param {?} triggerName
+ * @return {?}
+ */
+function parseTriggerCallbackName(triggerName) {
+    /** @type {?} */
+    const dotIndex = triggerName.indexOf('.');
+    /** @type {?} */
+    const trigger = triggerName.substring(0, dotIndex);
+    /** @type {?} */
+    const phase = triggerName.substr(dotIndex + 1);
+    return [trigger, phase];
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser/animations/src/providers.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class InjectableAnimationEngine extends _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵAnimationEngine"] {
+    /**
+     * @param {?} doc
+     * @param {?} driver
+     * @param {?} normalizer
+     */
+    constructor(doc, driver, normalizer) {
+        super(doc.body, driver, normalizer);
+    }
+}
+InjectableAnimationEngine.ɵfac = function InjectableAnimationEngine_Factory(t) { return new (t || InjectableAnimationEngine)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["AnimationDriver"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵAnimationStyleNormalizer"])); };
+InjectableAnimationEngine.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: InjectableAnimationEngine, factory: InjectableAnimationEngine.ɵfac });
+/** @nocollapse */
+InjectableAnimationEngine.ctorParameters = () => [
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"],] }] },
+    { type: _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["AnimationDriver"] },
+    { type: _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵAnimationStyleNormalizer"] }
+];
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](InjectableAnimationEngine, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"]
+    }], function () { return [{ type: undefined, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
+                args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"]]
+            }] }, { type: _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["AnimationDriver"] }, { type: _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵAnimationStyleNormalizer"] }]; }, null); })();
+/**
+ * @return {?}
+ */
+function instantiateSupportedAnimationDriver() {
+    return Object(_angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵsupportsWebAnimations"])() ? new _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵWebAnimationsDriver"]() : new _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵCssKeyframesDriver"]();
+}
+/**
+ * @return {?}
+ */
+function instantiateDefaultStyleNormalizer() {
+    return new _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵWebAnimationsStyleNormalizer"]();
+}
+/**
+ * @param {?} renderer
+ * @param {?} engine
+ * @param {?} zone
+ * @return {?}
+ */
+function instantiateRendererFactory(renderer, engine, zone) {
+    return new AnimationRendererFactory(renderer, engine, zone);
+}
+/**
+ * \@publicApi
+ * @type {?}
+ */
+const ANIMATION_MODULE_TYPE = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('AnimationModuleType');
+/** @type {?} */
+const SHARED_ANIMATION_PROVIDERS = [
+    { provide: _angular_animations__WEBPACK_IMPORTED_MODULE_2__["AnimationBuilder"], useClass: BrowserAnimationBuilder },
+    { provide: _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵAnimationStyleNormalizer"], useFactory: instantiateDefaultStyleNormalizer },
+    { provide: _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵAnimationEngine"], useClass: InjectableAnimationEngine }, {
+        provide: _angular_core__WEBPACK_IMPORTED_MODULE_0__["RendererFactory2"],
+        useFactory: instantiateRendererFactory,
+        deps: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["ɵDomRendererFactory2"], _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵAnimationEngine"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]]
+    }
+];
+/**
+ * Separate providers from the actual module so that we can do a local modification in Google3 to
+ * include them in the BrowserModule.
+ * @type {?}
+ */
+const BROWSER_ANIMATIONS_PROVIDERS = [
+    { provide: _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["AnimationDriver"], useFactory: instantiateSupportedAnimationDriver },
+    { provide: ANIMATION_MODULE_TYPE, useValue: 'BrowserAnimations' }, ...SHARED_ANIMATION_PROVIDERS
+];
+/**
+ * Separate providers from the actual module so that we can do a local modification in Google3 to
+ * include them in the BrowserTestingModule.
+ * @type {?}
+ */
+const BROWSER_NOOP_ANIMATIONS_PROVIDERS = [
+    { provide: _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["AnimationDriver"], useClass: _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__["ɵNoopAnimationDriver"] },
+    { provide: ANIMATION_MODULE_TYPE, useValue: 'NoopAnimations' }, ...SHARED_ANIMATION_PROVIDERS
+];
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser/animations/src/module.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Exports `BrowserModule` with additional [dependency-injection providers](guide/glossary#provider)
+ * for use with animations. See [Animations](guide/animations).
+ * \@publicApi
+ */
+class BrowserAnimationsModule {
+}
+BrowserAnimationsModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: BrowserAnimationsModule });
+BrowserAnimationsModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function BrowserAnimationsModule_Factory(t) { return new (t || BrowserAnimationsModule)(); }, providers: BROWSER_ANIMATIONS_PROVIDERS, imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](BrowserAnimationsModule, { exports: function () { return [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"]]; } }); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](BrowserAnimationsModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+                exports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"]],
+                providers: BROWSER_ANIMATIONS_PROVIDERS
+            }]
+    }], null, null); })();
+/**
+ * A null player that must be imported to allow disabling of animations.
+ * \@publicApi
+ */
+class NoopAnimationsModule {
+}
+NoopAnimationsModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: NoopAnimationsModule });
+NoopAnimationsModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function NoopAnimationsModule_Factory(t) { return new (t || NoopAnimationsModule)(); }, providers: BROWSER_NOOP_ANIMATIONS_PROVIDERS, imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](NoopAnimationsModule, { exports: function () { return [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"]]; } }); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](NoopAnimationsModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+                exports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"]],
+                providers: BROWSER_NOOP_ANIMATIONS_PROVIDERS
+            }]
+    }], null, null); })();
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser/animations/src/private_export.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser/animations/src/animations.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser/animations/public_api.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/platform-browser/animations/index.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+
+//# sourceMappingURL=animations.js.map
+
+/***/ }),
+
 /***/ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js":
 /*!******************************************************************************************!*\
   !*** ./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js ***!
@@ -50666,7 +60492,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ɵgetDOM", function() { return _angular_common__WEBPACK_IMPORTED_MODULE_0__["ɵgetDOM"]; });
 
 /**
- * @license Angular v9.1.13
+ * @license Angular v9.0.7
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -50689,15 +60515,11 @@ __webpack_require__.r(__webpack_exports__);
  * @abstract
  */
 class GenericBrowserDomAdapter extends _angular_common__WEBPACK_IMPORTED_MODULE_0__["ɵDomAdapter"] {
-    constructor() {
-        super();
-    }
+    constructor() { super(); }
     /**
      * @return {?}
      */
-    supportsDOMEvents() {
-        return true;
-    }
+    supportsDOMEvents() { return true; }
 }
 
 /**
@@ -50734,17 +60556,13 @@ class BrowserDomAdapter extends GenericBrowserDomAdapter {
     /**
      * @return {?}
      */
-    static makeCurrent() {
-        Object(_angular_common__WEBPACK_IMPORTED_MODULE_0__["ɵsetRootDomAdapter"])(new BrowserDomAdapter());
-    }
+    static makeCurrent() { Object(_angular_common__WEBPACK_IMPORTED_MODULE_0__["ɵsetRootDomAdapter"])(new BrowserDomAdapter()); }
     /**
      * @param {?} el
      * @param {?} name
      * @return {?}
      */
-    getProperty(el, name) {
-        return ((/** @type {?} */ (el)))[name];
-    }
+    getProperty(el, name) { return ((/** @type {?} */ (el)))[name]; }
     /**
      * @param {?} error
      * @return {?}
@@ -50784,18 +60602,14 @@ class BrowserDomAdapter extends GenericBrowserDomAdapter {
         return (/**
          * @return {?}
          */
-        () => {
-            el.removeEventListener(evt, listener, false);
-        });
+        () => { el.removeEventListener(evt, listener, false); });
     }
     /**
      * @param {?} el
      * @param {?} evt
      * @return {?}
      */
-    dispatchEvent(el, evt) {
-        el.dispatchEvent(evt);
-    }
+    dispatchEvent(el, evt) { el.dispatchEvent(evt); }
     /**
      * @param {?} node
      * @return {?}
@@ -50810,9 +60624,7 @@ class BrowserDomAdapter extends GenericBrowserDomAdapter {
      * @param {?} el
      * @return {?}
      */
-    getValue(el) {
-        return el.value;
-    }
+    getValue(el) { return el.value; }
     /**
      * @param {?} tagName
      * @param {?=} doc
@@ -50831,23 +60643,17 @@ class BrowserDomAdapter extends GenericBrowserDomAdapter {
     /**
      * @return {?}
      */
-    getDefaultDocument() {
-        return document;
-    }
+    getDefaultDocument() { return document; }
     /**
      * @param {?} node
      * @return {?}
      */
-    isElementNode(node) {
-        return node.nodeType === Node.ELEMENT_NODE;
-    }
+    isElementNode(node) { return node.nodeType === Node.ELEMENT_NODE; }
     /**
      * @param {?} node
      * @return {?}
      */
-    isShadowRoot(node) {
-        return node instanceof DocumentFragment;
-    }
+    isShadowRoot(node) { return node instanceof DocumentFragment; }
     /**
      * @param {?} doc
      * @param {?} target
@@ -50868,15 +60674,11 @@ class BrowserDomAdapter extends GenericBrowserDomAdapter {
     /**
      * @return {?}
      */
-    getHistory() {
-        return window.history;
-    }
+    getHistory() { return window.history; }
     /**
      * @return {?}
      */
-    getLocation() {
-        return window.location;
-    }
+    getLocation() { return window.location; }
     /**
      * @param {?} doc
      * @return {?}
@@ -50889,15 +60691,11 @@ class BrowserDomAdapter extends GenericBrowserDomAdapter {
     /**
      * @return {?}
      */
-    resetBaseElement() {
-        baseElement = null;
-    }
+    resetBaseElement() { baseElement = null; }
     /**
      * @return {?}
      */
-    getUserAgent() {
-        return window.navigator.userAgent;
-    }
+    getUserAgent() { return window.navigator.userAgent; }
     /**
      * @return {?}
      */
@@ -50910,16 +60708,12 @@ class BrowserDomAdapter extends GenericBrowserDomAdapter {
     /**
      * @return {?}
      */
-    supportsCookies() {
-        return true;
-    }
+    supportsCookies() { return true; }
     /**
      * @param {?} name
      * @return {?}
      */
-    getCookie(name) {
-        return Object(_angular_common__WEBPACK_IMPORTED_MODULE_0__["ɵparseCookieValue"])(document.cookie, name);
-    }
+    getCookie(name) { return Object(_angular_common__WEBPACK_IMPORTED_MODULE_0__["ɵparseCookieValue"])(document.cookie, name); }
 }
 /** @type {?} */
 let baseElement = null;
@@ -51015,9 +60809,7 @@ class BrowserGetTestability {
     /**
      * @return {?}
      */
-    static init() {
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["setTestabilityGetter"])(new BrowserGetTestability());
-    }
+    static init() { Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["setTestabilityGetter"])(new BrowserGetTestability()); }
     /**
      * @param {?} registry
      * @return {?}
@@ -51303,9 +61095,7 @@ class EventManager {
      * Retrieves the compilation zone in which event listeners are registered.
      * @return {?}
      */
-    getZone() {
-        return this._zone;
-    }
+    getZone() { return this._zone; }
     /**
      * \@internal
      * @param {?} eventName
@@ -51410,9 +61200,7 @@ class SharedStylesHost {
     /**
      * @return {?}
      */
-    getAllStyles() {
-        return Array.from(this._stylesSet);
-    }
+    getAllStyles() { return Array.from(this._stylesSet); }
 }
 SharedStylesHost.ɵfac = function SharedStylesHost_Factory(t) { return new (t || SharedStylesHost)(); };
 SharedStylesHost.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: SharedStylesHost, factory: SharedStylesHost.ɵfac });
@@ -51461,9 +61249,7 @@ class DomSharedStylesHost extends SharedStylesHost {
      * @param {?} hostNode
      * @return {?}
      */
-    removeHost(hostNode) {
-        this._hostNodes.delete(hostNode);
-    }
+    removeHost(hostNode) { this._hostNodes.delete(hostNode); }
     /**
      * @param {?} additions
      * @return {?}
@@ -51478,13 +61264,11 @@ class DomSharedStylesHost extends SharedStylesHost {
     /**
      * @return {?}
      */
-    ngOnDestroy() {
-        this._styleNodes.forEach((/**
-         * @param {?} styleNode
-         * @return {?}
-         */
-        styleNode => Object(_angular_common__WEBPACK_IMPORTED_MODULE_0__["ɵgetDOM"])().remove(styleNode)));
-    }
+    ngOnDestroy() { this._styleNodes.forEach((/**
+     * @param {?} styleNode
+     * @return {?}
+     */
+    styleNode => Object(_angular_common__WEBPACK_IMPORTED_MODULE_0__["ɵgetDOM"])().remove(styleNode))); }
 }
 DomSharedStylesHost.ɵfac = function DomSharedStylesHost_Factory(t) { return new (t || DomSharedStylesHost)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_0__["DOCUMENT"])); };
 DomSharedStylesHost.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: DomSharedStylesHost, factory: DomSharedStylesHost.ɵfac });
@@ -51688,24 +61472,18 @@ class DefaultDomRenderer2 {
      * @param {?} value
      * @return {?}
      */
-    createComment(value) {
-        return document.createComment(value);
-    }
+    createComment(value) { return document.createComment(value); }
     /**
      * @param {?} value
      * @return {?}
      */
-    createText(value) {
-        return document.createTextNode(value);
-    }
+    createText(value) { return document.createTextNode(value); }
     /**
      * @param {?} parent
      * @param {?} newChild
      * @return {?}
      */
-    appendChild(parent, newChild) {
-        parent.appendChild(newChild);
-    }
+    appendChild(parent, newChild) { parent.appendChild(newChild); }
     /**
      * @param {?} parent
      * @param {?} newChild
@@ -51748,16 +61526,12 @@ class DefaultDomRenderer2 {
      * @param {?} node
      * @return {?}
      */
-    parentNode(node) {
-        return node.parentNode;
-    }
+    parentNode(node) { return node.parentNode; }
     /**
      * @param {?} node
      * @return {?}
      */
-    nextSibling(node) {
-        return node.nextSibling;
-    }
+    nextSibling(node) { return node.nextSibling; }
     /**
      * @param {?} el
      * @param {?} name
@@ -51814,17 +61588,13 @@ class DefaultDomRenderer2 {
      * @param {?} name
      * @return {?}
      */
-    addClass(el, name) {
-        el.classList.add(name);
-    }
+    addClass(el, name) { el.classList.add(name); }
     /**
      * @param {?} el
      * @param {?} name
      * @return {?}
      */
-    removeClass(el, name) {
-        el.classList.remove(name);
-    }
+    removeClass(el, name) { el.classList.remove(name); }
     /**
      * @param {?} el
      * @param {?} style
@@ -51871,9 +61641,7 @@ class DefaultDomRenderer2 {
      * @param {?} value
      * @return {?}
      */
-    setValue(node, value) {
-        node.nodeValue = value;
-    }
+    setValue(node, value) { node.nodeValue = value; }
     /**
      * @param {?} target
      * @param {?} event
@@ -51925,9 +61693,7 @@ class EmulatedEncapsulationDomRenderer2 extends DefaultDomRenderer2 {
      * @param {?} element
      * @return {?}
      */
-    applyToHost(element) {
-        super.setAttribute(element, this.hostAttr, '');
-    }
+    applyToHost(element) { super.setAttribute(element, this.hostAttr, ''); }
     /**
      * @param {?} parent
      * @param {?} name
@@ -51974,15 +61740,11 @@ class ShadowDomRenderer extends DefaultDomRenderer2 {
      * @param {?} node
      * @return {?}
      */
-    nodeOrShadowRoot(node) {
-        return node === this.hostEl ? this.shadowRoot : node;
-    }
+    nodeOrShadowRoot(node) { return node === this.hostEl ? this.shadowRoot : node; }
     /**
      * @return {?}
      */
-    destroy() {
-        this.sharedStylesHost.removeHost(this.shadowRoot);
-    }
+    destroy() { this.sharedStylesHost.removeHost(this.shadowRoot); }
     /**
      * @param {?} parent
      * @param {?} newChild
@@ -52036,9 +61798,7 @@ class DomEventsPlugin extends EventManagerPlugin {
      * @param {?} eventName
      * @return {?}
      */
-    supports(eventName) {
-        return true;
-    }
+    supports(eventName) { return true; }
     /**
      * @param {?} element
      * @param {?} eventName
@@ -52251,9 +62011,7 @@ class HammerGesturesPlugin extends EventManagerPlugin {
             let deregister = (/**
              * @return {?}
              */
-            () => {
-                cancelRegistration = true;
-            });
+            () => { cancelRegistration = true; });
             this.loader()
                 .then((/**
              * @return {?}
@@ -52291,9 +62049,7 @@ class HammerGesturesPlugin extends EventManagerPlugin {
             return (/**
              * @return {?}
              */
-            () => {
-                deregister();
-            });
+            () => { deregister(); });
         }
         return zone.runOutsideAngular((/**
          * @return {?}
@@ -52311,9 +62067,7 @@ class HammerGesturesPlugin extends EventManagerPlugin {
                 zone.runGuarded((/**
                  * @return {?}
                  */
-                function () {
-                    handler(eventObj);
-                }));
+                function () { handler(eventObj); }));
             });
             mc.on(eventName, callback);
             return (/**
@@ -52332,9 +62086,7 @@ class HammerGesturesPlugin extends EventManagerPlugin {
      * @param {?} eventName
      * @return {?}
      */
-    isCustomEvent(eventName) {
-        return this._config.events.indexOf(eventName) > -1;
-    }
+    isCustomEvent(eventName) { return this._config.events.indexOf(eventName) > -1; }
 }
 HammerGesturesPlugin.ɵfac = function HammerGesturesPlugin_Factory(t) { return new (t || HammerGesturesPlugin)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_0__["DOCUMENT"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](HAMMER_GESTURE_CONFIG), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵConsole"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](HAMMER_LOADER, 8)); };
 HammerGesturesPlugin.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: HammerGesturesPlugin, factory: HammerGesturesPlugin.ɵfac });
@@ -52499,9 +62251,7 @@ class KeyEventsPlugin extends EventManagerPlugin {
      * @param {?} eventName The event name to query.
      * @return {?} True if the named key event is supported.
      */
-    supports(eventName) {
-        return KeyEventsPlugin.parseEventName(eventName) != null;
-    }
+    supports(eventName) { return KeyEventsPlugin.parseEventName(eventName) != null; }
     /**
      * Registers a handler for a specific element and key event.
      * @param {?} element The HTML element to receive event notifications.
@@ -52820,16 +62570,12 @@ class DomSanitizerImpl extends DomSanitizer {
      * @param {?} value
      * @return {?}
      */
-    bypassSecurityTrustHtml(value) {
-        return Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵbypassSanitizationTrustHtml"])(value);
-    }
+    bypassSecurityTrustHtml(value) { return Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵbypassSanitizationTrustHtml"])(value); }
     /**
      * @param {?} value
      * @return {?}
      */
-    bypassSecurityTrustStyle(value) {
-        return Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵbypassSanitizationTrustStyle"])(value);
-    }
+    bypassSecurityTrustStyle(value) { return Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵbypassSanitizationTrustStyle"])(value); }
     /**
      * @param {?} value
      * @return {?}
@@ -52841,9 +62587,7 @@ class DomSanitizerImpl extends DomSanitizer {
      * @param {?} value
      * @return {?}
      */
-    bypassSecurityTrustUrl(value) {
-        return Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵbypassSanitizationTrustUrl"])(value);
-    }
+    bypassSecurityTrustUrl(value) { return Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵbypassSanitizationTrustUrl"])(value); }
     /**
      * @param {?} value
      * @return {?}
@@ -53096,9 +62840,7 @@ class Meta {
      * @param {?} attrSelector
      * @return {?}
      */
-    removeTag(attrSelector) {
-        this.removeTagElement((/** @type {?} */ (this.getTag(attrSelector))));
-    }
+    removeTag(attrSelector) { this.removeTagElement((/** @type {?} */ (this.getTag(attrSelector)))); }
     /**
      * @param {?} meta
      * @return {?}
@@ -53220,17 +62962,13 @@ class Title {
      * Get the title of the current HTML document.
      * @return {?}
      */
-    getTitle() {
-        return this._doc.title;
-    }
+    getTitle() { return this._doc.title; }
     /**
      * Set the title of the current HTML document.
      * @param {?} newTitle
      * @return {?}
      */
-    setTitle(newTitle) {
-        this._doc.title = newTitle || '';
-    }
+    setTitle(newTitle) { this._doc.title = newTitle || ''; }
 }
 Title.ɵfac = function Title_Factory(t) { return new (t || Title)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_0__["DOCUMENT"])); };
 /** @nocollapse */
@@ -53286,9 +63024,7 @@ class AngularProfiler {
     /**
      * @param {?} ref
      */
-    constructor(ref) {
-        this.appRef = ref.injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ApplicationRef"]);
-    }
+    constructor(ref) { this.appRef = ref.injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ApplicationRef"]); }
     // tslint:disable:no-console
     /**
      * Exercises change detection in a loop and then prints the average amount of
@@ -53487,27 +63223,21 @@ class TransferState {
      * @param {?} value
      * @return {?}
      */
-    set(key, value) {
-        this.store[key] = value;
-    }
+    set(key, value) { this.store[key] = value; }
     /**
      * Remove a key from the store.
      * @template T
      * @param {?} key
      * @return {?}
      */
-    remove(key) {
-        delete this.store[key];
-    }
+    remove(key) { delete this.store[key]; }
     /**
      * Test whether a key exists in the store.
      * @template T
      * @param {?} key
      * @return {?}
      */
-    hasKey(key) {
-        return this.store.hasOwnProperty(key);
-    }
+    hasKey(key) { return this.store.hasOwnProperty(key); }
     /**
      * Register a callback to provide the value for a key when `toJson` is called.
      * @template T
@@ -53602,12 +63332,10 @@ class By {
      * {\@example platform-browser/dom/debug/ts/by/by.ts region='by_all'}
      * @return {?}
      */
-    static all() {
-        return (/**
-         * @return {?}
-         */
-        () => true);
-    }
+    static all() { return (/**
+     * @return {?}
+     */
+    () => true); }
     /**
      * Match elements by the given CSS selector.
      *
@@ -53676,7 +63404,7 @@ function elementMatches(n, selector) {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('9.1.13');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('9.0.7');
 
 /**
  * @fileoverview added by tsickle
@@ -53703,6 +63431,8708 @@ const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('9.1.1
 
 
 //# sourceMappingURL=platform-browser.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js ***!
+  \**********************************************************************/
+/*! exports provided: ActivatedRoute, ActivatedRouteSnapshot, ActivationEnd, ActivationStart, ChildActivationEnd, ChildActivationStart, ChildrenOutletContexts, DefaultUrlSerializer, GuardsCheckEnd, GuardsCheckStart, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, NoPreloading, OutletContext, PRIMARY_OUTLET, PreloadAllModules, PreloadingStrategy, ROUTER_CONFIGURATION, ROUTER_INITIALIZER, ROUTES, ResolveEnd, ResolveStart, RouteConfigLoadEnd, RouteConfigLoadStart, RouteReuseStrategy, Router, RouterEvent, RouterLink, RouterLinkActive, RouterLinkWithHref, RouterModule, RouterOutlet, RouterPreloader, RouterState, RouterStateSnapshot, RoutesRecognized, Scroll, UrlHandlingStrategy, UrlSegment, UrlSegmentGroup, UrlSerializer, UrlTree, VERSION, convertToParamMap, provideRoutes, ɵEmptyOutletComponent, ɵROUTER_PROVIDERS, ɵangular_packages_router_router_a, ɵangular_packages_router_router_b, ɵangular_packages_router_router_c, ɵangular_packages_router_router_d, ɵangular_packages_router_router_e, ɵangular_packages_router_router_f, ɵangular_packages_router_router_g, ɵangular_packages_router_router_h, ɵangular_packages_router_router_i, ɵangular_packages_router_router_j, ɵangular_packages_router_router_k, ɵangular_packages_router_router_l, ɵangular_packages_router_router_m, ɵangular_packages_router_router_n, ɵangular_packages_router_router_o, ɵflatten */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActivatedRoute", function() { return ActivatedRoute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActivatedRouteSnapshot", function() { return ActivatedRouteSnapshot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActivationEnd", function() { return ActivationEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActivationStart", function() { return ActivationStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChildActivationEnd", function() { return ChildActivationEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChildActivationStart", function() { return ChildActivationStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChildrenOutletContexts", function() { return ChildrenOutletContexts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DefaultUrlSerializer", function() { return DefaultUrlSerializer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GuardsCheckEnd", function() { return GuardsCheckEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GuardsCheckStart", function() { return GuardsCheckStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationCancel", function() { return NavigationCancel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationEnd", function() { return NavigationEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationError", function() { return NavigationError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationStart", function() { return NavigationStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoPreloading", function() { return NoPreloading; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OutletContext", function() { return OutletContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PRIMARY_OUTLET", function() { return PRIMARY_OUTLET; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PreloadAllModules", function() { return PreloadAllModules; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PreloadingStrategy", function() { return PreloadingStrategy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTER_CONFIGURATION", function() { return ROUTER_CONFIGURATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTER_INITIALIZER", function() { return ROUTER_INITIALIZER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTES", function() { return ROUTES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResolveEnd", function() { return ResolveEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResolveStart", function() { return ResolveStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouteConfigLoadEnd", function() { return RouteConfigLoadEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouteConfigLoadStart", function() { return RouteConfigLoadStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouteReuseStrategy", function() { return RouteReuseStrategy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return Router; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterEvent", function() { return RouterEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterLink", function() { return RouterLink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterLinkActive", function() { return RouterLinkActive; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterLinkWithHref", function() { return RouterLinkWithHref; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterModule", function() { return RouterModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterOutlet", function() { return RouterOutlet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterPreloader", function() { return RouterPreloader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterState", function() { return RouterState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterStateSnapshot", function() { return RouterStateSnapshot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoutesRecognized", function() { return RoutesRecognized; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Scroll", function() { return Scroll; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlHandlingStrategy", function() { return UrlHandlingStrategy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlSegment", function() { return UrlSegment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlSegmentGroup", function() { return UrlSegmentGroup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlSerializer", function() { return UrlSerializer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlTree", function() { return UrlTree; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VERSION", function() { return VERSION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "convertToParamMap", function() { return convertToParamMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "provideRoutes", function() { return provideRoutes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵEmptyOutletComponent", function() { return ɵEmptyOutletComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵROUTER_PROVIDERS", function() { return ROUTER_PROVIDERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_a", function() { return ROUTER_FORROOT_GUARD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_b", function() { return routerNgProbeToken; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_c", function() { return createRouterScroller; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_d", function() { return provideLocationStrategy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_e", function() { return provideForRootGuard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_f", function() { return setupRouter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_g", function() { return rootRoute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_h", function() { return RouterInitializer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_i", function() { return getAppInitializer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_j", function() { return getBootstrapListener; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_k", function() { return provideRouterInitializer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_l", function() { return ɵEmptyOutletComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_m", function() { return Tree; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_n", function() { return TreeNode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_o", function() { return RouterScroller; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵflatten", function() { return flatten; });
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/**
+ * @license Angular v9.0.7
+ * (c) 2010-2020 Google LLC. https://angular.io/
+ * License: MIT
+ */
+
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/events.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Base for events the router goes through, as opposed to events tied to a specific
+ * route. Fired one time for any given navigation.
+ *
+ * \@usageNotes
+ *
+ * ```ts
+ * class MyService {
+ *   constructor(public router: Router, logger: Logger) {
+ *     router.events.pipe(
+ *       filter(e => e instanceof RouterEvent)
+ *     ).subscribe(e => {
+ *       logger.log(e.id, e.url);
+ *     });
+ *   }
+ * }
+ * ```
+ *
+ * @see `Event`
+ * \@publicApi
+ */
+
+
+class RouterEvent {
+    /**
+     * @param {?} id
+     * @param {?} url
+     */
+    constructor(id, url) {
+        this.id = id;
+        this.url = url;
+    }
+}
+if (false) {}
+/**
+ * An event triggered when a navigation starts.
+ *
+ * \@publicApi
+ */
+class NavigationStart extends RouterEvent {
+    /**
+     * @param {?} id
+     * @param {?} url
+     * @param {?=} navigationTrigger
+     * @param {?=} restoredState
+     */
+    constructor(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, 
+    /** @docsNotRequired */
+    navigationTrigger = 'imperative', 
+    /** @docsNotRequired */
+    restoredState = null) {
+        super(id, url);
+        this.navigationTrigger = navigationTrigger;
+        this.restoredState = restoredState;
+    }
+    /**
+     * \@docsNotRequired
+     * @return {?}
+     */
+    toString() { return `NavigationStart(id: ${this.id}, url: '${this.url}')`; }
+}
+if (false) {}
+/**
+ * An event triggered when a navigation ends successfully.
+ *
+ * \@publicApi
+ */
+class NavigationEnd extends RouterEvent {
+    /**
+     * @param {?} id
+     * @param {?} url
+     * @param {?} urlAfterRedirects
+     */
+    constructor(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, urlAfterRedirects) {
+        super(id, url);
+        this.urlAfterRedirects = urlAfterRedirects;
+    }
+    /**
+     * \@docsNotRequired
+     * @return {?}
+     */
+    toString() {
+        return `NavigationEnd(id: ${this.id}, url: '${this.url}', urlAfterRedirects: '${this.urlAfterRedirects}')`;
+    }
+}
+if (false) {}
+/**
+ * An event triggered when a navigation is canceled, directly or indirectly.
+ *
+ * This can happen when a [route guard](guide/router#milestone-5-route-guards)
+ * returns `false` or initiates a redirect by returning a `UrlTree`.
+ *
+ * \@publicApi
+ */
+class NavigationCancel extends RouterEvent {
+    /**
+     * @param {?} id
+     * @param {?} url
+     * @param {?} reason
+     */
+    constructor(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, reason) {
+        super(id, url);
+        this.reason = reason;
+    }
+    /**
+     * \@docsNotRequired
+     * @return {?}
+     */
+    toString() { return `NavigationCancel(id: ${this.id}, url: '${this.url}')`; }
+}
+if (false) {}
+/**
+ * An event triggered when a navigation fails due to an unexpected error.
+ *
+ * \@publicApi
+ */
+class NavigationError extends RouterEvent {
+    /**
+     * @param {?} id
+     * @param {?} url
+     * @param {?} error
+     */
+    constructor(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, error) {
+        super(id, url);
+        this.error = error;
+    }
+    /**
+     * \@docsNotRequired
+     * @return {?}
+     */
+    toString() {
+        return `NavigationError(id: ${this.id}, url: '${this.url}', error: ${this.error})`;
+    }
+}
+if (false) {}
+/**
+ * An event triggered when routes are recognized.
+ *
+ * \@publicApi
+ */
+class RoutesRecognized extends RouterEvent {
+    /**
+     * @param {?} id
+     * @param {?} url
+     * @param {?} urlAfterRedirects
+     * @param {?} state
+     */
+    constructor(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, urlAfterRedirects, state) {
+        super(id, url);
+        this.urlAfterRedirects = urlAfterRedirects;
+        this.state = state;
+    }
+    /**
+     * \@docsNotRequired
+     * @return {?}
+     */
+    toString() {
+        return `RoutesRecognized(id: ${this.id}, url: '${this.url}', urlAfterRedirects: '${this.urlAfterRedirects}', state: ${this.state})`;
+    }
+}
+if (false) {}
+/**
+ * An event triggered at the start of the Guard phase of routing.
+ *
+ * \@publicApi
+ */
+class GuardsCheckStart extends RouterEvent {
+    /**
+     * @param {?} id
+     * @param {?} url
+     * @param {?} urlAfterRedirects
+     * @param {?} state
+     */
+    constructor(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, urlAfterRedirects, state) {
+        super(id, url);
+        this.urlAfterRedirects = urlAfterRedirects;
+        this.state = state;
+    }
+    /**
+     * @return {?}
+     */
+    toString() {
+        return `GuardsCheckStart(id: ${this.id}, url: '${this.url}', urlAfterRedirects: '${this.urlAfterRedirects}', state: ${this.state})`;
+    }
+}
+if (false) {}
+/**
+ * An event triggered at the end of the Guard phase of routing.
+ *
+ * \@publicApi
+ */
+class GuardsCheckEnd extends RouterEvent {
+    /**
+     * @param {?} id
+     * @param {?} url
+     * @param {?} urlAfterRedirects
+     * @param {?} state
+     * @param {?} shouldActivate
+     */
+    constructor(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, urlAfterRedirects, state, shouldActivate) {
+        super(id, url);
+        this.urlAfterRedirects = urlAfterRedirects;
+        this.state = state;
+        this.shouldActivate = shouldActivate;
+    }
+    /**
+     * @return {?}
+     */
+    toString() {
+        return `GuardsCheckEnd(id: ${this.id}, url: '${this.url}', urlAfterRedirects: '${this.urlAfterRedirects}', state: ${this.state}, shouldActivate: ${this.shouldActivate})`;
+    }
+}
+if (false) {}
+/**
+ * An event triggered at the the start of the Resolve phase of routing.
+ *
+ * Runs in the "resolve" phase whether or not there is anything to resolve.
+ * In future, may change to only run when there are things to be resolved.
+ *
+ * \@publicApi
+ */
+class ResolveStart extends RouterEvent {
+    /**
+     * @param {?} id
+     * @param {?} url
+     * @param {?} urlAfterRedirects
+     * @param {?} state
+     */
+    constructor(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, urlAfterRedirects, state) {
+        super(id, url);
+        this.urlAfterRedirects = urlAfterRedirects;
+        this.state = state;
+    }
+    /**
+     * @return {?}
+     */
+    toString() {
+        return `ResolveStart(id: ${this.id}, url: '${this.url}', urlAfterRedirects: '${this.urlAfterRedirects}', state: ${this.state})`;
+    }
+}
+if (false) {}
+/**
+ * An event triggered at the end of the Resolve phase of routing.
+ * @see `ResolveStart`.
+ *
+ * \@publicApi
+ */
+class ResolveEnd extends RouterEvent {
+    /**
+     * @param {?} id
+     * @param {?} url
+     * @param {?} urlAfterRedirects
+     * @param {?} state
+     */
+    constructor(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, urlAfterRedirects, state) {
+        super(id, url);
+        this.urlAfterRedirects = urlAfterRedirects;
+        this.state = state;
+    }
+    /**
+     * @return {?}
+     */
+    toString() {
+        return `ResolveEnd(id: ${this.id}, url: '${this.url}', urlAfterRedirects: '${this.urlAfterRedirects}', state: ${this.state})`;
+    }
+}
+if (false) {}
+/**
+ * An event triggered before lazy loading a route configuration.
+ *
+ * \@publicApi
+ */
+class RouteConfigLoadStart {
+    /**
+     * @param {?} route
+     */
+    constructor(route) {
+        this.route = route;
+    }
+    /**
+     * @return {?}
+     */
+    toString() { return `RouteConfigLoadStart(path: ${this.route.path})`; }
+}
+if (false) {}
+/**
+ * An event triggered when a route has been lazy loaded.
+ *
+ * \@publicApi
+ */
+class RouteConfigLoadEnd {
+    /**
+     * @param {?} route
+     */
+    constructor(route) {
+        this.route = route;
+    }
+    /**
+     * @return {?}
+     */
+    toString() { return `RouteConfigLoadEnd(path: ${this.route.path})`; }
+}
+if (false) {}
+/**
+ * An event triggered at the start of the child-activation
+ * part of the Resolve phase of routing.
+ * @see `ChildActivationEnd`
+ * @see `ResolveStart`
+ *
+ * \@publicApi
+ */
+class ChildActivationStart {
+    /**
+     * @param {?} snapshot
+     */
+    constructor(snapshot) {
+        this.snapshot = snapshot;
+    }
+    /**
+     * @return {?}
+     */
+    toString() {
+        /** @type {?} */
+        const path = this.snapshot.routeConfig && this.snapshot.routeConfig.path || '';
+        return `ChildActivationStart(path: '${path}')`;
+    }
+}
+if (false) {}
+/**
+ * An event triggered at the end of the child-activation part
+ * of the Resolve phase of routing.
+ * @see `ChildActivationStart`
+ * @see `ResolveStart` *
+ * \@publicApi
+ */
+class ChildActivationEnd {
+    /**
+     * @param {?} snapshot
+     */
+    constructor(snapshot) {
+        this.snapshot = snapshot;
+    }
+    /**
+     * @return {?}
+     */
+    toString() {
+        /** @type {?} */
+        const path = this.snapshot.routeConfig && this.snapshot.routeConfig.path || '';
+        return `ChildActivationEnd(path: '${path}')`;
+    }
+}
+if (false) {}
+/**
+ * An event triggered at the start of the activation part
+ * of the Resolve phase of routing.
+ * @see ActivationEnd`
+ * @see `ResolveStart`
+ *
+ * \@publicApi
+ */
+class ActivationStart {
+    /**
+     * @param {?} snapshot
+     */
+    constructor(snapshot) {
+        this.snapshot = snapshot;
+    }
+    /**
+     * @return {?}
+     */
+    toString() {
+        /** @type {?} */
+        const path = this.snapshot.routeConfig && this.snapshot.routeConfig.path || '';
+        return `ActivationStart(path: '${path}')`;
+    }
+}
+if (false) {}
+/**
+ * An event triggered at the end of the activation part
+ * of the Resolve phase of routing.
+ * @see `ActivationStart`
+ * @see `ResolveStart`
+ *
+ * \@publicApi
+ */
+class ActivationEnd {
+    /**
+     * @param {?} snapshot
+     */
+    constructor(snapshot) {
+        this.snapshot = snapshot;
+    }
+    /**
+     * @return {?}
+     */
+    toString() {
+        /** @type {?} */
+        const path = this.snapshot.routeConfig && this.snapshot.routeConfig.path || '';
+        return `ActivationEnd(path: '${path}')`;
+    }
+}
+if (false) {}
+/**
+ * An event triggered by scrolling.
+ *
+ * \@publicApi
+ */
+class Scroll {
+    /**
+     * @param {?} routerEvent
+     * @param {?} position
+     * @param {?} anchor
+     */
+    constructor(routerEvent, position, anchor) {
+        this.routerEvent = routerEvent;
+        this.position = position;
+        this.anchor = anchor;
+    }
+    /**
+     * @return {?}
+     */
+    toString() {
+        /** @type {?} */
+        const pos = this.position ? `${this.position[0]}, ${this.position[1]}` : null;
+        return `Scroll(anchor: '${this.anchor}', position: '${pos}')`;
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/components/empty_outlet.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * This component is used internally within the router to be a placeholder when an empty
+ * router-outlet is needed. For example, with a config such as:
+ *
+ * `{path: 'parent', outlet: 'nav', children: [...]}`
+ *
+ * In order to render, there needs to be a component on this config, which will default
+ * to this `EmptyOutletComponent`.
+ */
+class ɵEmptyOutletComponent {
+}
+ɵEmptyOutletComponent.ɵfac = function ɵEmptyOutletComponent_Factory(t) { return new (t || ɵEmptyOutletComponent)(); };
+ɵEmptyOutletComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: ɵEmptyOutletComponent, selectors: [["ng-component"]], decls: 1, vars: 0, template: function ɵEmptyOutletComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "router-outlet");
+    } }, directives: function () { return [RouterOutlet]; }, encapsulation: 2 });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](ɵEmptyOutletComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
+        args: [{ template: `<router-outlet></router-outlet>` }]
+    }], null, null); })();
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/shared.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * The primary routing outlet.
+ *
+ * \@publicApi
+ * @type {?}
+ */
+const PRIMARY_OUTLET = 'primary';
+/**
+ * A map that provides access to the required and optional parameters
+ * specific to a route.
+ * The map supports retrieving a single value with `get()`
+ * or multiple values with `getAll()`.
+ *
+ * @see [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
+ *
+ * \@publicApi
+ * @record
+ */
+function ParamMap() { }
+if (false) {}
+class ParamsAsMap {
+    /**
+     * @param {?} params
+     */
+    constructor(params) { this.params = params || {}; }
+    /**
+     * @param {?} name
+     * @return {?}
+     */
+    has(name) { return this.params.hasOwnProperty(name); }
+    /**
+     * @param {?} name
+     * @return {?}
+     */
+    get(name) {
+        if (this.has(name)) {
+            /** @type {?} */
+            const v = this.params[name];
+            return Array.isArray(v) ? v[0] : v;
+        }
+        return null;
+    }
+    /**
+     * @param {?} name
+     * @return {?}
+     */
+    getAll(name) {
+        if (this.has(name)) {
+            /** @type {?} */
+            const v = this.params[name];
+            return Array.isArray(v) ? v : [v];
+        }
+        return [];
+    }
+    /**
+     * @return {?}
+     */
+    get keys() { return Object.keys(this.params); }
+}
+if (false) {}
+/**
+ * Converts a `Params` instance to a `ParamMap`.
+ * \@publicApi
+ * @param {?} params The instance to convert.
+ * @return {?} The new map instance.
+ *
+ */
+function convertToParamMap(params) {
+    return new ParamsAsMap(params);
+}
+/** @type {?} */
+const NAVIGATION_CANCELING_ERROR = 'ngNavigationCancelingError';
+/**
+ * @param {?} message
+ * @return {?}
+ */
+function navigationCancelingError(message) {
+    /** @type {?} */
+    const error = Error('NavigationCancelingError: ' + message);
+    ((/** @type {?} */ (error)))[NAVIGATION_CANCELING_ERROR] = true;
+    return error;
+}
+/**
+ * @param {?} error
+ * @return {?}
+ */
+function isNavigationCancelingError(error) {
+    return error && ((/** @type {?} */ (error)))[NAVIGATION_CANCELING_ERROR];
+}
+// Matches the route configuration (`route`) against the actual URL (`segments`).
+/**
+ * @param {?} segments
+ * @param {?} segmentGroup
+ * @param {?} route
+ * @return {?}
+ */
+function defaultUrlMatcher(segments, segmentGroup, route) {
+    /** @type {?} */
+    const parts = (/** @type {?} */ (route.path)).split('/');
+    if (parts.length > segments.length) {
+        // The actual URL is shorter than the config, no match
+        return null;
+    }
+    if (route.pathMatch === 'full' &&
+        (segmentGroup.hasChildren() || parts.length < segments.length)) {
+        // The config is longer than the actual URL but we are looking for a full match, return null
+        return null;
+    }
+    /** @type {?} */
+    const posParams = {};
+    // Check each config part against the actual URL
+    for (let index = 0; index < parts.length; index++) {
+        /** @type {?} */
+        const part = parts[index];
+        /** @type {?} */
+        const segment = segments[index];
+        /** @type {?} */
+        const isParameter = part.startsWith(':');
+        if (isParameter) {
+            posParams[part.substring(1)] = segment;
+        }
+        else if (part !== segment.path) {
+            // The actual URL part does not match the config, no match
+            return null;
+        }
+    }
+    return { consumed: segments.slice(0, parts.length), posParams };
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/config.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * A configuration object that defines a single route.
+ * A set of routes are collected in a `Routes` array to define a `Router` configuration.
+ * The router attempts to match segments of a given URL against each route,
+ * using the configuration options defined in this object.
+ *
+ * Supports static, parameterized, redirect, and wildcard routes, as well as
+ * custom route data and resolve methods.
+ *
+ * For detailed usage information, see the [Routing Guide](guide/router).
+ *
+ * \@usageNotes
+ *
+ * ### Simple Configuration
+ *
+ * The following route specifies that when navigating to, for example,
+ * `/team/11/user/bob`, the router creates the 'Team' component
+ * with the 'User' child component in it.
+ *
+ * ```
+ * [{
+ *   path: 'team/:id',
+ *  component: Team,
+ *   children: [{
+ *     path: 'user/:name',
+ *     component: User
+ *   }]
+ * }]
+ * ```
+ *
+ * ### Multiple Outlets
+ *
+ * The following route creates sibling components with multiple outlets.
+ * When navigating to `/team/11(aux:chat/jim)`, the router creates the 'Team' component next to
+ * the 'Chat' component. The 'Chat' component is placed into the 'aux' outlet.
+ *
+ * ```
+ * [{
+ *   path: 'team/:id',
+ *   component: Team
+ * }, {
+ *   path: 'chat/:user',
+ *   component: Chat
+ *   outlet: 'aux'
+ * }]
+ * ```
+ *
+ * ### Wild Cards
+ *
+ * The following route uses wild-card notation to specify a component
+ * that is always instantiated regardless of where you navigate to.
+ *
+ * ```
+ * [{
+ *   path: '**',
+ *   component: WildcardComponent
+ * }]
+ * ```
+ *
+ * ### Redirects
+ *
+ * The following route uses the `redirectTo` property to ignore a segment of
+ * a given URL when looking for a child path.
+ *
+ * When navigating to '/team/11/legacy/user/jim', the router changes the URL segment
+ * '/team/11/legacy/user/jim' to '/team/11/user/jim', and then instantiates
+ * the Team component with the User child component in it.
+ *
+ * ```
+ * [{
+ *   path: 'team/:id',
+ *   component: Team,
+ *   children: [{
+ *     path: 'legacy/user/:name',
+ *     redirectTo: 'user/:name'
+ *   }, {
+ *     path: 'user/:name',
+ *     component: User
+ *   }]
+ * }]
+ * ```
+ *
+ * The redirect path can be relative, as shown in this example, or absolute.
+ * If we change the `redirectTo` value in the example to the absolute URL segment '/user/:name',
+ * the result URL is also absolute, '/user/jim'.
+ * ### Empty Path
+ *
+ * Empty-path route configurations can be used to instantiate components that do not 'consume'
+ * any URL segments.
+ *
+ * In the following configuration, when navigating to
+ * `/team/11`, the router instantiates the 'AllUsers' component.
+ *
+ * ```
+ * [{
+ *   path: 'team/:id',
+ *   component: Team,
+ *   children: [{
+ *     path: '',
+ *     component: AllUsers
+ *   }, {
+ *     path: 'user/:name',
+ *     component: User
+ *   }]
+ * }]
+ * ```
+ *
+ * Empty-path routes can have children. In the following example, when navigating
+ * to `/team/11/user/jim`, the router instantiates the wrapper component with
+ * the user component in it.
+ *
+ * Note that an empty path route inherits its parent's parameters and data.
+ *
+ * ```
+ * [{
+ *   path: 'team/:id',
+ *   component: Team,
+ *   children: [{
+ *     path: '',
+ *     component: WrapperCmp,
+ *     children: [{
+ *       path: 'user/:name',
+ *       component: User
+ *     }]
+ *   }]
+ * }]
+ * ```
+ *
+ * ### Matching Strategy
+ *
+ * The default path-match strategy is 'prefix', which means that the router
+ * checks URL elements from the left to see if the URL matches a specified path.
+ * For example, '/team/11/user' matches 'team/:id'.
+ *
+ * ```
+ * [{
+ *   path: '',
+ *   pathMatch: 'prefix', //default
+ *   redirectTo: 'main'
+ * }, {
+ *   path: 'main',
+ *   component: Main
+ * }]
+ * ```
+ *
+ * You can specify the path-match strategy 'full' to make sure that the path
+ * covers the whole unconsumed URL. It is important to do this when redirecting
+ * empty-path routes. Otherwise, because an empty path is a prefix of any URL,
+ * the router would apply the redirect even when navigating to the redirect destination,
+ * creating an endless loop.
+ *
+ * In the following example, supplying the 'full' `pathMatch` strategy ensures
+ * that the router applies the redirect if and only if navigating to '/'.
+ *
+ * ```
+ * [{
+ *   path: '',
+ *   pathMatch: 'full',
+ *   redirectTo: 'main'
+ * }, {
+ *   path: 'main',
+ *   component: Main
+ * }]
+ * ```
+ *
+ * ### Componentless Routes
+ *
+ * You can share parameters between sibling components.
+ * For example, suppose that two sibling components should go next to each other,
+ * and both of them require an ID parameter. You can accomplish this using a route
+ * that does not specify a component at the top level.
+ *
+ * In the following example, 'MainChild' and 'AuxChild' are siblings.
+ * When navigating to 'parent/10/(a//aux:b)', the route instantiates
+ * the main child and aux child components next to each other.
+ * For this to work, the application component must have the primary and aux outlets defined.
+ *
+ * ```
+ * [{
+ *    path: 'parent/:id',
+ *    children: [
+ *      { path: 'a', component: MainChild },
+ *      { path: 'b', component: AuxChild, outlet: 'aux' }
+ *    ]
+ * }]
+ * ```
+ *
+ * The router merges the parameters, data, and resolve of the componentless
+ * parent into the parameters, data, and resolve of the children.
+ *
+ * This is especially useful when child components are defined
+ * with an empty path string, as in the following example.
+ * With this configuration, navigating to '/parent/10' creates
+ * the main child and aux components.
+ *
+ * ```
+ * [{
+ *    path: 'parent/:id',
+ *    children: [
+ *      { path: '', component: MainChild },
+ *      { path: '', component: AuxChild, outlet: 'aux' }
+ *    ]
+ * }]
+ * ```
+ *
+ * ### Lazy Loading
+ *
+ * Lazy loading speeds up application load time by splitting the application
+ * into multiple bundles and loading them on demand.
+ * To use lazy loading, provide the `loadChildren` property  instead of the `children` property.
+ *
+ * Given the following example route, the router will lazy load
+ * the associated module on demand using the browser native import system.
+ *
+ * ```
+ * [{
+ *   path: 'lazy',
+ *   loadChildren: () => import('./lazy-route/lazy.module').then(mod => mod.LazyModule),
+ * }];
+ * ```
+ *
+ * \@publicApi
+ * @record
+ */
+function Route() { }
+if (false) {}
+class LoadedRouterConfig {
+    /**
+     * @param {?} routes
+     * @param {?} module
+     */
+    constructor(routes, module) {
+        this.routes = routes;
+        this.module = module;
+    }
+}
+if (false) {}
+/**
+ * @param {?} config
+ * @param {?=} parentPath
+ * @return {?}
+ */
+function validateConfig(config, parentPath = '') {
+    // forEach doesn't iterate undefined values
+    for (let i = 0; i < config.length; i++) {
+        /** @type {?} */
+        const route = config[i];
+        /** @type {?} */
+        const fullPath = getFullPath(parentPath, route);
+        validateNode(route, fullPath);
+    }
+}
+/**
+ * @param {?} route
+ * @param {?} fullPath
+ * @return {?}
+ */
+function validateNode(route, fullPath) {
+    if (!route) {
+        throw new Error(`
+      Invalid configuration of route '${fullPath}': Encountered undefined route.
+      The reason might be an extra comma.
+
+      Example:
+      const routes: Routes = [
+        { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+        { path: 'dashboard',  component: DashboardComponent },, << two commas
+        { path: 'detail/:id', component: HeroDetailComponent }
+      ];
+    `);
+    }
+    if (Array.isArray(route)) {
+        throw new Error(`Invalid configuration of route '${fullPath}': Array cannot be specified`);
+    }
+    if (!route.component && !route.children && !route.loadChildren &&
+        (route.outlet && route.outlet !== PRIMARY_OUTLET)) {
+        throw new Error(`Invalid configuration of route '${fullPath}': a componentless route without children or loadChildren cannot have a named outlet set`);
+    }
+    if (route.redirectTo && route.children) {
+        throw new Error(`Invalid configuration of route '${fullPath}': redirectTo and children cannot be used together`);
+    }
+    if (route.redirectTo && route.loadChildren) {
+        throw new Error(`Invalid configuration of route '${fullPath}': redirectTo and loadChildren cannot be used together`);
+    }
+    if (route.children && route.loadChildren) {
+        throw new Error(`Invalid configuration of route '${fullPath}': children and loadChildren cannot be used together`);
+    }
+    if (route.redirectTo && route.component) {
+        throw new Error(`Invalid configuration of route '${fullPath}': redirectTo and component cannot be used together`);
+    }
+    if (route.path && route.matcher) {
+        throw new Error(`Invalid configuration of route '${fullPath}': path and matcher cannot be used together`);
+    }
+    if (route.redirectTo === void 0 && !route.component && !route.children && !route.loadChildren) {
+        throw new Error(`Invalid configuration of route '${fullPath}'. One of the following must be provided: component, redirectTo, children or loadChildren`);
+    }
+    if (route.path === void 0 && route.matcher === void 0) {
+        throw new Error(`Invalid configuration of route '${fullPath}': routes must have either a path or a matcher specified`);
+    }
+    if (typeof route.path === 'string' && route.path.charAt(0) === '/') {
+        throw new Error(`Invalid configuration of route '${fullPath}': path cannot start with a slash`);
+    }
+    if (route.path === '' && route.redirectTo !== void 0 && route.pathMatch === void 0) {
+        /** @type {?} */
+        const exp = `The default value of 'pathMatch' is 'prefix', but often the intent is to use 'full'.`;
+        throw new Error(`Invalid configuration of route '{path: "${fullPath}", redirectTo: "${route.redirectTo}"}': please provide 'pathMatch'. ${exp}`);
+    }
+    if (route.pathMatch !== void 0 && route.pathMatch !== 'full' && route.pathMatch !== 'prefix') {
+        throw new Error(`Invalid configuration of route '${fullPath}': pathMatch can only be set to 'prefix' or 'full'`);
+    }
+    if (route.children) {
+        validateConfig(route.children, fullPath);
+    }
+}
+/**
+ * @param {?} parentPath
+ * @param {?} currentRoute
+ * @return {?}
+ */
+function getFullPath(parentPath, currentRoute) {
+    if (!currentRoute) {
+        return parentPath;
+    }
+    if (!parentPath && !currentRoute.path) {
+        return '';
+    }
+    else if (parentPath && !currentRoute.path) {
+        return `${parentPath}/`;
+    }
+    else if (!parentPath && currentRoute.path) {
+        return currentRoute.path;
+    }
+    else {
+        return `${parentPath}/${currentRoute.path}`;
+    }
+}
+/**
+ * Makes a copy of the config and adds any default required properties.
+ * @param {?} r
+ * @return {?}
+ */
+function standardizeConfig(r) {
+    /** @type {?} */
+    const children = r.children && r.children.map(standardizeConfig);
+    /** @type {?} */
+    const c = children ? Object.assign(Object.assign({}, r), { children }) : Object.assign({}, r);
+    if (!c.component && (children || c.loadChildren) && (c.outlet && c.outlet !== PRIMARY_OUTLET)) {
+        c.component = ɵEmptyOutletComponent;
+    }
+    return c;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/utils/collection.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} a
+ * @param {?} b
+ * @return {?}
+ */
+function shallowEqualArrays(a, b) {
+    if (a.length !== b.length)
+        return false;
+    for (let i = 0; i < a.length; ++i) {
+        if (!shallowEqual(a[i], b[i]))
+            return false;
+    }
+    return true;
+}
+/**
+ * @param {?} a
+ * @param {?} b
+ * @return {?}
+ */
+function shallowEqual(a, b) {
+    // Casting Object.keys return values to include `undefined` as there are some cases
+    // in IE 11 where this can happen. Cannot provide a test because the behavior only
+    // exists in certain circumstances in IE 11, therefore doing this cast ensures the
+    // logic is correct for when this edge case is hit.
+    /** @type {?} */
+    const k1 = (/** @type {?} */ (Object.keys(a)));
+    /** @type {?} */
+    const k2 = (/** @type {?} */ (Object.keys(b)));
+    if (!k1 || !k2 || k1.length != k2.length) {
+        return false;
+    }
+    /** @type {?} */
+    let key;
+    for (let i = 0; i < k1.length; i++) {
+        key = k1[i];
+        if (!equalArraysOrString(a[key], b[key])) {
+            return false;
+        }
+    }
+    return true;
+}
+/**
+ * Test equality for arrays of strings or a string.
+ * @param {?} a
+ * @param {?} b
+ * @return {?}
+ */
+function equalArraysOrString(a, b) {
+    if (Array.isArray(a) && Array.isArray(b)) {
+        if (a.length != b.length)
+            return false;
+        return a.every((/**
+         * @param {?} aItem
+         * @return {?}
+         */
+        aItem => b.indexOf(aItem) > -1));
+    }
+    else {
+        return a === b;
+    }
+}
+/**
+ * Flattens single-level nested arrays.
+ * @template T
+ * @param {?} arr
+ * @return {?}
+ */
+function flatten(arr) {
+    return Array.prototype.concat.apply([], arr);
+}
+/**
+ * Return the last element of an array.
+ * @template T
+ * @param {?} a
+ * @return {?}
+ */
+function last(a) {
+    return a.length > 0 ? a[a.length - 1] : null;
+}
+/**
+ * Verifys all booleans in an array are `true`.
+ * @param {?} bools
+ * @return {?}
+ */
+function and(bools) {
+    return !bools.some((/**
+     * @param {?} v
+     * @return {?}
+     */
+    v => !v));
+}
+/**
+ * @template K, V
+ * @param {?} map
+ * @param {?} callback
+ * @return {?}
+ */
+function forEach(map, callback) {
+    for (const prop in map) {
+        if (map.hasOwnProperty(prop)) {
+            callback(map[prop], prop);
+        }
+    }
+}
+/**
+ * @template A, B
+ * @param {?} obj
+ * @param {?} fn
+ * @return {?}
+ */
+function waitForMap(obj, fn) {
+    if (Object.keys(obj).length === 0) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])({});
+    }
+    /** @type {?} */
+    const waitHead = [];
+    /** @type {?} */
+    const waitTail = [];
+    /** @type {?} */
+    const res = {};
+    forEach(obj, (/**
+     * @param {?} a
+     * @param {?} k
+     * @return {?}
+     */
+    (a, k) => {
+        /** @type {?} */
+        const mapped = fn(k, a).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} r
+         * @return {?}
+         */
+        (r) => res[k] = r)));
+        if (k === PRIMARY_OUTLET) {
+            waitHead.push(mapped);
+        }
+        else {
+            waitTail.push(mapped);
+        }
+    }));
+    // Closure compiler has problem with using spread operator here. So we use "Array.concat".
+    // Note that we also need to cast the new promise because TypeScript cannot infer the type
+    // when calling the "of" function through "Function.apply"
+    return ((/** @type {?} */ (rxjs__WEBPACK_IMPORTED_MODULE_2__["of"].apply(null, waitHead.concat(waitTail)))))
+        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["concatAll"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["last"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+     * @return {?}
+     */
+    () => res)));
+}
+/**
+ * @template T
+ * @param {?} value
+ * @return {?}
+ */
+function wrapIntoObservable(value) {
+    if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵisObservable"])(value)) {
+        return value;
+    }
+    if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵisPromise"])(value)) {
+        // Use `Promise.resolve()` to wrap promise-like instances.
+        // Required ie when a Resolver returns a AngularJS `$q` promise to correctly trigger the
+        // change detection.
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(Promise.resolve(value));
+    }
+    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(value);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/url_tree.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @return {?}
+ */
+function createEmptyUrlTree() {
+    return new UrlTree(new UrlSegmentGroup([], {}), {}, null);
+}
+/**
+ * @param {?} container
+ * @param {?} containee
+ * @param {?} exact
+ * @return {?}
+ */
+function containsTree(container, containee, exact) {
+    if (exact) {
+        return equalQueryParams(container.queryParams, containee.queryParams) &&
+            equalSegmentGroups(container.root, containee.root);
+    }
+    return containsQueryParams(container.queryParams, containee.queryParams) &&
+        containsSegmentGroup(container.root, containee.root);
+}
+/**
+ * @param {?} container
+ * @param {?} containee
+ * @return {?}
+ */
+function equalQueryParams(container, containee) {
+    // TODO: This does not handle array params correctly.
+    return shallowEqual(container, containee);
+}
+/**
+ * @param {?} container
+ * @param {?} containee
+ * @return {?}
+ */
+function equalSegmentGroups(container, containee) {
+    if (!equalPath(container.segments, containee.segments))
+        return false;
+    if (container.numberOfChildren !== containee.numberOfChildren)
+        return false;
+    for (const c in containee.children) {
+        if (!container.children[c])
+            return false;
+        if (!equalSegmentGroups(container.children[c], containee.children[c]))
+            return false;
+    }
+    return true;
+}
+/**
+ * @param {?} container
+ * @param {?} containee
+ * @return {?}
+ */
+function containsQueryParams(container, containee) {
+    // TODO: This does not handle array params correctly.
+    return Object.keys(containee).length <= Object.keys(container).length &&
+        Object.keys(containee).every((/**
+         * @param {?} key
+         * @return {?}
+         */
+        key => equalArraysOrString(container[key], containee[key])));
+}
+/**
+ * @param {?} container
+ * @param {?} containee
+ * @return {?}
+ */
+function containsSegmentGroup(container, containee) {
+    return containsSegmentGroupHelper(container, containee, containee.segments);
+}
+/**
+ * @param {?} container
+ * @param {?} containee
+ * @param {?} containeePaths
+ * @return {?}
+ */
+function containsSegmentGroupHelper(container, containee, containeePaths) {
+    if (container.segments.length > containeePaths.length) {
+        /** @type {?} */
+        const current = container.segments.slice(0, containeePaths.length);
+        if (!equalPath(current, containeePaths))
+            return false;
+        if (containee.hasChildren())
+            return false;
+        return true;
+    }
+    else if (container.segments.length === containeePaths.length) {
+        if (!equalPath(container.segments, containeePaths))
+            return false;
+        for (const c in containee.children) {
+            if (!container.children[c])
+                return false;
+            if (!containsSegmentGroup(container.children[c], containee.children[c]))
+                return false;
+        }
+        return true;
+    }
+    else {
+        /** @type {?} */
+        const current = containeePaths.slice(0, container.segments.length);
+        /** @type {?} */
+        const next = containeePaths.slice(container.segments.length);
+        if (!equalPath(container.segments, current))
+            return false;
+        if (!container.children[PRIMARY_OUTLET])
+            return false;
+        return containsSegmentGroupHelper(container.children[PRIMARY_OUTLET], containee, next);
+    }
+}
+/**
+ * \@description
+ *
+ * Represents the parsed URL.
+ *
+ * Since a router state is a tree, and the URL is nothing but a serialized state, the URL is a
+ * serialized tree.
+ * UrlTree is a data structure that provides a lot of affordances in dealing with URLs
+ *
+ * \@usageNotes
+ * ### Example
+ *
+ * ```
+ * \@Component({templateUrl:'template.html'})
+ * class MyComponent {
+ *   constructor(router: Router) {
+ *     const tree: UrlTree =
+ *       router.parseUrl('/team/33/(user/victor//support:help)?debug=true#fragment');
+ *     const f = tree.fragment; // return 'fragment'
+ *     const q = tree.queryParams; // returns {debug: 'true'}
+ *     const g: UrlSegmentGroup = tree.root.children[PRIMARY_OUTLET];
+ *     const s: UrlSegment[] = g.segments; // returns 2 segments 'team' and '33'
+ *     g.children[PRIMARY_OUTLET].segments; // returns 2 segments 'user' and 'victor'
+ *     g.children['support'].segments; // return 1 segment 'help'
+ *   }
+ * }
+ * ```
+ *
+ * \@publicApi
+ */
+class UrlTree {
+    /**
+     * \@internal
+     * @param {?} root
+     * @param {?} queryParams
+     * @param {?} fragment
+     */
+    constructor(root, queryParams, fragment) {
+        this.root = root;
+        this.queryParams = queryParams;
+        this.fragment = fragment;
+    }
+    /**
+     * @return {?}
+     */
+    get queryParamMap() {
+        if (!this._queryParamMap) {
+            this._queryParamMap = convertToParamMap(this.queryParams);
+        }
+        return this._queryParamMap;
+    }
+    /**
+     * \@docsNotRequired
+     * @return {?}
+     */
+    toString() { return DEFAULT_SERIALIZER.serialize(this); }
+}
+if (false) {}
+/**
+ * \@description
+ *
+ * Represents the parsed URL segment group.
+ *
+ * See `UrlTree` for more information.
+ *
+ * \@publicApi
+ */
+class UrlSegmentGroup {
+    /**
+     * @param {?} segments
+     * @param {?} children
+     */
+    constructor(segments, children) {
+        this.segments = segments;
+        this.children = children;
+        /**
+         * The parent node in the url tree
+         */
+        this.parent = null;
+        forEach(children, (/**
+         * @template THIS
+         * @this {THIS}
+         * @param {?} v
+         * @param {?} k
+         * @return {THIS}
+         */
+        (v, k) => v.parent = this));
+    }
+    /**
+     * Whether the segment has child segments
+     * @return {?}
+     */
+    hasChildren() { return this.numberOfChildren > 0; }
+    /**
+     * Number of child segments
+     * @return {?}
+     */
+    get numberOfChildren() { return Object.keys(this.children).length; }
+    /**
+     * \@docsNotRequired
+     * @return {?}
+     */
+    toString() { return serializePaths(this); }
+}
+if (false) {}
+/**
+ * \@description
+ *
+ * Represents a single URL segment.
+ *
+ * A UrlSegment is a part of a URL between the two slashes. It contains a path and the matrix
+ * parameters associated with the segment.
+ *
+ * \@usageNotes
+ *  ### Example
+ *
+ * ```
+ * \@Component({templateUrl:'template.html'})
+ * class MyComponent {
+ *   constructor(router: Router) {
+ *     const tree: UrlTree = router.parseUrl('/team;id=33');
+ *     const g: UrlSegmentGroup = tree.root.children[PRIMARY_OUTLET];
+ *     const s: UrlSegment[] = g.segments;
+ *     s[0].path; // returns 'team'
+ *     s[0].parameters; // returns {id: 33}
+ *   }
+ * }
+ * ```
+ *
+ * \@publicApi
+ */
+class UrlSegment {
+    /**
+     * @param {?} path
+     * @param {?} parameters
+     */
+    constructor(path, parameters) {
+        this.path = path;
+        this.parameters = parameters;
+    }
+    /**
+     * @return {?}
+     */
+    get parameterMap() {
+        if (!this._parameterMap) {
+            this._parameterMap = convertToParamMap(this.parameters);
+        }
+        return this._parameterMap;
+    }
+    /**
+     * \@docsNotRequired
+     * @return {?}
+     */
+    toString() { return serializePath(this); }
+}
+if (false) {}
+/**
+ * @param {?} as
+ * @param {?} bs
+ * @return {?}
+ */
+function equalSegments(as, bs) {
+    return equalPath(as, bs) && as.every((/**
+     * @param {?} a
+     * @param {?} i
+     * @return {?}
+     */
+    (a, i) => shallowEqual(a.parameters, bs[i].parameters)));
+}
+/**
+ * @param {?} as
+ * @param {?} bs
+ * @return {?}
+ */
+function equalPath(as, bs) {
+    if (as.length !== bs.length)
+        return false;
+    return as.every((/**
+     * @param {?} a
+     * @param {?} i
+     * @return {?}
+     */
+    (a, i) => a.path === bs[i].path));
+}
+/**
+ * @template T
+ * @param {?} segment
+ * @param {?} fn
+ * @return {?}
+ */
+function mapChildrenIntoArray(segment, fn) {
+    /** @type {?} */
+    let res = [];
+    forEach(segment.children, (/**
+     * @param {?} child
+     * @param {?} childOutlet
+     * @return {?}
+     */
+    (child, childOutlet) => {
+        if (childOutlet === PRIMARY_OUTLET) {
+            res = res.concat(fn(child, childOutlet));
+        }
+    }));
+    forEach(segment.children, (/**
+     * @param {?} child
+     * @param {?} childOutlet
+     * @return {?}
+     */
+    (child, childOutlet) => {
+        if (childOutlet !== PRIMARY_OUTLET) {
+            res = res.concat(fn(child, childOutlet));
+        }
+    }));
+    return res;
+}
+/**
+ * \@description
+ *
+ * Serializes and deserializes a URL string into a URL tree.
+ *
+ * The url serialization strategy is customizable. You can
+ * make all URLs case insensitive by providing a custom UrlSerializer.
+ *
+ * See `DefaultUrlSerializer` for an example of a URL serializer.
+ *
+ * \@publicApi
+ * @abstract
+ */
+class UrlSerializer {
+}
+if (false) {}
+/**
+ * \@description
+ *
+ * A default implementation of the `UrlSerializer`.
+ *
+ * Example URLs:
+ *
+ * ```
+ * /inbox/33(popup:compose)
+ * /inbox/33;open=true/messages/44
+ * ```
+ *
+ * DefaultUrlSerializer uses parentheses to serialize secondary segments (e.g., popup:compose), the
+ * colon syntax to specify the outlet, and the ';parameter=value' syntax (e.g., open=true) to
+ * specify route specific parameters.
+ *
+ * \@publicApi
+ */
+class DefaultUrlSerializer {
+    /**
+     * Parses a url into a `UrlTree`
+     * @param {?} url
+     * @return {?}
+     */
+    parse(url) {
+        /** @type {?} */
+        const p = new UrlParser(url);
+        return new UrlTree(p.parseRootSegment(), p.parseQueryParams(), p.parseFragment());
+    }
+    /**
+     * Converts a `UrlTree` into a url
+     * @param {?} tree
+     * @return {?}
+     */
+    serialize(tree) {
+        /** @type {?} */
+        const segment = `/${serializeSegment(tree.root, true)}`;
+        /** @type {?} */
+        const query = serializeQueryParams(tree.queryParams);
+        /** @type {?} */
+        const fragment = typeof tree.fragment === `string` ? `#${encodeUriFragment((/** @type {?} */ (tree.fragment)))}` : '';
+        return `${segment}${query}${fragment}`;
+    }
+}
+/** @type {?} */
+const DEFAULT_SERIALIZER = new DefaultUrlSerializer();
+/**
+ * @param {?} segment
+ * @return {?}
+ */
+function serializePaths(segment) {
+    return segment.segments.map((/**
+     * @param {?} p
+     * @return {?}
+     */
+    p => serializePath(p))).join('/');
+}
+/**
+ * @param {?} segment
+ * @param {?} root
+ * @return {?}
+ */
+function serializeSegment(segment, root) {
+    if (!segment.hasChildren()) {
+        return serializePaths(segment);
+    }
+    if (root) {
+        /** @type {?} */
+        const primary = segment.children[PRIMARY_OUTLET] ?
+            serializeSegment(segment.children[PRIMARY_OUTLET], false) :
+            '';
+        /** @type {?} */
+        const children = [];
+        forEach(segment.children, (/**
+         * @param {?} v
+         * @param {?} k
+         * @return {?}
+         */
+        (v, k) => {
+            if (k !== PRIMARY_OUTLET) {
+                children.push(`${k}:${serializeSegment(v, false)}`);
+            }
+        }));
+        return children.length > 0 ? `${primary}(${children.join('//')})` : primary;
+    }
+    else {
+        /** @type {?} */
+        const children = mapChildrenIntoArray(segment, (/**
+         * @param {?} v
+         * @param {?} k
+         * @return {?}
+         */
+        (v, k) => {
+            if (k === PRIMARY_OUTLET) {
+                return [serializeSegment(segment.children[PRIMARY_OUTLET], false)];
+            }
+            return [`${k}:${serializeSegment(v, false)}`];
+        }));
+        return `${serializePaths(segment)}/(${children.join('//')})`;
+    }
+}
+/**
+ * Encodes a URI string with the default encoding. This function will only ever be called from
+ * `encodeUriQuery` or `encodeUriSegment` as it's the base set of encodings to be used. We need
+ * a custom encoding because encodeURIComponent is too aggressive and encodes stuff that doesn't
+ * have to be encoded per https://url.spec.whatwg.org.
+ * @param {?} s
+ * @return {?}
+ */
+function encodeUriString(s) {
+    return encodeURIComponent(s)
+        .replace(/%40/g, '@')
+        .replace(/%3A/gi, ':')
+        .replace(/%24/g, '$')
+        .replace(/%2C/gi, ',');
+}
+/**
+ * This function should be used to encode both keys and values in a query string key/value. In
+ * the following URL, you need to call encodeUriQuery on "k" and "v":
+ *
+ * http://www.site.org/html;mk=mv?k=v#f
+ * @param {?} s
+ * @return {?}
+ */
+function encodeUriQuery(s) {
+    return encodeUriString(s).replace(/%3B/gi, ';');
+}
+/**
+ * This function should be used to encode a URL fragment. In the following URL, you need to call
+ * encodeUriFragment on "f":
+ *
+ * http://www.site.org/html;mk=mv?k=v#f
+ * @param {?} s
+ * @return {?}
+ */
+function encodeUriFragment(s) {
+    return encodeURI(s);
+}
+/**
+ * This function should be run on any URI segment as well as the key and value in a key/value
+ * pair for matrix params. In the following URL, you need to call encodeUriSegment on "html",
+ * "mk", and "mv":
+ *
+ * http://www.site.org/html;mk=mv?k=v#f
+ * @param {?} s
+ * @return {?}
+ */
+function encodeUriSegment(s) {
+    return encodeUriString(s).replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/%26/gi, '&');
+}
+/**
+ * @param {?} s
+ * @return {?}
+ */
+function decode(s) {
+    return decodeURIComponent(s);
+}
+// Query keys/values should have the "+" replaced first, as "+" in a query string is " ".
+// decodeURIComponent function will not decode "+" as a space.
+/**
+ * @param {?} s
+ * @return {?}
+ */
+function decodeQuery(s) {
+    return decode(s.replace(/\+/g, '%20'));
+}
+/**
+ * @param {?} path
+ * @return {?}
+ */
+function serializePath(path) {
+    return `${encodeUriSegment(path.path)}${serializeMatrixParams(path.parameters)}`;
+}
+/**
+ * @param {?} params
+ * @return {?}
+ */
+function serializeMatrixParams(params) {
+    return Object.keys(params)
+        .map((/**
+     * @param {?} key
+     * @return {?}
+     */
+    key => `;${encodeUriSegment(key)}=${encodeUriSegment(params[key])}`))
+        .join('');
+}
+/**
+ * @param {?} params
+ * @return {?}
+ */
+function serializeQueryParams(params) {
+    /** @type {?} */
+    const strParams = Object.keys(params).map((/**
+     * @param {?} name
+     * @return {?}
+     */
+    (name) => {
+        /** @type {?} */
+        const value = params[name];
+        return Array.isArray(value) ?
+            value.map((/**
+             * @param {?} v
+             * @return {?}
+             */
+            v => `${encodeUriQuery(name)}=${encodeUriQuery(v)}`)).join('&') :
+            `${encodeUriQuery(name)}=${encodeUriQuery(value)}`;
+    }));
+    return strParams.length ? `?${strParams.join("&")}` : '';
+}
+/** @type {?} */
+const SEGMENT_RE = /^[^\/()?;=#]+/;
+/**
+ * @param {?} str
+ * @return {?}
+ */
+function matchSegments(str) {
+    /** @type {?} */
+    const match = str.match(SEGMENT_RE);
+    return match ? match[0] : '';
+}
+/** @type {?} */
+const QUERY_PARAM_RE = /^[^=?&#]+/;
+// Return the name of the query param at the start of the string or an empty string
+/**
+ * @param {?} str
+ * @return {?}
+ */
+function matchQueryParams(str) {
+    /** @type {?} */
+    const match = str.match(QUERY_PARAM_RE);
+    return match ? match[0] : '';
+}
+/** @type {?} */
+const QUERY_PARAM_VALUE_RE = /^[^?&#]+/;
+// Return the value of the query param at the start of the string or an empty string
+/**
+ * @param {?} str
+ * @return {?}
+ */
+function matchUrlQueryParamValue(str) {
+    /** @type {?} */
+    const match = str.match(QUERY_PARAM_VALUE_RE);
+    return match ? match[0] : '';
+}
+class UrlParser {
+    /**
+     * @param {?} url
+     */
+    constructor(url) {
+        this.url = url;
+        this.remaining = url;
+    }
+    /**
+     * @return {?}
+     */
+    parseRootSegment() {
+        this.consumeOptional('/');
+        if (this.remaining === '' || this.peekStartsWith('?') || this.peekStartsWith('#')) {
+            return new UrlSegmentGroup([], {});
+        }
+        // The root segment group never has segments
+        return new UrlSegmentGroup([], this.parseChildren());
+    }
+    /**
+     * @return {?}
+     */
+    parseQueryParams() {
+        /** @type {?} */
+        const params = {};
+        if (this.consumeOptional('?')) {
+            do {
+                this.parseQueryParam(params);
+            } while (this.consumeOptional('&'));
+        }
+        return params;
+    }
+    /**
+     * @return {?}
+     */
+    parseFragment() {
+        return this.consumeOptional('#') ? decodeURIComponent(this.remaining) : null;
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    parseChildren() {
+        if (this.remaining === '') {
+            return {};
+        }
+        this.consumeOptional('/');
+        /** @type {?} */
+        const segments = [];
+        if (!this.peekStartsWith('(')) {
+            segments.push(this.parseSegment());
+        }
+        while (this.peekStartsWith('/') && !this.peekStartsWith('//') && !this.peekStartsWith('/(')) {
+            this.capture('/');
+            segments.push(this.parseSegment());
+        }
+        /** @type {?} */
+        let children = {};
+        if (this.peekStartsWith('/(')) {
+            this.capture('/');
+            children = this.parseParens(true);
+        }
+        /** @type {?} */
+        let res = {};
+        if (this.peekStartsWith('(')) {
+            res = this.parseParens(false);
+        }
+        if (segments.length > 0 || Object.keys(children).length > 0) {
+            res[PRIMARY_OUTLET] = new UrlSegmentGroup(segments, children);
+        }
+        return res;
+    }
+    // parse a segment with its matrix parameters
+    // ie `name;k1=v1;k2`
+    /**
+     * @private
+     * @return {?}
+     */
+    parseSegment() {
+        /** @type {?} */
+        const path = matchSegments(this.remaining);
+        if (path === '' && this.peekStartsWith(';')) {
+            throw new Error(`Empty path url segment cannot have parameters: '${this.remaining}'.`);
+        }
+        this.capture(path);
+        return new UrlSegment(decode(path), this.parseMatrixParams());
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    parseMatrixParams() {
+        /** @type {?} */
+        const params = {};
+        while (this.consumeOptional(';')) {
+            this.parseParam(params);
+        }
+        return params;
+    }
+    /**
+     * @private
+     * @param {?} params
+     * @return {?}
+     */
+    parseParam(params) {
+        /** @type {?} */
+        const key = matchSegments(this.remaining);
+        if (!key) {
+            return;
+        }
+        this.capture(key);
+        /** @type {?} */
+        let value = '';
+        if (this.consumeOptional('=')) {
+            /** @type {?} */
+            const valueMatch = matchSegments(this.remaining);
+            if (valueMatch) {
+                value = valueMatch;
+                this.capture(value);
+            }
+        }
+        params[decode(key)] = decode(value);
+    }
+    // Parse a single query parameter `name[=value]`
+    /**
+     * @private
+     * @param {?} params
+     * @return {?}
+     */
+    parseQueryParam(params) {
+        /** @type {?} */
+        const key = matchQueryParams(this.remaining);
+        if (!key) {
+            return;
+        }
+        this.capture(key);
+        /** @type {?} */
+        let value = '';
+        if (this.consumeOptional('=')) {
+            /** @type {?} */
+            const valueMatch = matchUrlQueryParamValue(this.remaining);
+            if (valueMatch) {
+                value = valueMatch;
+                this.capture(value);
+            }
+        }
+        /** @type {?} */
+        const decodedKey = decodeQuery(key);
+        /** @type {?} */
+        const decodedVal = decodeQuery(value);
+        if (params.hasOwnProperty(decodedKey)) {
+            // Append to existing values
+            /** @type {?} */
+            let currentVal = params[decodedKey];
+            if (!Array.isArray(currentVal)) {
+                currentVal = [currentVal];
+                params[decodedKey] = currentVal;
+            }
+            currentVal.push(decodedVal);
+        }
+        else {
+            // Create a new value
+            params[decodedKey] = decodedVal;
+        }
+    }
+    // parse `(a/b//outlet_name:c/d)`
+    /**
+     * @private
+     * @param {?} allowPrimary
+     * @return {?}
+     */
+    parseParens(allowPrimary) {
+        /** @type {?} */
+        const segments = {};
+        this.capture('(');
+        while (!this.consumeOptional(')') && this.remaining.length > 0) {
+            /** @type {?} */
+            const path = matchSegments(this.remaining);
+            /** @type {?} */
+            const next = this.remaining[path.length];
+            // if is is not one of these characters, then the segment was unescaped
+            // or the group was not closed
+            if (next !== '/' && next !== ')' && next !== ';') {
+                throw new Error(`Cannot parse url '${this.url}'`);
+            }
+            /** @type {?} */
+            let outletName = (/** @type {?} */ (undefined));
+            if (path.indexOf(':') > -1) {
+                outletName = path.substr(0, path.indexOf(':'));
+                this.capture(outletName);
+                this.capture(':');
+            }
+            else if (allowPrimary) {
+                outletName = PRIMARY_OUTLET;
+            }
+            /** @type {?} */
+            const children = this.parseChildren();
+            segments[outletName] = Object.keys(children).length === 1 ? children[PRIMARY_OUTLET] :
+                new UrlSegmentGroup([], children);
+            this.consumeOptional('//');
+        }
+        return segments;
+    }
+    /**
+     * @private
+     * @param {?} str
+     * @return {?}
+     */
+    peekStartsWith(str) { return this.remaining.startsWith(str); }
+    // Consumes the prefix when it is present and returns whether it has been consumed
+    /**
+     * @private
+     * @param {?} str
+     * @return {?}
+     */
+    consumeOptional(str) {
+        if (this.peekStartsWith(str)) {
+            this.remaining = this.remaining.substring(str.length);
+            return true;
+        }
+        return false;
+    }
+    /**
+     * @private
+     * @param {?} str
+     * @return {?}
+     */
+    capture(str) {
+        if (!this.consumeOptional(str)) {
+            throw new Error(`Expected "${str}".`);
+        }
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/utils/tree.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @template T
+ */
+class Tree {
+    /**
+     * @param {?} root
+     */
+    constructor(root) { this._root = root; }
+    /**
+     * @return {?}
+     */
+    get root() { return this._root.value; }
+    /**
+     * \@internal
+     * @param {?} t
+     * @return {?}
+     */
+    parent(t) {
+        /** @type {?} */
+        const p = this.pathFromRoot(t);
+        return p.length > 1 ? p[p.length - 2] : null;
+    }
+    /**
+     * \@internal
+     * @param {?} t
+     * @return {?}
+     */
+    children(t) {
+        /** @type {?} */
+        const n = findNode(t, this._root);
+        return n ? n.children.map((/**
+         * @param {?} t
+         * @return {?}
+         */
+        t => t.value)) : [];
+    }
+    /**
+     * \@internal
+     * @param {?} t
+     * @return {?}
+     */
+    firstChild(t) {
+        /** @type {?} */
+        const n = findNode(t, this._root);
+        return n && n.children.length > 0 ? n.children[0].value : null;
+    }
+    /**
+     * \@internal
+     * @param {?} t
+     * @return {?}
+     */
+    siblings(t) {
+        /** @type {?} */
+        const p = findPath(t, this._root);
+        if (p.length < 2)
+            return [];
+        /** @type {?} */
+        const c = p[p.length - 2].children.map((/**
+         * @param {?} c
+         * @return {?}
+         */
+        c => c.value));
+        return c.filter((/**
+         * @param {?} cc
+         * @return {?}
+         */
+        cc => cc !== t));
+    }
+    /**
+     * \@internal
+     * @param {?} t
+     * @return {?}
+     */
+    pathFromRoot(t) { return findPath(t, this._root).map((/**
+     * @param {?} s
+     * @return {?}
+     */
+    s => s.value)); }
+}
+if (false) {}
+// DFS for the node matching the value
+/**
+ * @template T
+ * @param {?} value
+ * @param {?} node
+ * @return {?}
+ */
+function findNode(value, node) {
+    if (value === node.value)
+        return node;
+    for (const child of node.children) {
+        /** @type {?} */
+        const node = findNode(value, child);
+        if (node)
+            return node;
+    }
+    return null;
+}
+// Return the path to the node with the given value using DFS
+/**
+ * @template T
+ * @param {?} value
+ * @param {?} node
+ * @return {?}
+ */
+function findPath(value, node) {
+    if (value === node.value)
+        return [node];
+    for (const child of node.children) {
+        /** @type {?} */
+        const path = findPath(value, child);
+        if (path.length) {
+            path.unshift(node);
+            return path;
+        }
+    }
+    return [];
+}
+/**
+ * @template T
+ */
+class TreeNode {
+    /**
+     * @param {?} value
+     * @param {?} children
+     */
+    constructor(value, children) {
+        this.value = value;
+        this.children = children;
+    }
+    /**
+     * @return {?}
+     */
+    toString() { return `TreeNode(${this.value})`; }
+}
+if (false) {}
+// Return the list of T indexed by outlet name
+/**
+ * @template T
+ * @param {?} node
+ * @return {?}
+ */
+function nodeChildrenAsMap(node) {
+    /** @type {?} */
+    const map = {};
+    if (node) {
+        node.children.forEach((/**
+         * @param {?} child
+         * @return {?}
+         */
+        child => map[child.value.outlet] = child));
+    }
+    return map;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/router_state.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Represents the state of the router as a tree of activated routes.
+ *
+ * \@usageNotes
+ *
+ * Every node in the route tree is an `ActivatedRoute` instance
+ * that knows about the "consumed" URL segments, the extracted parameters,
+ * and the resolved data.
+ * Use the `ActivatedRoute` properties to traverse the tree from any node.
+ *
+ * ### Example
+ *
+ * ```
+ * \@Component({templateUrl:'template.html'})
+ * class MyComponent {
+ *   constructor(router: Router) {
+ *     const state: RouterState = router.routerState;
+ *     const root: ActivatedRoute = state.root;
+ *     const child = root.firstChild;
+ *     const id: Observable<string> = child.params.map(p => p.id);
+ *     //...
+ *   }
+ * }
+ * ```
+ *
+ * @see `ActivatedRoute`
+ *
+ * \@publicApi
+ */
+class RouterState extends Tree {
+    /**
+     * \@internal
+     * @param {?} root
+     * @param {?} snapshot
+     */
+    constructor(root, snapshot) {
+        super(root);
+        this.snapshot = snapshot;
+        setRouterState((/** @type {?} */ (this)), root);
+    }
+    /**
+     * @return {?}
+     */
+    toString() { return this.snapshot.toString(); }
+}
+if (false) {}
+/**
+ * @param {?} urlTree
+ * @param {?} rootComponent
+ * @return {?}
+ */
+function createEmptyState(urlTree, rootComponent) {
+    /** @type {?} */
+    const snapshot = createEmptyStateSnapshot(urlTree, rootComponent);
+    /** @type {?} */
+    const emptyUrl = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([new UrlSegment('', {})]);
+    /** @type {?} */
+    const emptyParams = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({});
+    /** @type {?} */
+    const emptyData = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({});
+    /** @type {?} */
+    const emptyQueryParams = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({});
+    /** @type {?} */
+    const fragment = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]('');
+    /** @type {?} */
+    const activated = new ActivatedRoute(emptyUrl, emptyParams, emptyQueryParams, fragment, emptyData, PRIMARY_OUTLET, rootComponent, snapshot.root);
+    activated.snapshot = snapshot.root;
+    return new RouterState(new TreeNode(activated, []), snapshot);
+}
+/**
+ * @param {?} urlTree
+ * @param {?} rootComponent
+ * @return {?}
+ */
+function createEmptyStateSnapshot(urlTree, rootComponent) {
+    /** @type {?} */
+    const emptyParams = {};
+    /** @type {?} */
+    const emptyData = {};
+    /** @type {?} */
+    const emptyQueryParams = {};
+    /** @type {?} */
+    const fragment = '';
+    /** @type {?} */
+    const activated = new ActivatedRouteSnapshot([], emptyParams, emptyQueryParams, fragment, emptyData, PRIMARY_OUTLET, rootComponent, null, urlTree.root, -1, {});
+    return new RouterStateSnapshot('', new TreeNode(activated, []));
+}
+/**
+ * Provides access to information about a route associated with a component
+ * that is loaded in an outlet.
+ * Use to traverse the `RouterState` tree and extract information from nodes.
+ *
+ * {\@example router/activated-route/module.ts region="activated-route"
+ *     header="activated-route.component.ts"}
+ *
+ * \@publicApi
+ */
+class ActivatedRoute {
+    /**
+     * \@internal
+     * @param {?} url
+     * @param {?} params
+     * @param {?} queryParams
+     * @param {?} fragment
+     * @param {?} data
+     * @param {?} outlet
+     * @param {?} component
+     * @param {?} futureSnapshot
+     */
+    constructor(url, params, queryParams, fragment, data, outlet, component, futureSnapshot) {
+        this.url = url;
+        this.params = params;
+        this.queryParams = queryParams;
+        this.fragment = fragment;
+        this.data = data;
+        this.outlet = outlet;
+        this.component = component;
+        this._futureSnapshot = futureSnapshot;
+    }
+    /**
+     * The configuration used to match this route.
+     * @return {?}
+     */
+    get routeConfig() { return this._futureSnapshot.routeConfig; }
+    /**
+     * The root of the router state.
+     * @return {?}
+     */
+    get root() { return this._routerState.root; }
+    /**
+     * The parent of this route in the router state tree.
+     * @return {?}
+     */
+    get parent() { return this._routerState.parent(this); }
+    /**
+     * The first child of this route in the router state tree.
+     * @return {?}
+     */
+    get firstChild() { return this._routerState.firstChild(this); }
+    /**
+     * The children of this route in the router state tree.
+     * @return {?}
+     */
+    get children() { return this._routerState.children(this); }
+    /**
+     * The path from the root of the router state tree to this route.
+     * @return {?}
+     */
+    get pathFromRoot() { return this._routerState.pathFromRoot(this); }
+    /**
+     * An Observable that contains a map of the required and optional parameters
+     * specific to the route.
+     * The map supports retrieving single and multiple values from the same parameter.
+     * @return {?}
+     */
+    get paramMap() {
+        if (!this._paramMap) {
+            this._paramMap = this.params.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+             * @param {?} p
+             * @return {?}
+             */
+            (p) => convertToParamMap(p))));
+        }
+        return this._paramMap;
+    }
+    /**
+     * An Observable that contains a map of the query parameters available to all routes.
+     * The map supports retrieving single and multiple values from the query parameter.
+     * @return {?}
+     */
+    get queryParamMap() {
+        if (!this._queryParamMap) {
+            this._queryParamMap =
+                this.queryParams.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+                 * @param {?} p
+                 * @return {?}
+                 */
+                (p) => convertToParamMap(p))));
+        }
+        return this._queryParamMap;
+    }
+    /**
+     * @return {?}
+     */
+    toString() {
+        return this.snapshot ? this.snapshot.toString() : `Future(${this._futureSnapshot})`;
+    }
+}
+if (false) {}
+/**
+ * Returns the inherited params, data, and resolve for a given route.
+ * By default, this only inherits values up to the nearest path-less or component-less route.
+ * \@internal
+ * @param {?} route
+ * @param {?=} paramsInheritanceStrategy
+ * @return {?}
+ */
+function inheritedParamsDataResolve(route, paramsInheritanceStrategy = 'emptyOnly') {
+    /** @type {?} */
+    const pathFromRoot = route.pathFromRoot;
+    /** @type {?} */
+    let inheritingStartingFrom = 0;
+    if (paramsInheritanceStrategy !== 'always') {
+        inheritingStartingFrom = pathFromRoot.length - 1;
+        while (inheritingStartingFrom >= 1) {
+            /** @type {?} */
+            const current = pathFromRoot[inheritingStartingFrom];
+            /** @type {?} */
+            const parent = pathFromRoot[inheritingStartingFrom - 1];
+            // current route is an empty path => inherits its parent's params and data
+            if (current.routeConfig && current.routeConfig.path === '') {
+                inheritingStartingFrom--;
+                // parent is componentless => current route should inherit its params and data
+            }
+            else if (!parent.component) {
+                inheritingStartingFrom--;
+            }
+            else {
+                break;
+            }
+        }
+    }
+    return flattenInherited(pathFromRoot.slice(inheritingStartingFrom));
+}
+/**
+ * \@internal
+ * @param {?} pathFromRoot
+ * @return {?}
+ */
+function flattenInherited(pathFromRoot) {
+    return pathFromRoot.reduce((/**
+     * @param {?} res
+     * @param {?} curr
+     * @return {?}
+     */
+    (res, curr) => {
+        /** @type {?} */
+        const params = Object.assign(Object.assign({}, res.params), curr.params);
+        /** @type {?} */
+        const data = Object.assign(Object.assign({}, res.data), curr.data);
+        /** @type {?} */
+        const resolve = Object.assign(Object.assign({}, res.resolve), curr._resolvedData);
+        return { params, data, resolve };
+    }), (/** @type {?} */ ({ params: {}, data: {}, resolve: {} })));
+}
+/**
+ * \@description
+ *
+ * Contains the information about a route associated with a component loaded in an
+ * outlet at a particular moment in time. ActivatedRouteSnapshot can also be used to
+ * traverse the router state tree.
+ *
+ * ```
+ * \@Component({templateUrl:'./my-component.html'})
+ * class MyComponent {
+ *   constructor(route: ActivatedRoute) {
+ *     const id: string = route.snapshot.params.id;
+ *     const url: string = route.snapshot.url.join('');
+ *     const user = route.snapshot.data.user;
+ *   }
+ * }
+ * ```
+ *
+ * \@publicApi
+ */
+class ActivatedRouteSnapshot {
+    /**
+     * \@internal
+     * @param {?} url
+     * @param {?} params
+     * @param {?} queryParams
+     * @param {?} fragment
+     * @param {?} data
+     * @param {?} outlet
+     * @param {?} component
+     * @param {?} routeConfig
+     * @param {?} urlSegment
+     * @param {?} lastPathIndex
+     * @param {?} resolve
+     */
+    constructor(url, params, queryParams, fragment, data, outlet, component, routeConfig, urlSegment, lastPathIndex, resolve) {
+        this.url = url;
+        this.params = params;
+        this.queryParams = queryParams;
+        this.fragment = fragment;
+        this.data = data;
+        this.outlet = outlet;
+        this.component = component;
+        this.routeConfig = routeConfig;
+        this._urlSegment = urlSegment;
+        this._lastPathIndex = lastPathIndex;
+        this._resolve = resolve;
+    }
+    /**
+     * The root of the router state
+     * @return {?}
+     */
+    get root() { return this._routerState.root; }
+    /**
+     * The parent of this route in the router state tree
+     * @return {?}
+     */
+    get parent() { return this._routerState.parent(this); }
+    /**
+     * The first child of this route in the router state tree
+     * @return {?}
+     */
+    get firstChild() { return this._routerState.firstChild(this); }
+    /**
+     * The children of this route in the router state tree
+     * @return {?}
+     */
+    get children() { return this._routerState.children(this); }
+    /**
+     * The path from the root of the router state tree to this route
+     * @return {?}
+     */
+    get pathFromRoot() { return this._routerState.pathFromRoot(this); }
+    /**
+     * @return {?}
+     */
+    get paramMap() {
+        if (!this._paramMap) {
+            this._paramMap = convertToParamMap(this.params);
+        }
+        return this._paramMap;
+    }
+    /**
+     * @return {?}
+     */
+    get queryParamMap() {
+        if (!this._queryParamMap) {
+            this._queryParamMap = convertToParamMap(this.queryParams);
+        }
+        return this._queryParamMap;
+    }
+    /**
+     * @return {?}
+     */
+    toString() {
+        /** @type {?} */
+        const url = this.url.map((/**
+         * @param {?} segment
+         * @return {?}
+         */
+        segment => segment.toString())).join('/');
+        /** @type {?} */
+        const matched = this.routeConfig ? this.routeConfig.path : '';
+        return `Route(url:'${url}', path:'${matched}')`;
+    }
+}
+if (false) {}
+/**
+ * \@description
+ *
+ * Represents the state of the router at a moment in time.
+ *
+ * This is a tree of activated route snapshots. Every node in this tree knows about
+ * the "consumed" URL segments, the extracted parameters, and the resolved data.
+ *
+ * \@usageNotes
+ * ### Example
+ *
+ * ```
+ * \@Component({templateUrl:'template.html'})
+ * class MyComponent {
+ *   constructor(router: Router) {
+ *     const state: RouterState = router.routerState;
+ *     const snapshot: RouterStateSnapshot = state.snapshot;
+ *     const root: ActivatedRouteSnapshot = snapshot.root;
+ *     const child = root.firstChild;
+ *     const id: Observable<string> = child.params.map(p => p.id);
+ *     //...
+ *   }
+ * }
+ * ```
+ *
+ * \@publicApi
+ */
+class RouterStateSnapshot extends Tree {
+    /**
+     * \@internal
+     * @param {?} url
+     * @param {?} root
+     */
+    constructor(url, root) {
+        super(root);
+        this.url = url;
+        setRouterState((/** @type {?} */ (this)), root);
+    }
+    /**
+     * @return {?}
+     */
+    toString() { return serializeNode(this._root); }
+}
+if (false) {}
+/**
+ * @template U, T
+ * @param {?} state
+ * @param {?} node
+ * @return {?}
+ */
+function setRouterState(state, node) {
+    node.value._routerState = state;
+    node.children.forEach((/**
+     * @param {?} c
+     * @return {?}
+     */
+    c => setRouterState(state, c)));
+}
+/**
+ * @param {?} node
+ * @return {?}
+ */
+function serializeNode(node) {
+    /** @type {?} */
+    const c = node.children.length > 0 ? ` { ${node.children.map(serializeNode).join(', ')} } ` : '';
+    return `${node.value}${c}`;
+}
+/**
+ * The expectation is that the activate route is created with the right set of parameters.
+ * So we push new values into the observables only when they are not the initial values.
+ * And we detect that by checking if the snapshot field is set.
+ * @param {?} route
+ * @return {?}
+ */
+function advanceActivatedRoute(route) {
+    if (route.snapshot) {
+        /** @type {?} */
+        const currentSnapshot = route.snapshot;
+        /** @type {?} */
+        const nextSnapshot = route._futureSnapshot;
+        route.snapshot = nextSnapshot;
+        if (!shallowEqual(currentSnapshot.queryParams, nextSnapshot.queryParams)) {
+            ((/** @type {?} */ (route.queryParams))).next(nextSnapshot.queryParams);
+        }
+        if (currentSnapshot.fragment !== nextSnapshot.fragment) {
+            ((/** @type {?} */ (route.fragment))).next(nextSnapshot.fragment);
+        }
+        if (!shallowEqual(currentSnapshot.params, nextSnapshot.params)) {
+            ((/** @type {?} */ (route.params))).next(nextSnapshot.params);
+        }
+        if (!shallowEqualArrays(currentSnapshot.url, nextSnapshot.url)) {
+            ((/** @type {?} */ (route.url))).next(nextSnapshot.url);
+        }
+        if (!shallowEqual(currentSnapshot.data, nextSnapshot.data)) {
+            ((/** @type {?} */ (route.data))).next(nextSnapshot.data);
+        }
+    }
+    else {
+        route.snapshot = route._futureSnapshot;
+        // this is for resolved data
+        ((/** @type {?} */ (route.data))).next(route._futureSnapshot.data);
+    }
+}
+/**
+ * @param {?} a
+ * @param {?} b
+ * @return {?}
+ */
+function equalParamsAndUrlSegments(a, b) {
+    /** @type {?} */
+    const equalUrlParams = shallowEqual(a.params, b.params) && equalSegments(a.url, b.url);
+    /** @type {?} */
+    const parentsMismatch = !a.parent !== !b.parent;
+    return equalUrlParams && !parentsMismatch &&
+        (!a.parent || equalParamsAndUrlSegments(a.parent, (/** @type {?} */ (b.parent))));
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/create_router_state.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} routeReuseStrategy
+ * @param {?} curr
+ * @param {?} prevState
+ * @return {?}
+ */
+function createRouterState(routeReuseStrategy, curr, prevState) {
+    /** @type {?} */
+    const root = createNode(routeReuseStrategy, curr._root, prevState ? prevState._root : undefined);
+    return new RouterState(root, curr);
+}
+/**
+ * @param {?} routeReuseStrategy
+ * @param {?} curr
+ * @param {?=} prevState
+ * @return {?}
+ */
+function createNode(routeReuseStrategy, curr, prevState) {
+    // reuse an activated route that is currently displayed on the screen
+    if (prevState && routeReuseStrategy.shouldReuseRoute(curr.value, prevState.value.snapshot)) {
+        /** @type {?} */
+        const value = prevState.value;
+        value._futureSnapshot = curr.value;
+        /** @type {?} */
+        const children = createOrReuseChildren(routeReuseStrategy, curr, prevState);
+        return new TreeNode(value, children);
+        // retrieve an activated route that is used to be displayed, but is not currently displayed
+    }
+    else {
+        /** @type {?} */
+        const detachedRouteHandle = (/** @type {?} */ (routeReuseStrategy.retrieve(curr.value)));
+        if (detachedRouteHandle) {
+            /** @type {?} */
+            const tree = detachedRouteHandle.route;
+            setFutureSnapshotsOfActivatedRoutes(curr, tree);
+            return tree;
+        }
+        else {
+            /** @type {?} */
+            const value = createActivatedRoute(curr.value);
+            /** @type {?} */
+            const children = curr.children.map((/**
+             * @param {?} c
+             * @return {?}
+             */
+            c => createNode(routeReuseStrategy, c)));
+            return new TreeNode(value, children);
+        }
+    }
+}
+/**
+ * @param {?} curr
+ * @param {?} result
+ * @return {?}
+ */
+function setFutureSnapshotsOfActivatedRoutes(curr, result) {
+    if (curr.value.routeConfig !== result.value.routeConfig) {
+        throw new Error('Cannot reattach ActivatedRouteSnapshot created from a different route');
+    }
+    if (curr.children.length !== result.children.length) {
+        throw new Error('Cannot reattach ActivatedRouteSnapshot with a different number of children');
+    }
+    result.value._futureSnapshot = curr.value;
+    for (let i = 0; i < curr.children.length; ++i) {
+        setFutureSnapshotsOfActivatedRoutes(curr.children[i], result.children[i]);
+    }
+}
+/**
+ * @param {?} routeReuseStrategy
+ * @param {?} curr
+ * @param {?} prevState
+ * @return {?}
+ */
+function createOrReuseChildren(routeReuseStrategy, curr, prevState) {
+    return curr.children.map((/**
+     * @param {?} child
+     * @return {?}
+     */
+    child => {
+        for (const p of prevState.children) {
+            if (routeReuseStrategy.shouldReuseRoute(p.value.snapshot, child.value)) {
+                return createNode(routeReuseStrategy, child, p);
+            }
+        }
+        return createNode(routeReuseStrategy, child);
+    }));
+}
+/**
+ * @param {?} c
+ * @return {?}
+ */
+function createActivatedRoute(c) {
+    return new ActivatedRoute(new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](c.url), new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](c.params), new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](c.queryParams), new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](c.fragment), new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](c.data), c.outlet, c.component, c);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/create_url_tree.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} route
+ * @param {?} urlTree
+ * @param {?} commands
+ * @param {?} queryParams
+ * @param {?} fragment
+ * @return {?}
+ */
+function createUrlTree(route, urlTree, commands, queryParams, fragment) {
+    if (commands.length === 0) {
+        return tree(urlTree.root, urlTree.root, urlTree, queryParams, fragment);
+    }
+    /** @type {?} */
+    const nav = computeNavigation(commands);
+    if (nav.toRoot()) {
+        return tree(urlTree.root, new UrlSegmentGroup([], {}), urlTree, queryParams, fragment);
+    }
+    /** @type {?} */
+    const startingPosition = findStartingPosition(nav, urlTree, route);
+    /** @type {?} */
+    const segmentGroup = startingPosition.processChildren ?
+        updateSegmentGroupChildren(startingPosition.segmentGroup, startingPosition.index, nav.commands) :
+        updateSegmentGroup(startingPosition.segmentGroup, startingPosition.index, nav.commands);
+    return tree(startingPosition.segmentGroup, segmentGroup, urlTree, queryParams, fragment);
+}
+/**
+ * @param {?} command
+ * @return {?}
+ */
+function isMatrixParams(command) {
+    return typeof command === 'object' && command != null && !command.outlets && !command.segmentPath;
+}
+/**
+ * @param {?} oldSegmentGroup
+ * @param {?} newSegmentGroup
+ * @param {?} urlTree
+ * @param {?} queryParams
+ * @param {?} fragment
+ * @return {?}
+ */
+function tree(oldSegmentGroup, newSegmentGroup, urlTree, queryParams, fragment) {
+    /** @type {?} */
+    let qp = {};
+    if (queryParams) {
+        forEach(queryParams, (/**
+         * @param {?} value
+         * @param {?} name
+         * @return {?}
+         */
+        (value, name) => {
+            qp[name] = Array.isArray(value) ? value.map((/**
+             * @param {?} v
+             * @return {?}
+             */
+            (v) => `${v}`)) : `${value}`;
+        }));
+    }
+    if (urlTree.root === oldSegmentGroup) {
+        return new UrlTree(newSegmentGroup, qp, fragment);
+    }
+    return new UrlTree(replaceSegment(urlTree.root, oldSegmentGroup, newSegmentGroup), qp, fragment);
+}
+/**
+ * @param {?} current
+ * @param {?} oldSegment
+ * @param {?} newSegment
+ * @return {?}
+ */
+function replaceSegment(current, oldSegment, newSegment) {
+    /** @type {?} */
+    const children = {};
+    forEach(current.children, (/**
+     * @param {?} c
+     * @param {?} outletName
+     * @return {?}
+     */
+    (c, outletName) => {
+        if (c === oldSegment) {
+            children[outletName] = newSegment;
+        }
+        else {
+            children[outletName] = replaceSegment(c, oldSegment, newSegment);
+        }
+    }));
+    return new UrlSegmentGroup(current.segments, children);
+}
+class Navigation {
+    /**
+     * @param {?} isAbsolute
+     * @param {?} numberOfDoubleDots
+     * @param {?} commands
+     */
+    constructor(isAbsolute, numberOfDoubleDots, commands) {
+        this.isAbsolute = isAbsolute;
+        this.numberOfDoubleDots = numberOfDoubleDots;
+        this.commands = commands;
+        if (isAbsolute && commands.length > 0 && isMatrixParams(commands[0])) {
+            throw new Error('Root segment cannot have matrix parameters');
+        }
+        /** @type {?} */
+        const cmdWithOutlet = commands.find((/**
+         * @param {?} c
+         * @return {?}
+         */
+        c => typeof c === 'object' && c != null && c.outlets));
+        if (cmdWithOutlet && cmdWithOutlet !== last(commands)) {
+            throw new Error('{outlets:{}} has to be the last command');
+        }
+    }
+    /**
+     * @return {?}
+     */
+    toRoot() {
+        return this.isAbsolute && this.commands.length === 1 && this.commands[0] == '/';
+    }
+}
+if (false) {}
+/**
+ * Transforms commands to a normalized `Navigation`
+ * @param {?} commands
+ * @return {?}
+ */
+function computeNavigation(commands) {
+    if ((typeof commands[0] === 'string') && commands.length === 1 && commands[0] === '/') {
+        return new Navigation(true, 0, commands);
+    }
+    /** @type {?} */
+    let numberOfDoubleDots = 0;
+    /** @type {?} */
+    let isAbsolute = false;
+    /** @type {?} */
+    const res = commands.reduce((/**
+     * @param {?} res
+     * @param {?} cmd
+     * @param {?} cmdIdx
+     * @return {?}
+     */
+    (res, cmd, cmdIdx) => {
+        if (typeof cmd === 'object' && cmd != null) {
+            if (cmd.outlets) {
+                /** @type {?} */
+                const outlets = {};
+                forEach(cmd.outlets, (/**
+                 * @param {?} commands
+                 * @param {?} name
+                 * @return {?}
+                 */
+                (commands, name) => {
+                    outlets[name] = typeof commands === 'string' ? commands.split('/') : commands;
+                }));
+                return [...res, { outlets }];
+            }
+            if (cmd.segmentPath) {
+                return [...res, cmd.segmentPath];
+            }
+        }
+        if (!(typeof cmd === 'string')) {
+            return [...res, cmd];
+        }
+        if (cmdIdx === 0) {
+            cmd.split('/').forEach((/**
+             * @param {?} urlPart
+             * @param {?} partIndex
+             * @return {?}
+             */
+            (urlPart, partIndex) => {
+                if (partIndex == 0 && urlPart === '.') {
+                    // skip './a'
+                }
+                else if (partIndex == 0 && urlPart === '') { //  '/a'
+                    isAbsolute = true;
+                }
+                else if (urlPart === '..') { //  '../a'
+                    numberOfDoubleDots++;
+                }
+                else if (urlPart != '') {
+                    res.push(urlPart);
+                }
+            }));
+            return res;
+        }
+        return [...res, cmd];
+    }), []);
+    return new Navigation(isAbsolute, numberOfDoubleDots, res);
+}
+class Position {
+    /**
+     * @param {?} segmentGroup
+     * @param {?} processChildren
+     * @param {?} index
+     */
+    constructor(segmentGroup, processChildren, index) {
+        this.segmentGroup = segmentGroup;
+        this.processChildren = processChildren;
+        this.index = index;
+    }
+}
+if (false) {}
+/**
+ * @param {?} nav
+ * @param {?} tree
+ * @param {?} route
+ * @return {?}
+ */
+function findStartingPosition(nav, tree, route) {
+    if (nav.isAbsolute) {
+        return new Position(tree.root, true, 0);
+    }
+    if (route.snapshot._lastPathIndex === -1) {
+        return new Position(route.snapshot._urlSegment, true, 0);
+    }
+    /** @type {?} */
+    const modifier = isMatrixParams(nav.commands[0]) ? 0 : 1;
+    /** @type {?} */
+    const index = route.snapshot._lastPathIndex + modifier;
+    return createPositionApplyingDoubleDots(route.snapshot._urlSegment, index, nav.numberOfDoubleDots);
+}
+/**
+ * @param {?} group
+ * @param {?} index
+ * @param {?} numberOfDoubleDots
+ * @return {?}
+ */
+function createPositionApplyingDoubleDots(group, index, numberOfDoubleDots) {
+    /** @type {?} */
+    let g = group;
+    /** @type {?} */
+    let ci = index;
+    /** @type {?} */
+    let dd = numberOfDoubleDots;
+    while (dd > ci) {
+        dd -= ci;
+        g = (/** @type {?} */ (g.parent));
+        if (!g) {
+            throw new Error('Invalid number of \'../\'');
+        }
+        ci = g.segments.length;
+    }
+    return new Position(g, false, ci - dd);
+}
+/**
+ * @param {?} command
+ * @return {?}
+ */
+function getPath(command) {
+    if (typeof command === 'object' && command != null && command.outlets) {
+        return command.outlets[PRIMARY_OUTLET];
+    }
+    return `${command}`;
+}
+/**
+ * @param {?} commands
+ * @return {?}
+ */
+function getOutlets(commands) {
+    if (!(typeof commands[0] === 'object'))
+        return { [PRIMARY_OUTLET]: commands };
+    if (commands[0].outlets === undefined)
+        return { [PRIMARY_OUTLET]: commands };
+    return commands[0].outlets;
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} startIndex
+ * @param {?} commands
+ * @return {?}
+ */
+function updateSegmentGroup(segmentGroup, startIndex, commands) {
+    if (!segmentGroup) {
+        segmentGroup = new UrlSegmentGroup([], {});
+    }
+    if (segmentGroup.segments.length === 0 && segmentGroup.hasChildren()) {
+        return updateSegmentGroupChildren(segmentGroup, startIndex, commands);
+    }
+    /** @type {?} */
+    const m = prefixedWith(segmentGroup, startIndex, commands);
+    /** @type {?} */
+    const slicedCommands = commands.slice(m.commandIndex);
+    if (m.match && m.pathIndex < segmentGroup.segments.length) {
+        /** @type {?} */
+        const g = new UrlSegmentGroup(segmentGroup.segments.slice(0, m.pathIndex), {});
+        g.children[PRIMARY_OUTLET] =
+            new UrlSegmentGroup(segmentGroup.segments.slice(m.pathIndex), segmentGroup.children);
+        return updateSegmentGroupChildren(g, 0, slicedCommands);
+    }
+    else if (m.match && slicedCommands.length === 0) {
+        return new UrlSegmentGroup(segmentGroup.segments, {});
+    }
+    else if (m.match && !segmentGroup.hasChildren()) {
+        return createNewSegmentGroup(segmentGroup, startIndex, commands);
+    }
+    else if (m.match) {
+        return updateSegmentGroupChildren(segmentGroup, 0, slicedCommands);
+    }
+    else {
+        return createNewSegmentGroup(segmentGroup, startIndex, commands);
+    }
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} startIndex
+ * @param {?} commands
+ * @return {?}
+ */
+function updateSegmentGroupChildren(segmentGroup, startIndex, commands) {
+    if (commands.length === 0) {
+        return new UrlSegmentGroup(segmentGroup.segments, {});
+    }
+    else {
+        /** @type {?} */
+        const outlets = getOutlets(commands);
+        /** @type {?} */
+        const children = {};
+        forEach(outlets, (/**
+         * @param {?} commands
+         * @param {?} outlet
+         * @return {?}
+         */
+        (commands, outlet) => {
+            if (commands !== null) {
+                children[outlet] = updateSegmentGroup(segmentGroup.children[outlet], startIndex, commands);
+            }
+        }));
+        forEach(segmentGroup.children, (/**
+         * @param {?} child
+         * @param {?} childOutlet
+         * @return {?}
+         */
+        (child, childOutlet) => {
+            if (outlets[childOutlet] === undefined) {
+                children[childOutlet] = child;
+            }
+        }));
+        return new UrlSegmentGroup(segmentGroup.segments, children);
+    }
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} startIndex
+ * @param {?} commands
+ * @return {?}
+ */
+function prefixedWith(segmentGroup, startIndex, commands) {
+    /** @type {?} */
+    let currentCommandIndex = 0;
+    /** @type {?} */
+    let currentPathIndex = startIndex;
+    /** @type {?} */
+    const noMatch = { match: false, pathIndex: 0, commandIndex: 0 };
+    while (currentPathIndex < segmentGroup.segments.length) {
+        if (currentCommandIndex >= commands.length)
+            return noMatch;
+        /** @type {?} */
+        const path = segmentGroup.segments[currentPathIndex];
+        /** @type {?} */
+        const curr = getPath(commands[currentCommandIndex]);
+        /** @type {?} */
+        const next = currentCommandIndex < commands.length - 1 ? commands[currentCommandIndex + 1] : null;
+        if (currentPathIndex > 0 && curr === undefined)
+            break;
+        if (curr && next && (typeof next === 'object') && next.outlets === undefined) {
+            if (!compare(curr, next, path))
+                return noMatch;
+            currentCommandIndex += 2;
+        }
+        else {
+            if (!compare(curr, {}, path))
+                return noMatch;
+            currentCommandIndex++;
+        }
+        currentPathIndex++;
+    }
+    return { match: true, pathIndex: currentPathIndex, commandIndex: currentCommandIndex };
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} startIndex
+ * @param {?} commands
+ * @return {?}
+ */
+function createNewSegmentGroup(segmentGroup, startIndex, commands) {
+    /** @type {?} */
+    const paths = segmentGroup.segments.slice(0, startIndex);
+    /** @type {?} */
+    let i = 0;
+    while (i < commands.length) {
+        if (typeof commands[i] === 'object' && commands[i].outlets !== undefined) {
+            /** @type {?} */
+            const children = createNewSegmentChildren(commands[i].outlets);
+            return new UrlSegmentGroup(paths, children);
+        }
+        // if we start with an object literal, we need to reuse the path part from the segment
+        if (i === 0 && isMatrixParams(commands[0])) {
+            /** @type {?} */
+            const p = segmentGroup.segments[startIndex];
+            paths.push(new UrlSegment(p.path, commands[0]));
+            i++;
+            continue;
+        }
+        /** @type {?} */
+        const curr = getPath(commands[i]);
+        /** @type {?} */
+        const next = (i < commands.length - 1) ? commands[i + 1] : null;
+        if (curr && next && isMatrixParams(next)) {
+            paths.push(new UrlSegment(curr, stringify(next)));
+            i += 2;
+        }
+        else {
+            paths.push(new UrlSegment(curr, {}));
+            i++;
+        }
+    }
+    return new UrlSegmentGroup(paths, {});
+}
+/**
+ * @param {?} outlets
+ * @return {?}
+ */
+function createNewSegmentChildren(outlets) {
+    /** @type {?} */
+    const children = {};
+    forEach(outlets, (/**
+     * @param {?} commands
+     * @param {?} outlet
+     * @return {?}
+     */
+    (commands, outlet) => {
+        if (commands !== null) {
+            children[outlet] = createNewSegmentGroup(new UrlSegmentGroup([], {}), 0, commands);
+        }
+    }));
+    return children;
+}
+/**
+ * @param {?} params
+ * @return {?}
+ */
+function stringify(params) {
+    /** @type {?} */
+    const res = {};
+    forEach(params, (/**
+     * @param {?} v
+     * @param {?} k
+     * @return {?}
+     */
+    (v, k) => res[k] = `${v}`));
+    return res;
+}
+/**
+ * @param {?} path
+ * @param {?} params
+ * @param {?} segment
+ * @return {?}
+ */
+function compare(path, params, segment) {
+    return path == segment.path && shallowEqual(params, segment.parameters);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/operators/activate_routes.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const activateRoutes = (/**
+ * @param {?} rootContexts
+ * @param {?} routeReuseStrategy
+ * @param {?} forwardEvent
+ * @return {?}
+ */
+(rootContexts, routeReuseStrategy, forwardEvent) => Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+ * @param {?} t
+ * @return {?}
+ */
+t => {
+    new ActivateRoutes(routeReuseStrategy, (/** @type {?} */ (t.targetRouterState)), t.currentRouterState, forwardEvent)
+        .activate(rootContexts);
+    return t;
+})));
+class ActivateRoutes {
+    /**
+     * @param {?} routeReuseStrategy
+     * @param {?} futureState
+     * @param {?} currState
+     * @param {?} forwardEvent
+     */
+    constructor(routeReuseStrategy, futureState, currState, forwardEvent) {
+        this.routeReuseStrategy = routeReuseStrategy;
+        this.futureState = futureState;
+        this.currState = currState;
+        this.forwardEvent = forwardEvent;
+    }
+    /**
+     * @param {?} parentContexts
+     * @return {?}
+     */
+    activate(parentContexts) {
+        /** @type {?} */
+        const futureRoot = this.futureState._root;
+        /** @type {?} */
+        const currRoot = this.currState ? this.currState._root : null;
+        this.deactivateChildRoutes(futureRoot, currRoot, parentContexts);
+        advanceActivatedRoute(this.futureState.root);
+        this.activateChildRoutes(futureRoot, currRoot, parentContexts);
+    }
+    // De-activate the child route that are not re-used for the future state
+    /**
+     * @private
+     * @param {?} futureNode
+     * @param {?} currNode
+     * @param {?} contexts
+     * @return {?}
+     */
+    deactivateChildRoutes(futureNode, currNode, contexts) {
+        /** @type {?} */
+        const children = nodeChildrenAsMap(currNode);
+        // Recurse on the routes active in the future state to de-activate deeper children
+        futureNode.children.forEach((/**
+         * @param {?} futureChild
+         * @return {?}
+         */
+        futureChild => {
+            /** @type {?} */
+            const childOutletName = futureChild.value.outlet;
+            this.deactivateRoutes(futureChild, children[childOutletName], contexts);
+            delete children[childOutletName];
+        }));
+        // De-activate the routes that will not be re-used
+        forEach(children, (/**
+         * @param {?} v
+         * @param {?} childName
+         * @return {?}
+         */
+        (v, childName) => {
+            this.deactivateRouteAndItsChildren(v, contexts);
+        }));
+    }
+    /**
+     * @private
+     * @param {?} futureNode
+     * @param {?} currNode
+     * @param {?} parentContext
+     * @return {?}
+     */
+    deactivateRoutes(futureNode, currNode, parentContext) {
+        /** @type {?} */
+        const future = futureNode.value;
+        /** @type {?} */
+        const curr = currNode ? currNode.value : null;
+        if (future === curr) {
+            // Reusing the node, check to see if the children need to be de-activated
+            if (future.component) {
+                // If we have a normal route, we need to go through an outlet.
+                /** @type {?} */
+                const context = parentContext.getContext(future.outlet);
+                if (context) {
+                    this.deactivateChildRoutes(futureNode, currNode, context.children);
+                }
+            }
+            else {
+                // if we have a componentless route, we recurse but keep the same outlet map.
+                this.deactivateChildRoutes(futureNode, currNode, parentContext);
+            }
+        }
+        else {
+            if (curr) {
+                // Deactivate the current route which will not be re-used
+                this.deactivateRouteAndItsChildren(currNode, parentContext);
+            }
+        }
+    }
+    /**
+     * @private
+     * @param {?} route
+     * @param {?} parentContexts
+     * @return {?}
+     */
+    deactivateRouteAndItsChildren(route, parentContexts) {
+        if (this.routeReuseStrategy.shouldDetach(route.value.snapshot)) {
+            this.detachAndStoreRouteSubtree(route, parentContexts);
+        }
+        else {
+            this.deactivateRouteAndOutlet(route, parentContexts);
+        }
+    }
+    /**
+     * @private
+     * @param {?} route
+     * @param {?} parentContexts
+     * @return {?}
+     */
+    detachAndStoreRouteSubtree(route, parentContexts) {
+        /** @type {?} */
+        const context = parentContexts.getContext(route.value.outlet);
+        if (context && context.outlet) {
+            /** @type {?} */
+            const componentRef = context.outlet.detach();
+            /** @type {?} */
+            const contexts = context.children.onOutletDeactivated();
+            this.routeReuseStrategy.store(route.value.snapshot, { componentRef, route, contexts });
+        }
+    }
+    /**
+     * @private
+     * @param {?} route
+     * @param {?} parentContexts
+     * @return {?}
+     */
+    deactivateRouteAndOutlet(route, parentContexts) {
+        /** @type {?} */
+        const context = parentContexts.getContext(route.value.outlet);
+        if (context) {
+            /** @type {?} */
+            const children = nodeChildrenAsMap(route);
+            /** @type {?} */
+            const contexts = route.value.component ? context.children : parentContexts;
+            forEach(children, (/**
+             * @param {?} v
+             * @param {?} k
+             * @return {?}
+             */
+            (v, k) => this.deactivateRouteAndItsChildren(v, contexts)));
+            if (context.outlet) {
+                // Destroy the component
+                context.outlet.deactivate();
+                // Destroy the contexts for all the outlets that were in the component
+                context.children.onOutletDeactivated();
+            }
+        }
+    }
+    /**
+     * @private
+     * @param {?} futureNode
+     * @param {?} currNode
+     * @param {?} contexts
+     * @return {?}
+     */
+    activateChildRoutes(futureNode, currNode, contexts) {
+        /** @type {?} */
+        const children = nodeChildrenAsMap(currNode);
+        futureNode.children.forEach((/**
+         * @param {?} c
+         * @return {?}
+         */
+        c => {
+            this.activateRoutes(c, children[c.value.outlet], contexts);
+            this.forwardEvent(new ActivationEnd(c.value.snapshot));
+        }));
+        if (futureNode.children.length) {
+            this.forwardEvent(new ChildActivationEnd(futureNode.value.snapshot));
+        }
+    }
+    /**
+     * @private
+     * @param {?} futureNode
+     * @param {?} currNode
+     * @param {?} parentContexts
+     * @return {?}
+     */
+    activateRoutes(futureNode, currNode, parentContexts) {
+        /** @type {?} */
+        const future = futureNode.value;
+        /** @type {?} */
+        const curr = currNode ? currNode.value : null;
+        advanceActivatedRoute(future);
+        // reusing the node
+        if (future === curr) {
+            if (future.component) {
+                // If we have a normal route, we need to go through an outlet.
+                /** @type {?} */
+                const context = parentContexts.getOrCreateContext(future.outlet);
+                this.activateChildRoutes(futureNode, currNode, context.children);
+            }
+            else {
+                // if we have a componentless route, we recurse but keep the same outlet map.
+                this.activateChildRoutes(futureNode, currNode, parentContexts);
+            }
+        }
+        else {
+            if (future.component) {
+                // if we have a normal route, we need to place the component into the outlet and recurse.
+                /** @type {?} */
+                const context = parentContexts.getOrCreateContext(future.outlet);
+                if (this.routeReuseStrategy.shouldAttach(future.snapshot)) {
+                    /** @type {?} */
+                    const stored = ((/** @type {?} */ (this.routeReuseStrategy.retrieve(future.snapshot))));
+                    this.routeReuseStrategy.store(future.snapshot, null);
+                    context.children.onOutletReAttached(stored.contexts);
+                    context.attachRef = stored.componentRef;
+                    context.route = stored.route.value;
+                    if (context.outlet) {
+                        // Attach right away when the outlet has already been instantiated
+                        // Otherwise attach from `RouterOutlet.ngOnInit` when it is instantiated
+                        context.outlet.attach(stored.componentRef, stored.route.value);
+                    }
+                    advanceActivatedRouteNodeAndItsChildren(stored.route);
+                }
+                else {
+                    /** @type {?} */
+                    const config = parentLoadedConfig(future.snapshot);
+                    /** @type {?} */
+                    const cmpFactoryResolver = config ? config.module.componentFactoryResolver : null;
+                    context.attachRef = null;
+                    context.route = future;
+                    context.resolver = cmpFactoryResolver;
+                    if (context.outlet) {
+                        // Activate the outlet when it has already been instantiated
+                        // Otherwise it will get activated from its `ngOnInit` when instantiated
+                        context.outlet.activateWith(future, cmpFactoryResolver);
+                    }
+                    this.activateChildRoutes(futureNode, null, context.children);
+                }
+            }
+            else {
+                // if we have a componentless route, we recurse but keep the same outlet map.
+                this.activateChildRoutes(futureNode, null, parentContexts);
+            }
+        }
+    }
+}
+if (false) {}
+/**
+ * @param {?} node
+ * @return {?}
+ */
+function advanceActivatedRouteNodeAndItsChildren(node) {
+    advanceActivatedRoute(node.value);
+    node.children.forEach(advanceActivatedRouteNodeAndItsChildren);
+}
+/**
+ * @param {?} snapshot
+ * @return {?}
+ */
+function parentLoadedConfig(snapshot) {
+    for (let s = snapshot.parent; s; s = s.parent) {
+        /** @type {?} */
+        const route = s.routeConfig;
+        if (route && route._loadedConfig)
+            return route._loadedConfig;
+        if (route && route.component)
+            return null;
+    }
+    return null;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/utils/type_guards.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Simple function check, but generic so type inference will flow. Example:
+ *
+ * function product(a: number, b: number) {
+ *   return a * b;
+ * }
+ *
+ * if (isFunction<product>(fn)) {
+ *   return fn(1, 2);
+ * } else {
+ *   throw "Must provide the `product` function";
+ * }
+ * @template T
+ * @param {?} v
+ * @return {?}
+ */
+function isFunction(v) {
+    return typeof v === 'function';
+}
+/**
+ * @param {?} v
+ * @return {?}
+ */
+function isBoolean(v) {
+    return typeof v === 'boolean';
+}
+/**
+ * @param {?} v
+ * @return {?}
+ */
+function isUrlTree(v) {
+    return v instanceof UrlTree;
+}
+/**
+ * @param {?} guard
+ * @return {?}
+ */
+function isCanLoad(guard) {
+    return guard && isFunction(guard.canLoad);
+}
+/**
+ * @param {?} guard
+ * @return {?}
+ */
+function isCanActivate(guard) {
+    return guard && isFunction(guard.canActivate);
+}
+/**
+ * @param {?} guard
+ * @return {?}
+ */
+function isCanActivateChild(guard) {
+    return guard && isFunction(guard.canActivateChild);
+}
+/**
+ * @template T
+ * @param {?} guard
+ * @return {?}
+ */
+function isCanDeactivate(guard) {
+    return guard && isFunction(guard.canDeactivate);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/apply_redirects.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class NoMatch {
+    /**
+     * @param {?=} segmentGroup
+     */
+    constructor(segmentGroup) { this.segmentGroup = segmentGroup || null; }
+}
+if (false) {}
+class AbsoluteRedirect {
+    /**
+     * @param {?} urlTree
+     */
+    constructor(urlTree) {
+        this.urlTree = urlTree;
+    }
+}
+if (false) {}
+/**
+ * @param {?} segmentGroup
+ * @return {?}
+ */
+function noMatch(segmentGroup) {
+    return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((/**
+     * @param {?} obs
+     * @return {?}
+     */
+    (obs) => obs.error(new NoMatch(segmentGroup))));
+}
+/**
+ * @param {?} newTree
+ * @return {?}
+ */
+function absoluteRedirect(newTree) {
+    return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((/**
+     * @param {?} obs
+     * @return {?}
+     */
+    (obs) => obs.error(new AbsoluteRedirect(newTree))));
+}
+/**
+ * @param {?} redirectTo
+ * @return {?}
+ */
+function namedOutletsRedirect(redirectTo) {
+    return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((/**
+     * @param {?} obs
+     * @return {?}
+     */
+    (obs) => obs.error(new Error(`Only absolute redirects can have named outlets. redirectTo: '${redirectTo}'`))));
+}
+/**
+ * @param {?} route
+ * @return {?}
+ */
+function canLoadFails(route) {
+    return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((/**
+     * @param {?} obs
+     * @return {?}
+     */
+    (obs) => obs.error(navigationCancelingError(`Cannot load children because the guard of the route "path: '${route.path}'" returned false`))));
+}
+/**
+ * Returns the `UrlTree` with the redirection applied.
+ *
+ * Lazy modules are loaded along the way.
+ * @param {?} moduleInjector
+ * @param {?} configLoader
+ * @param {?} urlSerializer
+ * @param {?} urlTree
+ * @param {?} config
+ * @return {?}
+ */
+function applyRedirects(moduleInjector, configLoader, urlSerializer, urlTree, config) {
+    return new ApplyRedirects(moduleInjector, configLoader, urlSerializer, urlTree, config).apply();
+}
+class ApplyRedirects {
+    /**
+     * @param {?} moduleInjector
+     * @param {?} configLoader
+     * @param {?} urlSerializer
+     * @param {?} urlTree
+     * @param {?} config
+     */
+    constructor(moduleInjector, configLoader, urlSerializer, urlTree, config) {
+        this.configLoader = configLoader;
+        this.urlSerializer = urlSerializer;
+        this.urlTree = urlTree;
+        this.config = config;
+        this.allowRedirects = true;
+        this.ngModule = moduleInjector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleRef"]);
+    }
+    /**
+     * @return {?}
+     */
+    apply() {
+        /** @type {?} */
+        const expanded$ = this.expandSegmentGroup(this.ngModule, this.config, this.urlTree.root, PRIMARY_OUTLET);
+        /** @type {?} */
+        const urlTrees$ = expanded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} rootSegmentGroup
+         * @return {?}
+         */
+        (rootSegmentGroup) => this.createUrlTree(rootSegmentGroup, this.urlTree.queryParams, (/** @type {?} */ (this.urlTree.fragment))))));
+        return urlTrees$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
+            if (e instanceof AbsoluteRedirect) {
+                // after an absolute redirect we do not apply any more redirects!
+                this.allowRedirects = false;
+                // we need to run matching, so we can fetch all lazy-loaded modules
+                return this.match(e.urlTree);
+            }
+            if (e instanceof NoMatch) {
+                throw this.noMatchError(e);
+            }
+            throw e;
+        })));
+    }
+    /**
+     * @private
+     * @param {?} tree
+     * @return {?}
+     */
+    match(tree) {
+        /** @type {?} */
+        const expanded$ = this.expandSegmentGroup(this.ngModule, this.config, tree.root, PRIMARY_OUTLET);
+        /** @type {?} */
+        const mapped$ = expanded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} rootSegmentGroup
+         * @return {?}
+         */
+        (rootSegmentGroup) => this.createUrlTree(rootSegmentGroup, tree.queryParams, (/** @type {?} */ (tree.fragment))))));
+        return mapped$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
+            if (e instanceof NoMatch) {
+                throw this.noMatchError(e);
+            }
+            throw e;
+        })));
+    }
+    /**
+     * @private
+     * @param {?} e
+     * @return {?}
+     */
+    noMatchError(e) {
+        return new Error(`Cannot match any routes. URL Segment: '${e.segmentGroup}'`);
+    }
+    /**
+     * @private
+     * @param {?} rootCandidate
+     * @param {?} queryParams
+     * @param {?} fragment
+     * @return {?}
+     */
+    createUrlTree(rootCandidate, queryParams, fragment) {
+        /** @type {?} */
+        const root = rootCandidate.segments.length > 0 ?
+            new UrlSegmentGroup([], { [PRIMARY_OUTLET]: rootCandidate }) :
+            rootCandidate;
+        return new UrlTree(root, queryParams, fragment);
+    }
+    /**
+     * @private
+     * @param {?} ngModule
+     * @param {?} routes
+     * @param {?} segmentGroup
+     * @param {?} outlet
+     * @return {?}
+     */
+    expandSegmentGroup(ngModule, routes, segmentGroup, outlet) {
+        if (segmentGroup.segments.length === 0 && segmentGroup.hasChildren()) {
+            return this.expandChildren(ngModule, routes, segmentGroup)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+             * @param {?} children
+             * @return {?}
+             */
+            (children) => new UrlSegmentGroup([], children))));
+        }
+        return this.expandSegment(ngModule, segmentGroup, routes, segmentGroup.segments, outlet, true);
+    }
+    // Recursively expand segment groups for all the child outlets
+    /**
+     * @private
+     * @param {?} ngModule
+     * @param {?} routes
+     * @param {?} segmentGroup
+     * @return {?}
+     */
+    expandChildren(ngModule, routes, segmentGroup) {
+        return waitForMap(segmentGroup.children, (/**
+         * @param {?} childOutlet
+         * @param {?} child
+         * @return {?}
+         */
+        (childOutlet, child) => this.expandSegmentGroup(ngModule, routes, child, childOutlet)));
+    }
+    /**
+     * @private
+     * @param {?} ngModule
+     * @param {?} segmentGroup
+     * @param {?} routes
+     * @param {?} segments
+     * @param {?} outlet
+     * @param {?} allowRedirects
+     * @return {?}
+     */
+    expandSegment(ngModule, segmentGroup, routes, segments, outlet, allowRedirects) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(...routes).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} r
+         * @return {?}
+         */
+        (r) => {
+            /** @type {?} */
+            const expanded$ = this.expandSegmentAgainstRoute(ngModule, segmentGroup, routes, r, segments, outlet, allowRedirects);
+            return expanded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])((/**
+             * @param {?} e
+             * @return {?}
+             */
+            (e) => {
+                if (e instanceof NoMatch) {
+                    // TODO(i): this return type doesn't match the declared Observable<UrlSegmentGroup> -
+                    // talk to Jason
+                    return (/** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(null)));
+                }
+                throw e;
+            })));
+        })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["concatAll"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])((/**
+         * @param {?} s
+         * @return {?}
+         */
+        (s) => !!s)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])((/**
+         * @param {?} e
+         * @param {?} _
+         * @return {?}
+         */
+        (e, _) => {
+            if (e instanceof rxjs__WEBPACK_IMPORTED_MODULE_2__["EmptyError"] || e.name === 'EmptyError') {
+                if (this.noLeftoversInUrl(segmentGroup, segments, outlet)) {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(new UrlSegmentGroup([], {}));
+                }
+                throw new NoMatch(segmentGroup);
+            }
+            throw e;
+        })));
+    }
+    /**
+     * @private
+     * @param {?} segmentGroup
+     * @param {?} segments
+     * @param {?} outlet
+     * @return {?}
+     */
+    noLeftoversInUrl(segmentGroup, segments, outlet) {
+        return segments.length === 0 && !segmentGroup.children[outlet];
+    }
+    /**
+     * @private
+     * @param {?} ngModule
+     * @param {?} segmentGroup
+     * @param {?} routes
+     * @param {?} route
+     * @param {?} paths
+     * @param {?} outlet
+     * @param {?} allowRedirects
+     * @return {?}
+     */
+    expandSegmentAgainstRoute(ngModule, segmentGroup, routes, route, paths, outlet, allowRedirects) {
+        if (getOutlet(route) !== outlet) {
+            return noMatch(segmentGroup);
+        }
+        if (route.redirectTo === undefined) {
+            return this.matchSegmentAgainstRoute(ngModule, segmentGroup, route, paths);
+        }
+        if (allowRedirects && this.allowRedirects) {
+            return this.expandSegmentAgainstRouteUsingRedirect(ngModule, segmentGroup, routes, route, paths, outlet);
+        }
+        return noMatch(segmentGroup);
+    }
+    /**
+     * @private
+     * @param {?} ngModule
+     * @param {?} segmentGroup
+     * @param {?} routes
+     * @param {?} route
+     * @param {?} segments
+     * @param {?} outlet
+     * @return {?}
+     */
+    expandSegmentAgainstRouteUsingRedirect(ngModule, segmentGroup, routes, route, segments, outlet) {
+        if (route.path === '**') {
+            return this.expandWildCardWithParamsAgainstRouteUsingRedirect(ngModule, routes, route, outlet);
+        }
+        return this.expandRegularSegmentAgainstRouteUsingRedirect(ngModule, segmentGroup, routes, route, segments, outlet);
+    }
+    /**
+     * @private
+     * @param {?} ngModule
+     * @param {?} routes
+     * @param {?} route
+     * @param {?} outlet
+     * @return {?}
+     */
+    expandWildCardWithParamsAgainstRouteUsingRedirect(ngModule, routes, route, outlet) {
+        /** @type {?} */
+        const newTree = this.applyRedirectCommands([], (/** @type {?} */ (route.redirectTo)), {});
+        if ((/** @type {?} */ (route.redirectTo)).startsWith('/')) {
+            return absoluteRedirect(newTree);
+        }
+        return this.lineralizeSegments(route, newTree).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])((/**
+         * @param {?} newSegments
+         * @return {?}
+         */
+        (newSegments) => {
+            /** @type {?} */
+            const group = new UrlSegmentGroup(newSegments, {});
+            return this.expandSegment(ngModule, group, routes, newSegments, outlet, false);
+        })));
+    }
+    /**
+     * @private
+     * @param {?} ngModule
+     * @param {?} segmentGroup
+     * @param {?} routes
+     * @param {?} route
+     * @param {?} segments
+     * @param {?} outlet
+     * @return {?}
+     */
+    expandRegularSegmentAgainstRouteUsingRedirect(ngModule, segmentGroup, routes, route, segments, outlet) {
+        const { matched, consumedSegments, lastChild, positionalParamSegments } = match(segmentGroup, route, segments);
+        if (!matched)
+            return noMatch(segmentGroup);
+        /** @type {?} */
+        const newTree = this.applyRedirectCommands(consumedSegments, (/** @type {?} */ (route.redirectTo)), (/** @type {?} */ (positionalParamSegments)));
+        if ((/** @type {?} */ (route.redirectTo)).startsWith('/')) {
+            return absoluteRedirect(newTree);
+        }
+        return this.lineralizeSegments(route, newTree).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])((/**
+         * @param {?} newSegments
+         * @return {?}
+         */
+        (newSegments) => {
+            return this.expandSegment(ngModule, segmentGroup, routes, newSegments.concat(segments.slice(lastChild)), outlet, false);
+        })));
+    }
+    /**
+     * @private
+     * @param {?} ngModule
+     * @param {?} rawSegmentGroup
+     * @param {?} route
+     * @param {?} segments
+     * @return {?}
+     */
+    matchSegmentAgainstRoute(ngModule, rawSegmentGroup, route, segments) {
+        if (route.path === '**') {
+            if (route.loadChildren) {
+                return this.configLoader.load(ngModule.injector, route)
+                    .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+                 * @param {?} cfg
+                 * @return {?}
+                 */
+                (cfg) => {
+                    route._loadedConfig = cfg;
+                    return new UrlSegmentGroup(segments, {});
+                })));
+            }
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(new UrlSegmentGroup(segments, {}));
+        }
+        const { matched, consumedSegments, lastChild } = match(rawSegmentGroup, route, segments);
+        if (!matched)
+            return noMatch(rawSegmentGroup);
+        /** @type {?} */
+        const rawSlicedSegments = segments.slice(lastChild);
+        /** @type {?} */
+        const childConfig$ = this.getChildConfig(ngModule, route, segments);
+        return childConfig$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])((/**
+         * @param {?} routerConfig
+         * @return {?}
+         */
+        (routerConfig) => {
+            /** @type {?} */
+            const childModule = routerConfig.module;
+            /** @type {?} */
+            const childConfig = routerConfig.routes;
+            const { segmentGroup, slicedSegments } = split(rawSegmentGroup, consumedSegments, rawSlicedSegments, childConfig);
+            if (slicedSegments.length === 0 && segmentGroup.hasChildren()) {
+                /** @type {?} */
+                const expanded$ = this.expandChildren(childModule, childConfig, segmentGroup);
+                return expanded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+                 * @param {?} children
+                 * @return {?}
+                 */
+                (children) => new UrlSegmentGroup(consumedSegments, children))));
+            }
+            if (childConfig.length === 0 && slicedSegments.length === 0) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(new UrlSegmentGroup(consumedSegments, {}));
+            }
+            /** @type {?} */
+            const expanded$ = this.expandSegment(childModule, segmentGroup, childConfig, slicedSegments, PRIMARY_OUTLET, true);
+            return expanded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+             * @param {?} cs
+             * @return {?}
+             */
+            (cs) => new UrlSegmentGroup(consumedSegments.concat(cs.segments), cs.children))));
+        })));
+    }
+    /**
+     * @private
+     * @param {?} ngModule
+     * @param {?} route
+     * @param {?} segments
+     * @return {?}
+     */
+    getChildConfig(ngModule, route, segments) {
+        if (route.children) {
+            // The children belong to the same module
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(new LoadedRouterConfig(route.children, ngModule));
+        }
+        if (route.loadChildren) {
+            // lazy children belong to the loaded module
+            if (route._loadedConfig !== undefined) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(route._loadedConfig);
+            }
+            return runCanLoadGuard(ngModule.injector, route, segments)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])((/**
+             * @param {?} shouldLoad
+             * @return {?}
+             */
+            (shouldLoad) => {
+                if (shouldLoad) {
+                    return this.configLoader.load(ngModule.injector, route)
+                        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+                     * @param {?} cfg
+                     * @return {?}
+                     */
+                    (cfg) => {
+                        route._loadedConfig = cfg;
+                        return cfg;
+                    })));
+                }
+                return canLoadFails(route);
+            })));
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(new LoadedRouterConfig([], ngModule));
+    }
+    /**
+     * @private
+     * @param {?} route
+     * @param {?} urlTree
+     * @return {?}
+     */
+    lineralizeSegments(route, urlTree) {
+        /** @type {?} */
+        let res = [];
+        /** @type {?} */
+        let c = urlTree.root;
+        while (true) {
+            res = res.concat(c.segments);
+            if (c.numberOfChildren === 0) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(res);
+            }
+            if (c.numberOfChildren > 1 || !c.children[PRIMARY_OUTLET]) {
+                return namedOutletsRedirect((/** @type {?} */ (route.redirectTo)));
+            }
+            c = c.children[PRIMARY_OUTLET];
+        }
+    }
+    /**
+     * @private
+     * @param {?} segments
+     * @param {?} redirectTo
+     * @param {?} posParams
+     * @return {?}
+     */
+    applyRedirectCommands(segments, redirectTo, posParams) {
+        return this.applyRedirectCreatreUrlTree(redirectTo, this.urlSerializer.parse(redirectTo), segments, posParams);
+    }
+    /**
+     * @private
+     * @param {?} redirectTo
+     * @param {?} urlTree
+     * @param {?} segments
+     * @param {?} posParams
+     * @return {?}
+     */
+    applyRedirectCreatreUrlTree(redirectTo, urlTree, segments, posParams) {
+        /** @type {?} */
+        const newRoot = this.createSegmentGroup(redirectTo, urlTree.root, segments, posParams);
+        return new UrlTree(newRoot, this.createQueryParams(urlTree.queryParams, this.urlTree.queryParams), urlTree.fragment);
+    }
+    /**
+     * @private
+     * @param {?} redirectToParams
+     * @param {?} actualParams
+     * @return {?}
+     */
+    createQueryParams(redirectToParams, actualParams) {
+        /** @type {?} */
+        const res = {};
+        forEach(redirectToParams, (/**
+         * @param {?} v
+         * @param {?} k
+         * @return {?}
+         */
+        (v, k) => {
+            /** @type {?} */
+            const copySourceValue = typeof v === 'string' && v.startsWith(':');
+            if (copySourceValue) {
+                /** @type {?} */
+                const sourceName = v.substring(1);
+                res[k] = actualParams[sourceName];
+            }
+            else {
+                res[k] = v;
+            }
+        }));
+        return res;
+    }
+    /**
+     * @private
+     * @param {?} redirectTo
+     * @param {?} group
+     * @param {?} segments
+     * @param {?} posParams
+     * @return {?}
+     */
+    createSegmentGroup(redirectTo, group, segments, posParams) {
+        /** @type {?} */
+        const updatedSegments = this.createSegments(redirectTo, group.segments, segments, posParams);
+        /** @type {?} */
+        let children = {};
+        forEach(group.children, (/**
+         * @param {?} child
+         * @param {?} name
+         * @return {?}
+         */
+        (child, name) => {
+            children[name] = this.createSegmentGroup(redirectTo, child, segments, posParams);
+        }));
+        return new UrlSegmentGroup(updatedSegments, children);
+    }
+    /**
+     * @private
+     * @param {?} redirectTo
+     * @param {?} redirectToSegments
+     * @param {?} actualSegments
+     * @param {?} posParams
+     * @return {?}
+     */
+    createSegments(redirectTo, redirectToSegments, actualSegments, posParams) {
+        return redirectToSegments.map((/**
+         * @param {?} s
+         * @return {?}
+         */
+        s => s.path.startsWith(':') ? this.findPosParam(redirectTo, s, posParams) :
+            this.findOrReturn(s, actualSegments)));
+    }
+    /**
+     * @private
+     * @param {?} redirectTo
+     * @param {?} redirectToUrlSegment
+     * @param {?} posParams
+     * @return {?}
+     */
+    findPosParam(redirectTo, redirectToUrlSegment, posParams) {
+        /** @type {?} */
+        const pos = posParams[redirectToUrlSegment.path.substring(1)];
+        if (!pos)
+            throw new Error(`Cannot redirect to '${redirectTo}'. Cannot find '${redirectToUrlSegment.path}'.`);
+        return pos;
+    }
+    /**
+     * @private
+     * @param {?} redirectToUrlSegment
+     * @param {?} actualSegments
+     * @return {?}
+     */
+    findOrReturn(redirectToUrlSegment, actualSegments) {
+        /** @type {?} */
+        let idx = 0;
+        for (const s of actualSegments) {
+            if (s.path === redirectToUrlSegment.path) {
+                actualSegments.splice(idx);
+                return s;
+            }
+            idx++;
+        }
+        return redirectToUrlSegment;
+    }
+}
+if (false) {}
+/**
+ * @param {?} moduleInjector
+ * @param {?} route
+ * @param {?} segments
+ * @return {?}
+ */
+function runCanLoadGuard(moduleInjector, route, segments) {
+    /** @type {?} */
+    const canLoad = route.canLoad;
+    if (!canLoad || canLoad.length === 0)
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
+    /** @type {?} */
+    const obs = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(canLoad).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+     * @param {?} injectionToken
+     * @return {?}
+     */
+    (injectionToken) => {
+        /** @type {?} */
+        const guard = moduleInjector.get(injectionToken);
+        /** @type {?} */
+        let guardVal;
+        if (isCanLoad(guard)) {
+            guardVal = guard.canLoad(route, segments);
+        }
+        else if (isFunction(guard)) {
+            guardVal = guard(route, segments);
+        }
+        else {
+            throw new Error('Invalid CanLoad guard');
+        }
+        return wrapIntoObservable(guardVal);
+    })));
+    return obs.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["concatAll"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["every"])((/**
+     * @param {?} result
+     * @return {?}
+     */
+    result => result === true)));
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} route
+ * @param {?} segments
+ * @return {?}
+ */
+function match(segmentGroup, route, segments) {
+    if (route.path === '') {
+        if ((route.pathMatch === 'full') && (segmentGroup.hasChildren() || segments.length > 0)) {
+            return { matched: false, consumedSegments: [], lastChild: 0, positionalParamSegments: {} };
+        }
+        return { matched: true, consumedSegments: [], lastChild: 0, positionalParamSegments: {} };
+    }
+    /** @type {?} */
+    const matcher = route.matcher || defaultUrlMatcher;
+    /** @type {?} */
+    const res = matcher(segments, segmentGroup, route);
+    if (!res) {
+        return {
+            matched: false,
+            consumedSegments: (/** @type {?} */ ([])),
+            lastChild: 0,
+            positionalParamSegments: {},
+        };
+    }
+    return {
+        matched: true,
+        consumedSegments: (/** @type {?} */ (res.consumed)),
+        lastChild: (/** @type {?} */ (res.consumed.length)),
+        positionalParamSegments: (/** @type {?} */ (res.posParams)),
+    };
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} consumedSegments
+ * @param {?} slicedSegments
+ * @param {?} config
+ * @return {?}
+ */
+function split(segmentGroup, consumedSegments, slicedSegments, config) {
+    if (slicedSegments.length > 0 &&
+        containsEmptyPathRedirectsWithNamedOutlets(segmentGroup, slicedSegments, config)) {
+        /** @type {?} */
+        const s = new UrlSegmentGroup(consumedSegments, createChildrenForEmptySegments(config, new UrlSegmentGroup(slicedSegments, segmentGroup.children)));
+        return { segmentGroup: mergeTrivialChildren(s), slicedSegments: [] };
+    }
+    if (slicedSegments.length === 0 &&
+        containsEmptyPathRedirects(segmentGroup, slicedSegments, config)) {
+        /** @type {?} */
+        const s = new UrlSegmentGroup(segmentGroup.segments, addEmptySegmentsToChildrenIfNeeded(segmentGroup, slicedSegments, config, segmentGroup.children));
+        return { segmentGroup: mergeTrivialChildren(s), slicedSegments };
+    }
+    return { segmentGroup, slicedSegments };
+}
+/**
+ * @param {?} s
+ * @return {?}
+ */
+function mergeTrivialChildren(s) {
+    if (s.numberOfChildren === 1 && s.children[PRIMARY_OUTLET]) {
+        /** @type {?} */
+        const c = s.children[PRIMARY_OUTLET];
+        return new UrlSegmentGroup(s.segments.concat(c.segments), c.children);
+    }
+    return s;
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} slicedSegments
+ * @param {?} routes
+ * @param {?} children
+ * @return {?}
+ */
+function addEmptySegmentsToChildrenIfNeeded(segmentGroup, slicedSegments, routes, children) {
+    /** @type {?} */
+    const res = {};
+    for (const r of routes) {
+        if (isEmptyPathRedirect(segmentGroup, slicedSegments, r) && !children[getOutlet(r)]) {
+            res[getOutlet(r)] = new UrlSegmentGroup([], {});
+        }
+    }
+    return Object.assign(Object.assign({}, children), res);
+}
+/**
+ * @param {?} routes
+ * @param {?} primarySegmentGroup
+ * @return {?}
+ */
+function createChildrenForEmptySegments(routes, primarySegmentGroup) {
+    /** @type {?} */
+    const res = {};
+    res[PRIMARY_OUTLET] = primarySegmentGroup;
+    for (const r of routes) {
+        if (r.path === '' && getOutlet(r) !== PRIMARY_OUTLET) {
+            res[getOutlet(r)] = new UrlSegmentGroup([], {});
+        }
+    }
+    return res;
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} segments
+ * @param {?} routes
+ * @return {?}
+ */
+function containsEmptyPathRedirectsWithNamedOutlets(segmentGroup, segments, routes) {
+    return routes.some((/**
+     * @param {?} r
+     * @return {?}
+     */
+    r => isEmptyPathRedirect(segmentGroup, segments, r) && getOutlet(r) !== PRIMARY_OUTLET));
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} segments
+ * @param {?} routes
+ * @return {?}
+ */
+function containsEmptyPathRedirects(segmentGroup, segments, routes) {
+    return routes.some((/**
+     * @param {?} r
+     * @return {?}
+     */
+    r => isEmptyPathRedirect(segmentGroup, segments, r)));
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} segments
+ * @param {?} r
+ * @return {?}
+ */
+function isEmptyPathRedirect(segmentGroup, segments, r) {
+    if ((segmentGroup.hasChildren() || segments.length > 0) && r.pathMatch === 'full') {
+        return false;
+    }
+    return r.path === '' && r.redirectTo !== undefined;
+}
+/**
+ * @param {?} route
+ * @return {?}
+ */
+function getOutlet(route) {
+    return route.outlet || PRIMARY_OUTLET;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/operators/apply_redirects.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} moduleInjector
+ * @param {?} configLoader
+ * @param {?} urlSerializer
+ * @param {?} config
+ * @return {?}
+ */
+function applyRedirects$1(moduleInjector, configLoader, urlSerializer, config) {
+    return (/**
+     * @param {?} source
+     * @return {?}
+     */
+    function (source) {
+        return source.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])((/**
+         * @param {?} t
+         * @return {?}
+         */
+        t => applyRedirects(moduleInjector, configLoader, urlSerializer, t.extractedUrl, config)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} urlAfterRedirects
+         * @return {?}
+         */
+        urlAfterRedirects => (Object.assign(Object.assign({}, t), { urlAfterRedirects }))))))));
+    });
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/utils/preactivation.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class CanActivate {
+    /**
+     * @param {?} path
+     */
+    constructor(path) {
+        this.path = path;
+        this.route = this.path[this.path.length - 1];
+    }
+}
+if (false) {}
+class CanDeactivate {
+    /**
+     * @param {?} component
+     * @param {?} route
+     */
+    constructor(component, route) {
+        this.component = component;
+        this.route = route;
+    }
+}
+if (false) {}
+/**
+ * @param {?} future
+ * @param {?} curr
+ * @param {?} parentContexts
+ * @return {?}
+ */
+function getAllRouteGuards(future, curr, parentContexts) {
+    /** @type {?} */
+    const futureRoot = future._root;
+    /** @type {?} */
+    const currRoot = curr ? curr._root : null;
+    return getChildRouteGuards(futureRoot, currRoot, parentContexts, [futureRoot.value]);
+}
+/**
+ * @param {?} p
+ * @return {?}
+ */
+function getCanActivateChild(p) {
+    /** @type {?} */
+    const canActivateChild = p.routeConfig ? p.routeConfig.canActivateChild : null;
+    if (!canActivateChild || canActivateChild.length === 0)
+        return null;
+    return { node: p, guards: canActivateChild };
+}
+/**
+ * @param {?} token
+ * @param {?} snapshot
+ * @param {?} moduleInjector
+ * @return {?}
+ */
+function getToken(token, snapshot, moduleInjector) {
+    /** @type {?} */
+    const config = getClosestLoadedConfig(snapshot);
+    /** @type {?} */
+    const injector = config ? config.module.injector : moduleInjector;
+    return injector.get(token);
+}
+/**
+ * @param {?} snapshot
+ * @return {?}
+ */
+function getClosestLoadedConfig(snapshot) {
+    if (!snapshot)
+        return null;
+    for (let s = snapshot.parent; s; s = s.parent) {
+        /** @type {?} */
+        const route = s.routeConfig;
+        if (route && route._loadedConfig)
+            return route._loadedConfig;
+    }
+    return null;
+}
+/**
+ * @param {?} futureNode
+ * @param {?} currNode
+ * @param {?} contexts
+ * @param {?} futurePath
+ * @param {?=} checks
+ * @return {?}
+ */
+function getChildRouteGuards(futureNode, currNode, contexts, futurePath, checks = {
+    canDeactivateChecks: [],
+    canActivateChecks: []
+}) {
+    /** @type {?} */
+    const prevChildren = nodeChildrenAsMap(currNode);
+    // Process the children of the future route
+    futureNode.children.forEach((/**
+     * @param {?} c
+     * @return {?}
+     */
+    c => {
+        getRouteGuards(c, prevChildren[c.value.outlet], contexts, futurePath.concat([c.value]), checks);
+        delete prevChildren[c.value.outlet];
+    }));
+    // Process any children left from the current route (not active for the future route)
+    forEach(prevChildren, (/**
+     * @param {?} v
+     * @param {?} k
+     * @return {?}
+     */
+    (v, k) => deactivateRouteAndItsChildren(v, (/** @type {?} */ (contexts)).getContext(k), checks)));
+    return checks;
+}
+/**
+ * @param {?} futureNode
+ * @param {?} currNode
+ * @param {?} parentContexts
+ * @param {?} futurePath
+ * @param {?=} checks
+ * @return {?}
+ */
+function getRouteGuards(futureNode, currNode, parentContexts, futurePath, checks = {
+    canDeactivateChecks: [],
+    canActivateChecks: []
+}) {
+    /** @type {?} */
+    const future = futureNode.value;
+    /** @type {?} */
+    const curr = currNode ? currNode.value : null;
+    /** @type {?} */
+    const context = parentContexts ? parentContexts.getContext(futureNode.value.outlet) : null;
+    // reusing the node
+    if (curr && future.routeConfig === curr.routeConfig) {
+        /** @type {?} */
+        const shouldRun = shouldRunGuardsAndResolvers(curr, future, (/** @type {?} */ (future.routeConfig)).runGuardsAndResolvers);
+        if (shouldRun) {
+            checks.canActivateChecks.push(new CanActivate(futurePath));
+        }
+        else {
+            // we need to set the data
+            future.data = curr.data;
+            future._resolvedData = curr._resolvedData;
+        }
+        // If we have a component, we need to go through an outlet.
+        if (future.component) {
+            getChildRouteGuards(futureNode, currNode, context ? context.children : null, futurePath, checks);
+            // if we have a componentless route, we recurse but keep the same outlet map.
+        }
+        else {
+            getChildRouteGuards(futureNode, currNode, parentContexts, futurePath, checks);
+        }
+        if (shouldRun) {
+            /** @type {?} */
+            const component = context && context.outlet && context.outlet.component || null;
+            checks.canDeactivateChecks.push(new CanDeactivate(component, curr));
+        }
+    }
+    else {
+        if (curr) {
+            deactivateRouteAndItsChildren(currNode, context, checks);
+        }
+        checks.canActivateChecks.push(new CanActivate(futurePath));
+        // If we have a component, we need to go through an outlet.
+        if (future.component) {
+            getChildRouteGuards(futureNode, null, context ? context.children : null, futurePath, checks);
+            // if we have a componentless route, we recurse but keep the same outlet map.
+        }
+        else {
+            getChildRouteGuards(futureNode, null, parentContexts, futurePath, checks);
+        }
+    }
+    return checks;
+}
+/**
+ * @param {?} curr
+ * @param {?} future
+ * @param {?} mode
+ * @return {?}
+ */
+function shouldRunGuardsAndResolvers(curr, future, mode) {
+    if (typeof mode === 'function') {
+        return mode(curr, future);
+    }
+    switch (mode) {
+        case 'pathParamsChange':
+            return !equalPath(curr.url, future.url);
+        case 'pathParamsOrQueryParamsChange':
+            return !equalPath(curr.url, future.url) ||
+                !shallowEqual(curr.queryParams, future.queryParams);
+        case 'always':
+            return true;
+        case 'paramsOrQueryParamsChange':
+            return !equalParamsAndUrlSegments(curr, future) ||
+                !shallowEqual(curr.queryParams, future.queryParams);
+        case 'paramsChange':
+        default:
+            return !equalParamsAndUrlSegments(curr, future);
+    }
+}
+/**
+ * @param {?} route
+ * @param {?} context
+ * @param {?} checks
+ * @return {?}
+ */
+function deactivateRouteAndItsChildren(route, context, checks) {
+    /** @type {?} */
+    const children = nodeChildrenAsMap(route);
+    /** @type {?} */
+    const r = route.value;
+    forEach(children, (/**
+     * @param {?} node
+     * @param {?} childName
+     * @return {?}
+     */
+    (node, childName) => {
+        if (!r.component) {
+            deactivateRouteAndItsChildren(node, context, checks);
+        }
+        else if (context) {
+            deactivateRouteAndItsChildren(node, context.children.getContext(childName), checks);
+        }
+        else {
+            deactivateRouteAndItsChildren(node, null, checks);
+        }
+    }));
+    if (!r.component) {
+        checks.canDeactivateChecks.push(new CanDeactivate(null, r));
+    }
+    else if (context && context.outlet && context.outlet.isActivated) {
+        checks.canDeactivateChecks.push(new CanDeactivate(context.outlet.component, r));
+    }
+    else {
+        checks.canDeactivateChecks.push(new CanDeactivate(null, r));
+    }
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/operators/prioritized_guard_value.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const INITIAL_VALUE = Symbol('INITIAL_VALUE');
+/**
+ * @return {?}
+ */
+function prioritizedGuardValue() {
+    return Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])((/**
+     * @param {?} obs
+     * @return {?}
+     */
+    obs => {
+        return (/** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"])(...obs.map((/**
+         * @param {?} o
+         * @return {?}
+         */
+        o => o.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])((/** @type {?} */ (INITIAL_VALUE)))))))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["scan"])((/**
+         * @param {?} acc
+         * @param {?} list
+         * @return {?}
+         */
+        (acc, list) => {
+            /** @type {?} */
+            let isPending = false;
+            return list.reduce((/**
+             * @param {?} innerAcc
+             * @param {?} val
+             * @param {?} i
+             * @return {?}
+             */
+            (innerAcc, val, i) => {
+                if (innerAcc !== INITIAL_VALUE)
+                    return innerAcc;
+                // Toggle pending flag if any values haven't been set yet
+                if (val === INITIAL_VALUE)
+                    isPending = true;
+                // Any other return values are only valid if we haven't yet hit a pending call.
+                // This guarantees that in the case of a guard at the bottom of the tree that
+                // returns a redirect, we will wait for the higher priority guard at the top to
+                // finish before performing the redirect.
+                if (!isPending) {
+                    // Early return when we hit a `false` value as that should always cancel
+                    // navigation
+                    if (val === false)
+                        return val;
+                    if (i === list.length - 1 || isUrlTree(val)) {
+                        return val;
+                    }
+                }
+                return innerAcc;
+            }), acc);
+        }), INITIAL_VALUE), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])((/**
+         * @param {?} item
+         * @return {?}
+         */
+        item => item !== INITIAL_VALUE)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} item
+         * @return {?}
+         */
+        item => isUrlTree(item) ? item : item === true)), //
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1))));
+    }));
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/operators/check_guards.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} moduleInjector
+ * @param {?=} forwardEvent
+ * @return {?}
+ */
+function checkGuards(moduleInjector, forwardEvent) {
+    return (/**
+     * @param {?} source
+     * @return {?}
+     */
+    function (source) {
+        return source.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])((/**
+         * @param {?} t
+         * @return {?}
+         */
+        t => {
+            const { targetSnapshot, currentSnapshot, guards: { canActivateChecks, canDeactivateChecks } } = t;
+            if (canDeactivateChecks.length === 0 && canActivateChecks.length === 0) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(Object.assign(Object.assign({}, t), { guardsResult: true }));
+            }
+            return runCanDeactivateChecks(canDeactivateChecks, (/** @type {?} */ (targetSnapshot)), currentSnapshot, moduleInjector)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])((/**
+             * @param {?} canDeactivate
+             * @return {?}
+             */
+            canDeactivate => {
+                return canDeactivate && isBoolean(canDeactivate) ?
+                    runCanActivateChecks((/** @type {?} */ (targetSnapshot)), canActivateChecks, moduleInjector, forwardEvent) :
+                    Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(canDeactivate);
+            })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+             * @param {?} guardsResult
+             * @return {?}
+             */
+            guardsResult => (Object.assign(Object.assign({}, t), { guardsResult })))));
+        })));
+    });
+}
+/**
+ * @param {?} checks
+ * @param {?} futureRSS
+ * @param {?} currRSS
+ * @param {?} moduleInjector
+ * @return {?}
+ */
+function runCanDeactivateChecks(checks, futureRSS, currRSS, moduleInjector) {
+    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(checks).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])((/**
+     * @param {?} check
+     * @return {?}
+     */
+    check => runCanDeactivate(check.component, check.route, currRSS, futureRSS, moduleInjector))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])((/**
+     * @param {?} result
+     * @return {?}
+     */
+    result => { return result !== true; }), (/** @type {?} */ (true))));
+}
+/**
+ * @param {?} futureSnapshot
+ * @param {?} checks
+ * @param {?} moduleInjector
+ * @param {?=} forwardEvent
+ * @return {?}
+ */
+function runCanActivateChecks(futureSnapshot, checks, moduleInjector, forwardEvent) {
+    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(checks).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["concatMap"])((/**
+     * @param {?} check
+     * @return {?}
+     */
+    (check) => {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])([
+            fireChildActivationStart(check.route.parent, forwardEvent),
+            fireActivationStart(check.route, forwardEvent),
+            runCanActivateChild(futureSnapshot, check.path, moduleInjector),
+            runCanActivate(futureSnapshot, check.route, moduleInjector)
+        ])
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["concatAll"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])((/**
+         * @param {?} result
+         * @return {?}
+         */
+        result => {
+            return result !== true;
+        }), (/** @type {?} */ (true))));
+    })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])((/**
+     * @param {?} result
+     * @return {?}
+     */
+    result => { return result !== true; }), (/** @type {?} */ (true))));
+}
+/**
+ * This should fire off `ActivationStart` events for each route being activated at this
+ * level.
+ * In other words, if you're activating `a` and `b` below, `path` will contain the
+ * `ActivatedRouteSnapshot`s for both and we will fire `ActivationStart` for both. Always
+ * return
+ * `true` so checks continue to run.
+ * @param {?} snapshot
+ * @param {?=} forwardEvent
+ * @return {?}
+ */
+function fireActivationStart(snapshot, forwardEvent) {
+    if (snapshot !== null && forwardEvent) {
+        forwardEvent(new ActivationStart(snapshot));
+    }
+    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
+}
+/**
+ * This should fire off `ChildActivationStart` events for each route being activated at this
+ * level.
+ * In other words, if you're activating `a` and `b` below, `path` will contain the
+ * `ActivatedRouteSnapshot`s for both and we will fire `ChildActivationStart` for both. Always
+ * return
+ * `true` so checks continue to run.
+ * @param {?} snapshot
+ * @param {?=} forwardEvent
+ * @return {?}
+ */
+function fireChildActivationStart(snapshot, forwardEvent) {
+    if (snapshot !== null && forwardEvent) {
+        forwardEvent(new ChildActivationStart(snapshot));
+    }
+    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
+}
+/**
+ * @param {?} futureRSS
+ * @param {?} futureARS
+ * @param {?} moduleInjector
+ * @return {?}
+ */
+function runCanActivate(futureRSS, futureARS, moduleInjector) {
+    /** @type {?} */
+    const canActivate = futureARS.routeConfig ? futureARS.routeConfig.canActivate : null;
+    if (!canActivate || canActivate.length === 0)
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
+    /** @type {?} */
+    const canActivateObservables = canActivate.map((/**
+     * @param {?} c
+     * @return {?}
+     */
+    (c) => {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["defer"])((/**
+         * @return {?}
+         */
+        () => {
+            /** @type {?} */
+            const guard = getToken(c, futureARS, moduleInjector);
+            /** @type {?} */
+            let observable;
+            if (isCanActivate(guard)) {
+                observable = wrapIntoObservable(guard.canActivate(futureARS, futureRSS));
+            }
+            else if (isFunction(guard)) {
+                observable = wrapIntoObservable(guard(futureARS, futureRSS));
+            }
+            else {
+                throw new Error('Invalid CanActivate guard');
+            }
+            return observable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])());
+        }));
+    }));
+    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(canActivateObservables).pipe(prioritizedGuardValue());
+}
+/**
+ * @param {?} futureRSS
+ * @param {?} path
+ * @param {?} moduleInjector
+ * @return {?}
+ */
+function runCanActivateChild(futureRSS, path, moduleInjector) {
+    /** @type {?} */
+    const futureARS = path[path.length - 1];
+    /** @type {?} */
+    const canActivateChildGuards = path.slice(0, path.length - 1)
+        .reverse()
+        .map((/**
+     * @param {?} p
+     * @return {?}
+     */
+    p => getCanActivateChild(p)))
+        .filter((/**
+     * @param {?} _
+     * @return {?}
+     */
+    _ => _ !== null));
+    /** @type {?} */
+    const canActivateChildGuardsMapped = canActivateChildGuards.map((/**
+     * @param {?} d
+     * @return {?}
+     */
+    (d) => {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["defer"])((/**
+         * @return {?}
+         */
+        () => {
+            /** @type {?} */
+            const guardsMapped = d.guards.map((/**
+             * @param {?} c
+             * @return {?}
+             */
+            (c) => {
+                /** @type {?} */
+                const guard = getToken(c, d.node, moduleInjector);
+                /** @type {?} */
+                let observable;
+                if (isCanActivateChild(guard)) {
+                    observable = wrapIntoObservable(guard.canActivateChild(futureARS, futureRSS));
+                }
+                else if (isFunction(guard)) {
+                    observable = wrapIntoObservable(guard(futureARS, futureRSS));
+                }
+                else {
+                    throw new Error('Invalid CanActivateChild guard');
+                }
+                return observable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])());
+            }));
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(guardsMapped).pipe(prioritizedGuardValue());
+        }));
+    }));
+    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(canActivateChildGuardsMapped).pipe(prioritizedGuardValue());
+}
+/**
+ * @param {?} component
+ * @param {?} currARS
+ * @param {?} currRSS
+ * @param {?} futureRSS
+ * @param {?} moduleInjector
+ * @return {?}
+ */
+function runCanDeactivate(component, currARS, currRSS, futureRSS, moduleInjector) {
+    /** @type {?} */
+    const canDeactivate = currARS && currARS.routeConfig ? currARS.routeConfig.canDeactivate : null;
+    if (!canDeactivate || canDeactivate.length === 0)
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
+    /** @type {?} */
+    const canDeactivateObservables = canDeactivate.map((/**
+     * @param {?} c
+     * @return {?}
+     */
+    (c) => {
+        /** @type {?} */
+        const guard = getToken(c, currARS, moduleInjector);
+        /** @type {?} */
+        let observable;
+        if (isCanDeactivate(guard)) {
+            observable =
+                wrapIntoObservable(guard.canDeactivate((/** @type {?} */ (component)), currARS, currRSS, futureRSS));
+        }
+        else if (isFunction(guard)) {
+            observable = wrapIntoObservable(guard(component, currARS, currRSS, futureRSS));
+        }
+        else {
+            throw new Error('Invalid CanDeactivate guard');
+        }
+        return observable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])());
+    }));
+    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(canDeactivateObservables).pipe(prioritizedGuardValue());
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/recognize.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class NoMatch$1 {
+}
+/**
+ * @param {?} rootComponentType
+ * @param {?} config
+ * @param {?} urlTree
+ * @param {?} url
+ * @param {?=} paramsInheritanceStrategy
+ * @param {?=} relativeLinkResolution
+ * @return {?}
+ */
+function recognize(rootComponentType, config, urlTree, url, paramsInheritanceStrategy = 'emptyOnly', relativeLinkResolution = 'legacy') {
+    return new Recognizer(rootComponentType, config, urlTree, url, paramsInheritanceStrategy, relativeLinkResolution)
+        .recognize();
+}
+class Recognizer {
+    /**
+     * @param {?} rootComponentType
+     * @param {?} config
+     * @param {?} urlTree
+     * @param {?} url
+     * @param {?} paramsInheritanceStrategy
+     * @param {?} relativeLinkResolution
+     */
+    constructor(rootComponentType, config, urlTree, url, paramsInheritanceStrategy, relativeLinkResolution) {
+        this.rootComponentType = rootComponentType;
+        this.config = config;
+        this.urlTree = urlTree;
+        this.url = url;
+        this.paramsInheritanceStrategy = paramsInheritanceStrategy;
+        this.relativeLinkResolution = relativeLinkResolution;
+    }
+    /**
+     * @return {?}
+     */
+    recognize() {
+        try {
+            /** @type {?} */
+            const rootSegmentGroup = split$1(this.urlTree.root, [], [], this.config, this.relativeLinkResolution).segmentGroup;
+            /** @type {?} */
+            const children = this.processSegmentGroup(this.config, rootSegmentGroup, PRIMARY_OUTLET);
+            /** @type {?} */
+            const root = new ActivatedRouteSnapshot([], Object.freeze({}), Object.freeze(Object.assign({}, this.urlTree.queryParams)), (/** @type {?} */ (this.urlTree.fragment)), {}, PRIMARY_OUTLET, this.rootComponentType, null, this.urlTree.root, -1, {});
+            /** @type {?} */
+            const rootNode = new TreeNode(root, children);
+            /** @type {?} */
+            const routeState = new RouterStateSnapshot(this.url, rootNode);
+            this.inheritParamsAndData(routeState._root);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(routeState);
+        }
+        catch (e) {
+            return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((/**
+             * @param {?} obs
+             * @return {?}
+             */
+            (obs) => obs.error(e)));
+        }
+    }
+    /**
+     * @param {?} routeNode
+     * @return {?}
+     */
+    inheritParamsAndData(routeNode) {
+        /** @type {?} */
+        const route = routeNode.value;
+        /** @type {?} */
+        const i = inheritedParamsDataResolve(route, this.paramsInheritanceStrategy);
+        route.params = Object.freeze(i.params);
+        route.data = Object.freeze(i.data);
+        routeNode.children.forEach((/**
+         * @param {?} n
+         * @return {?}
+         */
+        n => this.inheritParamsAndData(n)));
+    }
+    /**
+     * @param {?} config
+     * @param {?} segmentGroup
+     * @param {?} outlet
+     * @return {?}
+     */
+    processSegmentGroup(config, segmentGroup, outlet) {
+        if (segmentGroup.segments.length === 0 && segmentGroup.hasChildren()) {
+            return this.processChildren(config, segmentGroup);
+        }
+        return this.processSegment(config, segmentGroup, segmentGroup.segments, outlet);
+    }
+    /**
+     * @param {?} config
+     * @param {?} segmentGroup
+     * @return {?}
+     */
+    processChildren(config, segmentGroup) {
+        /** @type {?} */
+        const children = mapChildrenIntoArray(segmentGroup, (/**
+         * @param {?} child
+         * @param {?} childOutlet
+         * @return {?}
+         */
+        (child, childOutlet) => this.processSegmentGroup(config, child, childOutlet)));
+        checkOutletNameUniqueness(children);
+        sortActivatedRouteSnapshots(children);
+        return children;
+    }
+    /**
+     * @param {?} config
+     * @param {?} segmentGroup
+     * @param {?} segments
+     * @param {?} outlet
+     * @return {?}
+     */
+    processSegment(config, segmentGroup, segments, outlet) {
+        for (const r of config) {
+            try {
+                return this.processSegmentAgainstRoute(r, segmentGroup, segments, outlet);
+            }
+            catch (e) {
+                if (!(e instanceof NoMatch$1))
+                    throw e;
+            }
+        }
+        if (this.noLeftoversInUrl(segmentGroup, segments, outlet)) {
+            return [];
+        }
+        throw new NoMatch$1();
+    }
+    /**
+     * @private
+     * @param {?} segmentGroup
+     * @param {?} segments
+     * @param {?} outlet
+     * @return {?}
+     */
+    noLeftoversInUrl(segmentGroup, segments, outlet) {
+        return segments.length === 0 && !segmentGroup.children[outlet];
+    }
+    /**
+     * @param {?} route
+     * @param {?} rawSegment
+     * @param {?} segments
+     * @param {?} outlet
+     * @return {?}
+     */
+    processSegmentAgainstRoute(route, rawSegment, segments, outlet) {
+        if (route.redirectTo)
+            throw new NoMatch$1();
+        if ((route.outlet || PRIMARY_OUTLET) !== outlet)
+            throw new NoMatch$1();
+        /** @type {?} */
+        let snapshot;
+        /** @type {?} */
+        let consumedSegments = [];
+        /** @type {?} */
+        let rawSlicedSegments = [];
+        if (route.path === '**') {
+            /** @type {?} */
+            const params = segments.length > 0 ? (/** @type {?} */ (last(segments))).parameters : {};
+            snapshot = new ActivatedRouteSnapshot(segments, params, Object.freeze(Object.assign({}, this.urlTree.queryParams)), (/** @type {?} */ (this.urlTree.fragment)), getData(route), outlet, (/** @type {?} */ (route.component)), route, getSourceSegmentGroup(rawSegment), getPathIndexShift(rawSegment) + segments.length, getResolve(route));
+        }
+        else {
+            /** @type {?} */
+            const result = match$1(rawSegment, route, segments);
+            consumedSegments = result.consumedSegments;
+            rawSlicedSegments = segments.slice(result.lastChild);
+            snapshot = new ActivatedRouteSnapshot(consumedSegments, result.parameters, Object.freeze(Object.assign({}, this.urlTree.queryParams)), (/** @type {?} */ (this.urlTree.fragment)), getData(route), outlet, (/** @type {?} */ (route.component)), route, getSourceSegmentGroup(rawSegment), getPathIndexShift(rawSegment) + consumedSegments.length, getResolve(route));
+        }
+        /** @type {?} */
+        const childConfig = getChildConfig(route);
+        const { segmentGroup, slicedSegments } = split$1(rawSegment, consumedSegments, rawSlicedSegments, childConfig, this.relativeLinkResolution);
+        if (slicedSegments.length === 0 && segmentGroup.hasChildren()) {
+            /** @type {?} */
+            const children = this.processChildren(childConfig, segmentGroup);
+            return [new TreeNode(snapshot, children)];
+        }
+        if (childConfig.length === 0 && slicedSegments.length === 0) {
+            return [new TreeNode(snapshot, [])];
+        }
+        /** @type {?} */
+        const children = this.processSegment(childConfig, segmentGroup, slicedSegments, PRIMARY_OUTLET);
+        return [new TreeNode(snapshot, children)];
+    }
+}
+if (false) {}
+/**
+ * @param {?} nodes
+ * @return {?}
+ */
+function sortActivatedRouteSnapshots(nodes) {
+    nodes.sort((/**
+     * @param {?} a
+     * @param {?} b
+     * @return {?}
+     */
+    (a, b) => {
+        if (a.value.outlet === PRIMARY_OUTLET)
+            return -1;
+        if (b.value.outlet === PRIMARY_OUTLET)
+            return 1;
+        return a.value.outlet.localeCompare(b.value.outlet);
+    }));
+}
+/**
+ * @param {?} route
+ * @return {?}
+ */
+function getChildConfig(route) {
+    if (route.children) {
+        return route.children;
+    }
+    if (route.loadChildren) {
+        return (/** @type {?} */ (route._loadedConfig)).routes;
+    }
+    return [];
+}
+/**
+ * @record
+ */
+function MatchResult() { }
+if (false) {}
+/**
+ * @param {?} segmentGroup
+ * @param {?} route
+ * @param {?} segments
+ * @return {?}
+ */
+function match$1(segmentGroup, route, segments) {
+    if (route.path === '') {
+        if (route.pathMatch === 'full' && (segmentGroup.hasChildren() || segments.length > 0)) {
+            throw new NoMatch$1();
+        }
+        return { consumedSegments: [], lastChild: 0, parameters: {} };
+    }
+    /** @type {?} */
+    const matcher = route.matcher || defaultUrlMatcher;
+    /** @type {?} */
+    const res = matcher(segments, segmentGroup, route);
+    if (!res)
+        throw new NoMatch$1();
+    /** @type {?} */
+    const posParams = {};
+    forEach((/** @type {?} */ (res.posParams)), (/**
+     * @param {?} v
+     * @param {?} k
+     * @return {?}
+     */
+    (v, k) => { posParams[k] = v.path; }));
+    /** @type {?} */
+    const parameters = res.consumed.length > 0 ? Object.assign(Object.assign({}, posParams), res.consumed[res.consumed.length - 1].parameters) :
+        posParams;
+    return { consumedSegments: res.consumed, lastChild: res.consumed.length, parameters };
+}
+/**
+ * @param {?} nodes
+ * @return {?}
+ */
+function checkOutletNameUniqueness(nodes) {
+    /** @type {?} */
+    const names = {};
+    nodes.forEach((/**
+     * @param {?} n
+     * @return {?}
+     */
+    n => {
+        /** @type {?} */
+        const routeWithSameOutletName = names[n.value.outlet];
+        if (routeWithSameOutletName) {
+            /** @type {?} */
+            const p = routeWithSameOutletName.url.map((/**
+             * @param {?} s
+             * @return {?}
+             */
+            s => s.toString())).join('/');
+            /** @type {?} */
+            const c = n.value.url.map((/**
+             * @param {?} s
+             * @return {?}
+             */
+            s => s.toString())).join('/');
+            throw new Error(`Two segments cannot have the same outlet name: '${p}' and '${c}'.`);
+        }
+        names[n.value.outlet] = n.value;
+    }));
+}
+/**
+ * @param {?} segmentGroup
+ * @return {?}
+ */
+function getSourceSegmentGroup(segmentGroup) {
+    /** @type {?} */
+    let s = segmentGroup;
+    while (s._sourceSegment) {
+        s = s._sourceSegment;
+    }
+    return s;
+}
+/**
+ * @param {?} segmentGroup
+ * @return {?}
+ */
+function getPathIndexShift(segmentGroup) {
+    /** @type {?} */
+    let s = segmentGroup;
+    /** @type {?} */
+    let res = (s._segmentIndexShift ? s._segmentIndexShift : 0);
+    while (s._sourceSegment) {
+        s = s._sourceSegment;
+        res += (s._segmentIndexShift ? s._segmentIndexShift : 0);
+    }
+    return res - 1;
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} consumedSegments
+ * @param {?} slicedSegments
+ * @param {?} config
+ * @param {?} relativeLinkResolution
+ * @return {?}
+ */
+function split$1(segmentGroup, consumedSegments, slicedSegments, config, relativeLinkResolution) {
+    if (slicedSegments.length > 0 &&
+        containsEmptyPathMatchesWithNamedOutlets(segmentGroup, slicedSegments, config)) {
+        /** @type {?} */
+        const s = new UrlSegmentGroup(consumedSegments, createChildrenForEmptyPaths(segmentGroup, consumedSegments, config, new UrlSegmentGroup(slicedSegments, segmentGroup.children)));
+        s._sourceSegment = segmentGroup;
+        s._segmentIndexShift = consumedSegments.length;
+        return { segmentGroup: s, slicedSegments: [] };
+    }
+    if (slicedSegments.length === 0 &&
+        containsEmptyPathMatches(segmentGroup, slicedSegments, config)) {
+        /** @type {?} */
+        const s = new UrlSegmentGroup(segmentGroup.segments, addEmptyPathsToChildrenIfNeeded(segmentGroup, consumedSegments, slicedSegments, config, segmentGroup.children, relativeLinkResolution));
+        s._sourceSegment = segmentGroup;
+        s._segmentIndexShift = consumedSegments.length;
+        return { segmentGroup: s, slicedSegments };
+    }
+    /** @type {?} */
+    const s = new UrlSegmentGroup(segmentGroup.segments, segmentGroup.children);
+    s._sourceSegment = segmentGroup;
+    s._segmentIndexShift = consumedSegments.length;
+    return { segmentGroup: s, slicedSegments };
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} consumedSegments
+ * @param {?} slicedSegments
+ * @param {?} routes
+ * @param {?} children
+ * @param {?} relativeLinkResolution
+ * @return {?}
+ */
+function addEmptyPathsToChildrenIfNeeded(segmentGroup, consumedSegments, slicedSegments, routes, children, relativeLinkResolution) {
+    /** @type {?} */
+    const res = {};
+    for (const r of routes) {
+        if (emptyPathMatch(segmentGroup, slicedSegments, r) && !children[getOutlet$1(r)]) {
+            /** @type {?} */
+            const s = new UrlSegmentGroup([], {});
+            s._sourceSegment = segmentGroup;
+            if (relativeLinkResolution === 'legacy') {
+                s._segmentIndexShift = segmentGroup.segments.length;
+            }
+            else {
+                s._segmentIndexShift = consumedSegments.length;
+            }
+            res[getOutlet$1(r)] = s;
+        }
+    }
+    return Object.assign(Object.assign({}, children), res);
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} consumedSegments
+ * @param {?} routes
+ * @param {?} primarySegment
+ * @return {?}
+ */
+function createChildrenForEmptyPaths(segmentGroup, consumedSegments, routes, primarySegment) {
+    /** @type {?} */
+    const res = {};
+    res[PRIMARY_OUTLET] = primarySegment;
+    primarySegment._sourceSegment = segmentGroup;
+    primarySegment._segmentIndexShift = consumedSegments.length;
+    for (const r of routes) {
+        if (r.path === '' && getOutlet$1(r) !== PRIMARY_OUTLET) {
+            /** @type {?} */
+            const s = new UrlSegmentGroup([], {});
+            s._sourceSegment = segmentGroup;
+            s._segmentIndexShift = consumedSegments.length;
+            res[getOutlet$1(r)] = s;
+        }
+    }
+    return res;
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} slicedSegments
+ * @param {?} routes
+ * @return {?}
+ */
+function containsEmptyPathMatchesWithNamedOutlets(segmentGroup, slicedSegments, routes) {
+    return routes.some((/**
+     * @param {?} r
+     * @return {?}
+     */
+    r => emptyPathMatch(segmentGroup, slicedSegments, r) && getOutlet$1(r) !== PRIMARY_OUTLET));
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} slicedSegments
+ * @param {?} routes
+ * @return {?}
+ */
+function containsEmptyPathMatches(segmentGroup, slicedSegments, routes) {
+    return routes.some((/**
+     * @param {?} r
+     * @return {?}
+     */
+    r => emptyPathMatch(segmentGroup, slicedSegments, r)));
+}
+/**
+ * @param {?} segmentGroup
+ * @param {?} slicedSegments
+ * @param {?} r
+ * @return {?}
+ */
+function emptyPathMatch(segmentGroup, slicedSegments, r) {
+    if ((segmentGroup.hasChildren() || slicedSegments.length > 0) && r.pathMatch === 'full') {
+        return false;
+    }
+    return r.path === '' && r.redirectTo === undefined;
+}
+/**
+ * @param {?} route
+ * @return {?}
+ */
+function getOutlet$1(route) {
+    return route.outlet || PRIMARY_OUTLET;
+}
+/**
+ * @param {?} route
+ * @return {?}
+ */
+function getData(route) {
+    return route.data || {};
+}
+/**
+ * @param {?} route
+ * @return {?}
+ */
+function getResolve(route) {
+    return route.resolve || {};
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/operators/recognize.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} rootComponentType
+ * @param {?} config
+ * @param {?} serializer
+ * @param {?} paramsInheritanceStrategy
+ * @param {?} relativeLinkResolution
+ * @return {?}
+ */
+function recognize$1(rootComponentType, config, serializer, paramsInheritanceStrategy, relativeLinkResolution) {
+    return (/**
+     * @param {?} source
+     * @return {?}
+     */
+    function (source) {
+        return source.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])((/**
+         * @param {?} t
+         * @return {?}
+         */
+        t => recognize(rootComponentType, config, t.urlAfterRedirects, serializer(t.urlAfterRedirects), paramsInheritanceStrategy, relativeLinkResolution)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} targetSnapshot
+         * @return {?}
+         */
+        targetSnapshot => (Object.assign(Object.assign({}, t), { targetSnapshot }))))))));
+    });
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/operators/resolve_data.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} paramsInheritanceStrategy
+ * @param {?} moduleInjector
+ * @return {?}
+ */
+function resolveData(paramsInheritanceStrategy, moduleInjector) {
+    return (/**
+     * @param {?} source
+     * @return {?}
+     */
+    function (source) {
+        return source.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])((/**
+         * @param {?} t
+         * @return {?}
+         */
+        t => {
+            const { targetSnapshot, guards: { canActivateChecks } } = t;
+            if (!canActivateChecks.length) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(t);
+            }
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(canActivateChecks)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["concatMap"])((/**
+             * @param {?} check
+             * @return {?}
+             */
+            check => runResolve(check.route, (/** @type {?} */ (targetSnapshot)), paramsInheritanceStrategy, moduleInjector))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["reduce"])((/**
+             * @param {?} _
+             * @param {?} __
+             * @return {?}
+             */
+            (_, __) => _)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+             * @param {?} _
+             * @return {?}
+             */
+            _ => t)));
+        })));
+    });
+}
+/**
+ * @param {?} futureARS
+ * @param {?} futureRSS
+ * @param {?} paramsInheritanceStrategy
+ * @param {?} moduleInjector
+ * @return {?}
+ */
+function runResolve(futureARS, futureRSS, paramsInheritanceStrategy, moduleInjector) {
+    /** @type {?} */
+    const resolve = futureARS._resolve;
+    return resolveNode(resolve, futureARS, futureRSS, moduleInjector)
+        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+     * @param {?} resolvedData
+     * @return {?}
+     */
+    (resolvedData) => {
+        futureARS._resolvedData = resolvedData;
+        futureARS.data = Object.assign(Object.assign({}, futureARS.data), inheritedParamsDataResolve(futureARS, paramsInheritanceStrategy).resolve);
+        return null;
+    })));
+}
+/**
+ * @param {?} resolve
+ * @param {?} futureARS
+ * @param {?} futureRSS
+ * @param {?} moduleInjector
+ * @return {?}
+ */
+function resolveNode(resolve, futureARS, futureRSS, moduleInjector) {
+    /** @type {?} */
+    const keys = Object.keys(resolve);
+    if (keys.length === 0) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])({});
+    }
+    if (keys.length === 1) {
+        /** @type {?} */
+        const key = keys[0];
+        return getResolver(resolve[key], futureARS, futureRSS, moduleInjector)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} value
+         * @return {?}
+         */
+        (value) => { return { [key]: value }; })));
+    }
+    /** @type {?} */
+    const data = {};
+    /** @type {?} */
+    const runningResolvers$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(keys).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])((/**
+     * @param {?} key
+     * @return {?}
+     */
+    (key) => {
+        return getResolver(resolve[key], futureARS, futureRSS, moduleInjector)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} value
+         * @return {?}
+         */
+        (value) => {
+            data[key] = value;
+            return value;
+        })));
+    })));
+    return runningResolvers$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["last"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+     * @return {?}
+     */
+    () => data)));
+}
+/**
+ * @param {?} injectionToken
+ * @param {?} futureARS
+ * @param {?} futureRSS
+ * @param {?} moduleInjector
+ * @return {?}
+ */
+function getResolver(injectionToken, futureARS, futureRSS, moduleInjector) {
+    /** @type {?} */
+    const resolver = getToken(injectionToken, futureARS, moduleInjector);
+    return resolver.resolve ? wrapIntoObservable(resolver.resolve(futureARS, futureRSS)) :
+        wrapIntoObservable(resolver(futureARS, futureRSS));
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/operators/switch_tap.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Perform a side effect through a switchMap for every emission on the source Observable,
+ * but return an Observable that is identical to the source. It's essentially the same as
+ * the `tap` operator, but if the side effectful `next` function returns an ObservableInput,
+ * it will wait before continuing with the original value.
+ * @template T
+ * @param {?} next
+ * @return {?}
+ */
+function switchTap(next) {
+    return (/**
+     * @param {?} source
+     * @return {?}
+     */
+    function (source) {
+        return source.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])((/**
+         * @param {?} v
+         * @return {?}
+         */
+        v => {
+            /** @type {?} */
+            const nextResult = next(v);
+            if (nextResult) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(nextResult).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+                 * @return {?}
+                 */
+                () => v)));
+            }
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])([v]);
+        })));
+    });
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/route_reuse_strategy.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * \@description
+ *
+ * Provides a way to customize when activated routes get reused.
+ *
+ * \@publicApi
+ * @abstract
+ */
+class RouteReuseStrategy {
+}
+if (false) {}
+/**
+ * Does not detach any subtrees. Reuses routes as long as their route config is the same.
+ */
+class DefaultRouteReuseStrategy {
+    /**
+     * @param {?} route
+     * @return {?}
+     */
+    shouldDetach(route) { return false; }
+    /**
+     * @param {?} route
+     * @param {?} detachedTree
+     * @return {?}
+     */
+    store(route, detachedTree) { }
+    /**
+     * @param {?} route
+     * @return {?}
+     */
+    shouldAttach(route) { return false; }
+    /**
+     * @param {?} route
+     * @return {?}
+     */
+    retrieve(route) { return null; }
+    /**
+     * @param {?} future
+     * @param {?} curr
+     * @return {?}
+     */
+    shouldReuseRoute(future, curr) {
+        return future.routeConfig === curr.routeConfig;
+    }
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/router_config_loader.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * The [DI token](guide/glossary/#di-token) for a router configuration.
+ * @see `ROUTES`
+ * \@publicApi
+ * @type {?}
+ */
+const ROUTES = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('ROUTES');
+class RouterConfigLoader {
+    /**
+     * @param {?} loader
+     * @param {?} compiler
+     * @param {?=} onLoadStartListener
+     * @param {?=} onLoadEndListener
+     */
+    constructor(loader, compiler, onLoadStartListener, onLoadEndListener) {
+        this.loader = loader;
+        this.compiler = compiler;
+        this.onLoadStartListener = onLoadStartListener;
+        this.onLoadEndListener = onLoadEndListener;
+    }
+    /**
+     * @param {?} parentInjector
+     * @param {?} route
+     * @return {?}
+     */
+    load(parentInjector, route) {
+        if (this.onLoadStartListener) {
+            this.onLoadStartListener(route);
+        }
+        /** @type {?} */
+        const moduleFactory$ = this.loadModuleFactory((/** @type {?} */ (route.loadChildren)));
+        return moduleFactory$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} factory
+         * @return {?}
+         */
+        (factory) => {
+            if (this.onLoadEndListener) {
+                this.onLoadEndListener(route);
+            }
+            /** @type {?} */
+            const module = factory.create(parentInjector);
+            return new LoadedRouterConfig(flatten(module.injector.get(ROUTES)).map(standardizeConfig), module);
+        })));
+    }
+    /**
+     * @private
+     * @param {?} loadChildren
+     * @return {?}
+     */
+    loadModuleFactory(loadChildren) {
+        if (typeof loadChildren === 'string') {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(this.loader.load(loadChildren));
+        }
+        else {
+            return wrapIntoObservable(loadChildren()).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])((/**
+             * @param {?} t
+             * @return {?}
+             */
+            (t) => {
+                if (t instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleFactory"]) {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(t);
+                }
+                else {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(this.compiler.compileModuleAsync(t));
+                }
+            })));
+        }
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/url_handling_strategy.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * \@description
+ *
+ * Provides a way to migrate AngularJS applications to Angular.
+ *
+ * \@publicApi
+ * @abstract
+ */
+class UrlHandlingStrategy {
+}
+if (false) {}
+/**
+ * \@publicApi
+ */
+class DefaultUrlHandlingStrategy {
+    /**
+     * @param {?} url
+     * @return {?}
+     */
+    shouldProcessUrl(url) { return true; }
+    /**
+     * @param {?} url
+     * @return {?}
+     */
+    extract(url) { return url; }
+    /**
+     * @param {?} newUrlPart
+     * @param {?} wholeUrl
+     * @return {?}
+     */
+    merge(newUrlPart, wholeUrl) { return newUrlPart; }
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/router.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * \@description
+ *
+ * Options that modify the navigation strategy.
+ *
+ * \@publicApi
+ * @record
+ */
+function NavigationExtras() { }
+if (false) {}
+/**
+ * @param {?} error
+ * @return {?}
+ */
+function defaultErrorHandler(error) {
+    throw error;
+}
+/**
+ * @param {?} error
+ * @param {?} urlSerializer
+ * @param {?} url
+ * @return {?}
+ */
+function defaultMalformedUriErrorHandler(error, urlSerializer, url) {
+    return urlSerializer.parse('/');
+}
+/**
+ * \@internal
+ * @param {?} snapshot
+ * @param {?} runExtras
+ * @return {?}
+ */
+function defaultRouterHook(snapshot, runExtras) {
+    return (/** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(null)));
+}
+/**
+ * \@description
+ *
+ * A service that provides navigation and URL manipulation capabilities.
+ *
+ * @see `Route`.
+ * @see [Routing and Navigation Guide](guide/router).
+ *
+ * \@ngModule RouterModule
+ *
+ * \@publicApi
+ */
+class Router {
+    /**
+     * Creates the router service.
+     * @param {?} rootComponentType
+     * @param {?} urlSerializer
+     * @param {?} rootContexts
+     * @param {?} location
+     * @param {?} injector
+     * @param {?} loader
+     * @param {?} compiler
+     * @param {?} config
+     */
+    // TODO: vsavkin make internal after the final is out.
+    constructor(rootComponentType, urlSerializer, rootContexts, location, injector, loader, compiler, config) {
+        this.rootComponentType = rootComponentType;
+        this.urlSerializer = urlSerializer;
+        this.rootContexts = rootContexts;
+        this.location = location;
+        this.config = config;
+        this.lastSuccessfulNavigation = null;
+        this.currentNavigation = null;
+        this.navigationId = 0;
+        this.isNgZoneEnabled = false;
+        /**
+         * An event stream for routing events in this NgModule.
+         */
+        this.events = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        /**
+         * A handler for navigation errors in this NgModule.
+         */
+        this.errorHandler = defaultErrorHandler;
+        /**
+         * A handler for errors thrown by `Router.parseUrl(url)`
+         * when `url` contains an invalid character.
+         * The most common case is a `%` sign
+         * that's not encoded and is not part of a percent encoded sequence.
+         */
+        this.malformedUriErrorHandler = defaultMalformedUriErrorHandler;
+        /**
+         * True if at least one navigation event has occurred,
+         * false otherwise.
+         */
+        this.navigated = false;
+        this.lastSuccessfulId = -1;
+        /**
+         * Hooks that enable you to pause navigation,
+         * either before or after the preactivation phase.
+         * Used by `RouterModule`.
+         *
+         * \@internal
+         */
+        this.hooks = {
+            beforePreactivation: defaultRouterHook,
+            afterPreactivation: defaultRouterHook
+        };
+        /**
+         * A strategy for extracting and merging URLs.
+         * Used for AngularJS to Angular migrations.
+         */
+        this.urlHandlingStrategy = new DefaultUrlHandlingStrategy();
+        /**
+         * A strategy for re-using routes.
+         */
+        this.routeReuseStrategy = new DefaultRouteReuseStrategy();
+        /**
+         * How to handle a navigation request to the current URL. One of:
+         * - `'ignore'` :  The router ignores the request.
+         * - `'reload'` : The router reloads the URL. Use to implement a "refresh" feature.
+         */
+        this.onSameUrlNavigation = 'ignore';
+        /**
+         * How to merge parameters, data, and resolved data from parent to child
+         * routes. One of:
+         *
+         * - `'emptyOnly'` : Inherit parent parameters, data, and resolved data
+         * for path-less or component-less routes.
+         * - `'always'` : Inherit parent parameters, data, and resolved data
+         * for all child routes.
+         */
+        this.paramsInheritanceStrategy = 'emptyOnly';
+        /**
+         * Determines when the router updates the browser URL.
+         * By default (`"deferred"`), updates the browser URL after navigation has finished.
+         * Set to `'eager'` to update the browser URL at the beginning of navigation.
+         * You can choose to update early so that, if navigation fails,
+         * you can show an error message with the URL that failed.
+         */
+        this.urlUpdateStrategy = 'deferred';
+        /**
+         * Enables a bug fix that corrects relative link resolution in components with empty paths.
+         * @see `RouterModule`
+         */
+        this.relativeLinkResolution = 'legacy';
+        /** @type {?} */
+        const onLoadStart = (/**
+         * @param {?} r
+         * @return {?}
+         */
+        (r) => this.triggerEvent(new RouteConfigLoadStart(r)));
+        /** @type {?} */
+        const onLoadEnd = (/**
+         * @param {?} r
+         * @return {?}
+         */
+        (r) => this.triggerEvent(new RouteConfigLoadEnd(r)));
+        this.ngModule = injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleRef"]);
+        this.console = injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵConsole"]);
+        /** @type {?} */
+        const ngZone = injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]);
+        this.isNgZoneEnabled = ngZone instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"];
+        this.resetConfig(config);
+        this.currentUrlTree = createEmptyUrlTree();
+        this.rawUrlTree = this.currentUrlTree;
+        this.browserUrlTree = this.currentUrlTree;
+        this.configLoader = new RouterConfigLoader(loader, compiler, onLoadStart, onLoadEnd);
+        this.routerState = createEmptyState(this.currentUrlTree, this.rootComponentType);
+        this.transitions = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({
+            id: 0,
+            currentUrlTree: this.currentUrlTree,
+            currentRawUrl: this.currentUrlTree,
+            extractedUrl: this.urlHandlingStrategy.extract(this.currentUrlTree),
+            urlAfterRedirects: this.urlHandlingStrategy.extract(this.currentUrlTree),
+            rawUrl: this.currentUrlTree,
+            extras: {},
+            resolve: null,
+            reject: null,
+            promise: Promise.resolve(true),
+            source: 'imperative',
+            restoredState: null,
+            currentSnapshot: this.routerState.snapshot,
+            targetSnapshot: null,
+            currentRouterState: this.routerState,
+            targetRouterState: null,
+            guards: { canActivateChecks: [], canDeactivateChecks: [] },
+            guardsResult: null,
+        });
+        this.navigations = this.setupNavigations(this.transitions);
+        this.processNavigations();
+    }
+    /**
+     * @private
+     * @param {?} transitions
+     * @return {?}
+     */
+    setupNavigations(transitions) {
+        /** @type {?} */
+        const eventsSubject = ((/** @type {?} */ (this.events)));
+        return (/** @type {?} */ ((/** @type {?} */ (transitions.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])((/**
+         * @param {?} t
+         * @return {?}
+         */
+        t => t.id !== 0)), 
+        // Extract URL
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} t
+         * @return {?}
+         */
+        t => ((/** @type {?} */ (Object.assign(Object.assign({}, t), { extractedUrl: this.urlHandlingStrategy.extract(t.rawUrl) })))))), 
+        // Using switchMap so we cancel executing navigations when a new one comes in
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])((/**
+         * @param {?} t
+         * @return {?}
+         */
+        t => {
+            /** @type {?} */
+            let completed = false;
+            /** @type {?} */
+            let errored = false;
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(t).pipe(
+            // Store the Navigation object
+            Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((/**
+             * @param {?} t
+             * @return {?}
+             */
+            t => {
+                this.currentNavigation = {
+                    id: t.id,
+                    initialUrl: t.currentRawUrl,
+                    extractedUrl: t.extractedUrl,
+                    trigger: t.source,
+                    extras: t.extras,
+                    previousNavigation: this.lastSuccessfulNavigation ? Object.assign(Object.assign({}, this.lastSuccessfulNavigation), { previousNavigation: null }) :
+                        null
+                };
+            })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])((/**
+             * @param {?} t
+             * @return {?}
+             */
+            t => {
+                /** @type {?} */
+                const urlTransition = !this.navigated || t.extractedUrl.toString() !== this.browserUrlTree.toString();
+                /** @type {?} */
+                const processCurrentUrl = (this.onSameUrlNavigation === 'reload' ? true : urlTransition) &&
+                    this.urlHandlingStrategy.shouldProcessUrl(t.rawUrl);
+                if (processCurrentUrl) {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(t).pipe(
+                    // Fire NavigationStart event
+                    Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])((/**
+                     * @param {?} t
+                     * @return {?}
+                     */
+                    t => {
+                        /** @type {?} */
+                        const transition = this.transitions.getValue();
+                        eventsSubject.next(new NavigationStart(t.id, this.serializeUrl(t.extractedUrl), t.source, t.restoredState));
+                        if (transition !== this.transitions.getValue()) {
+                            return rxjs__WEBPACK_IMPORTED_MODULE_2__["EMPTY"];
+                        }
+                        return [t];
+                    })), 
+                    // This delay is required to match old behavior that forced navigation to
+                    // always be async
+                    Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])((/**
+                     * @param {?} t
+                     * @return {?}
+                     */
+                    t => Promise.resolve(t))), 
+                    // ApplyRedirects
+                    applyRedirects$1(this.ngModule.injector, this.configLoader, this.urlSerializer, this.config), 
+                    // Update the currentNavigation
+                    Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((/**
+                     * @param {?} t
+                     * @return {?}
+                     */
+                    t => {
+                        this.currentNavigation = Object.assign(Object.assign({}, (/** @type {?} */ (this.currentNavigation))), { finalUrl: t.urlAfterRedirects });
+                    })), 
+                    // Recognize
+                    recognize$1(this.rootComponentType, this.config, (/**
+                     * @param {?} url
+                     * @return {?}
+                     */
+                    (url) => this.serializeUrl(url)), this.paramsInheritanceStrategy, this.relativeLinkResolution), 
+                    // Update URL if in `eager` update mode
+                    Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((/**
+                     * @param {?} t
+                     * @return {?}
+                     */
+                    t => {
+                        if (this.urlUpdateStrategy === 'eager') {
+                            if (!t.extras.skipLocationChange) {
+                                this.setBrowserUrl(t.urlAfterRedirects, !!t.extras.replaceUrl, t.id, t.extras.state);
+                            }
+                            this.browserUrlTree = t.urlAfterRedirects;
+                        }
+                    })), 
+                    // Fire RoutesRecognized
+                    Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((/**
+                     * @param {?} t
+                     * @return {?}
+                     */
+                    t => {
+                        /** @type {?} */
+                        const routesRecognized = new RoutesRecognized(t.id, this.serializeUrl(t.extractedUrl), this.serializeUrl(t.urlAfterRedirects), (/** @type {?} */ (t.targetSnapshot)));
+                        eventsSubject.next(routesRecognized);
+                    })));
+                }
+                else {
+                    /** @type {?} */
+                    const processPreviousUrl = urlTransition && this.rawUrlTree &&
+                        this.urlHandlingStrategy.shouldProcessUrl(this.rawUrlTree);
+                    /* When the current URL shouldn't be processed, but the previous one was, we
+                     * handle this "error condition" by navigating to the previously successful URL,
+                     * but leaving the URL intact.*/
+                    if (processPreviousUrl) {
+                        const { id, extractedUrl, source, restoredState, extras } = t;
+                        /** @type {?} */
+                        const navStart = new NavigationStart(id, this.serializeUrl(extractedUrl), source, restoredState);
+                        eventsSubject.next(navStart);
+                        /** @type {?} */
+                        const targetSnapshot = createEmptyState(extractedUrl, this.rootComponentType).snapshot;
+                        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(Object.assign(Object.assign({}, t), { targetSnapshot, urlAfterRedirects: extractedUrl, extras: Object.assign(Object.assign({}, extras), { skipLocationChange: false, replaceUrl: false }) }));
+                    }
+                    else {
+                        /* When neither the current or previous URL can be processed, do nothing other
+                         * than update router's internal reference to the current "settled" URL. This
+                         * way the next navigation will be coming from the current URL in the browser.
+                         */
+                        this.rawUrlTree = t.rawUrl;
+                        this.browserUrlTree = t.urlAfterRedirects;
+                        t.resolve(null);
+                        return rxjs__WEBPACK_IMPORTED_MODULE_2__["EMPTY"];
+                    }
+                }
+            })), 
+            // Before Preactivation
+            switchTap((/**
+             * @param {?} t
+             * @return {?}
+             */
+            t => {
+                const { targetSnapshot, id: navigationId, extractedUrl: appliedUrlTree, rawUrl: rawUrlTree, extras: { skipLocationChange, replaceUrl } } = t;
+                return this.hooks.beforePreactivation((/** @type {?} */ (targetSnapshot)), {
+                    navigationId,
+                    appliedUrlTree,
+                    rawUrlTree,
+                    skipLocationChange: !!skipLocationChange,
+                    replaceUrl: !!replaceUrl,
+                });
+            })), 
+            // --- GUARDS ---
+            Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((/**
+             * @param {?} t
+             * @return {?}
+             */
+            t => {
+                /** @type {?} */
+                const guardsStart = new GuardsCheckStart(t.id, this.serializeUrl(t.extractedUrl), this.serializeUrl(t.urlAfterRedirects), (/** @type {?} */ (t.targetSnapshot)));
+                this.triggerEvent(guardsStart);
+            })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+             * @param {?} t
+             * @return {?}
+             */
+            t => (Object.assign(Object.assign({}, t), { guards: getAllRouteGuards((/** @type {?} */ (t.targetSnapshot)), t.currentSnapshot, this.rootContexts) })))), checkGuards(this.ngModule.injector, (/**
+             * @param {?} evt
+             * @return {?}
+             */
+            (evt) => this.triggerEvent(evt))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((/**
+             * @param {?} t
+             * @return {?}
+             */
+            t => {
+                if (isUrlTree(t.guardsResult)) {
+                    /** @type {?} */
+                    const error = navigationCancelingError(`Redirecting to "${this.serializeUrl(t.guardsResult)}"`);
+                    error.url = t.guardsResult;
+                    throw error;
+                }
+            })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((/**
+             * @param {?} t
+             * @return {?}
+             */
+            t => {
+                /** @type {?} */
+                const guardsEnd = new GuardsCheckEnd(t.id, this.serializeUrl(t.extractedUrl), this.serializeUrl(t.urlAfterRedirects), (/** @type {?} */ (t.targetSnapshot)), !!t.guardsResult);
+                this.triggerEvent(guardsEnd);
+            })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])((/**
+             * @param {?} t
+             * @return {?}
+             */
+            t => {
+                if (!t.guardsResult) {
+                    this.resetUrlToCurrentUrlTree();
+                    /** @type {?} */
+                    const navCancel = new NavigationCancel(t.id, this.serializeUrl(t.extractedUrl), '');
+                    eventsSubject.next(navCancel);
+                    t.resolve(false);
+                    return false;
+                }
+                return true;
+            })), 
+            // --- RESOLVE ---
+            switchTap((/**
+             * @param {?} t
+             * @return {?}
+             */
+            t => {
+                if (t.guards.canActivateChecks.length) {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(t).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((/**
+                     * @param {?} t
+                     * @return {?}
+                     */
+                    t => {
+                        /** @type {?} */
+                        const resolveStart = new ResolveStart(t.id, this.serializeUrl(t.extractedUrl), this.serializeUrl(t.urlAfterRedirects), (/** @type {?} */ (t.targetSnapshot)));
+                        this.triggerEvent(resolveStart);
+                    })), resolveData(this.paramsInheritanceStrategy, this.ngModule.injector), //
+                    Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((/**
+                     * @param {?} t
+                     * @return {?}
+                     */
+                    t => {
+                        /** @type {?} */
+                        const resolveEnd = new ResolveEnd(t.id, this.serializeUrl(t.extractedUrl), this.serializeUrl(t.urlAfterRedirects), (/** @type {?} */ (t.targetSnapshot)));
+                        this.triggerEvent(resolveEnd);
+                    })));
+                }
+                return undefined;
+            })), 
+            // --- AFTER PREACTIVATION ---
+            switchTap((/**
+             * @param {?} t
+             * @return {?}
+             */
+            (t) => {
+                const { targetSnapshot, id: navigationId, extractedUrl: appliedUrlTree, rawUrl: rawUrlTree, extras: { skipLocationChange, replaceUrl } } = t;
+                return this.hooks.afterPreactivation((/** @type {?} */ (targetSnapshot)), {
+                    navigationId,
+                    appliedUrlTree,
+                    rawUrlTree,
+                    skipLocationChange: !!skipLocationChange,
+                    replaceUrl: !!replaceUrl,
+                });
+            })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+             * @param {?} t
+             * @return {?}
+             */
+            (t) => {
+                /** @type {?} */
+                const targetRouterState = createRouterState(this.routeReuseStrategy, (/** @type {?} */ (t.targetSnapshot)), t.currentRouterState);
+                return (Object.assign(Object.assign({}, t), { targetRouterState }));
+            })), 
+            /* Once here, we are about to activate syncronously. The assumption is this will
+               succeed, and user code may read from the Router service. Therefore before
+               activation, we need to update router properties storing the current URL and the
+               RouterState, as well as updated the browser URL. All this should happen *before*
+               activating. */
+            Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((/**
+             * @param {?} t
+             * @return {?}
+             */
+            (t) => {
+                this.currentUrlTree = t.urlAfterRedirects;
+                this.rawUrlTree = this.urlHandlingStrategy.merge(this.currentUrlTree, t.rawUrl);
+                ((/** @type {?} */ (this))).routerState = (/** @type {?} */ (t.targetRouterState));
+                if (this.urlUpdateStrategy === 'deferred') {
+                    if (!t.extras.skipLocationChange) {
+                        this.setBrowserUrl(this.rawUrlTree, !!t.extras.replaceUrl, t.id, t.extras.state);
+                    }
+                    this.browserUrlTree = t.urlAfterRedirects;
+                }
+            })), activateRoutes(this.rootContexts, this.routeReuseStrategy, (/**
+             * @param {?} evt
+             * @return {?}
+             */
+            (evt) => this.triggerEvent(evt))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])({ /**
+                 * @return {?}
+                 */
+                next() { completed = true; }, /**
+                 * @return {?}
+                 */
+                complete() { completed = true; } }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["finalize"])((/**
+             * @return {?}
+             */
+            () => {
+                /* When the navigation stream finishes either through error or success, we set the
+                 * `completed` or `errored` flag. However, there are some situations where we could
+                 * get here without either of those being set. For instance, a redirect during
+                 * NavigationStart. Therefore, this is a catch-all to make sure the NavigationCancel
+                 * event is fired when a navigation gets cancelled but not caught by other means. */
+                if (!completed && !errored) {
+                    // Must reset to current URL tree here to ensure history.state is set. On a fresh
+                    // page load, if a new navigation comes in before a successful navigation
+                    // completes, there will be nothing in history.state.navigationId. This can cause
+                    // sync problems with AngularJS sync code which looks for a value here in order
+                    // to determine whether or not to handle a given popstate event or to leave it
+                    // to the Angualr router.
+                    this.resetUrlToCurrentUrlTree();
+                    /** @type {?} */
+                    const navCancel = new NavigationCancel(t.id, this.serializeUrl(t.extractedUrl), `Navigation ID ${t.id} is not equal to the current navigation id ${this.navigationId}`);
+                    eventsSubject.next(navCancel);
+                    t.resolve(false);
+                }
+                // currentNavigation should always be reset to null here. If navigation was
+                // successful, lastSuccessfulTransition will have already been set. Therefore we
+                // can safely set currentNavigation to null here.
+                this.currentNavigation = null;
+            })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])((/**
+             * @param {?} e
+             * @return {?}
+             */
+            (e) => {
+                errored = true;
+                /* This error type is issued during Redirect, and is handled as a cancellation
+                 * rather than an error. */
+                if (isNavigationCancelingError(e)) {
+                    /** @type {?} */
+                    const redirecting = isUrlTree(e.url);
+                    if (!redirecting) {
+                        // Set property only if we're not redirecting. If we landed on a page and
+                        // redirect to `/` route, the new navigation is going to see the `/` isn't
+                        // a change from the default currentUrlTree and won't navigate. This is
+                        // only applicable with initial navigation, so setting `navigated` only when
+                        // not redirecting resolves this scenario.
+                        this.navigated = true;
+                        this.resetStateAndUrl(t.currentRouterState, t.currentUrlTree, t.rawUrl);
+                    }
+                    /** @type {?} */
+                    const navCancel = new NavigationCancel(t.id, this.serializeUrl(t.extractedUrl), e.message);
+                    eventsSubject.next(navCancel);
+                    // When redirecting, we need to delay resolving the navigation
+                    // promise and push it to the redirect navigation
+                    if (!redirecting) {
+                        t.resolve(false);
+                    }
+                    else {
+                        // setTimeout is required so this navigation finishes with
+                        // the return EMPTY below. If it isn't allowed to finish
+                        // processing, there can be multiple navigations to the same
+                        // URL.
+                        setTimeout((/**
+                         * @return {?}
+                         */
+                        () => {
+                            /** @type {?} */
+                            const mergedTree = this.urlHandlingStrategy.merge(e.url, this.rawUrlTree);
+                            /** @type {?} */
+                            const extras = {
+                                skipLocationChange: t.extras.skipLocationChange,
+                                replaceUrl: this.urlUpdateStrategy === 'eager'
+                            };
+                            return this.scheduleNavigation(mergedTree, 'imperative', null, extras, { resolve: t.resolve, reject: t.reject, promise: t.promise });
+                        }), 0);
+                    }
+                    /* All other errors should reset to the router's internal URL reference to the
+                     * pre-error state. */
+                }
+                else {
+                    this.resetStateAndUrl(t.currentRouterState, t.currentUrlTree, t.rawUrl);
+                    /** @type {?} */
+                    const navError = new NavigationError(t.id, this.serializeUrl(t.extractedUrl), e);
+                    eventsSubject.next(navError);
+                    try {
+                        t.resolve(this.errorHandler(e));
+                    }
+                    catch (ee) {
+                        t.reject(ee);
+                    }
+                }
+                return rxjs__WEBPACK_IMPORTED_MODULE_2__["EMPTY"];
+            })));
+            // TODO(jasonaden): remove cast once g3 is on updated TypeScript
+        })))))));
+    }
+    /**
+     * \@internal
+     * TODO: this should be removed once the constructor of the router made internal
+     * @param {?} rootComponentType
+     * @return {?}
+     */
+    resetRootComponentType(rootComponentType) {
+        this.rootComponentType = rootComponentType;
+        // TODO: vsavkin router 4.0 should make the root component set to null
+        // this will simplify the lifecycle of the router.
+        this.routerState.root.component = this.rootComponentType;
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    getTransition() {
+        /** @type {?} */
+        const transition = this.transitions.value;
+        // This value needs to be set. Other values such as extractedUrl are set on initial navigation
+        // but the urlAfterRedirects may not get set if we aren't processing the new URL *and* not
+        // processing the previous URL.
+        transition.urlAfterRedirects = this.browserUrlTree;
+        return transition;
+    }
+    /**
+     * @private
+     * @param {?} t
+     * @return {?}
+     */
+    setTransition(t) {
+        this.transitions.next(Object.assign(Object.assign({}, this.getTransition()), t));
+    }
+    /**
+     * Sets up the location change listener and performs the initial navigation.
+     * @return {?}
+     */
+    initialNavigation() {
+        this.setUpLocationChangeListener();
+        if (this.navigationId === 0) {
+            this.navigateByUrl(this.location.path(true), { replaceUrl: true });
+        }
+    }
+    /**
+     * Sets up the location change listener.
+     * @return {?}
+     */
+    setUpLocationChangeListener() {
+        // Don't need to use Zone.wrap any more, because zone.js
+        // already patch onPopState, so location change callback will
+        // run into ngZone
+        if (!this.locationSubscription) {
+            this.locationSubscription = (/** @type {?} */ (this.location.subscribe((/**
+             * @param {?} change
+             * @return {?}
+             */
+            (change) => {
+                /** @type {?} */
+                let rawUrlTree = this.parseUrl(change['url']);
+                /** @type {?} */
+                const source = change['type'] === 'popstate' ? 'popstate' : 'hashchange';
+                // Navigations coming from Angular router have a navigationId state property. When this
+                // exists, restore the state.
+                /** @type {?} */
+                const state = change.state && change.state.navigationId ? change.state : null;
+                setTimeout((/**
+                 * @return {?}
+                 */
+                () => { this.scheduleNavigation(rawUrlTree, source, state, { replaceUrl: true }); }), 0);
+            }))));
+        }
+    }
+    /**
+     * The current URL.
+     * @return {?}
+     */
+    get url() { return this.serializeUrl(this.currentUrlTree); }
+    /**
+     * The current Navigation object if one exists
+     * @return {?}
+     */
+    getCurrentNavigation() { return this.currentNavigation; }
+    /**
+     * \@internal
+     * @param {?} event
+     * @return {?}
+     */
+    triggerEvent(event) { ((/** @type {?} */ (this.events))).next(event); }
+    /**
+     * Resets the configuration used for navigation and generating links.
+     *
+     * \@usageNotes
+     *
+     * ```
+     * router.resetConfig([
+     *  { path: 'team/:id', component: TeamCmp, children: [
+     *    { path: 'simple', component: SimpleCmp },
+     *    { path: 'user/:name', component: UserCmp }
+     *  ]}
+     * ]);
+     * ```
+     * @param {?} config The route array for the new configuration.
+     *
+     * @return {?}
+     */
+    resetConfig(config) {
+        validateConfig(config);
+        this.config = config.map(standardizeConfig);
+        this.navigated = false;
+        this.lastSuccessfulId = -1;
+    }
+    /**
+     * \@docsNotRequired
+     * @return {?}
+     */
+    ngOnDestroy() { this.dispose(); }
+    /**
+     * Disposes of the router.
+     * @return {?}
+     */
+    dispose() {
+        if (this.locationSubscription) {
+            this.locationSubscription.unsubscribe();
+            this.locationSubscription = (/** @type {?} */ (null));
+        }
+    }
+    /**
+     * Applies an array of commands to the current URL tree and creates a new URL tree.
+     *
+     * When given an activated route, applies the given commands starting from the route.
+     * Otherwise, applies the given command starting from the root.
+     *
+     * \@usageNotes
+     *
+     * ```
+     * // create /team/33/user/11
+     * router.createUrlTree(['/team', 33, 'user', 11]);
+     *
+     * // create /team/33;expand=true/user/11
+     * router.createUrlTree(['/team', 33, {expand: true}, 'user', 11]);
+     *
+     * // you can collapse static segments like this (this works only with the first passed-in value):
+     * router.createUrlTree(['/team/33/user', userId]);
+     *
+     * // If the first segment can contain slashes, and you do not want the router to split it,
+     * // you can do the following:
+     * router.createUrlTree([{segmentPath: '/one/two'}]);
+     *
+     * // create /team/33/(user/11//right:chat)
+     * router.createUrlTree(['/team', 33, {outlets: {primary: 'user/11', right: 'chat'}}]);
+     *
+     * // remove the right secondary node
+     * router.createUrlTree(['/team', 33, {outlets: {primary: 'user/11', right: null}}]);
+     *
+     * // assuming the current url is `/team/33/user/11` and the route points to `user/11`
+     *
+     * // navigate to /team/33/user/11/details
+     * router.createUrlTree(['details'], {relativeTo: route});
+     *
+     * // navigate to /team/33/user/22
+     * router.createUrlTree(['../22'], {relativeTo: route});
+     *
+     * // navigate to /team/44/user/22
+     * router.createUrlTree(['../../team/44/user/22'], {relativeTo: route});
+     * ```
+     * @param {?} commands An array of commands to apply.
+     * @param {?=} navigationExtras Options that control the navigation strategy. This function
+     * only utilizes properties in `NavigationExtras` that would change the provided URL.
+     * @return {?} The new URL tree.
+     *
+     */
+    createUrlTree(commands, navigationExtras = {}) {
+        const { relativeTo, queryParams, fragment, preserveQueryParams, queryParamsHandling, preserveFragment } = navigationExtras;
+        if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["isDevMode"])() && preserveQueryParams && (/** @type {?} */ (console)) && (/** @type {?} */ (console.warn))) {
+            console.warn('preserveQueryParams is deprecated, use queryParamsHandling instead.');
+        }
+        /** @type {?} */
+        const a = relativeTo || this.routerState.root;
+        /** @type {?} */
+        const f = preserveFragment ? this.currentUrlTree.fragment : fragment;
+        /** @type {?} */
+        let q = null;
+        if (queryParamsHandling) {
+            switch (queryParamsHandling) {
+                case 'merge':
+                    q = Object.assign(Object.assign({}, this.currentUrlTree.queryParams), queryParams);
+                    break;
+                case 'preserve':
+                    q = this.currentUrlTree.queryParams;
+                    break;
+                default:
+                    q = queryParams || null;
+            }
+        }
+        else {
+            q = preserveQueryParams ? this.currentUrlTree.queryParams : queryParams || null;
+        }
+        if (q !== null) {
+            q = this.removeEmptyProps(q);
+        }
+        return createUrlTree(a, this.currentUrlTree, commands, (/** @type {?} */ (q)), (/** @type {?} */ (f)));
+    }
+    /**
+     * Navigate based on the provided URL, which must be absolute.
+     *
+     * \@usageNotes
+     *
+     * ```
+     * router.navigateByUrl("/team/33/user/11");
+     *
+     * // Navigate without updating the URL
+     * router.navigateByUrl("/team/33/user/11", { skipLocationChange: true });
+     * ```
+     *
+     * @param {?} url An absolute URL. The function does not apply any delta to the current URL.
+     * @param {?=} extras An object containing properties that modify the navigation strategy.
+     * The function ignores any properties in the `NavigationExtras` that would change the
+     * provided URL.
+     *
+     * @return {?} A Promise that resolves to 'true' when navigation succeeds,
+     * to 'false' when navigation fails, or is rejected on error.
+     *
+     */
+    navigateByUrl(url, extras = { skipLocationChange: false }) {
+        if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["isDevMode"])() && this.isNgZoneEnabled && !_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"].isInAngularZone()) {
+            this.console.warn(`Navigation triggered outside Angular zone, did you forget to call 'ngZone.run()'?`);
+        }
+        /** @type {?} */
+        const urlTree = isUrlTree(url) ? url : this.parseUrl(url);
+        /** @type {?} */
+        const mergedTree = this.urlHandlingStrategy.merge(urlTree, this.rawUrlTree);
+        return this.scheduleNavigation(mergedTree, 'imperative', null, extras);
+    }
+    /**
+     * Navigate based on the provided array of commands and a starting point.
+     * If no starting route is provided, the navigation is absolute.
+     *
+     * Returns a promise that:
+     * - resolves to 'true' when navigation succeeds,
+     * - resolves to 'false' when navigation fails,
+     * - is rejected when an error happens.
+     *
+     * \@usageNotes
+     *
+     * ```
+     * router.navigate(['team', 33, 'user', 11], {relativeTo: route});
+     *
+     * // Navigate without updating the URL
+     * router.navigate(['team', 33, 'user', 11], {relativeTo: route, skipLocationChange: true});
+     * ```
+     *
+     * The first parameter of `navigate()` is a delta to be applied to the current URL
+     * or the one provided in the `relativeTo` property of the second parameter (the
+     * `NavigationExtras`).
+     *
+     * In order to affect this browser's `history.state` entry, the `state`
+     * parameter can be passed. This must be an object because the router
+     * will add the `navigationId` property to this object before creating
+     * the new history item.
+     * @param {?} commands
+     * @param {?=} extras
+     * @return {?}
+     */
+    navigate(commands, extras = { skipLocationChange: false }) {
+        validateCommands(commands);
+        return this.navigateByUrl(this.createUrlTree(commands, extras), extras);
+    }
+    /**
+     * Serializes a `UrlTree` into a string
+     * @param {?} url
+     * @return {?}
+     */
+    serializeUrl(url) { return this.urlSerializer.serialize(url); }
+    /**
+     * Parses a string into a `UrlTree`
+     * @param {?} url
+     * @return {?}
+     */
+    parseUrl(url) {
+        /** @type {?} */
+        let urlTree;
+        try {
+            urlTree = this.urlSerializer.parse(url);
+        }
+        catch (e) {
+            urlTree = this.malformedUriErrorHandler(e, this.urlSerializer, url);
+        }
+        return urlTree;
+    }
+    /**
+     * Returns whether the url is activated
+     * @param {?} url
+     * @param {?} exact
+     * @return {?}
+     */
+    isActive(url, exact) {
+        if (isUrlTree(url)) {
+            return containsTree(this.currentUrlTree, url, exact);
+        }
+        /** @type {?} */
+        const urlTree = this.parseUrl(url);
+        return containsTree(this.currentUrlTree, urlTree, exact);
+    }
+    /**
+     * @private
+     * @param {?} params
+     * @return {?}
+     */
+    removeEmptyProps(params) {
+        return Object.keys(params).reduce((/**
+         * @param {?} result
+         * @param {?} key
+         * @return {?}
+         */
+        (result, key) => {
+            /** @type {?} */
+            const value = params[key];
+            if (value !== null && value !== undefined) {
+                result[key] = value;
+            }
+            return result;
+        }), {});
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    processNavigations() {
+        this.navigations.subscribe((/**
+         * @param {?} t
+         * @return {?}
+         */
+        t => {
+            this.navigated = true;
+            this.lastSuccessfulId = t.id;
+            ((/** @type {?} */ (this.events)))
+                .next(new NavigationEnd(t.id, this.serializeUrl(t.extractedUrl), this.serializeUrl(this.currentUrlTree)));
+            this.lastSuccessfulNavigation = this.currentNavigation;
+            this.currentNavigation = null;
+            t.resolve(true);
+        }), (/**
+         * @param {?} e
+         * @return {?}
+         */
+        e => { this.console.warn(`Unhandled Navigation Error: `); }));
+    }
+    /**
+     * @private
+     * @param {?} rawUrl
+     * @param {?} source
+     * @param {?} restoredState
+     * @param {?} extras
+     * @param {?=} priorPromise
+     * @return {?}
+     */
+    scheduleNavigation(rawUrl, source, restoredState, extras, priorPromise) {
+        /** @type {?} */
+        const lastNavigation = this.getTransition();
+        // If the user triggers a navigation imperatively (e.g., by using navigateByUrl),
+        // and that navigation results in 'replaceState' that leads to the same URL,
+        // we should skip those.
+        if (lastNavigation && source !== 'imperative' && lastNavigation.source === 'imperative' &&
+            lastNavigation.rawUrl.toString() === rawUrl.toString()) {
+            return Promise.resolve(true); // return value is not used
+        }
+        // Because of a bug in IE and Edge, the location class fires two events (popstate and
+        // hashchange) every single time. The second one should be ignored. Otherwise, the URL will
+        // flicker. Handles the case when a popstate was emitted first.
+        if (lastNavigation && source == 'hashchange' && lastNavigation.source === 'popstate' &&
+            lastNavigation.rawUrl.toString() === rawUrl.toString()) {
+            return Promise.resolve(true); // return value is not used
+        }
+        // Because of a bug in IE and Edge, the location class fires two events (popstate and
+        // hashchange) every single time. The second one should be ignored. Otherwise, the URL will
+        // flicker. Handles the case when a hashchange was emitted first.
+        if (lastNavigation && source == 'popstate' && lastNavigation.source === 'hashchange' &&
+            lastNavigation.rawUrl.toString() === rawUrl.toString()) {
+            return Promise.resolve(true); // return value is not used
+        }
+        /** @type {?} */
+        let resolve;
+        /** @type {?} */
+        let reject;
+        /** @type {?} */
+        let promise;
+        if (priorPromise) {
+            resolve = priorPromise.resolve;
+            reject = priorPromise.reject;
+            promise = priorPromise.promise;
+        }
+        else {
+            promise = new Promise((/**
+             * @param {?} res
+             * @param {?} rej
+             * @return {?}
+             */
+            (res, rej) => {
+                resolve = res;
+                reject = rej;
+            }));
+        }
+        /** @type {?} */
+        const id = ++this.navigationId;
+        this.setTransition({
+            id,
+            source,
+            restoredState,
+            currentUrlTree: this.currentUrlTree,
+            currentRawUrl: this.rawUrlTree, rawUrl, extras, resolve, reject, promise,
+            currentSnapshot: this.routerState.snapshot,
+            currentRouterState: this.routerState
+        });
+        // Make sure that the error is propagated even though `processNavigations` catch
+        // handler does not rethrow
+        return promise.catch((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => { return Promise.reject(e); }));
+    }
+    /**
+     * @private
+     * @param {?} url
+     * @param {?} replaceUrl
+     * @param {?} id
+     * @param {?=} state
+     * @return {?}
+     */
+    setBrowserUrl(url, replaceUrl, id, state) {
+        /** @type {?} */
+        const path = this.urlSerializer.serialize(url);
+        state = state || {};
+        if (this.location.isCurrentPathEqualTo(path) || replaceUrl) {
+            // TODO(jasonaden): Remove first `navigationId` and rely on `ng` namespace.
+            this.location.replaceState(path, '', Object.assign(Object.assign({}, state), { navigationId: id }));
+        }
+        else {
+            this.location.go(path, '', Object.assign(Object.assign({}, state), { navigationId: id }));
+        }
+    }
+    /**
+     * @private
+     * @param {?} storedState
+     * @param {?} storedUrl
+     * @param {?} rawUrl
+     * @return {?}
+     */
+    resetStateAndUrl(storedState, storedUrl, rawUrl) {
+        ((/** @type {?} */ (this))).routerState = storedState;
+        this.currentUrlTree = storedUrl;
+        this.rawUrlTree = this.urlHandlingStrategy.merge(this.currentUrlTree, rawUrl);
+        this.resetUrlToCurrentUrlTree();
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    resetUrlToCurrentUrlTree() {
+        this.location.replaceState(this.urlSerializer.serialize(this.rawUrlTree), '', { navigationId: this.lastSuccessfulId });
+    }
+}
+Router.ɵfac = function Router_Factory(t) { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinvalidFactory"](); };
+Router.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({ type: Router });
+
+if (false) {}
+/**
+ * @param {?} commands
+ * @return {?}
+ */
+function validateCommands(commands) {
+    for (let i = 0; i < commands.length; i++) {
+        /** @type {?} */
+        const cmd = commands[i];
+        if (cmd == null) {
+            throw new Error(`The requested path contains ${cmd} segment at index ${i}`);
+        }
+    }
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/directives/router_link.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * \@description
+ *
+ * Lets you link to specific routes in your app.
+ *
+ * Consider the following route configuration:
+ * `[{ path: 'user/:name', component: UserCmp }]`.
+ * When linking to this `user/:name` route, you use the `RouterLink` directive.
+ *
+ * If the link is static, you can use the directive as follows:
+ * `<a routerLink="/user/bob">link to user component</a>`
+ *
+ * If you use dynamic values to generate the link, you can pass an array of path
+ * segments, followed by the params for each segment.
+ *
+ * For instance `['/team', teamId, 'user', userName, {details: true}]`
+ * means that we want to generate a link to `/team/11/user/bob;details=true`.
+ *
+ * Multiple static segments can be merged into one
+ * (e.g., `['/team/11/user', userName, {details: true}]`).
+ *
+ * The first segment name can be prepended with `/`, `./`, or `../`:
+ * * If the first segment begins with `/`, the router will look up the route from the root of the
+ *   app.
+ * * If the first segment begins with `./`, or doesn't begin with a slash, the router will
+ *   instead look in the children of the current activated route.
+ * * And if the first segment begins with `../`, the router will go up one level.
+ *
+ * You can set query params and fragment as follows:
+ *
+ * ```
+ * <a [routerLink]="['/user/bob']" [queryParams]="{debug: true}" fragment="education">
+ *   link to user component
+ * </a>
+ * ```
+ * RouterLink will use these to generate this link: `/user/bob#education?debug=true`.
+ *
+ * (Deprecated in v4.0.0 use `queryParamsHandling` instead) You can also tell the
+ * directive to preserve the current query params and fragment:
+ *
+ * ```
+ * <a [routerLink]="['/user/bob']" preserveQueryParams preserveFragment>
+ *   link to user component
+ * </a>
+ * ```
+ *
+ * You can tell the directive how to handle queryParams. Available options are:
+ *  - `'merge'`: merge the queryParams into the current queryParams
+ *  - `'preserve'`: preserve the current queryParams
+ *  - default/`''`: use the queryParams only
+ *
+ * Same options for {\@link NavigationExtras#queryParamsHandling
+ * NavigationExtras#queryParamsHandling}.
+ *
+ * ```
+ * <a [routerLink]="['/user/bob']" [queryParams]="{debug: true}" queryParamsHandling="merge">
+ *   link to user component
+ * </a>
+ * ```
+ *
+ * You can provide a `state` value to be persisted to the browser's History.state
+ * property (See https://developer.mozilla.org/en-US/docs/Web/API/History#Properties). It's
+ * used as follows:
+ *
+ * ```
+ * <a [routerLink]="['/user/bob']" [state]="{tracingId: 123}">
+ *   link to user component
+ * </a>
+ * ```
+ *
+ * And later the value can be read from the router through `router.getCurrentNavigation`.
+ * For example, to capture the `tracingId` above during the `NavigationStart` event:
+ *
+ * ```
+ * // Get NavigationStart events
+ * router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe(e => {
+ *   const navigation = router.getCurrentNavigation();
+ *   tracingService.trace({id: navigation.extras.state.tracingId});
+ * });
+ * ```
+ *
+ * The router link directive always treats the provided input as a delta to the current url.
+ *
+ * For instance, if the current url is `/user/(box//aux:team)`.
+ *
+ * Then the following link `<a [routerLink]="['/user/jim']">Jim</a>` will generate the link
+ * `/user/(jim//aux:team)`.
+ *
+ * See {\@link Router#createUrlTree createUrlTree} for more information.
+ *
+ * \@ngModule RouterModule
+ *
+ * \@publicApi
+ */
+class RouterLink {
+    /**
+     * @param {?} router
+     * @param {?} route
+     * @param {?} tabIndex
+     * @param {?} renderer
+     * @param {?} el
+     */
+    constructor(router, route, tabIndex, renderer, el) {
+        this.router = router;
+        this.route = route;
+        this.commands = [];
+        if (tabIndex == null) {
+            renderer.setAttribute(el.nativeElement, 'tabindex', '0');
+        }
+    }
+    /**
+     * @param {?} commands
+     * @return {?}
+     */
+    set routerLink(commands) {
+        if (commands != null) {
+            this.commands = Array.isArray(commands) ? commands : [commands];
+        }
+        else {
+            this.commands = [];
+        }
+    }
+    /**
+     * @deprecated 4.0.0 use `queryParamsHandling` instead.
+     * @param {?} value
+     * @return {?}
+     */
+    set preserveQueryParams(value) {
+        if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["isDevMode"])() && (/** @type {?} */ (console)) && (/** @type {?} */ (console.warn))) {
+            console.warn('preserveQueryParams is deprecated!, use queryParamsHandling instead.');
+        }
+        this.preserve = value;
+    }
+    /**
+     * @return {?}
+     */
+    onClick() {
+        /** @type {?} */
+        const extras = {
+            skipLocationChange: attrBoolValue(this.skipLocationChange),
+            replaceUrl: attrBoolValue(this.replaceUrl),
+            state: this.state
+        };
+        this.router.navigateByUrl(this.urlTree, extras);
+        return true;
+    }
+    /**
+     * @return {?}
+     */
+    get urlTree() {
+        return this.router.createUrlTree(this.commands, {
+            relativeTo: this.route,
+            queryParams: this.queryParams,
+            fragment: this.fragment,
+            preserveQueryParams: attrBoolValue(this.preserve),
+            queryParamsHandling: this.queryParamsHandling,
+            preserveFragment: attrBoolValue(this.preserveFragment),
+        });
+    }
+}
+RouterLink.ɵfac = function RouterLink_Factory(t) { return new (t || RouterLink)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](Router), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinjectAttribute"]('tabindex'), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])); };
+RouterLink.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({ type: RouterLink, selectors: [["", "routerLink", "", 5, "a", 5, "area"]], hostBindings: function RouterLink_HostBindings(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function RouterLink_click_HostBindingHandler() { return ctx.onClick(); });
+    } }, inputs: { routerLink: "routerLink", preserveQueryParams: "preserveQueryParams", queryParams: "queryParams", fragment: "fragment", queryParamsHandling: "queryParamsHandling", preserveFragment: "preserveFragment", skipLocationChange: "skipLocationChange", replaceUrl: "replaceUrl", state: "state" } });
+/** @nocollapse */
+RouterLink.ctorParameters = () => [
+    { type: Router },
+    { type: ActivatedRoute },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Attribute"], args: ['tabindex',] }] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+];
+RouterLink.propDecorators = {
+    queryParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fragment: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    queryParamsHandling: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    preserveFragment: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    skipLocationChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    replaceUrl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    state: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    routerLink: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    preserveQueryParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    onClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['click',] }]
+};
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](RouterLink, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
+        args: [{ selector: ':not(a):not(area)[routerLink]' }]
+    }], function () { return [{ type: Router }, { type: ActivatedRoute }, { type: String, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Attribute"],
+                args: ['tabindex']
+            }] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }]; }, { routerLink: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], preserveQueryParams: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], onClick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
+            args: ['click']
+        }], queryParams: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], fragment: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], queryParamsHandling: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], preserveFragment: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], skipLocationChange: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], replaceUrl: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], state: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }] }); })();
+if (false) {}
+/**
+ * \@description
+ *
+ * Lets you link to specific routes in your app.
+ *
+ * See `RouterLink` for more information.
+ *
+ * \@ngModule RouterModule
+ *
+ * \@publicApi
+ */
+class RouterLinkWithHref {
+    /**
+     * @param {?} router
+     * @param {?} route
+     * @param {?} locationStrategy
+     */
+    constructor(router, route, locationStrategy) {
+        this.router = router;
+        this.route = route;
+        this.locationStrategy = locationStrategy;
+        this.commands = [];
+        this.subscription = router.events.subscribe((/**
+         * @param {?} s
+         * @return {?}
+         */
+        (s) => {
+            if (s instanceof NavigationEnd) {
+                this.updateTargetUrlAndHref();
+            }
+        }));
+    }
+    /**
+     * @param {?} commands
+     * @return {?}
+     */
+    set routerLink(commands) {
+        if (commands != null) {
+            this.commands = Array.isArray(commands) ? commands : [commands];
+        }
+        else {
+            this.commands = [];
+        }
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set preserveQueryParams(value) {
+        if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["isDevMode"])() && (/** @type {?} */ (console)) && (/** @type {?} */ (console.warn))) {
+            console.warn('preserveQueryParams is deprecated, use queryParamsHandling instead.');
+        }
+        this.preserve = value;
+    }
+    /**
+     * @param {?} changes
+     * @return {?}
+     */
+    ngOnChanges(changes) { this.updateTargetUrlAndHref(); }
+    /**
+     * @return {?}
+     */
+    ngOnDestroy() { this.subscription.unsubscribe(); }
+    /**
+     * @param {?} button
+     * @param {?} ctrlKey
+     * @param {?} metaKey
+     * @param {?} shiftKey
+     * @return {?}
+     */
+    onClick(button, ctrlKey, metaKey, shiftKey) {
+        if (button !== 0 || ctrlKey || metaKey || shiftKey) {
+            return true;
+        }
+        if (typeof this.target === 'string' && this.target != '_self') {
+            return true;
+        }
+        /** @type {?} */
+        const extras = {
+            skipLocationChange: attrBoolValue(this.skipLocationChange),
+            replaceUrl: attrBoolValue(this.replaceUrl),
+            state: this.state
+        };
+        this.router.navigateByUrl(this.urlTree, extras);
+        return false;
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    updateTargetUrlAndHref() {
+        this.href = this.locationStrategy.prepareExternalUrl(this.router.serializeUrl(this.urlTree));
+    }
+    /**
+     * @return {?}
+     */
+    get urlTree() {
+        return this.router.createUrlTree(this.commands, {
+            relativeTo: this.route,
+            queryParams: this.queryParams,
+            fragment: this.fragment,
+            preserveQueryParams: attrBoolValue(this.preserve),
+            queryParamsHandling: this.queryParamsHandling,
+            preserveFragment: attrBoolValue(this.preserveFragment),
+        });
+    }
+}
+RouterLinkWithHref.ɵfac = function RouterLinkWithHref_Factory(t) { return new (t || RouterLinkWithHref)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](Router), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_0__["LocationStrategy"])); };
+RouterLinkWithHref.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({ type: RouterLinkWithHref, selectors: [["a", "routerLink", ""], ["area", "routerLink", ""]], hostVars: 2, hostBindings: function RouterLinkWithHref_HostBindings(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function RouterLinkWithHref_click_HostBindingHandler($event) { return ctx.onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey); });
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵhostProperty"]("href", ctx.href, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵattribute"]("target", ctx.target);
+    } }, inputs: { routerLink: "routerLink", preserveQueryParams: "preserveQueryParams", target: "target", queryParams: "queryParams", fragment: "fragment", queryParamsHandling: "queryParamsHandling", preserveFragment: "preserveFragment", skipLocationChange: "skipLocationChange", replaceUrl: "replaceUrl", state: "state" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]] });
+/** @nocollapse */
+RouterLinkWithHref.ctorParameters = () => [
+    { type: Router },
+    { type: ActivatedRoute },
+    { type: _angular_common__WEBPACK_IMPORTED_MODULE_0__["LocationStrategy"] }
+];
+RouterLinkWithHref.propDecorators = {
+    target: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"], args: ['attr.target',] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    queryParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fragment: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    queryParamsHandling: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    preserveFragment: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    skipLocationChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    replaceUrl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    state: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    href: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"] }],
+    routerLink: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    preserveQueryParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    onClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['click', ['$event.button', '$event.ctrlKey', '$event.metaKey', '$event.shiftKey'],] }]
+};
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](RouterLinkWithHref, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
+        args: [{ selector: 'a[routerLink],area[routerLink]' }]
+    }], function () { return [{ type: Router }, { type: ActivatedRoute }, { type: _angular_common__WEBPACK_IMPORTED_MODULE_0__["LocationStrategy"] }]; }, { routerLink: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], preserveQueryParams: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], onClick: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
+            args: ['click', ['$event.button', '$event.ctrlKey', '$event.metaKey', '$event.shiftKey']]
+        }], href: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"]
+        }], target: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"],
+            args: ['attr.target']
+        }, {
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], queryParams: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], fragment: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], queryParamsHandling: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], preserveFragment: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], skipLocationChange: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], replaceUrl: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], state: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }] }); })();
+if (false) {}
+/**
+ * @param {?} s
+ * @return {?}
+ */
+function attrBoolValue(s) {
+    return s === '' || !!s;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/directives/router_link_active.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ *
+ * \@description
+ *
+ * Lets you add a CSS class to an element when the link's route becomes active.
+ *
+ * This directive lets you add a CSS class to an element when the link's route
+ * becomes active.
+ *
+ * Consider the following example:
+ *
+ * ```
+ * <a routerLink="/user/bob" routerLinkActive="active-link">Bob</a>
+ * ```
+ *
+ * When the url is either '/user' or '/user/bob', the active-link class will
+ * be added to the `a` tag. If the url changes, the class will be removed.
+ *
+ * You can set more than one class, as follows:
+ *
+ * ```
+ * <a routerLink="/user/bob" routerLinkActive="class1 class2">Bob</a>
+ * <a routerLink="/user/bob" [routerLinkActive]="['class1', 'class2']">Bob</a>
+ * ```
+ *
+ * You can configure RouterLinkActive by passing `exact: true`. This will add the classes
+ * only when the url matches the link exactly.
+ *
+ * ```
+ * <a routerLink="/user/bob" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+ * true}">Bob</a>
+ * ```
+ *
+ * You can assign the RouterLinkActive instance to a template variable and directly check
+ * the `isActive` status.
+ * ```
+ * <a routerLink="/user/bob" routerLinkActive #rla="routerLinkActive">
+ *   Bob {{ rla.isActive ? '(already open)' : ''}}
+ * </a>
+ * ```
+ *
+ * Finally, you can apply the RouterLinkActive directive to an ancestor of a RouterLink.
+ *
+ * ```
+ * <div routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+ *   <a routerLink="/user/jim">Jim</a>
+ *   <a routerLink="/user/bob">Bob</a>
+ * </div>
+ * ```
+ *
+ * This will set the active-link class on the div tag if the url is either '/user/jim' or
+ * '/user/bob'.
+ *
+ * \@ngModule RouterModule
+ *
+ * \@publicApi
+ */
+class RouterLinkActive {
+    /**
+     * @param {?} router
+     * @param {?} element
+     * @param {?} renderer
+     * @param {?=} link
+     * @param {?=} linkWithHref
+     */
+    constructor(router, element, renderer, link, linkWithHref) {
+        this.router = router;
+        this.element = element;
+        this.renderer = renderer;
+        this.link = link;
+        this.linkWithHref = linkWithHref;
+        this.classes = [];
+        this.isActive = false;
+        this.routerLinkActiveOptions = { exact: false };
+        this.subscription = router.events.subscribe((/**
+         * @param {?} s
+         * @return {?}
+         */
+        (s) => {
+            if (s instanceof NavigationEnd) {
+                this.update();
+            }
+        }));
+    }
+    /**
+     * @return {?}
+     */
+    ngAfterContentInit() {
+        this.links.changes.subscribe((/**
+         * @param {?} _
+         * @return {?}
+         */
+        _ => this.update()));
+        this.linksWithHrefs.changes.subscribe((/**
+         * @param {?} _
+         * @return {?}
+         */
+        _ => this.update()));
+        this.update();
+    }
+    /**
+     * @param {?} data
+     * @return {?}
+     */
+    set routerLinkActive(data) {
+        /** @type {?} */
+        const classes = Array.isArray(data) ? data : data.split(' ');
+        this.classes = classes.filter((/**
+         * @param {?} c
+         * @return {?}
+         */
+        c => !!c));
+    }
+    /**
+     * @param {?} changes
+     * @return {?}
+     */
+    ngOnChanges(changes) { this.update(); }
+    /**
+     * @return {?}
+     */
+    ngOnDestroy() { this.subscription.unsubscribe(); }
+    /**
+     * @private
+     * @return {?}
+     */
+    update() {
+        if (!this.links || !this.linksWithHrefs || !this.router.navigated)
+            return;
+        Promise.resolve().then((/**
+         * @return {?}
+         */
+        () => {
+            /** @type {?} */
+            const hasActiveLinks = this.hasActiveLinks();
+            if (this.isActive !== hasActiveLinks) {
+                ((/** @type {?} */ (this))).isActive = hasActiveLinks;
+                this.classes.forEach((/**
+                 * @param {?} c
+                 * @return {?}
+                 */
+                (c) => {
+                    if (hasActiveLinks) {
+                        this.renderer.addClass(this.element.nativeElement, c);
+                    }
+                    else {
+                        this.renderer.removeClass(this.element.nativeElement, c);
+                    }
+                }));
+            }
+        }));
+    }
+    /**
+     * @private
+     * @param {?} router
+     * @return {?}
+     */
+    isLinkActive(router) {
+        return (/**
+         * @param {?} link
+         * @return {?}
+         */
+        (link) => router.isActive(link.urlTree, this.routerLinkActiveOptions.exact));
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    hasActiveLinks() {
+        /** @type {?} */
+        const isActiveCheckFn = this.isLinkActive(this.router);
+        return this.link && isActiveCheckFn(this.link) ||
+            this.linkWithHref && isActiveCheckFn(this.linkWithHref) ||
+            this.links.some(isActiveCheckFn) || this.linksWithHrefs.some(isActiveCheckFn);
+    }
+}
+RouterLinkActive.ɵfac = function RouterLinkActive_Factory(t) { return new (t || RouterLinkActive)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](Router), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](RouterLink, 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](RouterLinkWithHref, 8)); };
+RouterLinkActive.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({ type: RouterLinkActive, selectors: [["", "routerLinkActive", ""]], contentQueries: function RouterLinkActive_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵcontentQuery"](dirIndex, RouterLink, true);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵcontentQuery"](dirIndex, RouterLinkWithHref, true);
+    } if (rf & 2) {
+        var _t;
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.links = _t);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.linksWithHrefs = _t);
+    } }, inputs: { routerLinkActiveOptions: "routerLinkActiveOptions", routerLinkActive: "routerLinkActive" }, exportAs: ["routerLinkActive"], features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]] });
+/** @nocollapse */
+RouterLinkActive.ctorParameters = () => [
+    { type: Router },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"] },
+    { type: RouterLink, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] },
+    { type: RouterLinkWithHref, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
+];
+RouterLinkActive.propDecorators = {
+    links: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChildren"], args: [RouterLink, { descendants: true },] }],
+    linksWithHrefs: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChildren"], args: [RouterLinkWithHref, { descendants: true },] }],
+    routerLinkActiveOptions: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    routerLinkActive: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }]
+};
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](RouterLinkActive, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
+        args: [{
+                selector: '[routerLinkActive]',
+                exportAs: 'routerLinkActive'
+            }]
+    }], function () { return [{ type: Router }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"] }, { type: RouterLink, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+            }] }, { type: RouterLinkWithHref, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+            }] }]; }, { routerLinkActiveOptions: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], routerLinkActive: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }], links: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChildren"],
+            args: [RouterLink, { descendants: true }]
+        }], linksWithHrefs: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChildren"],
+            args: [RouterLinkWithHref, { descendants: true }]
+        }] }); })();
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/router_outlet_context.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Store contextual information about a `RouterOutlet`
+ *
+ * \@publicApi
+ */
+class OutletContext {
+    constructor() {
+        this.outlet = null;
+        this.route = null;
+        this.resolver = null;
+        this.children = new ChildrenOutletContexts();
+        this.attachRef = null;
+    }
+}
+if (false) {}
+/**
+ * Store contextual information about the children (= nested) `RouterOutlet`
+ *
+ * \@publicApi
+ */
+class ChildrenOutletContexts {
+    constructor() {
+        // contexts for child outlets, by name.
+        this.contexts = new Map();
+    }
+    /**
+     * Called when a `RouterOutlet` directive is instantiated
+     * @param {?} childName
+     * @param {?} outlet
+     * @return {?}
+     */
+    onChildOutletCreated(childName, outlet) {
+        /** @type {?} */
+        const context = this.getOrCreateContext(childName);
+        context.outlet = outlet;
+        this.contexts.set(childName, context);
+    }
+    /**
+     * Called when a `RouterOutlet` directive is destroyed.
+     * We need to keep the context as the outlet could be destroyed inside a NgIf and might be
+     * re-created later.
+     * @param {?} childName
+     * @return {?}
+     */
+    onChildOutletDestroyed(childName) {
+        /** @type {?} */
+        const context = this.getContext(childName);
+        if (context) {
+            context.outlet = null;
+        }
+    }
+    /**
+     * Called when the corresponding route is deactivated during navigation.
+     * Because the component get destroyed, all children outlet are destroyed.
+     * @return {?}
+     */
+    onOutletDeactivated() {
+        /** @type {?} */
+        const contexts = this.contexts;
+        this.contexts = new Map();
+        return contexts;
+    }
+    /**
+     * @param {?} contexts
+     * @return {?}
+     */
+    onOutletReAttached(contexts) { this.contexts = contexts; }
+    /**
+     * @param {?} childName
+     * @return {?}
+     */
+    getOrCreateContext(childName) {
+        /** @type {?} */
+        let context = this.getContext(childName);
+        if (!context) {
+            context = new OutletContext();
+            this.contexts.set(childName, context);
+        }
+        return context;
+    }
+    /**
+     * @param {?} childName
+     * @return {?}
+     */
+    getContext(childName) { return this.contexts.get(childName) || null; }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/directives/router_outlet.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * \@description
+ *
+ * Acts as a placeholder that Angular dynamically fills based on the current router state.
+ *
+ * Each outlet can have a unique name, determined by the optional `name` attribute.
+ * The name cannot be set or changed dynamically. If not set, default value is "primary".
+ *
+ * ```
+ * <router-outlet></router-outlet>
+ * <router-outlet name='left'></router-outlet>
+ * <router-outlet name='right'></router-outlet>
+ * ```
+ *
+ * A router outlet emits an activate event when a new component is instantiated,
+ * and a deactivate event when a component is destroyed.
+ *
+ * ```
+ * <router-outlet
+ *   (activate)='onActivate($event)'
+ *   (deactivate)='onDeactivate($event)'></router-outlet>
+ * ```
+ * \@ngModule RouterModule
+ *
+ * \@publicApi
+ */
+class RouterOutlet {
+    /**
+     * @param {?} parentContexts
+     * @param {?} location
+     * @param {?} resolver
+     * @param {?} name
+     * @param {?} changeDetector
+     */
+    constructor(parentContexts, location, resolver, name, changeDetector) {
+        this.parentContexts = parentContexts;
+        this.location = location;
+        this.resolver = resolver;
+        this.changeDetector = changeDetector;
+        this.activated = null;
+        this._activatedRoute = null;
+        this.activateEvents = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.deactivateEvents = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.name = name || PRIMARY_OUTLET;
+        parentContexts.onChildOutletCreated(this.name, this);
+    }
+    /**
+     * @return {?}
+     */
+    ngOnDestroy() { this.parentContexts.onChildOutletDestroyed(this.name); }
+    /**
+     * @return {?}
+     */
+    ngOnInit() {
+        if (!this.activated) {
+            // If the outlet was not instantiated at the time the route got activated we need to populate
+            // the outlet when it is initialized (ie inside a NgIf)
+            /** @type {?} */
+            const context = this.parentContexts.getContext(this.name);
+            if (context && context.route) {
+                if (context.attachRef) {
+                    // `attachRef` is populated when there is an existing component to mount
+                    this.attach(context.attachRef, context.route);
+                }
+                else {
+                    // otherwise the component defined in the configuration is created
+                    this.activateWith(context.route, context.resolver || null);
+                }
+            }
+        }
+    }
+    /**
+     * @return {?}
+     */
+    get isActivated() { return !!this.activated; }
+    /**
+     * @return {?}
+     */
+    get component() {
+        if (!this.activated)
+            throw new Error('Outlet is not activated');
+        return this.activated.instance;
+    }
+    /**
+     * @return {?}
+     */
+    get activatedRoute() {
+        if (!this.activated)
+            throw new Error('Outlet is not activated');
+        return (/** @type {?} */ (this._activatedRoute));
+    }
+    /**
+     * @return {?}
+     */
+    get activatedRouteData() {
+        if (this._activatedRoute) {
+            return this._activatedRoute.snapshot.data;
+        }
+        return {};
+    }
+    /**
+     * Called when the `RouteReuseStrategy` instructs to detach the subtree
+     * @return {?}
+     */
+    detach() {
+        if (!this.activated)
+            throw new Error('Outlet is not activated');
+        this.location.detach();
+        /** @type {?} */
+        const cmp = this.activated;
+        this.activated = null;
+        this._activatedRoute = null;
+        return cmp;
+    }
+    /**
+     * Called when the `RouteReuseStrategy` instructs to re-attach a previously detached subtree
+     * @param {?} ref
+     * @param {?} activatedRoute
+     * @return {?}
+     */
+    attach(ref, activatedRoute) {
+        this.activated = ref;
+        this._activatedRoute = activatedRoute;
+        this.location.insert(ref.hostView);
+    }
+    /**
+     * @return {?}
+     */
+    deactivate() {
+        if (this.activated) {
+            /** @type {?} */
+            const c = this.component;
+            this.activated.destroy();
+            this.activated = null;
+            this._activatedRoute = null;
+            this.deactivateEvents.emit(c);
+        }
+    }
+    /**
+     * @param {?} activatedRoute
+     * @param {?} resolver
+     * @return {?}
+     */
+    activateWith(activatedRoute, resolver) {
+        if (this.isActivated) {
+            throw new Error('Cannot activate an already activated outlet');
+        }
+        this._activatedRoute = activatedRoute;
+        /** @type {?} */
+        const snapshot = activatedRoute._futureSnapshot;
+        /** @type {?} */
+        const component = (/** @type {?} */ ((/** @type {?} */ (snapshot.routeConfig)).component));
+        resolver = resolver || this.resolver;
+        /** @type {?} */
+        const factory = resolver.resolveComponentFactory(component);
+        /** @type {?} */
+        const childContexts = this.parentContexts.getOrCreateContext(this.name).children;
+        /** @type {?} */
+        const injector = new OutletInjector(activatedRoute, childContexts, this.location.injector);
+        this.activated = this.location.createComponent(factory, this.location.length, injector);
+        // Calling `markForCheck` to make sure we will run the change detection when the
+        // `RouterOutlet` is inside a `ChangeDetectionStrategy.OnPush` component.
+        this.changeDetector.markForCheck();
+        this.activateEvents.emit(this.activated.instance);
+    }
+}
+RouterOutlet.ɵfac = function RouterOutlet_Factory(t) { return new (t || RouterOutlet)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ChildrenOutletContexts), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ComponentFactoryResolver"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinjectAttribute"]('name'), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"])); };
+RouterOutlet.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({ type: RouterOutlet, selectors: [["router-outlet"]], outputs: { activateEvents: "activate", deactivateEvents: "deactivate" }, exportAs: ["outlet"] });
+/** @nocollapse */
+RouterOutlet.ctorParameters = () => [
+    { type: ChildrenOutletContexts },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ComponentFactoryResolver"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Attribute"], args: ['name',] }] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+];
+RouterOutlet.propDecorators = {
+    activateEvents: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"], args: ['activate',] }],
+    deactivateEvents: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"], args: ['deactivate',] }]
+};
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](RouterOutlet, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
+        args: [{ selector: 'router-outlet', exportAs: 'outlet' }]
+    }], function () { return [{ type: ChildrenOutletContexts }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ComponentFactoryResolver"] }, { type: String, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Attribute"],
+                args: ['name']
+            }] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }]; }, { activateEvents: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"],
+            args: ['activate']
+        }], deactivateEvents: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"],
+            args: ['deactivate']
+        }] }); })();
+if (false) {}
+class OutletInjector {
+    /**
+     * @param {?} route
+     * @param {?} childContexts
+     * @param {?} parent
+     */
+    constructor(route, childContexts, parent) {
+        this.route = route;
+        this.childContexts = childContexts;
+        this.parent = parent;
+    }
+    /**
+     * @param {?} token
+     * @param {?=} notFoundValue
+     * @return {?}
+     */
+    get(token, notFoundValue) {
+        if (token === ActivatedRoute) {
+            return this.route;
+        }
+        if (token === ChildrenOutletContexts) {
+            return this.childContexts;
+        }
+        return this.parent.get(token, notFoundValue);
+    }
+}
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/router_preloader.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * \@description
+ *
+ * Provides a preloading strategy.
+ *
+ * \@publicApi
+ * @abstract
+ */
+class PreloadingStrategy {
+}
+if (false) {}
+/**
+ * \@description
+ *
+ * Provides a preloading strategy that preloads all modules as quickly as possible.
+ *
+ * ```
+ * RouteModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
+ * ```
+ *
+ * \@publicApi
+ */
+class PreloadAllModules {
+    /**
+     * @param {?} route
+     * @param {?} fn
+     * @return {?}
+     */
+    preload(route, fn) {
+        return fn().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])((/**
+         * @return {?}
+         */
+        () => Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(null))));
+    }
+}
+/**
+ * \@description
+ *
+ * Provides a preloading strategy that does not preload any modules.
+ *
+ * This strategy is enabled by default.
+ *
+ * \@publicApi
+ */
+class NoPreloading {
+    /**
+     * @param {?} route
+     * @param {?} fn
+     * @return {?}
+     */
+    preload(route, fn) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(null); }
+}
+/**
+ * The preloader optimistically loads all router configurations to
+ * make navigations into lazily-loaded sections of the application faster.
+ *
+ * The preloader runs in the background. When the router bootstraps, the preloader
+ * starts listening to all navigation events. After every such event, the preloader
+ * will check if any configurations can be loaded lazily.
+ *
+ * If a route is protected by `canLoad` guards, the preloaded will not load it.
+ *
+ * \@publicApi
+ */
+class RouterPreloader {
+    /**
+     * @param {?} router
+     * @param {?} moduleLoader
+     * @param {?} compiler
+     * @param {?} injector
+     * @param {?} preloadingStrategy
+     */
+    constructor(router, moduleLoader, compiler, injector, preloadingStrategy) {
+        this.router = router;
+        this.injector = injector;
+        this.preloadingStrategy = preloadingStrategy;
+        /** @type {?} */
+        const onStartLoad = (/**
+         * @param {?} r
+         * @return {?}
+         */
+        (r) => router.triggerEvent(new RouteConfigLoadStart(r)));
+        /** @type {?} */
+        const onEndLoad = (/**
+         * @param {?} r
+         * @return {?}
+         */
+        (r) => router.triggerEvent(new RouteConfigLoadEnd(r)));
+        this.loader = new RouterConfigLoader(moduleLoader, compiler, onStartLoad, onEndLoad);
+    }
+    /**
+     * @return {?}
+     */
+    setUpPreloading() {
+        this.subscription =
+            this.router.events
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])((/**
+             * @param {?} e
+             * @return {?}
+             */
+            (e) => e instanceof NavigationEnd)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["concatMap"])((/**
+             * @return {?}
+             */
+            () => this.preload())))
+                .subscribe((/**
+             * @return {?}
+             */
+            () => { }));
+    }
+    /**
+     * @return {?}
+     */
+    preload() {
+        /** @type {?} */
+        const ngModule = this.injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleRef"]);
+        return this.processRoutes(ngModule, this.router.config);
+    }
+    // TODO(jasonaden): This class relies on code external to the class to call setUpPreloading. If
+    // this hasn't been done, ngOnDestroy will fail as this.subscription will be undefined. This
+    // should be refactored.
+    /**
+     * @return {?}
+     */
+    ngOnDestroy() { this.subscription.unsubscribe(); }
+    /**
+     * @private
+     * @param {?} ngModule
+     * @param {?} routes
+     * @return {?}
+     */
+    processRoutes(ngModule, routes) {
+        /** @type {?} */
+        const res = [];
+        for (const route of routes) {
+            // we already have the config loaded, just recurse
+            if (route.loadChildren && !route.canLoad && route._loadedConfig) {
+                /** @type {?} */
+                const childConfig = route._loadedConfig;
+                res.push(this.processRoutes(childConfig.module, childConfig.routes));
+                // no config loaded, fetch the config
+            }
+            else if (route.loadChildren && !route.canLoad) {
+                res.push(this.preloadConfig(ngModule, route));
+                // recurse into children
+            }
+            else if (route.children) {
+                res.push(this.processRoutes(ngModule, route.children));
+            }
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(res).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeAll"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} _
+         * @return {?}
+         */
+        (_) => void 0)));
+    }
+    /**
+     * @private
+     * @param {?} ngModule
+     * @param {?} route
+     * @return {?}
+     */
+    preloadConfig(ngModule, route) {
+        return this.preloadingStrategy.preload(route, (/**
+         * @return {?}
+         */
+        () => {
+            /** @type {?} */
+            const loaded$ = this.loader.load(ngModule.injector, route);
+            return loaded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])((/**
+             * @param {?} config
+             * @return {?}
+             */
+            (config) => {
+                route._loadedConfig = config;
+                return this.processRoutes(config.module, config.routes);
+            })));
+        }));
+    }
+}
+RouterPreloader.ɵfac = function RouterPreloader_Factory(t) { return new (t || RouterPreloader)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](Router), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleFactoryLoader"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["Compiler"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](PreloadingStrategy)); };
+RouterPreloader.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: RouterPreloader, factory: RouterPreloader.ɵfac });
+/** @nocollapse */
+RouterPreloader.ctorParameters = () => [
+    { type: Router },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleFactoryLoader"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Compiler"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
+    { type: PreloadingStrategy }
+];
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](RouterPreloader, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"]
+    }], function () { return [{ type: Router }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleFactoryLoader"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Compiler"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }, { type: PreloadingStrategy }]; }, null); })();
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/router_scroller.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class RouterScroller {
+    /**
+     * @param {?} router
+     * @param {?} viewportScroller
+     * @param {?=} options
+     */
+    constructor(router, viewportScroller, options = {}) {
+        this.router = router;
+        this.viewportScroller = viewportScroller;
+        this.options = options;
+        this.lastId = 0;
+        this.lastSource = 'imperative';
+        this.restoredId = 0;
+        this.store = {};
+        // Default both options to 'disabled'
+        options.scrollPositionRestoration = options.scrollPositionRestoration || 'disabled';
+        options.anchorScrolling = options.anchorScrolling || 'disabled';
+    }
+    /**
+     * @return {?}
+     */
+    init() {
+        // we want to disable the automatic scrolling because having two places
+        // responsible for scrolling results race conditions, especially given
+        // that browser don't implement this behavior consistently
+        if (this.options.scrollPositionRestoration !== 'disabled') {
+            this.viewportScroller.setHistoryScrollRestoration('manual');
+        }
+        this.routerEventsSubscription = this.createScrollEvents();
+        this.scrollEventsSubscription = this.consumeScrollEvents();
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    createScrollEvents() {
+        return this.router.events.subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        e => {
+            if (e instanceof NavigationStart) {
+                // store the scroll position of the current stable navigations.
+                this.store[this.lastId] = this.viewportScroller.getScrollPosition();
+                this.lastSource = e.navigationTrigger;
+                this.restoredId = e.restoredState ? e.restoredState.navigationId : 0;
+            }
+            else if (e instanceof NavigationEnd) {
+                this.lastId = e.id;
+                this.scheduleScrollEvent(e, this.router.parseUrl(e.urlAfterRedirects).fragment);
+            }
+        }));
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    consumeScrollEvents() {
+        return this.router.events.subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        e => {
+            if (!(e instanceof Scroll))
+                return;
+            // a popstate event. The pop state event will always ignore anchor scrolling.
+            if (e.position) {
+                if (this.options.scrollPositionRestoration === 'top') {
+                    this.viewportScroller.scrollToPosition([0, 0]);
+                }
+                else if (this.options.scrollPositionRestoration === 'enabled') {
+                    this.viewportScroller.scrollToPosition(e.position);
+                }
+                // imperative navigation "forward"
+            }
+            else {
+                if (e.anchor && this.options.anchorScrolling === 'enabled') {
+                    this.viewportScroller.scrollToAnchor(e.anchor);
+                }
+                else if (this.options.scrollPositionRestoration !== 'disabled') {
+                    this.viewportScroller.scrollToPosition([0, 0]);
+                }
+            }
+        }));
+    }
+    /**
+     * @private
+     * @param {?} routerEvent
+     * @param {?} anchor
+     * @return {?}
+     */
+    scheduleScrollEvent(routerEvent, anchor) {
+        this.router.triggerEvent(new Scroll(routerEvent, this.lastSource === 'popstate' ? this.store[this.restoredId] : null, anchor));
+    }
+    /**
+     * @return {?}
+     */
+    ngOnDestroy() {
+        if (this.routerEventsSubscription) {
+            this.routerEventsSubscription.unsubscribe();
+        }
+        if (this.scrollEventsSubscription) {
+            this.scrollEventsSubscription.unsubscribe();
+        }
+    }
+}
+RouterScroller.ɵfac = function RouterScroller_Factory(t) { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinvalidFactory"](); };
+RouterScroller.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({ type: RouterScroller });
+
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/router_module.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * The directives defined in the `RouterModule`.
+ * @type {?}
+ */
+const ROUTER_DIRECTIVES = [RouterOutlet, RouterLink, RouterLinkWithHref, RouterLinkActive, ɵEmptyOutletComponent];
+/**
+ * A [DI token](guide/glossary/#di-token) for the router service.
+ *
+ * \@publicApi
+ * @type {?}
+ */
+const ROUTER_CONFIGURATION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('ROUTER_CONFIGURATION');
+/**
+ * \@docsNotRequired
+ * @type {?}
+ */
+const ROUTER_FORROOT_GUARD = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('ROUTER_FORROOT_GUARD');
+const ɵ0 = { enableTracing: false };
+/** @type {?} */
+const ROUTER_PROVIDERS = [
+    _angular_common__WEBPACK_IMPORTED_MODULE_0__["Location"],
+    { provide: UrlSerializer, useClass: DefaultUrlSerializer },
+    {
+        provide: Router,
+        useFactory: setupRouter,
+        deps: [
+            UrlSerializer, ChildrenOutletContexts, _angular_common__WEBPACK_IMPORTED_MODULE_0__["Location"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleFactoryLoader"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Compiler"],
+            ROUTES, ROUTER_CONFIGURATION, [UrlHandlingStrategy, new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]()],
+            [RouteReuseStrategy, new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]()]
+        ]
+    },
+    ChildrenOutletContexts,
+    { provide: ActivatedRoute, useFactory: rootRoute, deps: [Router] },
+    { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleFactoryLoader"], useClass: _angular_core__WEBPACK_IMPORTED_MODULE_1__["SystemJsNgModuleLoader"] },
+    RouterPreloader,
+    NoPreloading,
+    PreloadAllModules,
+    { provide: ROUTER_CONFIGURATION, useValue: ɵ0 },
+];
+/**
+ * @return {?}
+ */
+function routerNgProbeToken() {
+    return new _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgProbeToken"]('Router', Router);
+}
+/**
+ * \@usageNotes
+ *
+ * RouterModule can be imported multiple times: once per lazily-loaded bundle.
+ * Since the router deals with a global shared resource--location, we cannot have
+ * more than one router service active.
+ *
+ * That is why there are two ways to create the module: `RouterModule.forRoot` and
+ * `RouterModule.forChild`.
+ *
+ * * `forRoot` creates a module that contains all the directives, the given routes, and the router
+ *   service itself.
+ * * `forChild` creates a module that contains all the directives and the given routes, but does not
+ *   include the router service.
+ *
+ * When registered at the root, the module should be used as follows
+ *
+ * ```
+ * \@NgModule({
+ *   imports: [RouterModule.forRoot(ROUTES)]
+ * })
+ * class MyNgModule {}
+ * ```
+ *
+ * For submodules and lazy loaded submodules the module should be used as follows:
+ *
+ * ```
+ * \@NgModule({
+ *   imports: [RouterModule.forChild(ROUTES)]
+ * })
+ * class MyNgModule {}
+ * ```
+ *
+ * \@description
+ *
+ * Adds router directives and providers.
+ *
+ * Managing state transitions is one of the hardest parts of building applications. This is
+ * especially true on the web, where you also need to ensure that the state is reflected in the URL.
+ * In addition, we often want to split applications into multiple bundles and load them on demand.
+ * Doing this transparently is not trivial.
+ *
+ * The Angular router service solves these problems. Using the router, you can declaratively specify
+ * application states, manage state transitions while taking care of the URL, and load bundles on
+ * demand.
+ *
+ * @see [Routing and Navigation](guide/router.html) for an
+ * overview of how the router service should be used.
+ *
+ * \@publicApi
+ */
+class RouterModule {
+    // Note: We are injecting the Router so it gets created eagerly...
+    /**
+     * @param {?} guard
+     * @param {?} router
+     */
+    constructor(guard, router) {
+    }
+    /**
+     * Creates and configures a module with all the router providers and directives.
+     * Optionally sets up an application listener to perform an initial navigation.
+     *
+     * @param {?} routes An array of `Route` objects that define the navigation paths for the application.
+     * @param {?=} config An `ExtraOptions` configuration object that controls how navigation is performed.
+     * @return {?} The new router module.
+     */
+    static forRoot(routes, config) {
+        return {
+            ngModule: RouterModule,
+            providers: [
+                ROUTER_PROVIDERS,
+                provideRoutes(routes),
+                {
+                    provide: ROUTER_FORROOT_GUARD,
+                    useFactory: provideForRootGuard,
+                    deps: [[Router, new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"](), new _angular_core__WEBPACK_IMPORTED_MODULE_1__["SkipSelf"]()]]
+                },
+                { provide: ROUTER_CONFIGURATION, useValue: config ? config : {} },
+                {
+                    provide: _angular_common__WEBPACK_IMPORTED_MODULE_0__["LocationStrategy"],
+                    useFactory: provideLocationStrategy,
+                    deps: [
+                        _angular_common__WEBPACK_IMPORTED_MODULE_0__["PlatformLocation"], [new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"](_angular_common__WEBPACK_IMPORTED_MODULE_0__["APP_BASE_HREF"]), new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]()], ROUTER_CONFIGURATION
+                    ]
+                },
+                {
+                    provide: RouterScroller,
+                    useFactory: createRouterScroller,
+                    deps: [Router, _angular_common__WEBPACK_IMPORTED_MODULE_0__["ViewportScroller"], ROUTER_CONFIGURATION]
+                },
+                {
+                    provide: PreloadingStrategy,
+                    useExisting: config && config.preloadingStrategy ? config.preloadingStrategy :
+                        NoPreloading
+                },
+                { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgProbeToken"], multi: true, useFactory: routerNgProbeToken },
+                provideRouterInitializer(),
+            ],
+        };
+    }
+    /**
+     * Creates a module with all the router directives and a provider registering routes.
+     * @param {?} routes
+     * @return {?}
+     */
+    static forChild(routes) {
+        return { ngModule: RouterModule, providers: [provideRoutes(routes)] };
+    }
+}
+RouterModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: RouterModule });
+RouterModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function RouterModule_Factory(t) { return new (t || RouterModule)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](ROUTER_FORROOT_GUARD, 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](Router, 8)); } });
+/** @nocollapse */
+RouterModule.ctorParameters = () => [
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [ROUTER_FORROOT_GUARD,] }] },
+    { type: Router, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
+];
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](RouterModule, { declarations: [RouterOutlet,
+        RouterLink,
+        RouterLinkWithHref,
+        RouterLinkActive,
+        ɵEmptyOutletComponent], exports: [RouterOutlet,
+        RouterLink,
+        RouterLinkWithHref,
+        RouterLinkActive,
+        ɵEmptyOutletComponent] }); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](RouterModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
+        args: [{
+                declarations: ROUTER_DIRECTIVES,
+                exports: ROUTER_DIRECTIVES,
+                entryComponents: [ɵEmptyOutletComponent]
+            }]
+    }], function () { return [{ type: undefined, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+            }, {
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+                args: [ROUTER_FORROOT_GUARD]
+            }] }, { type: Router, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+            }] }]; }, null); })();
+/**
+ * @param {?} router
+ * @param {?} viewportScroller
+ * @param {?} config
+ * @return {?}
+ */
+function createRouterScroller(router, viewportScroller, config) {
+    if (config.scrollOffset) {
+        viewportScroller.setOffset(config.scrollOffset);
+    }
+    return new RouterScroller(router, viewportScroller, config);
+}
+/**
+ * @param {?} platformLocationStrategy
+ * @param {?} baseHref
+ * @param {?=} options
+ * @return {?}
+ */
+function provideLocationStrategy(platformLocationStrategy, baseHref, options = {}) {
+    return options.useHash ? new _angular_common__WEBPACK_IMPORTED_MODULE_0__["HashLocationStrategy"](platformLocationStrategy, baseHref) :
+        new _angular_common__WEBPACK_IMPORTED_MODULE_0__["PathLocationStrategy"](platformLocationStrategy, baseHref);
+}
+/**
+ * @param {?} router
+ * @return {?}
+ */
+function provideForRootGuard(router) {
+    if (router) {
+        throw new Error(`RouterModule.forRoot() called twice. Lazy loaded modules should use RouterModule.forChild() instead.`);
+    }
+    return 'guarded';
+}
+/**
+ * Registers a [DI provider](guide/glossary#provider) for a set of routes.
+ * \@usageNotes
+ *
+ * ```
+ * \@NgModule({
+ *   imports: [RouterModule.forChild(ROUTES)],
+ *   providers: [provideRoutes(EXTRA_ROUTES)]
+ * })
+ * class MyNgModule {}
+ * ```
+ *
+ * \@publicApi
+ * @param {?} routes The route configuration to provide.
+ *
+ * @return {?}
+ */
+function provideRoutes(routes) {
+    return [
+        { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ANALYZE_FOR_ENTRY_COMPONENTS"], multi: true, useValue: routes },
+        { provide: ROUTES, multi: true, useValue: routes },
+    ];
+}
+/**
+ * A set of configuration options for a router module, provided in the
+ * `forRoot()` method.
+ *
+ * \@publicApi
+ * @record
+ */
+function ExtraOptions() { }
+if (false) {}
+/**
+ * @param {?} urlSerializer
+ * @param {?} contexts
+ * @param {?} location
+ * @param {?} injector
+ * @param {?} loader
+ * @param {?} compiler
+ * @param {?} config
+ * @param {?=} opts
+ * @param {?=} urlHandlingStrategy
+ * @param {?=} routeReuseStrategy
+ * @return {?}
+ */
+function setupRouter(urlSerializer, contexts, location, injector, loader, compiler, config, opts = {}, urlHandlingStrategy, routeReuseStrategy) {
+    /** @type {?} */
+    const router = new Router(null, urlSerializer, contexts, location, injector, loader, compiler, flatten(config));
+    if (urlHandlingStrategy) {
+        router.urlHandlingStrategy = urlHandlingStrategy;
+    }
+    if (routeReuseStrategy) {
+        router.routeReuseStrategy = routeReuseStrategy;
+    }
+    if (opts.errorHandler) {
+        router.errorHandler = opts.errorHandler;
+    }
+    if (opts.malformedUriErrorHandler) {
+        router.malformedUriErrorHandler = opts.malformedUriErrorHandler;
+    }
+    if (opts.enableTracing) {
+        /** @type {?} */
+        const dom = Object(_angular_common__WEBPACK_IMPORTED_MODULE_0__["ɵgetDOM"])();
+        router.events.subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
+            dom.logGroup(`Router Event: ${((/** @type {?} */ (e.constructor))).name}`);
+            dom.log(e.toString());
+            dom.log(e);
+            dom.logGroupEnd();
+        }));
+    }
+    if (opts.onSameUrlNavigation) {
+        router.onSameUrlNavigation = opts.onSameUrlNavigation;
+    }
+    if (opts.paramsInheritanceStrategy) {
+        router.paramsInheritanceStrategy = opts.paramsInheritanceStrategy;
+    }
+    if (opts.urlUpdateStrategy) {
+        router.urlUpdateStrategy = opts.urlUpdateStrategy;
+    }
+    if (opts.relativeLinkResolution) {
+        router.relativeLinkResolution = opts.relativeLinkResolution;
+    }
+    return router;
+}
+/**
+ * @param {?} router
+ * @return {?}
+ */
+function rootRoute(router) {
+    return router.routerState.root;
+}
+/**
+ * Router initialization requires two steps:
+ *
+ * First, we start the navigation in a `APP_INITIALIZER` to block the bootstrap if
+ * a resolver or a guard executes asynchronously.
+ *
+ * Next, we actually run activation in a `BOOTSTRAP_LISTENER`, using the
+ * `afterPreactivation` hook provided by the router.
+ * The router navigation starts, reaches the point when preactivation is done, and then
+ * pauses. It waits for the hook to be resolved. We then resolve it only in a bootstrap listener.
+ */
+class RouterInitializer {
+    /**
+     * @param {?} injector
+     */
+    constructor(injector) {
+        this.injector = injector;
+        this.initNavigation = false;
+        this.resultOfPreactivationDone = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    }
+    /**
+     * @return {?}
+     */
+    appInitializer() {
+        /** @type {?} */
+        const p = this.injector.get(_angular_common__WEBPACK_IMPORTED_MODULE_0__["LOCATION_INITIALIZED"], Promise.resolve(null));
+        return p.then((/**
+         * @return {?}
+         */
+        () => {
+            /** @type {?} */
+            let resolve = (/** @type {?} */ (null));
+            /** @type {?} */
+            const res = new Promise((/**
+             * @param {?} r
+             * @return {?}
+             */
+            r => resolve = r));
+            /** @type {?} */
+            const router = this.injector.get(Router);
+            /** @type {?} */
+            const opts = this.injector.get(ROUTER_CONFIGURATION);
+            if (this.isLegacyDisabled(opts) || this.isLegacyEnabled(opts)) {
+                resolve(true);
+            }
+            else if (opts.initialNavigation === 'disabled') {
+                router.setUpLocationChangeListener();
+                resolve(true);
+            }
+            else if (opts.initialNavigation === 'enabled') {
+                router.hooks.afterPreactivation = (/**
+                 * @return {?}
+                 */
+                () => {
+                    // only the initial navigation should be delayed
+                    if (!this.initNavigation) {
+                        this.initNavigation = true;
+                        resolve(true);
+                        return this.resultOfPreactivationDone;
+                        // subsequent navigations should not be delayed
+                    }
+                    else {
+                        return (/** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(null)));
+                    }
+                });
+                router.initialNavigation();
+            }
+            else {
+                throw new Error(`Invalid initialNavigation options: '${opts.initialNavigation}'`);
+            }
+            return res;
+        }));
+    }
+    /**
+     * @param {?} bootstrappedComponentRef
+     * @return {?}
+     */
+    bootstrapListener(bootstrappedComponentRef) {
+        /** @type {?} */
+        const opts = this.injector.get(ROUTER_CONFIGURATION);
+        /** @type {?} */
+        const preloader = this.injector.get(RouterPreloader);
+        /** @type {?} */
+        const routerScroller = this.injector.get(RouterScroller);
+        /** @type {?} */
+        const router = this.injector.get(Router);
+        /** @type {?} */
+        const ref = this.injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ApplicationRef"]);
+        if (bootstrappedComponentRef !== ref.components[0]) {
+            return;
+        }
+        if (this.isLegacyEnabled(opts)) {
+            router.initialNavigation();
+        }
+        else if (this.isLegacyDisabled(opts)) {
+            router.setUpLocationChangeListener();
+        }
+        preloader.setUpPreloading();
+        routerScroller.init();
+        router.resetRootComponentType(ref.componentTypes[0]);
+        this.resultOfPreactivationDone.next((/** @type {?} */ (null)));
+        this.resultOfPreactivationDone.complete();
+    }
+    /**
+     * @private
+     * @param {?} opts
+     * @return {?}
+     */
+    isLegacyEnabled(opts) {
+        return opts.initialNavigation === 'legacy_enabled' || opts.initialNavigation === true ||
+            opts.initialNavigation === undefined;
+    }
+    /**
+     * @private
+     * @param {?} opts
+     * @return {?}
+     */
+    isLegacyDisabled(opts) {
+        return opts.initialNavigation === 'legacy_disabled' || opts.initialNavigation === false;
+    }
+}
+RouterInitializer.ɵfac = function RouterInitializer_Factory(t) { return new (t || RouterInitializer)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"])); };
+RouterInitializer.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: RouterInitializer, factory: RouterInitializer.ɵfac });
+/** @nocollapse */
+RouterInitializer.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
+];
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](RouterInitializer, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"]
+    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }]; }, null); })();
+if (false) {}
+/**
+ * @param {?} r
+ * @return {?}
+ */
+function getAppInitializer(r) {
+    return r.appInitializer.bind(r);
+}
+/**
+ * @param {?} r
+ * @return {?}
+ */
+function getBootstrapListener(r) {
+    return r.bootstrapListener.bind(r);
+}
+/**
+ * A [DI token](guide/glossary/#di-token) for the router initializer that
+ * is called after the app is bootstrapped.
+ *
+ * \@publicApi
+ * @type {?}
+ */
+const ROUTER_INITIALIZER = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('Router Initializer');
+/**
+ * @return {?}
+ */
+function provideRouterInitializer() {
+    return [
+        RouterInitializer,
+        {
+            provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["APP_INITIALIZER"],
+            multi: true,
+            useFactory: getAppInitializer,
+            deps: [RouterInitializer]
+        },
+        { provide: ROUTER_INITIALIZER, useFactory: getBootstrapListener, deps: [RouterInitializer] },
+        { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["APP_BOOTSTRAP_LISTENER"], multi: true, useExisting: ROUTER_INITIALIZER },
+    ];
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/version.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * \@publicApi
+ * @type {?}
+ */
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('9.0.7');
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/private_export.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/src/index.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/public_api.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: packages/router/index.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+
+//# sourceMappingURL=router.js.map
 
 /***/ }),
 

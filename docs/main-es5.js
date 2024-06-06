@@ -1,12 +1,4 @@
-function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
-
-function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
-
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
-
-function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-
-function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"], {
   /***/
@@ -40,6 +32,80 @@ function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Can
   },
 
   /***/
+  "./src/app/app-routing.module.ts":
+  /*!***************************************!*\
+    !*** ./src/app/app-routing.module.ts ***!
+    \***************************************/
+
+  /*! exports provided: AppRoutingModule */
+
+  /***/
+  function srcAppAppRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function () {
+      return AppRoutingModule;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _app_routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./app.routes */
+    "./src/app/app.routes.ts");
+
+    var AppRoutingModule = function AppRoutingModule() {
+      _classCallCheck(this, AppRoutingModule);
+    };
+
+    AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+      type: AppRoutingModule
+    });
+    AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+      factory: function AppRoutingModule_Factory(t) {
+        return new (t || AppRoutingModule)();
+      },
+      imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(_app_routes__WEBPACK_IMPORTED_MODULE_2__["routes"])], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+    });
+
+    (function () {
+      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](AppRoutingModule, {
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+      });
+    })();
+    /*@__PURE__*/
+
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppRoutingModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+          imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(_app_routes__WEBPACK_IMPORTED_MODULE_2__["routes"])],
+          exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+        }]
+      }], null, null);
+    })();
+    /***/
+
+  },
+
+  /***/
   "./src/app/app.component.ts":
   /*!**********************************!*\
     !*** ./src/app/app.component.ts ***!
@@ -64,12 +130,18 @@ function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Can
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
 
-    var AppComponent = /*#__PURE__*/_createClass(function AppComponent() {
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+    var AppComponent = function AppComponent() {
       _classCallCheck(this, AppComponent);
 
-      this.title = 'RdvPat';
-    });
+      this.title = 'BooksAndMovies';
+    };
 
     AppComponent.ɵfac = function AppComponent_Factory(t) {
       return new (t || AppComponent)();
@@ -78,17 +150,14 @@ function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Can
     AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: AppComponent,
       selectors: [["app-root"]],
-      decls: 2,
+      decls: 1,
       vars: 0,
       template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "RdvPat application");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "router-outlet");
         }
       },
+      directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterOutlet"]],
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"]
     });
     /*@__PURE__*/
@@ -141,30 +210,42 @@ function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Can
     /* harmony import */
 
 
-    var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _app_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./app-routing.module */
+    "./src/app/app-routing.module.ts");
+    /* harmony import */
+
+
+    var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ./app.component */
     "./src/app/app.component.ts");
+    /* harmony import */
 
-    var AppModule = /*#__PURE__*/_createClass(function AppModule() {
+
+    var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/platform-browser/animations */
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/animations.js");
+
+    var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
-    });
+    };
 
     AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
       type: AppModule,
-      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
+      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
     });
     AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
       factory: function AppModule_Factory(t) {
         return new (t || AppModule)();
       },
       providers: [],
-      imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"]]]
+      imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, {
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"]]
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"]]
       });
     })();
     /*@__PURE__*/
@@ -174,15 +255,50 @@ function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Can
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
-          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]],
-          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"]],
+          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
+          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"]],
           providers: [],
-          bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
+          bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         }]
       }], null, null);
     })();
     /***/
 
+  },
+
+  /***/
+  "./src/app/app.routes.ts":
+  /*!*******************************!*\
+    !*** ./src/app/app.routes.ts ***!
+    \*******************************/
+
+  /*! exports provided: routes */
+
+  /***/
+  function srcAppAppRoutesTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "routes", function () {
+      return routes;
+    });
+
+    var routes = [{
+      path: "",
+      loadChildren: function loadChildren() {
+        return __webpack_require__.e(
+        /*! import() | features */
+        "features").then(__webpack_require__.bind(null,
+        /*! ./features */
+        "./src/app/features/index.ts")).then(function (m) {
+          return m.WorkspaceModule;
+        });
+      }
+    }];
+    /***/
   },
 
   /***/

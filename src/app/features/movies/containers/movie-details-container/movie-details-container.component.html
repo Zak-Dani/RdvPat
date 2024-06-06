@@ -1,0 +1,47 @@
+<div style="width: 100%;"   
+*ngIf="!(loadingCategories$ | async) && !(loadingMovies$ | async); else loader"> 
+<ng-container>
+  <div class="col-md-4 col-left" *ngIf="!(movie$ | async).selected">
+    <div>
+      <div *ngIf="!(loadingComments$ | async); else loaderComments">
+        <ng-container>
+          <app-preview-comment></app-preview-comment>
+        </ng-container>
+      </div>
+      <div>
+        <ng-template #loaderComments>
+          <div class="col-md-2 col-centered">
+            <mat-spinner color="primary" diameter="80"> </mat-spinner>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div>
+      <form [formGroup]="form">
+        <app-add-comment 
+        [controlText]="form.controls.text">
+        </app-add-comment>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-6 col-centered">
+    <div
+    class="card">
+      <app-movie-details
+        [movie]="movie$ | async"
+        [loadingAddOrDeleteMovieToMycollection]="
+          loadingAddOrDeleteMovieToMycollection$ | async
+        "
+        (addOrDeleteToMyCollection)="OnAddOrDeleteToMyCollection($event)"
+      ></app-movie-details>
+  </div>
+</div>  
+</ng-container>
+</div>
+<div>
+  <ng-template #loader>
+    <div class="col-md-2 col-centered">
+      <mat-spinner color="primary" diameter="80"> </mat-spinner>
+    </div>
+  </ng-template>
+</div>
