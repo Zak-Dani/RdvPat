@@ -1,8 +1,8 @@
-import { Routes } from "@angular/router";
+import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
-    path: "",
+    path: '',
 
-    loadChildren: () => import("./features").then((m) => m.WorkspaceModule),
+    loadChildren: () => import('./features').then((m) => m.RdvPatModule),
   },
 ];

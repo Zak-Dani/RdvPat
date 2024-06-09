@@ -1,1 +1,1 @@
-export * from "./workspace";
+export * from './rdv-pat';
